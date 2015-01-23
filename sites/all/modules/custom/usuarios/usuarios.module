@@ -1,0 +1,143 @@
+<?php
+/**
+ * Implements hook_theme().
+ */
+function usuarios_theme() {
+    $hooks = array();
+    $hooks['bloque_usuario_logueado'] = array(
+        'variables' => array('data' => array()),
+        'template' => "templates/sesion-usuario"
+        );
+    return $hooks;
+}
+/**
+ * Implements hook_block_info().
+ */
+function usuarios_block_info() {
+    $blocks['bloque_usuario_logueado'] = array(
+        'info' => 'Información usuario logueado',
+        );
+    return $blocks;
+}
+/**
+ * Implements hook_block_view().
+ */
+function usuarios_block_view($delta = '') {
+    $block = array();
+    switch ($delta) {
+        case 'bloque_usuario_logueado':
+        $block['content'] = theme('bloque_usuario_logueado', array('data' => bloque_usuario_logueado()));
+        break;
+    }
+    return $block;
+}
+
+function bloque_usuario_logueado() {
+    global $user;
+    $datos = '';
+    $us = user_load($user->uid);
+    if ($us->uid != 0):
+        $uid = $us->uid;
+
+    $datos['nombre'] = $us->name;
+    $datos['uid'] = $us->uid;
+    /*Imagen Usuario*/        
+    if(!empty($us->picture->uri)){
+        $imagen_usuario['style_name'] = 'round_thumbnail_34x34_';
+        $imagen_usuario['path'] = $us->picture->uri;
+        $imagen_usuario = theme('image_style', $imagen_usuario);
+        $datos['uri'] = $imagen_usuario;
+    }else{
+        $datos['uri'] = '<img typeof="foaf:Image" src="/sites/all/themes/ligafantastica_omega/images/user-icon.jpg" width="34" height="34" alt="" />';
+    }
+
+        //dpm($us->picture->uri);
+    endif;
+    return $datos;
+}
+/**
+ * Implements hook_form_FORM_ID_alter().
+ */
+function usuarios_form_alter(&$form, &$form_state, $form_id) {
+    //dpm($form_id);
+    global $user;
+    $usuario = user_load($user->uid);
+    $query = db_select('node', 'n');
+    $query->fields('n', array('nid'))
+        ->condition('n.type', 'alineaci_n')
+        ->condition('n.uid', $user->uid);
+    $result = $query->execute();
+    $alineacion = $query->execute()->fetchField();
+    $data = node_load($alineacion);
+    $ValorDefault='';
+    $dineros = $data ->field_dinero[LANGUAGE_NONE][0]['value'];
+    if($dineros==''){
+        $ValorDefault='500000000';
+    }
+    if($dineros!=''){
+       $ValorDefault=$dineros;
+    }
+    //field_dinero[LANGUAGE_NONE][0]['value'];
+
+
+
+    $path = current_path();
+    switch ($form_id) {
+        case 'user_login_block':
+            //dpm($form);
+        $form['name']['#attributes']['placeholder'] = 'Email';
+        $form['pass']['#attributes']['placeholder'] = 'Contraseña';
+        break;
+        case 'user_register_form':
+        $form['#prefix'] = '<p>Juega contra tus amigos y contra todos los demás Dt’s de Colombia.</p>';
+        $form['profile_main']['#access'] = FALSE;
+        $form['#submit'][] = 'redireccion_usuario';
+        break;
+        case 'user_profile_form':
+
+        GLOBAL $user;
+        if($path == 'user/'.$user->uid.'/edit'){
+            //dpm($user);
+            $form['field_nombre'][LANGUAGE_NONE][0]['value']['#required'] = TRUE;
+
+        }
+
+
+            //dpm($user);
+           // dpm($form);
+        $form['field_image']['#prefix'] = '<h2 class="block__title">Mi equipo</h2>
+        <div class="dates-login">
+        <div><strong>Fecha de registro: </strong>'.format_date($user->created, 'custom', 'd F Y').'<strong> Ultima conexion: </strong>'.format_date($user->access, 'custom', 'd F Y').' </div>
+        <div class="para-jugar"> <strong>Para jugar debes crear el equipo.</strong> </div></div>';
+        $form['field_nombre']['#suffix'] = '<div class="mis-datos"><div class="pts-acumulados"><h3>0</h3><span>pts acumulados</span></div>
+        <div class="pos-general" ><h3>0</h3><span>posición general</span></div>
+        <div class="pres-actual"><h3>'.number_format($ValorDefault).'</h3><span>presupuesto actual</span></div></div>';
+        $form['picture']['#prefix'] = '<h2 class="block__title">Mi perfil</h2>';
+        $form['field_nombres']['#prefix'] = '<div class="left">';
+        $form['account']['pass']['#suffix'] = '</div>';
+        $form['field_fecha_de_nacimiento']['#prefix'] = '<div class="right">';
+           // $form['field_fecha_de_nacimiento'][LANGUAGE_NONE][0]['#after_build']= t('Fecha');
+        $form['field_desea_recibir_informaci_n_']['#suffix'] = '</div>';
+        $form['picture']['#weight'] = 2;
+        $form['locale']['#access'] = FALSE;
+        $form['timezone']['#access'] = FALSE;
+        $form['account']['fboauth']['#access'] = FALSE;
+        $form['#submit'][] = 'mm_submit_redirect';
+           // dpm($form['field_fecha_de_nacimiento']);
+        break;
+        case 'filtros_fichajes_form':
+        $form['equipo']['#prefix'] = '<span class="filtros-label">Filtrar por:</span>';
+        break;
+
+        default:
+            # code...
+        break;
+    }
+}
+function mm_submit_redirect(&$form, &$form_state) {
+   drupal_goto('jugar/fichajes');
+}
+function redireccion_usuario(&$form, &$form_state){
+    //dpm($form_state);
+    drupal_goto('user/'.$form_state['uid'].'/edit');
+}

@@ -1,0 +1,468 @@
+.page-jugar-fichajes{
+	.l-content{
+		width: 100%;
+	}
+	.views-view-grid{
+		width: 100%;
+		td{
+			display: block;
+			margin: 0 auto;			
+			min-height: 120px;		
+			padding: 0 20px;			
+			width: 100%;	
+			@include breakpoint($tablet, true){
+				display: inline-block;
+				float: left;
+				margin-bottom: 14px;
+				padding: 0;
+				width: calc(100%/4);
+			}
+			@include breakpoint($desktop, true){
+				margin-bottom: 0;
+			}
+		}
+		.views-field{
+			float: left;
+			width: 50%;
+			@include breakpoint($tablet, true){
+				float: none;
+			}
+			@include breakpoint($desktop, true){
+				float: left;
+			}
+		}
+		.views-field-imagen-jugador{
+			margin-right: 10px;
+			width: 38%;
+			img{
+				border: 2px solid #fff;
+			}
+			@include breakpoint($tablet, true){
+				width: 60%;
+			}
+			@include breakpoint($desktop, true){
+				width: 44%;
+			}
+			@include breakpoint($maxwidth, true){
+				width: 35%;
+			}
+		}
+		.views-field-field-nombre{
+			color: $black;
+			font-size: 1em;			
+			@include breakpoint($tablet, true){
+				font-size: .8em;
+				margin-top: 15px;
+				width: 100%;
+			}
+			@include breakpoint($desktop, true){
+				width: 50%;
+			}
+		}
+		.views-field-posicion-jugador{
+			color: $darkOrange;
+			font-size: .95em;
+			font-style: italic;
+			p{
+				margin: 0;
+			}
+			@include breakpoint($tablet, true){
+				font-size: .75em;
+			}
+		}
+		.views-field-field-precio{
+			color: $textwine;
+			font-size: 1.2em;
+			font-weight: bold;
+			@include breakpoint($tablet, true){
+				float: left;
+				font-size: .95em;
+			}
+		}		
+	}
+	.views-field-anadir-al-carro{
+		input[type="submit"]{
+			background: url(../images/sprite.png) no-repeat 0 0;
+			display: inline-block;
+			height: 30px;
+			text-indent: -9999px;
+			width: 30px;
+		}
+		@include breakpoint($tablet, true){
+			float: left;
+			display: inline-block;
+			margin-top: -8px;
+		}
+		@include breakpoint($desktop, true){
+			display: block;
+			float: none;
+			margin-top: 0;
+		}
+	}
+}
+#block-views-slider-fichajes-home,
+#block-views-slider-fichajes-block{
+	display: none;
+	float: left;	
+	margin-right: 2%;
+	width: 70%;
+	@include breakpoint($tablet, true){
+		display: block;
+	}
+	h2{
+		margin-bottom: 10px;
+	}
+	.flexslider{
+		background: $blue;
+		border: 0;
+		border-radius: 0;
+		box-shadow: none;
+		margin-bottom: 20px;
+		padding: 0 30px;	
+		.slides{
+			padding: 36px 0;
+			li{
+				color: $white;
+				margin-right: 5px;
+				.views-field-imagen-jugador{
+					float: left;
+					margin-right: 10px;
+					img{
+						border: 1px solid $white;
+					}
+					@include breakpoint($tablet, true){
+						float: none;
+					}
+					@include breakpoint($desktop, true){
+						float: left;
+					}
+				}
+				.views-field-field-nombre{
+					font-size: .8em;
+					display: inline-block;
+					width: 140px;
+					@include breakpoint($desktop, true){
+						display: inline;
+						width: auto;
+					}
+				}
+				.views-field-posicion-jugador{
+					color: $darkOrange;
+					font-size: .75em;
+					font-style: italic;
+					p{
+						margin: 0;
+					}
+				}
+				.views-field-field-precio{
+					color: $yellow;
+					font-weight: bold;
+				}
+				.views-field-anadir-al-carro{
+					input[type="submit"]{
+						background-position: 0px -40px;
+					}
+					@include breakpoint($tablet, true){
+						margin-top: 0
+					}
+				}
+			}
+		}
+		.flex-control-paging{
+			display: none;
+		}
+		.flex-direction-nav{
+			a{
+				&:before{
+					content: '';
+					background: url(../images/arrow-flex.png) no-repeat 0 -46px;
+					height: 30px;
+					width: 30px;					
+				}
+				&.flex-next{
+					&:before{
+						content: '';
+						background: url(../images/arrow-flex.png) no-repeat 0 0;
+					}
+				}
+			}
+		} 		
+	}
+}
+#block-views-slider-fichajes-home{
+	/*margin-top: 3em;*/
+	width: 100%;
+	.block__title{
+		border: 0;
+		margin-bottom: 0;
+	}
+	.flexslider{
+		padding: 0 45px;
+		.slides{
+			li{
+				.views-field-field-nombre{
+					span{
+						display: inline-block;
+						width: 160px;
+					}
+				}
+				@include breakpoint($tablet, true){
+					text-align: left;
+					.views-field-imagen-jugador{
+						width: auto;
+						img{
+							margin: 0 auto;
+						}
+						span{
+							width: 145px;
+						}
+					}
+				}
+				@include breakpoint($desktop, true){
+					text-align: center;
+					.views-field-imagen-jugador{
+						width: 240px;
+						img{
+							margin: 0 auto;
+						}
+						span{
+							width: 160px;
+						}
+					}
+				}
+				@include breakpoint($maxwidth, true){
+					text-align: left;
+					.views-field-imagen-jugador{
+						width: auto;
+						img{
+							margin: 0 auto;
+						}
+						span{
+							width: 160px;
+						}
+					}
+				}
+			}
+		}
+	}
+}
+.front{
+	#block-fichajes-mi-carrito{	
+		width: 100%;
+	}
+	&.logged-in{
+		#block-fichajes-mi-carrito{
+			margin-bottom: 40px;
+		}
+	}
+}
+
+#block-fichajes-mi-carrito{	
+	float: left;
+	margin-bottom: 2.5em;
+	padding: 0 10px;
+	width: 100%;
+	@include breakpoint($tablet, true){
+		margin-bottom: 0;
+		width: 28%;
+	}	
+	h2{
+		margin-bottom: 10px;
+	}
+	.block__content{
+		background: #eea320; /* Old browsers */
+		background: -moz-linear-gradient(top,  #eea320 0%, #eea320 43%, #b37b18 54%, #eea320 100%); /* FF3.6+ */
+		background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#eea320), color-stop(43%,#eea320), color-stop(54%,#b37b18), color-stop(100%,#eea320)); /* Chrome,Safari4+ */
+		background: -webkit-linear-gradient(top,  #eea320 0%,#eea320 43%,#b37b18 54%,#eea320 100%); /* Chrome10+,Safari5.1+ */
+		background: -o-linear-gradient(top,  #eea320 0%,#eea320 43%,#b37b18 54%,#eea320 100%); /* Opera 11.10+ */
+		background: -ms-linear-gradient(top,  #eea320 0%,#eea320 43%,#b37b18 54%,#eea320 100%); /* IE10+ */
+		background: linear-gradient(to bottom,  #eea320 0%,#eea320 43%,#b37b18 54%,#eea320 100%); /* W3C */
+		filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#eea320', endColorstr='#eea320',GradientType=0 ); /* IE6-9 */
+		border-radius: 4px;
+		color: $white;
+		float: left;
+		padding: 5px 10px;
+		position: relative;
+		padding-bottom: 20px;
+		width: 100%;
+	}
+	.presupuesto{
+		background: $black;
+		border-radius: 8px;
+		display: block;
+		font-family: $advdigital7;
+		font-size: 1.85em;
+		height: 58px;
+		line-height: 65px;
+		padding: 0 5px;
+		text-align: center;
+		width: 100%;
+		@include breakpoint($tablet, true){
+			font-size: 1.05em;
+		}
+		@include breakpoint($desktop, true){
+			font-size: 1.5em;
+		}
+		@include breakpoint($maxwidth, true){
+			font-size: 1.85em;
+		}
+	}
+	.checkout{
+		background: url(../images/sprite.png) no-repeat 0px -72px;
+		display: block;
+		float: left;
+		height: 42px;
+		margin-left: 10px;
+		width: 40px;
+		text-indent: -9999px;
+		@include breakpoint($tablet, true){
+			margin-left: 37px;
+		}
+		@include breakpoint($desktop, true){
+			margin-left: 0;
+		}
+		@include breakpoint($maxwidth, true){
+			margin-left: 10px;
+		}		
+	}
+	.fichajes,
+	.total-fichajes{
+		float: left;
+		.nro-fichajes,
+		.ttl-fichajes{
+			display: inline-block;
+			font-size: 1.85em;
+			font-weight: bold;
+			margin-top: 5px;
+		}
+		.ttl-fichajes{
+			@include breakpoint($tablet, true){
+				font-size: 1.65em;
+			}
+		}		
+		p{
+			font-family: $pftempesta;
+			font-size: .5em;
+			margin: 0;
+			text-align: center;
+		}
+	}
+	.fichajes{
+		text-align: center;
+		width: 18%;
+	}
+	.total-fichajes{
+		float: right;
+		text-align: center;
+		width: 60%;
+		@include breakpoint($tablet, true){
+			width: 100%;
+		}
+		@include breakpoint($desktop, true){
+			width: 60%;
+		}
+	}
+	.bt-confirmar{
+		background: url(img/blocktitle-bg.png) no-repeat 0 0;
+		background-size: contain;
+		bottom: -28px;
+		display: inline-block;
+		color: $white;
+		font-family: $fontMain;
+		font-size: 1.25em;
+		height: 40px;
+		left: 50%;
+		line-height: 34px;
+		margin-left: -80px;
+		position: absolute;
+		text-align: center;
+		width: 160px;
+		&:hover{
+			text-decoration: none;
+		}
+	}
+	
+}
+#block-fichajes-filtros-fichajes{
+	float: left;
+	width: 100%;
+	@include breakpoint($tablet, true){
+		margin-bottom: 1.5em;
+	}
+	.form-submit{
+		margin: 10px;
+		@include breakpoint($tablet, true){
+			margin: 0;
+		}
+	}
+}
+.filtros-fichajes-form{
+	.filtros-label{
+		color: $black;
+		font-size: .8em;
+		font-weight: bold;
+		margin-right: 10px;
+	}
+	.form-item{
+		background: #fff;
+		border-top: 1px solid $grey;
+		display: block;
+		margin: 0;
+		padding: 10px;
+		position: relative;
+		@include breakpoint($tablet, true){
+			background: none;
+			border: 0;
+			display: inline-block;
+			margin-right: 20px;
+			padding: 0;
+		}
+		&:last-child{
+			border-bottom: 1px solid $grey;
+			@include breakpoint($tablet, true){
+				border-bottom: 0;
+			}
+		}
+		label{
+			color: $black;
+			display: inline-block;
+			font-size: .75em;
+			font-weight: bold;			
+			text-transform: uppercase;
+			width: 20%;			
+			&:before{
+				content: '';
+				background: url(../images/arrow-select.png) no-repeat 0 0;
+				display: block;
+				height: 20px;
+				position: absolute;
+				right: 0;
+				top: 16px;
+				width: 82px;
+			}
+			@include breakpoint($tablet, true){
+				font-weight: normal;
+				width: auto;
+				&:before{
+					content:'';
+					display: none;
+				}
+			}
+		}
+		select{
+			border: none;
+			color: $grey;
+			font-size: 1em;
+			padding: 5px 0;
+			width: 76%;
+			@include breakpoint($tablet, true){
+				font-size: .8em;
+				width: auto;
+			}
+		}
+	}
+}
+#fichajes{
+	float: left;
+	width: 100%;
+}

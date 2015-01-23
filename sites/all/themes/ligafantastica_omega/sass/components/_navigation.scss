@@ -1,0 +1,83 @@
+#navigation-wrapper{
+  @include breakpoint($tablet, true) {
+    background-color: $white;
+    padding-top: 30px;
+  }
+  @include breakpoint($desktop, true) {
+    padding-top: 0;
+  }
+  background-color: $blue;
+  display: block;
+  float: left;
+  width: 100%;
+  #navigation {
+    color: $white;
+    @include breakpoint($tablet, true) {
+      color: $darkgrey;
+    }
+    font-size: 1em;
+    font-family: $fontMain;
+    margin: 0 auto;
+    width: 100%;
+    @include breakpoint($tablet, true) {
+      max-width: $maxwidth;
+    }
+  }
+}
+
+.l-navigation{
+  @include grid-span(12,1);
+}
+
+
+#block-system-main-menu{  
+  @include grid-span(12,1);
+  @include breakpoint($tablet, true) {
+    width: 60%;
+  }
+  @include breakpoint($desktop, true) {
+    @include grid-span(6,1);
+  }
+  ul.menu{
+    padding-left: 0;
+    margin: 0;    
+  }
+  .leaf{
+    font-family: $fontMain;
+    list-style-image: none;
+    list-style-type: none;
+    color: $darkgrey;
+    font-size: 1.4em;
+    @include breakpoint($tablet, true) {
+      display: inline;
+      font-size: 1.3em;
+    }
+    @include breakpoint($desktop, true) {
+      display: inline;
+      font-size: 1.25em;
+    }
+    a{
+      color: $white;
+      background: url("img/icon-rightarrow.png") 90% center no-repeat;
+      display: block;
+      padding: 10px $gutters;
+      border-bottom: 1px solid $blue2;
+      @include breakpoint($tablet, true) {
+        border-bottom: none;
+        padding: 30px 10px 53px 10px;
+        background: url("img/menu-item-bg.jpg") left center no-repeat;
+        display: inline-block;
+        color: $darkgrey;
+        &.active, &:hover{
+          color: $textblue;
+        }
+      }
+      @include breakpoint($desktop, true) {
+        padding: 34px 12px 50px 12px;
+      }
+      @include breakpoint($maxwidth, true) {
+        padding: 34px 18px 50px 18px; 
+      }
+    }
+  }
+}

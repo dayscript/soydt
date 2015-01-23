@@ -1,0 +1,144 @@
+#page-wrapper{
+  background-color: $pagebg;
+  display: block;
+  float: left;
+  width: 100%;
+  padding: 10px 0px;
+  @include breakpoint($tablet, true) {
+    padding: 40px $gutters 30px;
+  }
+  #page {
+    color: $darkgrey;
+    font-family: $opensans;
+    margin: 0 auto;
+    width: 100%;
+    @include breakpoint($tablet, true) {
+      max-width: $maxwidth;
+    }
+  }
+}
+
+body.front{
+  #page{
+    h1{
+      display: none;
+    }    
+  }
+}
+
+.node-type-page{
+  h1{
+    border-bottom: 1px solid $darkwine;
+    font-family: $fontMain;
+    font-size: 1.8em;
+    text-transform: uppercase;
+  }
+  .node__content{
+    .field__item{
+      font-size: .8em;
+      p{        
+        strong{
+          color: $darkwine;
+          display: inline-block;
+          font-family: $fontMain;
+          font-size: 1.4em;
+          font-weight: bold;
+          margin-bottom: 5px;
+          text-transform: uppercase;
+        }
+      }
+      ul{
+        li{
+          list-style: none;
+          &:before{
+            content: '';
+            border-radius: 100%;
+            background: #de6d26;
+            display: inline-block;
+            height: 5px;
+            margin-right: 6px;
+            width: 5px;
+          }
+        }
+      }
+      table{
+        td,
+        th{
+          padding: 0 10px;
+        }
+      }
+    }
+  }
+}
+.ui-widget-overlay{
+  background: $black !important;
+}
+.ui-dialog{
+  background: #f1a221;
+  color: $white;
+  font-size: 1.5em;
+  left: 50% !important;
+  margin-left: -302px;
+  width: 605px !important;
+  .ui-dialog-titlebar{
+    background: none;
+    border: 0;
+    height: 35px;
+    position: absolute;
+    top: 0px;
+    right: 0px;
+    padding: 0;
+    width: 35px;
+    .ui-dialog-title{
+      margin: 0;
+    }
+    .ui-dialog-titlebar-close{
+      height: 35px;
+      padding: 0;
+      right: 8px;
+      width: 35px;
+    }
+    .ui-icon{
+      background: url(../images/sprite.png) no-repeat -3px -223px;
+      display: inline-block;
+      height: 35px;
+      width: 35px;
+    }
+    .ui-state-hover,
+    .ui-state-focus{
+      background: none;
+      border: 0;
+    }
+  }
+  .ui-dialog-content{
+    color: $white;
+    margin-top: 35px;
+    padding: 0;
+    padding-left: 10px;
+    &:before{
+      content:'';
+      background: url(../images/icon-popup.png) no-repeat 0 0;
+      display: inline-block;
+      float: left;
+      margin-right: 10px;
+      height: 90px;
+      width: 90px;
+    }
+    a{
+      background: url(../images/bkg-blue.png) no-repeat 0 0;
+      color: #fff;
+      display: inline-block;
+      font-family: $fontMain;
+      font-size: 1.35em;
+      height: 50px;
+      line-height: 50px;
+      margin-left: 3em;
+      text-transform: uppercase;
+      text-align: center;
+      width: 262px;
+      &:hover{
+        text-decoration: none;
+      }
+    }
+  }
+}

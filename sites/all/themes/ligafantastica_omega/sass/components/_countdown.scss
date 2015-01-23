@@ -1,0 +1,17 @@
+#block-fichajes-countdown{
+  .tile-count{
+    line-height: 4.5em;
+  }
+  .counter-group{
+    margin-top: 0.3em;
+    .counter-block{
+      .counter{
+        margin-top: 9px;
+        .number{
+          line-height: 46px;
+        }
+      }
+    }
+    
+  }
+}

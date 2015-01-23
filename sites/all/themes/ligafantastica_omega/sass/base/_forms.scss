@@ -1,0 +1,22 @@
+input[type="text"],
+input[type="password"]{
+  background: $white;
+  border-radius: 5px;
+  color: $darkgrey;
+  border: none;
+  font-size: .8em;
+  padding: 5px 10px;
+  width: 100%;
+}
+input[type="submit"]{
+  background: $black;
+  border: none;
+  color: $white;
+  font-family: $fontMain;
+  font-size: 1.15em;
+  text-transform: uppercase;
+  padding: 5px 10px;
+}
+.form-actions{
+  text-align: center;
+}

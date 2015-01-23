@@ -1,0 +1,16 @@
+name = Fichajes
+description = Funcionalidades para la seccion fichajes.
+package = DayScript
+core = 7.x
+
+files[] = views/handlers/fichajes_handler_field_imagen_jugador.inc
+files[] = views/handlers/fichajes_handler_field_posicion_jugador.inc
+files[] = views/handlers/fichajes_handler_field_anadir_al_carro.inc
+files[] = views/handlers/fichajes_handler_field_unirse.inc
+files[] = views/handlers/fichajes_handler_field_ver_liga.inc
+files[] = views/handlers/fichajes_handler_field_puntos_usuario.inc
+
+
+project = "fichajes"
+datestamp = "1325920240"
+

@@ -1,0 +1,56 @@
+#block-block-1{
+  @include grid-span(6,7);
+}
+#block-block-2{
+  @include grid-span(6,1);
+}
+#block-block-3{
+  @include grid-span(12,1);
+}
+.l-region--footer{
+  @include grid-span(12,1);
+  padding: $gutters;
+}
+@include breakpoint($tablet, true) {
+  #block-block-1{
+    @include grid-span(2,11);
+  }
+  #block-block-2{
+    @include grid-span(2,1);
+  }
+  #block-block-3{
+    @include grid-span(7,3);
+    margin-top: 15px;
+    @include breakpoint($desktop, true) {
+      margin-top: 25px;
+    }
+  }
+}
+#block-block-9{
+  display: inline-block;
+}
+#block-block-11{
+  width: 600px;
+  padding-top: 30px;
+}
+.floatright{
+  float: right;
+}
+#footer-wrapper{
+  background-color: $darkgrey;
+  background-color: #000;
+  display: block;
+  float: left;
+  width: 100%;
+  #footer {
+    color: white;
+    font-size: 0.7em;
+    font-family: $opensans;
+    margin: 0 auto;
+    width: 100%;
+    @include breakpoint($tablet, true) {
+      max-width: $maxwidth;
+    }
+  }
+}
+

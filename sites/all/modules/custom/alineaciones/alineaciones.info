@@ -1,0 +1,11 @@
+name = Alineaciones
+description = Sistema de alineacion de jugadores.
+core = 7.x
+
+package = DayScript
+version = 7.x - 1.0
+
+dependencies[] = views
+
+project = "modulo"
+datestamp = "1294378870"

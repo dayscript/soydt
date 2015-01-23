@@ -1,0 +1,96 @@
+// Import external libraries.
+@import "compass";
+@import "breakpoint";
+@import "singularitygs";
+@import "toolkit";
+
+// Import variables, abstractions, base styles and components using globbing.
+//
+// Globbing will always import files alphabetically. Optimally, all your
+// components should be self-contained and explicit enough to not have any
+// contained styles leak into unrelated components: The import order should not
+// affect the result.
+//
+// If there are variables, functions or mixins that depend on each other and
+// therefore need to be imported in a specific order you can import them
+// directly. Variables-, function- or mixin providing partials should never
+// output any styles themselves: Importing them multiple times to resolve
+// dependencies shouldn't be a problem.
+@import "variables/**/*";
+@import "abstractions/**/*";
+@import "base/**/*";
+@import "components/**/*";
+
+.l-region--sidebar-first{
+  @include grid-span(12,1);
+  @include breakpoint($tablet, true) {
+    @include grid-span(4,9);
+  }
+  padding-right: 0;
+  position: relative;
+}
+.l-content{
+  @include grid-span(12,1);
+  @include breakpoint($tablet, true) {
+    @include grid-span(8,1);
+  }
+}
+.pager{  
+  font-size: .9em;  
+  margin: 2em 0;
+  li{
+    &.pager__item--current{
+      color: $darkOrange;
+    }
+    a{
+      color: $black;
+    }
+  }
+  .pager__item--next,
+  .pager__item--last,
+  .pager__item--previous,
+  .pager__item--first{
+    background: $darkwine;    
+    padding: 0.2em 0.5em;
+    text-transform: uppercase;
+    a{
+      color: $white;
+      &:hover{
+        text-decoration: none;
+      }
+    }
+  }
+  .pager__item--last,
+  .pager__item--first{
+    display: none;
+  }
+}
+
+/* Flexslider */
+.flexslider{
+  .flex-direction-nav{
+    a{
+      display: block;
+      height: 34px;
+      margin: 0;
+      opacity: 1;
+    }
+    .flex-prev{
+      left: 0;
+    }
+    .flex-next{
+      right: 0;
+    }
+  }
+} 
+
+.degr{
+  background: #1d619a; /* Old browsers */
+  background: -moz-linear-gradient(top,  #1d619a 0%, #1d619a 42%, #164974 51%, #1d619a 100%); /* FF3.6+ */
+  background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#1d619a), color-stop(42%,#1d619a), color-stop(51%,#164974), color-stop(100%,#1d619a)); /* Chrome,Safari4+ */
+  background: -webkit-linear-gradient(top,  #1d619a 0%,#1d619a 42%,#164974 51%,#1d619a 100%); /* Chrome10+,Safari5.1+ */
+  background: -o-linear-gradient(top,  #1d619a 0%,#1d619a 42%,#164974 51%,#1d619a 100%); /* Opera 11.10+ */
+  background: -ms-linear-gradient(top,  #1d619a 0%,#1d619a 42%,#164974 51%,#1d619a 100%); /* IE10+ */
+  background: linear-gradient(to bottom,  #1d619a 0%,#1d619a 42%,#164974 51%,#1d619a 100%); /* W3C */
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#1d619a', endColorstr='#1d619a',GradientType=0 ); /* IE6-9 */
+}

@@ -1,0 +1,44 @@
+.mipuntaje-form,
+.rankinggeneral-form{
+  text-transform: none;
+  .form-item-fecha,
+  .form-item-fecha2{
+    label{
+      float: left;
+      display: block;
+      font-weight: bold;
+      padding: 0 6px 0 0;
+    }
+    select{
+      -webkit-appearance: button;
+      -moz-appearance: button;
+      -webkit-user-select: none;
+      -moz-user-select: none;
+      -webkit-padding-end: 20px;
+      -moz-padding-end: 20px;
+      -webkit-padding-start: 2px;
+      -moz-padding-start: 2px;
+      background-color: #999;
+      background-image: url(../images/image_preview.png),-webkit-linear-gradient(top, #999, #999);
+      background-image: url(../images/image_preview.png),-moz-linear-gradient(top, #999, #999);
+      background-image: url(../images/image_preview.png),-ms-linear-gradient(top, #999, #999);
+      background-image: url(../images/image_preview.png),-o-linear-gradient(top, #999, #999);
+      background-image: url(../images/image_preview.png),linear-gradient(to bottom, #999, #999);
+      background-position: center right;
+      background-repeat: no-repeat;
+      border-radius: 8px;
+      color: #fff;
+      font-size: inherit;
+      margin: 0 10px 0 0;
+      overflow: hidden;
+      padding-top: 2px;
+      padding-bottom: 2px;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+      width: 200px;
+      outline: none;
+      border: none;
+      cursor: pointer;
+    }
+  }
+}

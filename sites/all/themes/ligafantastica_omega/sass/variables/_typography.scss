@@ -1,0 +1,97 @@
+/* Main Font: dinmittelschrift*/
+@font-face {
+    font-family: 'dinmittelschrift';
+    src: url('fonts/dinmittelschrift/dinmittelschriftstd.eot');
+    src: url('fonts/dinmittelschrift/dinmittelschriftstd?#iefix') format('embedded-opentype'),
+         url('fonts/dinmittelschrift/dinmittelschriftstd.woff') format('woff'),
+         url('fonts/dinmittelschrift/dinmittelschriftstd.ttf') format('truetype'),
+         url('fonts/dinmittelschrift/dinmittelschriftstd.svg') format('svg');
+    font-weight: normal;
+    font-style: normal;
+   }
+@font-face {
+    font-family: 'AdiHauPSConMd';
+    src: url('fonts/adihaupsconmd.eot');
+    src: url('fonts/adihaupsconmd.eot?#iefix') format('embedded-opentype'),
+         url('fonts/adihaupsconmd.woff') format('woff'),
+         url('fonts/adihaupsconmd.ttf') format('truetype'),
+         url('fonts/adihaupsconmd.svg#AdiHauPSConMd') format('svg');
+    font-weight: normal;
+    font-style: normal;
+   }
+@font-face {
+    font-family: 'AdiHauPSConBd';
+    src: url('fonts/adihauspsconbd.eot');
+    src: url('fonts/adihauspsconbd.eot?#iefix') format('embedded-opentype'),
+         url('fonts/adihauspsconbd.woff') format('woff'),
+         url('fonts/adihauspsconbd.ttf') format('truetype'),
+         url('fonts/adihauspsconbd.svg#AdiHauPSConMb') format('svg');
+    font-weight: normal;
+    font-style: normal;
+   }
+@font-face {
+    font-family: 'AdiHauPSConReg';
+    src: url('fonts/adihaupsconreg.eot');
+    src: url('fonts/adihaupsconreg.eot?#iefix') format('embedded-opentype'),
+         url('fonts/adihaupsconreg.woff') format('woff'),
+         url('fonts/adihaupsconreg.ttf') format('truetype'),
+         url('fonts/adihaupsconreg.svg#AdiHauPSConReg') format('svg');
+    font-weight: normal;
+    font-style: normal;
+   }
+@font-face {
+    font-family: 'AdvDigital7';
+    src: url('fonts/advanceddotdigital7.eot');
+    src: url('fonts/advanceddotdigital7.eot?#iefix') format('embedded-opentype'),
+         url('fonts/advanceddotdigital7.woff') format('woff'),
+         url('fonts/advanceddotdigital7.ttf') format('truetype'),
+         url('fonts/advanceddotdigital7.svg#AdvDigital7') format('svg');
+    font-weight: normal;
+    font-style: normal;
+   }
+   
+@font-face {
+	font-family: 'clannan_0';
+	src: url('fonts/clannan_0.eot');
+	src: local('☺'), url('fonts/clannan_0.woff') format('woff'), url('fonts/clannan_0.ttf') format('truetype'), url('fonts/clannan_0.svg') format('svg');
+	font-weight: normal;
+	font-style: normal;
+}
+@font-face {
+	font-family: 'clannam_0';
+	src: url('fonts/clannam_0.eot');
+	src: local('☺'), url('fonts/clannam_0.woff') format('woff'), url('fonts/clannam_0.ttf') format('truetype'), url('fonts/clannam_0.svg') format('svg');
+	font-weight: normal;
+	font-style: normal;
+}
+@font-face {
+	font-family: 'clanna1_0';
+	src: url('fonts/clanna1_0.eot');
+	src: local('☺'), url('fonts/clanna1_0.woff') format('woff'), url('fonts/clanna1_0.ttf') format('truetype'), url('fonts/clanna1_0.svg') format('svg');
+	font-weight: normal;
+	font-style: normal;
+}
+@font-face {
+    font-family: 'pf_tempesta_seven';
+    src: url('fonts/pf_tempesta/pf_tempesta_seven.eot');
+    src: url('fonts/pf_tempesta/pf_tempesta_seven?#iefix') format('embedded-opentype'),
+         url('fonts/pf_tempesta/pf_tempesta_seven.woff') format('woff'),
+         url('fonts/pf_tempesta/pf_tempesta_seven.ttf') format('truetype'),
+         url('fonts/pf_tempesta/pf_tempesta_seven.svg') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+
+
+$fontMain:        'dinmittelschrift', sans-serif;
+$opensans:        'Open Sans', sans-serif;
+$pftempesta:      'pf_tempesta_seven';
+
+$adihaupsconmd:   'AdiHauPSConMd', sans-serif;
+$adihaupsconbd:   'AdiHauPSConBd', sans-serif;
+
+$clannarrow:      'clannan_0', sans-serif;
+$clannarrowmed:   'clannam_0', sans-serif;
+$clannarrowbold:  'clanna1_0', sans-serif;
+$adihaupsconreg:  'AdiHauPSConReg', sans-serif;
+$advdigital7:     'AdvDigital7', sans-serif;

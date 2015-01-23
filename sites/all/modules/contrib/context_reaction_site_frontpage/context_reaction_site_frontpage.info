@@ -1,0 +1,14 @@
+name = Context Reaction: Front page
+description = Adds a reaction to change the default front page.
+package = Context
+dependencies[] = context
+core = 7.x
+files[] = plugins/context_reaction_default_site_frontpage.inc
+
+
+; Information added by Drupal.org packaging script on 2014-07-18
+version = "7.x-1.0"
+core = "7.x"
+project = "context_reaction_site_frontpage"
+datestamp = "1405708129"
+

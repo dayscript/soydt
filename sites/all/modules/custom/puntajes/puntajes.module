@@ -1,0 +1,1035 @@
+<?php
+ 
+ 
+/**
+ * Implements hook_menu().
+ */
+ 
+ function puntajes_menu(){
+	   $items['puntajes/%'] = array(
+    'title' => 'Actualizacion Puntajes',
+    'page arguments' => array(1),
+    'description' => 'Actualizando Puntajes.',
+    'page callback' => 'actualizar_puntajes',
+    'access arguments' => array('access content'),
+      );
+	   $items['puntajes/eventos/%'] = array(
+    'title' => 'Obtener Eventos de una Fecha',
+    'page arguments' => array(2),
+    'description' => 'Obtener los eventos de una fecha.',
+    'page callback' => 'obtener_eventos',
+    'access arguments' => array('access content'),
+      );
+     $items['rectificacion'] = array(
+    'title' => 'Rectificacion Alineaciones',
+    'page arguments' => array(1),
+    'description' => 'Rect.',
+    'page callback' => 'rectificar_alineaciones',
+    'access arguments' => array('access content'),
+      );
+     $items['puntajes/usuarios/%'] = array(
+      'title' => 'Actualizacion Puntajes Usuarios',
+      'page arguments' => array(2),
+      'description' => 'Actualizando Puntajes.',
+      'page callback' => 'usuarios_puntajes',
+      'access arguments' => array('access content'),
+      );
+     $items['jugar/resultados/%'] = array(
+      'title' => 'Resultados',
+      'page callback' => 'theme',
+      'page arguments' => array('resultados'),
+      "access callback" => true,
+      'type' => MENU_CALLBACK
+    );
+     $items['jugar/ligas'] = array(
+      'title' => 'Ligas',
+      'page callback' => 'theme',
+      'page arguments' => array('ligas'),
+      "access callback" => true,
+      'type' => MENU_CALLBACK
+    );
+ return $items;
+ }
+function puntajes_theme() {
+    $hooks = array();
+    $hooks['resultados'] = array(
+        'variables' => array(
+          'data' => datos_resultados(),
+        ),
+        'template' => 'templates/resultados'
+      );
+    $hooks['ligas'] = array(
+        'variables' => array(
+          'data' => datos_ligas(),
+        ),
+        'template' => 'templates/ligas'
+      );
+    return $hooks;
+}
+
+/**
+ * Implements hook_entity_property_info_alter().
+ */
+function puntajes_entity_property_info_alter(&$info) {
+  //dpm($info);
+  $info['user']['properties']['points'] = array(
+    'type' => 'integer',
+    'label' => 'Puntos User',
+    'sanitized' => TRUE,
+    'getter callback' => 'puntajes_ranking_general',
+    'schema field' => 'points_user',
+  );
+  $info['user']['properties']['points16'] = array(
+    'type' => 'integer',
+    'label' => 'Puntos User - Fecha 16',
+    'sanitized' => TRUE,
+    'getter callback' => 'puntajes_ranking_general_16',
+    'schema field' => 'points_user_16',
+  );
+  $info['user']['properties']['points17'] = array(
+    'type' => 'integer',
+    'label' => 'Puntos User - Fecha 17',
+    'sanitized' => TRUE,
+    'getter callback' => 'puntajes_ranking_general_17',
+    'schema field' => 'points_user_17',
+  );
+  $info['user']['properties']['points18'] = array(
+    'type' => 'integer',
+    'label' => 'Puntos User - Fecha 18',
+    'sanitized' => TRUE,
+    'getter callback' => 'puntajes_ranking_general_18',
+    'schema field' => 'points_user_18',
+  );
+  $info['user']['properties']['points19'] = array(
+    'type' => 'integer',
+    'label' => 'Puntos User - Fecha 1 Cuad',
+    'sanitized' => TRUE,
+    'getter callback' => 'puntajes_ranking_general_19',
+    'schema field' => 'points_user_19',
+  );
+  $info['user']['properties']['points20'] = array(
+    'type' => 'integer',
+    'label' => 'Puntos User - Fecha 2 Cuad',
+    'sanitized' => TRUE,
+    'getter callback' => 'puntajes_ranking_general_20',
+    'schema field' => 'points_user_20',
+  );
+  $info['user']['properties']['points21'] = array(
+    'type' => 'integer',
+    'label' => 'Puntos User - Fecha 3 Cuad',
+    'sanitized' => TRUE,
+    'getter callback' => 'puntajes_ranking_general_21',
+    'schema field' => 'points_user_21',
+  );
+  $info['user']['properties']['points22'] = array(
+    'type' => 'integer',
+    'label' => 'Puntos User - Fecha 4 Cuad',
+    'sanitized' => TRUE,
+    'getter callback' => 'puntajes_ranking_general_22',
+    'schema field' => 'points_user_22',
+  );
+  $info['user']['properties']['points23'] = array(
+    'type' => 'integer',
+    'label' => 'Puntos User - Fecha 5 Cuad',
+    'sanitized' => TRUE,
+    'getter callback' => 'puntajes_ranking_general_23',
+    'schema field' => 'points_user_23',
+  );
+  $info['user']['properties']['points24'] = array(
+    'type' => 'integer',
+    'label' => 'Puntos User - Fecha 6 Cuad',
+    'sanitized' => TRUE,
+    'getter callback' => 'puntajes_ranking_general_24',
+    'schema field' => 'points_user_24',
+  );
+  $info['user']['properties']['points25'] = array(
+    'type' => 'integer',
+    'label' => 'Puntos User - Final Ida',
+    'sanitized' => TRUE,
+    'getter callback' => 'puntajes_ranking_general_25',
+    'schema field' => 'points_user_25',
+  );
+  $info['user']['properties']['points26'] = array(
+    'type' => 'integer',
+    'label' => 'Puntos User - Final Vuelta',
+    'sanitized' => TRUE,
+    'getter callback' => 'puntajes_ranking_general_26',
+    'schema field' => 'points_user_26',
+  );
+  $info['node']['properties']['miembros'] = array(
+    'type' => 'integer',
+    'label' => 'Numero de miembros de liga',
+    'sanitized' => TRUE,
+    'getter callback' => 'puntajes_search_api_property_miembros_callback',
+    'schema field' => 'miembros_liga',
+  );
+}
+
+/*
+  Calcula el numero de miembros de una liga.
+*/
+function puntajes_search_api_property_miembros_callback($entity) {
+  $participantes = count($entity->field_participantes[LANGUAGE_NONE]);
+  return $participantes;
+}
+
+/*
+  Calcula el total de puntos de un usuario. (acumulado)  
+*/
+function puntajes_ranking_general($entity) {
+  $table = data_get_table('dayscore_user_points');
+  $keys = array("id_user"=>$entity->uid,"fecha"=>7176);
+  $record = $table->handler()->load($keys);
+  if(isset($record[0]))$puntos = $record[0]['puntos'];
+  else $puntos = 0;
+
+  $keys = array("id_user"=>$entity->uid,"fecha"=>7177);
+  $record = $table->handler()->load($keys);
+  if(isset($record[0]))$puntos += $record[0]['puntos'];
+
+  $keys = array("id_user"=>$entity->uid,"fecha"=>7178);
+  $record = $table->handler()->load($keys);
+  if(isset($record[0]))$puntos += $record[0]['puntos'];
+
+  $keys = array("id_user"=>$entity->uid,"fecha"=>7346);
+  $record = $table->handler()->load($keys);
+  if(isset($record[0]))$puntos += $record[0]['puntos'];
+
+  $keys = array("id_user"=>$entity->uid,"fecha"=>7347);
+  $record = $table->handler()->load($keys);
+  if(isset($record[0]))$puntos += $record[0]['puntos'];
+
+  $keys = array("id_user"=>$entity->uid,"fecha"=>7348);
+  $record = $table->handler()->load($keys);
+  if(isset($record[0]))$puntos += $record[0]['puntos'];
+
+  $keys = array("id_user"=>$entity->uid,"fecha"=>7349);
+  $record = $table->handler()->load($keys);
+  if(isset($record[0]))$puntos += $record[0]['puntos'];
+
+  $keys = array("id_user"=>$entity->uid,"fecha"=>7350);
+  $record = $table->handler()->load($keys);
+  if(isset($record[0]))$puntos += $record[0]['puntos'];
+
+  $keys = array("id_user"=>$entity->uid,"fecha"=>7351);
+  $record = $table->handler()->load($keys);
+  if(isset($record[0]))$puntos += $record[0]['puntos'];
+
+  $keys = array("id_user"=>$entity->uid,"fecha"=>7358);
+  $record = $table->handler()->load($keys);
+  if(isset($record[0]))$puntos += $record[0]['puntos'];
+
+  $keys = array("id_user"=>$entity->uid,"fecha"=>7359);
+  $record = $table->handler()->load($keys);
+  if(isset($record[0]))$puntos += $record[0]['puntos'];
+
+  return $puntos;
+}
+/*
+  Calcula los puntos de la fecha 16 de un usuario.
+*/
+function puntajes_ranking_general_16($entity) {
+  $table = data_get_table('dayscore_user_points');
+  $keys = array("id_user"=>$entity->uid,"fecha"=>7176);
+  $record = $table->handler()->load($keys);
+  if(isset($record[0]))$puntos = $record[0]['puntos'];
+  else $puntos = 0;
+  return $puntos;
+}
+/*
+  Calcula los puntos de la fecha 17 de un usuario.
+*/
+function puntajes_ranking_general_17($entity) {
+  $table = data_get_table('dayscore_user_points');
+  $keys = array("id_user"=>$entity->uid,"fecha"=>7177);
+  $record = $table->handler()->load($keys);
+  if(isset($record[0]))$puntos = $record[0]['puntos'];
+  else $puntos = 0;
+  return $puntos;
+}
+
+/*
+  Calcula los puntos de la fecha 18 de un usuario.
+*/
+function puntajes_ranking_general_18($entity) {
+  $table = data_get_table('dayscore_user_points');
+  $keys = array("id_user"=>$entity->uid,"fecha"=>7178);
+  $record = $table->handler()->load($keys);
+  if(isset($record[0]))$puntos = $record[0]['puntos'];
+  else $puntos = 0;
+  return $puntos;
+}
+
+/*
+  Calcula los puntos de la fecha 19 de un usuario.
+*/
+function puntajes_ranking_general_19($entity) {
+  $table = data_get_table('dayscore_user_points');
+  $keys = array("id_user"=>$entity->uid,"fecha"=>7346);
+  $record = $table->handler()->load($keys);
+  if(isset($record[0]))$puntos = $record[0]['puntos'];
+  else $puntos = 0;
+  return $puntos;
+}
+/*
+  Calcula los puntos de la fecha 20 de un usuario.
+*/
+function puntajes_ranking_general_20($entity) {
+  $table = data_get_table('dayscore_user_points');
+  $keys = array("id_user"=>$entity->uid,"fecha"=>7347);
+  $record = $table->handler()->load($keys);
+  if(isset($record[0]))$puntos = $record[0]['puntos'];
+  else $puntos = 0;
+  return $puntos;
+}
+/*
+  Calcula los puntos de la fecha 21 de un usuario.
+*/
+function puntajes_ranking_general_21($entity) {
+  $table = data_get_table('dayscore_user_points');
+  $keys = array("id_user"=>$entity->uid,"fecha"=>7348);
+  $record = $table->handler()->load($keys);
+  if(isset($record[0]))$puntos = $record[0]['puntos'];
+  else $puntos = 0;
+  return $puntos;
+}
+/*
+  Calcula los puntos de la fecha 22 de un usuario.
+*/
+function puntajes_ranking_general_22($entity) {
+  $table = data_get_table('dayscore_user_points');
+  $keys = array("id_user"=>$entity->uid,"fecha"=>7349);
+  $record = $table->handler()->load($keys);
+  if(isset($record[0]))$puntos = $record[0]['puntos'];
+  else $puntos = 0;
+  return $puntos;
+}
+/*
+  Calcula los puntos de la fecha 23 de un usuario.
+*/
+function puntajes_ranking_general_23($entity) {
+  $table = data_get_table('dayscore_user_points');
+  $keys = array("id_user"=>$entity->uid,"fecha"=>7350);
+  $record = $table->handler()->load($keys);
+  if(isset($record[0]))$puntos = $record[0]['puntos'];
+  else $puntos = 0;
+  return $puntos;
+}
+
+/*
+  Calcula los puntos de la fecha 24 de un usuario.
+*/
+function puntajes_ranking_general_24($entity) {
+  $table = data_get_table('dayscore_user_points');
+  $keys = array("id_user"=>$entity->uid,"fecha"=>7351);
+  $record = $table->handler()->load($keys);
+  if(isset($record[0]))$puntos = $record[0]['puntos'];
+  else $puntos = 0;
+  return $puntos;
+}
+/*
+  Calcula los puntos de la fecha 25 de un usuario.
+*/
+function puntajes_ranking_general_25($entity) {
+  $table = data_get_table('dayscore_user_points');
+  $keys = array("id_user"=>$entity->uid,"fecha"=>7358);
+  $record = $table->handler()->load($keys);
+  if(isset($record[0]))$puntos = $record[0]['puntos'];
+  else $puntos = 0;
+  return $puntos;
+}
+/*
+  Calcula los puntos de la fecha 26 de un usuario.
+*/
+function puntajes_ranking_general_26($entity) {
+  $table = data_get_table('dayscore_user_points');
+  $keys = array("id_user"=>$entity->uid,"fecha"=>7359);
+  $record = $table->handler()->load($keys);
+  if(isset($record[0]))$puntos = $record[0]['puntos'];
+  else $puntos = 0;
+  return $puntos;
+}
+
+function puntajes_search_api_property_puntos_callback($entity) {
+  $puntos = NULL;
+/*  $fechas = entity_load('fechas');
+  foreach ($fechas as $fecha) {
+    $id = $fecha->field_id_dayscore[LANGUAGE_NONE][0]['value'];
+    $name = $fecha->field_title[LANGUAGE_NONE][0]['value'];
+
+    $activo = $fecha->field_activo[LANGUAGE_NONE][0]['value'];
+       if($activo == 1){
+       $fechaActual = $fecha->field_id_dayscore[LANGUAGE_NONE][0]['value'];
+      }
+  }
+  $query_usuarios = db_select('points_by_user', 'u');
+      $query_usuarios->fields('u', array('puntos'))
+      //->orderBy('id_dato', 'ASC')
+      ->condition('u.id_user', $entity->uid, '=')
+      ->condition('u.fecha', 7175, '=');
+
+      $puntos = $query_usuarios->execute()->fetchField();
+*/  return $puntos;
+
+}
+
+function liga_node_form_validate($form, &$form_state) {
+//dpm($form_state);
+  return 'hola';
+}
+
+function puntajes_form_alter(&$form, &$form_state, $form_id){
+  //dpm($form_id);
+  switch ($form_id) {
+    case 'liga_node_form':
+      //dpm($form);
+      $form['#validate'][] = '_custom_validate_form_alter_pass_node_form_validate';
+      //$form['field_tipo_de_liga']['#suffix'] = '</div>';
+      break;
+    
+    default:
+      # code...
+      break;
+  }
+}
+
+function _custom_validate_form_alter_pass_node_form_validate($form, &$form_state) {
+  if ($form_state['values']['field_clave_pass'] != $form_state['values']['field_repetir_clave']){
+//    dpm($form_state);
+    form_set_error('title', 'Las contraseñas no coinciden.');
+  }
+}
+
+/**
+ * Implements hook_node_presave().
+ */
+function puntajes_node_presave($node) {
+  //dpm($node);
+  global $user;
+
+  if($node->type == 'liga' && $node->is_new == TRUE) {
+
+    $node->field_participantes[LANGUAGE_NONE][0]['uid'] = $user->uid;
+  }
+}
+
+
+function datos_ligas(){
+  //$data['form'] = render(drupal_get_form('liga_node_form')); 
+
+  return 'hola';
+}
+
+function datos_resultados(){
+  return 'hola';
+}
+
+function data_resultados(){
+  global $user;
+  $usuario = user_load($user->uid);
+  $datos = '';
+      //$vars = array('style_name' => '100x100','path' => $usuario->field_image[LANGUAGE_NONE][0]['uri']);
+  if(isset($usuario->field_image[LANGUAGE_NONE][0]['uri']))
+    $datos['escudo'] = $usuario->field_image[LANGUAGE_NONE][0]['uri'];
+  else
+    $datos['escudo'] = "";
+  $datos['nombre_equipo'] = $usuario->field_nombre[LANGUAGE_NONE][0]['value'];
+  $fecha = (arg(2)>0?arg(2):7348);
+  $datos['players'] = get_alineacion($fecha,$user->uid);
+  return $datos;
+}
+
+function get_alineacion($fecha, $uid){
+  $query_alineacion_guardada = db_select('modulo', 'm');
+  $query_alineacion_guardada->fields('m', array('posicion','jugador','fechat'))
+    ->condition('m.user', $uid)
+    ->condition('m.fechat', $fecha)
+    ->orderBy('m.id_dato',"ASC");
+  $result_alineacion_guardada = $query_alineacion_guardada->execute(); 
+  $alineacionGuardada = $query_alineacion_guardada->execute()->fetchField();
+  $query_capitan = db_select('alineaciones', 'a');
+  $query_capitan->fields('a', array('capitan'))
+    ->condition('a.user', $uid,'=')
+    ->condition('a.fecha', $fecha,'=');
+  $capitan = $query_capitan->execute()->fetchField();
+
+  $datos = array();
+  foreach ($result_alineacion_guardada as $key) {
+    if($key->jugador == "" || $key->jugador==0)continue;
+    $player = entity_load_single('fichajes',$key->jugador);
+    $nombre = $player->field_nombre[LANGUAGE_NONE][0]['value'];
+    switch ($player->field_posici_n[LANGUAGE_NONE][0]['value']) {
+      case 1:
+        $posicion ="ARQ";
+        break;
+      case 2:
+        $posicion ="DEF";
+        break;
+      case 3:
+        $posicion ="VOL";
+        break;
+      case 4:
+        $posicion ="DEL";
+        break;
+    }
+    $table = data_get_table('dayscore_player_points');
+    $keys = array("id_dayscript"=>$player->field_id_dayscore[LANGUAGE_NONE][0]['value'],"id_round"=>$fecha);
+    $record = $table->handler()->load($keys);
+    if(isset($record[0]))$puntos = $record[0]['ptos_total'];
+    else $puntos = 0;
+    if($capitan && $capitan==$key->jugador)$puntos = $puntos*2;
+//    $query_usuarios = db_select('points_by_player', 'j');
+//    $query_usuarios->fields('j', array('puntos'))
+      //->orderBy('id_dato', 'ASC')
+//      ->condition('j.id_jugador', $key->jugador, '=')
+//      ->condition('j.fecha', $fecha, '=');
+//    $puntos = $query_usuarios->execute()->fetchField();
+    //dpm($key);
+    //dpm($player);
+    $datos[] = array('nombre'=>$nombre,'posicion'=>$posicion,'puntos'=>$puntos);
+    //return 'Nombre: '.$nombre.'| Posicion: '.$posicion.'| Puntos: '.$puntos.'<br/>';
+  }
+  return $datos;
+}
+
+// Jugadores no encontrados (Entidades)
+/*
+747 968 620
+Jugador no encontrado: EID:1209
+Jugador no encontrado: EID:1084
+Jugador no encontrado: EID:1205
+Jugador no encontrado: EID:1207
+Jugador no encontrado: EID:738
+Jugador no encontrado: EID:778
+Jugador no encontrado: EID:714
+Jugador no encontrado: EID:894
+Jugador no encontrado: EID:747
+Jugador no encontrado: EID:1001
+Jugador no encontrado: EID:989
+Jugador no encontrado: EID:747
+Jugador no encontrado: EID:778
+Jugador no encontrado: EID:989
+Jugador no encontrado: EID:918
+Jugador no encontrado: EID:710
+Jugador no encontrado: EID:668
+Jugador no encontrado: EID:894
+Jugador no encontrado: EID:688
+Jugador no encontrado: EID:738
+Jugador no encontrado: EID:778
+Jugador no encontrado: EID:989
+Jugador no encontrado: EID:946
+Jugador no encontrado: EID:926
+Jugador no encontrado: EID:702
+Jugador no encontrado: EID:1098
+Jugador no encontrado: EID:793
+Jugador no encontrado: EID:642
+Jugador no encontrado: EID:1008
+Jugador no encontrado: EID:1098
+Jugador no encontrado: EID:1002
+Jugador no encontrado: EID:934
+Jugador no encontrado: EID:934
+Jugador no encontrado: EID:887
+Jugador no encontrado: EID:689
+Jugador no encontrado: EID:747
+Jugador no encontrado: EID:895
+Jugador no encontrado: EID:778
+Jugador no encontrado: EID:864
+Jugador no encontrado: EID:989
+Jugador no encontrado: EID:1021
+Jugador no encontrado: EID:925
+Jugador no encontrado: EID:650
+Jugador no encontrado: EID:864
+Jugador no encontrado: EID:894
+Jugador no encontrado: EID:785
+Jugador no encontrado: EID:842
+Jugador no encontrado: EID:689
+Jugador no encontrado: EID:926
+Jugador no encontrado: EID:989
+Jugador no encontrado: EID:649
+Jugador no encontrado: EID:894
+Jugador no encontrado: EID:702
+Jugador no encontrado: EID:889
+Jugador no encontrado: EID:738
+Jugador no encontrado: EID:716
+Jugador no encontrado: EID:716
+Jugador no encontrado: EID:605
+Jugador no encontrado: EID:649
+Jugador no encontrado: EID:738
+Jugador no encontrado: EID:830
+Jugador no encontrado: EID:778
+Jugador no encontrado: EID:864
+Jugador no encontrado: EID:714
+Jugador no encontrado: EID:1098
+Jugador no encontrado: EID:894
+Jugador no encontrado: EID:895
+Jugador no encontrado: EID:989
+Jugador no encontrado: EID:1088
+Jugador no encontrado: EID:1088
+Jugador no encontrado: EID:1048
+Jugador no encontrado: EID:952
+Jugador no encontrado: EID:747
+Jugador no encontrado: EID:1156
+Jugador no encontrado: EID:997
+Jugador no encontrado: EID:798
+Jugador no encontrado: EID:887
+*/
+
+function usuarios_puntajes($fecha){
+  $userid = false;
+  if(arg(3))$userid = arg(3);
+  $query_usuarios = db_select('users', 'u');
+  if($userid){
+    echo " Calculando para ". $userid;
+    $query_usuarios->fields('u', array('uid'))
+      ->condition('u.uid', 0,'<>')
+      ->condition('u.uid',$userid,'=')
+      ->range(0, 10);    
+  } else {
+  $query_usuarios->fields('u', array('uid'))
+    ->condition('u.uid', 0,'<>')
+    ->range(8000, 2000);
+    
+  }
+  $users = $query_usuarios->execute(); 
+  foreach ($users as $user) {
+    $query_capitan = db_select('alineaciones', 'a');
+    $query_capitan->fields('a', array('capitan'))
+      ->condition('a.user', $user->uid,'=')
+      ->condition('a.fecha', $fecha,'=');
+    $capitan = $query_capitan->execute()->fetchField();
+
+    $total = 0;
+    $query_alineacion_guardada = db_select('modulo', 'm');
+    $query_alineacion_guardada->fields('m', array('jugador'))
+      ->condition('m.user', $user->uid,'=')
+      ->condition('m.fechat', $fecha,'=');
+    $result_players = $query_alineacion_guardada->execute(); 
+    $result_play = $query_alineacion_guardada->execute()->fetchField();
+    $ds_table_1 = data_get_table('dayscore_player_points');
+    foreach ($result_players as $keyp) {
+      if(!$keyp->jugador)continue;
+      $player = entity_load_single('fichajes',$keyp->jugador);
+      $id_dayscript = $player->field_id_dayscore[LANGUAGE_NONE][0]['value'];
+      $ds_keys_1 = array("id_dayscript"=>$id_dayscript,"id_round"=>$fecha);
+      $record = $ds_table_1->handler()->load($ds_keys_1);
+      if($record && isset($record[0])){
+        $puntos = $record[0]['ptos_total'];
+        if($capitan && $capitan==$keyp->jugador)$puntos = $puntos*2;
+        $total += $puntos;
+      } else {
+        echo "Jugador no encontrado: " . $id_dayscript . " EID:".$keyp->jugador .  "<br>";
+      }
+    }
+    $ds_table_2 = data_get_table('dayscore_user_points');
+    $ds_keys_2 = array("id_user"=>$user->uid,"fecha"=>$fecha);
+    $record = $ds_table_2->handler()->load($ds_keys_2);
+//    dpm($record[0]);
+    if( isset($record[0]) && ($record[0]['puntos'] != $total)){
+      echo "Diferencia de puntaje guardado: Anterior " . $record[0]['puntos'] . " - Nuevo " . $total . "<br>";
+      $record = array();
+      $record['puntos'] = $total;
+      $record['id_user'] = $user->uid;
+      $record['fecha'] = $fecha;
+      //dpm($record);
+      $ds_table_2->handler()->save($record ,array('id_user','fecha'));
+    } else {
+      $record = array();
+      $record['puntos'] = $total;
+      $record['id_user'] = $user->uid;
+      $record['fecha'] = $fecha;
+      //dpm($record);
+      $ds_table_2->handler()->save($record ,array('id_user','fecha'));
+    }
+  }
+  return 'Calculando puntajes de usuarios';
+}
+/*
+
+              $query_usuarios = db_select('points_by_player', 'p');
+              $query_usuarios->fields('p', array('puntos'))
+                //->orderBy('id_dato', 'ASC')
+                ->condition('p.id_jugador', $keyp->jugador, '=')
+                ->condition('p.fecha', $fecha, '=');
+
+              $puntos = $query_usuarios->execute()->fetchField();
+              $total += $puntos;     
+
+        }
+*/
+
+
+          /*$pos = db_insert('points_by_user') // Table name no longer needs {}
+          ->fields(array(
+            'id_user' => $key->uid,
+            'fecha' => $fecha,
+            'puntos' => $total,
+          ))
+          ->execute();*/
+
+        /*$pos = db_insert('points_by_user') // Table name no longer needs {}
+          ->fields(array(
+            'id_user' => $key->uid,
+            'fecha' => $fecha,
+            'puntos' => $total,
+          ))
+          ->execute();*/
+      //dpm($result_play);
+
+
+ 
+/*
+ Sincroniza los datos de eventos puntuables entre el dayscore y la tabla local para una fecha determinada. 
+*/
+function obtener_eventos($fecha){
+  $figuras = array(
+    "7176"=>array(124438,150254,116410,58138,8989,10047,8928,113593,143335),
+    "7177"=>array(43947,150346,8996,8992,80950,58345,17422,43920,100517),
+    "7178"=>array(110058,77006,67182,8935,10946,10429,9326,9098,58345),
+    "7346"=>array(113593,95807,10043,43920),
+    "7347"=>array(9465,12433,10183),
+    "7348"=>array(8928,65164,10296,113593),
+    "7349"=>array(9232,81188,9217,47325),
+    "7350"=>array(43920, 9370, 148564, 9190),
+    "7351"=>array(10062, 148564, 11126, 45477),
+    "7358"=>array(47329),
+    "7359"=>array(10043)
+    );
+  $request = drupal_http_request('http://dayscore.dayscript.com/minamin/services/eventsPlayersRound/'.$fecha);
+  $data = drupal_json_decode($request->data);
+  $table = data_get_table('dayscore_player_points');
+  $keys = array("id_dayscript","id_round");
+  foreach($data['list'][0]['teams'] as $equipo){
+    foreach ($equipo as $jugador) {
+      $jugador['id_dayscript'] = $jugador['id'];
+      unset($jugador['id']);
+      $jugador['id_round'] = $fecha;
+      if(in_array($jugador['id_dayscript'],$figuras[$fecha])){
+        $jugador['figura_directv'] = 1;
+      } else {
+        $jugador['figura_directv'] = 0;
+      }
+      $jugador['ptos_total']  =   0;
+
+      $jugador['ptos_ini']    =   4*$jugador['init'];
+      $jugador['ptos_total']  +=  $jugador['ptos_ini'];
+
+      $jugador['ptos_sup']    =   2*$jugador['sup'];
+      $jugador['ptos_total']  +=  $jugador['ptos_sup'];
+
+      $jugador['ptos_figura'] =   10*$jugador['figura_directv'];
+      $jugador['ptos_total']  +=  $jugador['ptos_figura'];
+
+      if($jugador['position']==1)$value = 12;
+      else if($jugador['position']==2)$value = 8;
+      else if($jugador['position']==3)$value = 7;
+      else $value = 6;
+      $jugador['ptos_goles']  =   $value*($jugador['goal_foot']+$jugador['goal_head']+$jugador['goal_shot']);
+      $jugador['ptos_total']  +=  $jugador['ptos_goles'];
+
+      $jugador['ptos_penalgoal']  =   5*$jugador['penal_goal'];
+      $jugador['ptos_total']  +=  $jugador['ptos_penalgoal'];
+      
+      $jugador['ptos_penalerr']  =   (-5)*$jugador['penal_err'];
+      $jugador['ptos_total']  +=  $jugador['ptos_penalerr'];
+      
+      $jugador['ptos_penalcatch']  =   5*$jugador['penal_catch'];
+      $jugador['ptos_total']  +=  $jugador['ptos_penalcatch'];
+      
+      $jugador['ptos_penalgoalx']  =   2*$jugador['penal_goalx'];
+      $jugador['ptos_total']  +=  $jugador['ptos_penalgoalx'];
+      
+      $jugador['ptos_penalerrx']  =   (-3)*$jugador['penal_errx'];
+      $jugador['ptos_total']  +=  $jugador['ptos_penalerrx'];
+      
+      $jugador['ptos_penalcatchx']  =   3*$jugador['penal_catchx'];
+      $jugador['ptos_total']  +=  $jugador['ptos_penalcatchx'];
+
+      $jugador['ptos_yellow']    =   (-2)*$jugador['card_yellow'];
+      $jugador['ptos_total']  +=  $jugador['ptos_yellow'];
+
+      $jugador['ptos_red']    =   (-5)*$jugador['card_red'];
+      $jugador['ptos_total']  +=  $jugador['ptos_red'];
+
+      if($jugador['position']==1)$value = 5;
+      else if($jugador['position']==2)$value = 2;
+      else $value = 0;
+      $jugador['ptos_undefeated']  =   $value*$jugador['undefeated'];
+      $jugador['ptos_total']  +=  $jugador['ptos_undefeated'];
+
+      $jugador['ptos_autogoal']    =   (-5)*$jugador['autogoal'];
+      $jugador['ptos_total']  +=  $jugador['ptos_autogoal'];
+
+      $table->handler()->save($jugador,$keys);
+      echo $jugador['id_dayscript'] . ": " . $jugador['ptos_total'] . "<br>";
+    }    
+  }
+  return 'Eventos sincronizados.';
+}
+
+
+function actualizar_puntajes($fecha){
+/*
+  $request = drupal_http_request('http://dayscore.dayscript.com/minamin/services/eventsPlayersRound/'.$fecha);
+  $data = drupal_json_decode($request->data);
+//  dpm($data['list'][0]['teams']);
+  $equipo = $data['list'][0]['teams'][9408];
+  foreach ($equipo as $jugador) {
+    $puntos = 0;
+    //dpm($jugador);
+    if($jugador['init'] == 1){
+      $puntos += 4;
+    }
+    if($jugador['sup'] == 1){
+      $puntos += 2;
+    }
+    $query_alineacion_guardada = db_select('field_data_field_id_dayscore', 'i');
+    $query_alineacion_guardada->fields('i', array('entity_id'))
+      ->condition('i.field_id_dayscore_value', $jugador['id'])
+      ->condition('i.bundle', 'jugador');
+    $entity_id = $query_alineacion_guardada->execute()->fetchField();
+    $player = entity_load_single('fichajes',$entity_id);
+    //dpm($player);
+    $posicion = $player->field_posici_n[LANGUAGE_NONE][0]['value'];
+    //dpm('posicion '.$posicion);
+    if($entity_id == 414 || $entity_id == 501 || $entity_id == 400 || $entity_id == 298 ||
+    $entity_id == 27 || $entity_id == 152 || $entity_id == 9 || $entity_id == 393 || $entity_id == 461){
+      $puntos += 10;
+    }
+    $count_goal_foot = 0;
+    if($jugador['goal_foot'] != 0){
+      while ($count_goal_foot < $jugador['goal_foot']) {
+        switch ($posicion) {
+          case 1:
+            $puntos += 12;
+            break;
+          case 2:
+            $puntos += 8;
+            break;
+          case 3:
+            $puntos += 7;
+            break;
+          case 4:
+            $puntos += 6;
+            break;
+        }
+        ++$count_goal_foot;
+      }
+    }
+    //dpm($jugador['goal_foot'].' '.'foot'.$count_goal);
+
+    $count_goal_head = 0;
+    if($jugador['goal_head'] != 0){
+      while ($count_goal_head < $jugador['goal_head']) {
+        switch ($posicion) {
+          case 1:
+            $puntos += 12;
+            break;
+          case 2:
+            $puntos += 8;
+            break;
+          case 3:
+            $puntos += 7;
+            break;
+          case 4:
+            $puntos += 6;
+            break;
+        }
+        ++$count_goal_head;
+      }
+    }
+    $count_goal_shot = 0;
+    if($jugador['goal_shot'] != 0){
+      while ($count_goal_shot < $jugador['goal_shot']) {
+        switch ($posicion) {
+          case 1:
+            $puntos += 12;
+            break;
+          case 2:
+            $puntos += 8;
+            break;
+          case 3:
+            $puntos += 7;
+            break;
+          case 4:
+            $puntos += 6;
+            break;
+        }
+        ++$count_goal_shot;
+      }
+    }
+    $count_penal_goal = 0;
+    if($jugador['penal_goal'] != 0){
+      while ($count_penal_goal < $jugador['penal_goal']) {
+            
+            $puntos += 5;
+
+        ++$count_penal_goal;
+      }
+    }
+    $count_penal_catch = 0;
+    if($jugador['penal_catch'] != 0){
+      while ($count_penal_catch < $jugador['penal_catch']) {
+
+            $puntos += 5;
+
+        ++$count_penal_catch;
+      }
+    }
+    $count_penal_err = 0;
+    if($jugador['penal_err'] != 0){
+      while ($count_penal_err < $jugador['penal_err']) {
+
+            $puntos -= 5;
+
+        ++$count_penal_err;
+      }
+    }
+    $count_penal_goalx = 0;
+    if($jugador['penal_goalx'] != 0){
+      while ($count_penal_goalx < $jugador['penal_goalx']) {
+
+            $puntos -= 5;
+
+        ++$count_penal_goalx;
+      }
+    }
+    $count_penal_catchx = 0;
+    if($jugador['penal_catchx'] != 0){
+      while ($count_penal_catchx < $jugador['penal_catchx']) {
+
+            $puntos -= 5;
+
+        ++$count_penal_catchx;
+      }
+    }
+
+    if($jugador['card_red'] == 1){
+      $puntos -= 5;
+    }
+
+    if($jugador['card_yellow'] == 1){
+      $puntos -= 2;
+    }
+    if($jugador['autogoal'] == 1){
+      $puntos -= 2;
+    }
+    $count_autogoal = 0;
+    if($jugador['autogoal'] != 0){
+      while ($count_autogoal < $jugador['autogoal']) {
+
+            $puntos -= 5;
+
+        ++$count_autogoal;
+      }
+    }
+    if($jugador['undefeated'] == 1){
+        switch ($posicion) {
+          case 1:
+            $puntos += 5;
+            break;
+          case 2:
+            $puntos += 2;
+            break;
+
+        }
+    }
+    if(!empty($player)){
+/*      $pos = db_insert('points_by_player') // Table name no longer needs {}
+          ->fields(array(
+            'id_jugador' => $entity_id,
+            'fecha' => $fecha,
+            'puntos' => $puntos,
+          ))
+          ->execute();
+ 
+//    }
+//    dpm('puntos '.$puntos);
+//  }
+*/  return 'puntajes';
+ }
+
+function rectificar_alineaciones(){
+/*  $modulo = array(  
+  );
+  foreach ($modulo as $key) {
+    $puntos ='';
+    $query_usuarios = db_select('modulo', 'm');
+    $query_usuarios->fields('m', array('user'))
+      //->orderBy('id_dato', 'ASC')
+      ->condition('m.user', $key['user'] , '=')
+      ->condition('m.fechat', $key['fechat'], '=');
+    $puntos = $query_usuarios->execute()->fetchField();
+    if(empty($puntos)){
+      $pos = db_insert('modulo') // Table name no longer needs {}
+        ->fields(array(
+          'user' => $key['user'],
+          'jugador' => $key['jugador'],
+          'posicion' => $key['posicion'],
+          'fechat' => $key['fechat'],
+        ))
+        ->execute();
+    }
+  }
+  */
+  return 'hola';
+}
+
+/*
+  Selector de fecha para la tabla de puntajes del usuario actual
+*/
+function mipuntaje_form($form, &$form_state){
+  $fechas = entity_load('fechas');
+  foreach ($fechas as $fecha) {
+    $id = $fecha->field_id_dayscore[LANGUAGE_NONE][0]['value'];
+    $name = $fecha->field_title[LANGUAGE_NONE][0]['value'];
+    $activo = $fecha->field_activo[LANGUAGE_NONE][0]['value'];
+    if($activo != 1){
+      $fechas_array[$id] = $name; 
+    }
+  }
+  $form['fecha'] = array(
+    '#type' => 'select',
+    '#options' => $fechas_array,
+    '#default_value' => arg(2),
+    '#title' => 'Puntaje para: ',
+  );
+  return $form;
+}
+
+/*
+  Selector de fecha para la tabla de puntajes de ranking general
+*/
+function rankinggeneral_form($form, &$form_state){
+  $fechas = entity_load('fechas');
+  $fechas_array = array("0"=>"Acumulado");
+  foreach ($fechas as $fecha) {
+    $id = $fecha->field_id_dayscore[LANGUAGE_NONE][0]['value'];
+    $name = $fecha->field_title[LANGUAGE_NONE][0]['value'];
+    $activo = $fecha->field_activo[LANGUAGE_NONE][0]['value'];
+    if($activo != 1){
+      $fechas_array[$id] = $name; 
+    }
+  }
+  if(count($fechas_array)==1){
+//    $fechas_array["7175"] = "Fecha 15 - De Prueba";
+    $fechas_array["7176"] = "Fecha 16";
+    $fechas_array["7177"] = "Fecha 17";
+    $fechas_array["7178"] = "Fecha 18";
+    $fechas_array["7346"] = "Fecha 1 Cuadrangulares";
+    $fechas_array["7347"] = "Fecha 2 Cuadrangulares";
+    $fechas_array["7348"] = "Fecha 3 Cuadrangulares";
+    $fechas_array["7349"] = "Fecha 4 Cuadrangulares";
+    $fechas_array["7350"] = "Fecha 5 Cuadrangulares";
+    $fechas_array["7351"] = "Fecha 6 Cuadrangulares";
+    $fechas_array["7358"] = "Final Ida";
+    $fechas_array["7359"] = "Final Vuelta";
+  }
+  $default = (isset($_GET['t'])?$_GET['t']:0);
+  $form['fecha'] = array(
+    '#type' => 'select',
+    '#options' => $fechas_array,
+    '#default_value' => $default,
+    '#title' => 'Puntajes para: ',
+  );
+  return $form;
+}

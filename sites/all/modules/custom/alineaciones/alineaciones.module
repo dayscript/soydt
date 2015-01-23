@@ -1,0 +1,1395 @@
+<?php
+ 
+ function alineaciones_init() {
+  if(isset($_SESSION['location'])) {
+    // Possibly do something, or maybe just do it on the relevant pages rather than here
+  }
+  else {
+    // If necessary could also check that we are on a landing page, but maybe no harm to do it always
+    $_SESSION['location'] = 'prueba';
+  }
+}
+ 
+/**
+ * Implements hook_menu().
+ */
+ 
+ function alineaciones_menu(){
+	   $items['guardar/posiciones'] = array(
+    'title' => 'Guardar Posiciones',
+    'description' => 'Guardando alineaciones.',
+    'page callback' => 'guardar_alineacion',
+    'access arguments' => array('access content'),
+      );
+     $items['vender/jugador'] = array(
+    'title' => 'Vender Jugador',
+    'description' => 'Vender jugador.',
+    'page callback' => 'vender_jugador',
+    'access arguments' => array('access content'),
+      );
+     $items['jugador/capitan'] = array(
+    'title' => 'Select capitan',
+    'description' => 'Capitan jugador.',
+    'page callback' => 'select_capitan',
+    'access arguments' => array('access content'),
+      );
+     $items['jugar/alineacion/%'] = array(
+      'title' => 'Alineaciones',
+      'page callback' => 'theme',
+      'page arguments' => array('alineamiento'),
+      "access callback" => true,
+      'type' => MENU_CALLBACK
+    );
+     $items['depurar/alineaciones/%'] = array(
+      'title' => 'Depurar alineaciones de usuarios',
+      'page arguments' => array(2),
+      'description' => 'Depurar alineaciones de usuarios.',
+      'page callback' => 'depurar_alineaciones',
+      'access arguments' => array('access content'),
+      );
+
+     $items['jugar/ligas/%/%'] = array(
+      'title' => 'Proceso Ligas',
+      'description' => 'Proceso Ligas',
+      'page callback' => 'update_suscription_league',
+      'page arguments' => array(2,3),
+      'access arguments' => array('access content'),
+      'file' => 'includes/alineaciones.pages.inc',
+      );
+
+ return $items;
+ }
+
+ function alineaciones_theme() {
+    $hooks = array();
+    $hooks['alineamiento'] = array(
+        'variables' => array(
+          'data' => datos_alineamiento(),
+        ),
+        'template' => 'templates/alineaciones'
+      );
+    return $hooks;
+}
+                            
+//                       
+function depurar_alineaciones($fecha){
+  $userid = false;
+//  if(arg(3))$userid = arg(3);
+  $query_usuarios = db_select('users', 'u');
+  if($userid){
+    $query_usuarios->fields('u', array('uid'))
+      ->condition('u.uid', 0,'<>')
+      ->condition('u.uid',$userid,'=')
+      ->range(0, 1);    
+  } else {
+  $query_usuarios->fields('u', array('uid'))
+    ->condition('u.uid', 0,'<>')
+    ->range(8000, 2000);
+  }
+  $users = $query_usuarios->execute(); 
+  foreach ($users as $user) {
+    $usuario = user_load($user->uid);
+    dpm("Depurando para ". $user->uid . "<br>");
+    /*
+      Depurando capitanes para cambio de fecha
+      
+    */
+    $fecha1 = 7351;
+    $fecha2 = 7358;
+    $query_capitan = db_select('alineaciones', 'a');
+    $query_capitan->fields('a', array('capitan'))
+      ->condition('a.user', $user->uid,'=')
+      ->condition('a.fecha', $fecha1,'=');
+    $capitan1 = $query_capitan->execute()->fetchField();
+    
+    $query_capitan2 = db_select('alineaciones', 'a');
+    $query_capitan2->fields('a', array('capitan'))
+      ->condition('a.user', $user->uid,'=')
+      ->condition('a.fecha', $fecha2,'=');
+    $capitan2 = $query_capitan2->execute()->fetchField();
+    if($capitan1 && !$capitan2){
+      dpm( "Actualizando capitan de fecha activa con fecha anterior.<br>");
+      $pos = db_insert('alineaciones') // Table name no longer needs {}
+          ->fields(array(
+            'user' => $user->uid,
+            'capitan' => $capitan1,
+            'alineacion' => "4-4-2",
+            'fecha' => $fecha2,
+          ))
+          ->execute();
+    } else if(!$capitan1 && $capitan2){
+      dpm( "Actualizando capitan de fecha anterior con fecha activa.<br>");
+      $pos = db_insert('alineaciones') // Table name no longer needs {}
+          ->fields(array(
+            'user' => $user->uid,
+            'capitan' => $capitan2,
+            'alineacion' => "4-4-2",
+            'fecha' => $fecha1,
+          ))
+          ->execute();
+    }
+  
+    $query_alineacion_guardada = db_select('modulo', 'm');
+    $query_alineacion_guardada->fields('m', array('posicion','jugador','fechat'))
+      ->condition('m.user', $user->uid)
+      ->condition('m.fechat', $fecha1)
+      ->orderBy("m.id_dato", "ASC");
+    $result_alineacion_guardada = $query_alineacion_guardada->execute(); 
+    $alineacionGuardada = $query_alineacion_guardada->execute()->fetchField();
+//    dpm($alineacionGuardada);
+    if(!$alineacionGuardada){
+      $query = db_select('node', 'n');
+      $query->fields('n', array('nid'))
+        ->condition('n.type', 'alineaci_n')
+        ->condition('n.uid', $user->uid);
+      $result = $query->execute();
+      $alineacion = $query->execute()->fetchField();
+      $data = node_load($alineacion);
+      $datos['posiciones'] = posiciones_alineacion('4-4-2');
+      $datos['posicionessel'] = $datos['posiciones']['arquero'][1];
+      $contador_posiciones = 0;
+      $contador_arquero = 0;
+      $contador_defensa = 2;
+      $contador_volante = 6;
+      $contador_delantero = 10;
+  
+      $contador_arquero1 = 0;
+      $contador_defensa1 = 2;
+      $contador_volante1 = 6;
+      $contador_delantero1 = 10;
+  
+      $positions = array(
+          1 => 'po',
+          2 => 'dfi',
+          3 => 'dfc1',
+          4 => 'dfc2',
+          5 => 'dfd',
+          6 => 'mcd',
+          7 => 'mi',
+          8 => 'md',
+          9 => 'mco',
+          10 => 'di',
+          11 => 'dd',
+      );
+      $hora = getdate();
+      $hora = $hora[0];
+      $jugadores = array();
+      if($data){
+        dpm( "No existe alineación para fecha: " . $fecha1 . "<br>");
+        foreach($data->field_jugadores[LANGUAGE_NONE] as $jugador){
+          $player = entity_load_single('fichajes',$jugador['target_id']);
+          $jugadores[] = $player;
+        }
+      }
+      for ($i=0;$i<count($jugadores)-1; $i++) {
+        for($j=$i+1;$j<count($jugadores);$j++)
+          if($jugadores[$i]->field_posici_n[LANGUAGE_NONE][0]['value'] > $jugadores[$j]->field_posici_n[LANGUAGE_NONE][0]['value']){
+            $temp = $jugadores[$i];
+            $jugadores[$i] = $jugadores[$j];
+            $jugadores[$j] = $temp;
+          }
+      }
+      foreach ($jugadores as $jugador) {
+        if($jugador->id =='')continue;
+        switch ($jugador->field_posici_n[LANGUAGE_NONE][0]['value']) {
+          case 1:
+            if($contador_arquero < 1 && isset($datos['posiciones']['arquero'][1])){
+              $pos = db_insert('modulo')
+                  ->fields(array(
+                    'user' => $user->uid,
+                    'jugador' => $jugador->id,
+                    'posicion' => $datos['posiciones']['arquero'][1],
+                    'fechat' => $fecha1,
+                    'fecha' => $hora
+                  ))
+                  ->execute();
+            }
+            $contador_arquero++;
+            break;
+          case 2:
+            if($contador_defensa <= 5 && isset($datos['posiciones']['defensa'][$contador_defensa])){
+              $pos = db_insert('modulo')
+                  ->fields(array(
+                    'user' => $user->uid,
+                    'jugador' => $jugador->id,
+                    'posicion' => $datos['posiciones']['defensa'][$contador_defensa],
+                    'fechat' => $fecha1,
+                    'fecha' => $hora
+                  ))
+                  ->execute();
+            }
+            $contador_defensa++;
+            break;
+          case 3:
+            if($contador_volante <= 9 && isset($datos['posiciones']['volante'][$contador_volante])){
+              $pos = db_insert('modulo')
+                  ->fields(array(
+                    'user' => $user->uid,
+                    'jugador' => $jugador->id,
+                    'posicion' => $datos['posiciones']['volante'][$contador_volante],
+                    'fechat' => $fecha1,
+                    'fecha' => $hora
+                  ))
+                  ->execute();
+            }
+            $contador_volante++;
+            break;
+          case 4:
+            if($contador_delantero <= 11 && isset($datos['posiciones']['delantero'][$contador_delantero])){
+              $pos = db_insert('modulo')
+                  ->fields(array(
+                    'user' => $user->uid,
+                    'jugador' => $jugador->id,
+                    'posicion' => $datos['posiciones']['delantero'][$contador_delantero],
+                    'fechat' => $fecha1,
+                    'fecha' => $hora
+                  ))
+                  ->execute();
+            }
+            $contador_delantero++;
+            break;
+        }
+      } 
+    }
+  }
+  return 'revision';
+}
+
+function datos_alineamiento(){
+
+  global $user;
+  $usuario = user_load($user->uid);
+  $datos = '';
+      //$vars = array('style_name' => '100x100','path' => $usuario->field_image[LANGUAGE_NONE][0]['uri']);
+  if(isset($usuario->field_image[LANGUAGE_NONE])){
+    $datos['escudo'] = $usuario->field_image[LANGUAGE_NONE][0]['uri'];  
+  }
+  $datos['nombre_equipo'] = $usuario->field_nombre[LANGUAGE_NONE][0]['value'];
+  $datos['link_edicion'] = 'user/'.$user->uid.'/edit';        
+  $datos['module_path'] = drupal_get_path('module', 'fichajes');   
+
+  return $datos;
+}
+
+function datos_alineaciones(){
+  global $user;
+  $usuario = user_load($user->uid);
+  $query = db_select('node', 'n');
+  $query->fields('n', array('nid'))
+    ->condition('n.type', 'alineaci_n')
+    ->condition('n.uid', $user->uid);
+  $result = $query->execute();
+  $alineacion = $query->execute()->fetchField();
+  $data1 = node_load($alineacion);
+  $ultimoFichaje = $data1->field_n_fichajes[LANGUAGE_NONE][0]['value'];
+  $ultimoPresu = $data1->field_dinero[LANGUAGE_NONE][0]['value'];
+
+  $totalFichajesActuales = 0;
+
+  $query_capitan = db_select('alineaciones', 'a');
+  $query_capitan->fields('a', array('capitan'))
+    ->condition('a.user', $user->uid,'=')
+    ->condition('a.fecha', arg(2),'=');
+  $capitanid = $query_capitan->execute()->fetchField();
+
+  foreach ($data1->field_jugadores[LANGUAGE_NONE] as $target) {
+    $jugado = entity_load_single('fichajes',$target['target_id']);
+    $totalFichajesActuales += $jugado->field_precio[LANGUAGE_NONE][0]['value'];
+  }
+  $confiTotal = 500000000 - $totalFichajesActuales; 
+  $confiFicha = count($data1->field_jugadores[LANGUAGE_NONE]);
+  $fichis = 15 - $confiFicha;
+  if ($ultimoPresu != $confiTotal ){
+
+    $data1->field_dinero[LANGUAGE_NONE][0]['value'] = $confiTotal;
+
+          // Save the entity
+    node_save($data1);
+    ?>
+    <script type="text/javascript">
+    location.reload();
+    </script>
+    <?php
+  }elseif ($ultimoFichaje != $fichis) {
+    $data1->field_n_fichajes[LANGUAGE_NONE][0]['value'] = $fichis;
+    node_save($data1);
+    ?>
+    <script type="text/javascript">
+    location.reload();
+    </script>
+    <?php
+  }
+
+  $datos = '';  
+  $datos['escudo'] = $usuario->field_image[LANGUAGE_NONE][0]['uri'];
+  $datos['nombre_equipo'] = $usuario->field_nombre[LANGUAGE_NONE][0]['value'];
+
+  $query = db_select('node', 'n');
+  $query->fields('n', array('nid'))
+        ->condition('n.type', 'alineaci_n')
+        ->condition('n.uid', $user->uid);
+  $result = $query->execute();
+  $alineacion = $query->execute()->fetchField();
+  $data = node_load($alineacion);
+
+
+  $presupuesto = $data->field_dinero[LANGUAGE_NONE][0]['value'];
+  $numero_fichajes = $data->field_n_fichajes[LANGUAGE_NONE][0]['value'];
+  $alineacion = $query->execute()->fetchField();
+
+  $table = data_get_table('dayscore_user_points');
+  $keys = array("id_user"=>$user->uid,"fecha"=>arg(2));
+  $record = $table->handler()->load($keys);
+  if(isset($record[0]))$puntos = $record[0]['puntos'];
+  else $puntos = "-";
+  $datos['puntos'] = $puntos;
+
+  $query_alineacion_guardada = db_select('modulo', 'm');
+  $query_alineacion_guardada->fields('m', array('posicion','jugador','fechat'))
+    ->condition('m.user', $user->uid)
+    ->condition('m.fechat', arg(2))
+    ->orderBy("m.id_dato", "ASC");
+  $result_alineacion_guardada = $query_alineacion_guardada->execute(); 
+  $alineacionGuardada = $query_alineacion_guardada->execute()->fetchField();
+
+  if(!empty($alineacionGuardada)) {
+    foreach ($result_alineacion_guardada as $key) {
+      if(!empty($key->jugador)){
+        $jugadores_guardados[] = $key->jugador;
+      }
+      if($key->posicion == 'po'){
+        $nombre_posicion = 'portero';
+      }elseif ($key->posicion == 'dfi' || $key->posicion == 'dfc1' || $key->posicion == 'dfc2' || $key->posicion == 'dfd') {
+        $nombre_posicion = 'defensa';
+      }elseif ($key->posicion == 'mcd' || $key->posicion == 'mi' || $key->posicion == 'md' || $key->posicion == 'mco') {
+        $nombre_posicion = 'volante';
+      }elseif ($key->posicion == 'di' || $key->posicion == 'dd') {
+        $nombre_posicion = 'delantero';
+      }
+        if(!empty($key->jugador)){
+          $player = entity_load_single('fichajes',$key->jugador);
+          if($player->field_equipo[LANGUAGE_NONE][0]['value'] == 'Águilas Pereira'){
+                    $camisa = 'aguilas';
+            }else{
+              $camisa = $player->field_equipo[LANGUAGE_NONE][0]['value'];
+            }
+          if($capitanid && $capitanid==$key->jugador)$capitan = 1;
+          else $capitan = 0;
+
+/*          if($data->field_capitan[LANGUAGE_NONE][0]['target_id'] == $key->jugador){
+              $capitan = 1;
+            }else{
+              $capitan = 0;
+            }
+*/
+          foreach ($data->field_jugadores[LANGUAGE_NONE] as $jugadores_alineacion => $key_ja) {
+             if($key_ja['target_id'] == $key->jugador ){
+
+              $key_jugador = $jugadores_alineacion;
+             }
+          }
+          $nombre = $player->field_nombre[LANGUAGE_NONE][0]['value'];
+          $parte_nombre = explode(" ", $nombre); // piece1
+          $no_partes = count($parte_nombre);
+          if($no_partes == 4){
+             $nombre_final = $parte_nombre[2];
+          }elseif($no_partes == 3){
+             $nombre_final = $parte_nombre[1];
+          }
+
+          $table = data_get_table('dayscore_player_points');
+          $keys = array("id_dayscript"=>$player->field_id_dayscore[LANGUAGE_NONE][0]['value'],"id_round"=>arg(2));
+          $record = $table->handler()->load($keys);
+          if(isset($record[0]))$puntos = $record[0]['ptos_total'];
+          else $puntos = 0;
+
+/*          $query = db_select('points_by_player', 'p');
+          $query->fields('p', array('puntos'))
+              ->condition('p.id_jugador', $key->jugador)
+              ->condition('p.fecha', arg(2));
+          $result = $query->execute();
+          $puntos = $query->execute()->fetchField();
+*/
+          if($capitan )$puntos = $puntos*2;
+
+          $presupuesto_act = $presupuesto + $player->field_precio[LANGUAGE_NONE][0]['value'];
+          $datos['players'][] = array('posicion' => $key->posicion, 'id' => $key->jugador, 
+                                      'camisa' => $camisa, 'capitan' => $capitanid, 'nombre' => $nombre_final, 'key_jugador' => $key_jugador, 'presu_act' => $presupuesto_act, 'n_fichajes' => $numero_fichajes, 'alineacion' => $alineacion,'nombre_posicion' => $nombre_posicion,'puntos'=> $puntos);
+        }else{
+          $datos['players'][] = array('id' => $key->jugador, 'posicion' => $key->posicion,'nombre_posicion' => $nombre_posicion);
+        }
+      
+    }
+
+    foreach ($data->field_jugadores[LANGUAGE_NONE] as $jugador) {
+       $target_suplente = $jugador['target_id']; 
+       $player = entity_load_single('fichajes',$target_suplente);
+      if(!in_array($target_suplente, $jugadores_guardados)){
+            if($player->field_equipo[LANGUAGE_NONE][0]['value'] == 'Águilas Pereira'){
+                    $camisa = 'aguilas';
+            }else{
+              $camisa = $player->field_equipo[LANGUAGE_NONE][0]['value'];
+            }
+            $nombre = $player->field_nombre[LANGUAGE_NONE][0]['value'];
+            $parte_nombre = explode(" ", $nombre); // piece1
+            $no_partes = count($parte_nombre);
+            if($no_partes == 4){
+               $nombre_final = $parte_nombre[2];
+            }elseif($no_partes == 3){
+               $nombre_final = $parte_nombre[1];
+            }
+            $presupuesto_act = $presupuesto + $player->field_precio[LANGUAGE_NONE][0]['value'];
+            foreach ($data->field_jugadores[LANGUAGE_NONE] as $jugadores_alineacion => $key_ja) {
+             if($key_ja['target_id'] == $target_suplente ){
+
+              $key_jugador = $jugadores_alineacion;
+             }
+            }
+            switch ($player->field_posici_n[LANGUAGE_NONE][0]['value']) {
+              case 1:
+                $nombre_posicion ="portero";
+                break;
+              case 2:
+                $nombre_posicion ="defensa";
+                break;
+              case 3:
+                $nombre_posicion ="volante";
+                break;
+              case 4:
+                $nombre_posicion ="delantero";
+                break;
+            }
+          if($_SESSION['fecha'] == arg(2)){
+                      $datos['players'][] = array('posicion' => 'suplente', 'id' => $jugador['target_id'], 
+                                      'camisa' => $camisa, 'capitan' => $capitan, 'nombre' => $nombre_final, 'key_jugador' => $key_jugador, 'presu_act' => $presupuesto_act, 'n_fichajes' => $numero_fichajes, 'alineacion' => $alineacion,'nombre_posicion' => $nombre_posicion);
+          } 
+          //$suplente = entity_load_single('fichajes',$jugador['target_id']);
+
+        }
+    }
+    //dpm($jugadores_guardados);
+
+    $datos['alin'] = $alineacionGuardada;
+  }else{
+    if($_SESSION['fecha'] == arg(2)){
+    $datos['posiciones'] = posiciones_alineacion('4-4-2');
+    $datos['posicionessel'] = $datos['posiciones']['arquero'][1];
+    $contador_posiciones = 0;
+    $contador_arquero = 0;
+    $contador_defensa = 2;
+    $contador_volante = 6;
+    $contador_delantero = 10;
+
+    $contador_arquero1 = 0;
+    $contador_defensa1 = 2;
+    $contador_volante1 = 6;
+    $contador_delantero1 = 10;
+
+    $positions = array(
+        1 => 'po',
+        2 => 'dfi',
+        3 => 'dfc1',
+        4 => 'dfc2',
+        5 => 'dfd',
+        6 => 'mcd',
+        7 => 'mi',
+        8 => 'md',
+        9 => 'mco',
+        10 => 'di',
+        11 => 'dd',
+    );
+
+    foreach ($data->field_jugadores[LANGUAGE_NONE] as $jugador) {
+      $player = entity_load_single('fichajes',$jugador['target_id']);
+
+
+        switch ($player->field_posici_n[LANGUAGE_NONE][0]['value']) {
+          case 1:
+            if($contador_arquero < 1){
+              $id_posicion = $datos['posiciones']['arquero'][1];
+            }else{
+              $id_posicion = 'suplente';
+            }
+            $contador_arquero++;
+            break;
+          case 2:
+            if($contador_defensa <= 5){
+              $id_posicion = $datos['posiciones']['defensa'][$contador_defensa];
+            }else{
+              $id_posicion = 'suplente';
+            }
+            $contador_defensa++;
+            break;
+          case 3:
+            if($contador_volante <= 9){
+              $id_posicion = $datos['posiciones']['volante'][$contador_volante];
+            }else{
+              $id_posicion = 'suplente';
+            }
+            $contador_volante++;
+            break;
+          case 4:
+            if($contador_delantero <= 11){
+              $id_posicion = $datos['posiciones']['delantero'][$contador_delantero];
+            }else{
+              $id_posicion = 'suplente';
+            }
+            $contador_delantero++;
+            break;
+        }
+        $datos['ocupadas'][] = $id_posicion;
+    }
+    
+    
+          foreach ($positions as $key) {
+
+          switch ($key) {
+              case 'po':
+                if (!in_array($key, $datos['ocupadas_now'])){
+                    $nombre_posicion = 'portero';
+                      if (in_array($key, $datos['ocupadas'])){
+                        foreach ($data->field_jugadores[LANGUAGE_NONE] as $jugador) {
+                          $player = entity_load_single('fichajes',$jugador['target_id']);
+                            if ($player->field_posici_n[LANGUAGE_NONE][0]['value'] == 1) {
+                              if($player->field_equipo[LANGUAGE_NONE][0]['value'] == 'Águilas Pereira'){
+                                $camisa = 'aguilas';
+                              }else{
+                                $camisa = $player->field_equipo[LANGUAGE_NONE][0]['value'];
+                              }
+                              $nombre = $player->field_nombre[LANGUAGE_NONE][0]['value'];
+                              $parte_nombre = explode(" ", $nombre); // piece1
+                              $no_partes = count($parte_nombre);
+
+                              if($no_partes == 4){
+                                 $nombre_final = $parte_nombre[2];
+                              }elseif($no_partes == 3){
+                                 $nombre_final = $parte_nombre[1];
+                              }
+                              foreach ($data->field_jugadores[LANGUAGE_NONE] as $jugadores_alineacion => $key_ja) {
+                                 if($key_ja['target_id'] == $jugador['target_id'] ){
+
+                                  $key_jugador = $jugadores_alineacion;
+                                 }
+                              }
+                              $presupuesto_act = $presupuesto + $player->field_precio[LANGUAGE_NONE][0]['value'];
+
+                              if ($player->field_posici_n[LANGUAGE_NONE][0]['value'] == 1) {
+                                if($contador_arquero1 < 1){
+                                    $id_posicion = $datos['posiciones']['arquero'][1];
+                                  }else{
+                                    $id_posicion = 'suplente';
+                                  }
+                                  $contador_arquero1++;
+                              }
+
+                              if($data->field_capitan[LANGUAGE_NONE][0]['target_id'] == $jugador['target_id']){
+                                $capitan = 1;
+                              }else{
+                                $capitan = 0;
+                              }
+
+                              $datos['ocupadas_now'][] = $id_posicion;
+                          
+                              $datos['players'][] = array('posicion' => $id_posicion, 'id' => $jugador['target_id'], 'camisa'=>$camisa, 'capitan'=> $capitan, 'nombre' => $nombre_final, 'key_jugador' => $key_jugador,'presu_act' => $presupuesto_act,'n_fichajes' => $numero_fichajes, 'alineacion' => $alineacion, 'ocupados'=> 0,'nombre_posicion' => $nombre_posicion);
+                              $contador_posiciones++;
+                            }
+                        } 
+                      }else{
+                          $datos['players'][] = array('id' => '', 'posicion' => $key,'nombre_posicion' => $nombre_posicion);
+                          $datos['ocupadas_now'][] = $key;
+                      }  
+                    
+                }  
+              break;
+              case 'dfi':
+                  if (!in_array($key, $datos['ocupadas_now'])){
+                    $nombre_posicion = 'defensa';
+                    if (in_array($key, $datos['ocupadas'])){
+                      foreach ($data->field_jugadores[LANGUAGE_NONE] as $jugador) {
+                        $player = entity_load_single('fichajes',$jugador['target_id']);
+                          if ($player->field_posici_n[LANGUAGE_NONE][0]['value'] == 2) {
+                            if($player->field_equipo[LANGUAGE_NONE][0]['value'] == 'Águilas Pereira'){
+                              $camisa = 'aguilas';
+                            }else{
+                              $camisa = $player->field_equipo[LANGUAGE_NONE][0]['value'];
+                            }
+                            $nombre = $player->field_nombre[LANGUAGE_NONE][0]['value'];
+                            $parte_nombre = explode(" ", $nombre); // piece1
+                            $no_partes = count($parte_nombre);
+
+                            if($no_partes == 4){
+                               $nombre_final = $parte_nombre[2];
+                            }elseif($no_partes == 3){
+                               $nombre_final = $parte_nombre[1];
+                            }
+                            foreach ($data->field_jugadores[LANGUAGE_NONE] as $jugadores_alineacion => $key_ja) {
+                               if($key_ja['target_id'] == $jugador['target_id'] ){
+
+                                $key_jugador = $jugadores_alineacion;
+                               }
+                            }
+                            if($data->field_capitan[LANGUAGE_NONE][0]['target_id'] == $jugador['target_id']){
+                              $capitan = 1;
+                            }else{
+                              $capitan = 0;
+                            }
+                            $presupuesto_act = $presupuesto + $player->field_precio[LANGUAGE_NONE][0]['value'];
+
+                            if($contador_defensa1 <= 5){
+                              $id_posicion = $datos['posiciones']['defensa'][$contador_defensa1];
+                            }else{
+                              $id_posicion = 'suplente';
+                            }
+                            $contador_defensa1++;
+
+                            $datos['ocupadas_now'][] = $id_posicion;
+                        
+                            $datos['players'][] = array('posicion' => $id_posicion, 'id' => $jugador['target_id'], 'camisa'=>$camisa, 'capitan'=> $capitan, 'nombre' => $nombre_final, 'key_jugador' => $key_jugador,'presu_act' => $presupuesto_act,'n_fichajes' => $numero_fichajes, 'alineacion' => $alineacion, 'ocupados'=> 0,'nombre_posicion' => $nombre_posicion);
+                            $contador_posiciones++;
+                          }
+                      } 
+                    }else{
+                        $datos['players'][] = array('id' => '', 'posicion' => $key,'nombre_posicion' => $nombre_posicion);
+                        $datos['ocupadas_now'][] = $key;
+                    }  
+                  } 
+                break;
+              case 'dfc1':
+                  if (!in_array($key, $datos['ocupadas_now'])){
+                    $nombre_posicion = 'defensa';
+                    if (in_array($key, $datos['ocupadas'])){
+                      foreach ($data->field_jugadores[LANGUAGE_NONE] as $jugador) {
+                        $player = entity_load_single('fichajes',$jugador['target_id']);
+                          if ($player->field_posici_n[LANGUAGE_NONE][0]['value'] == 2) { 
+                            if($player->field_equipo[LANGUAGE_NONE][0]['value'] == 'Águilas Pereira'){
+                              $camisa = 'aguilas';
+                            }else{
+                              $camisa = $player->field_equipo[LANGUAGE_NONE][0]['value'];
+                            }
+                            $nombre = $player->field_nombre[LANGUAGE_NONE][0]['value'];
+                            $parte_nombre = explode(" ", $nombre); // piece1
+                            $no_partes = count($parte_nombre);
+
+                            if($no_partes == 4){
+                               $nombre_final = $parte_nombre[2];
+                            }elseif($no_partes == 3){
+                               $nombre_final = $parte_nombre[1];
+                            }
+                            foreach ($data->field_jugadores[LANGUAGE_NONE] as $jugadores_alineacion => $key_ja) {
+                               if($key_ja['target_id'] == $jugador['target_id'] ){
+
+                                $key_jugador = $jugadores_alineacion;
+                               }
+                            }
+                            $presupuesto_act = $presupuesto + $player->field_precio[LANGUAGE_NONE][0]['value'];
+
+                            if($contador_defensa1 <= 5){
+                              $id_posicion = $datos['posiciones']['defensa'][$contador_defensa1];
+                            }else{
+                              $id_posicion = 'suplente';
+                            }
+                            if($data->field_capitan[LANGUAGE_NONE][0]['target_id'] == $jugador['target_id']){
+                              $capitan = 1;
+                            }else{
+                              $capitan = 0;
+                            }
+                            $contador_defensa1++;
+
+                            $datos['ocupadas_now'][] = $id_posicion;
+                        
+                            $datos['players'][] = array('posicion' => $id_posicion, 'id' => $jugador['target_id'], 'camisa'=>$camisa, 'capitan'=> $capitan, 'nombre' => $nombre_final, 'key_jugador' => $key_jugador,'presu_act' => $presupuesto_act,'n_fichajes' => $numero_fichajes, 'alineacion' => $alineacion, 'ocupados'=> 0,'nombre_posicion' => $nombre_posicion);
+                            $contador_posiciones++;
+                          }
+                      } 
+                    }else{
+                        $datos['players'][] = array('id' => '', 'posicion' => $key,'nombre_posicion' => $nombre_posicion);
+                        $datos['ocupadas_now'][] = $key;
+                    }  
+                  } 
+                break;
+              case 'dfc2':
+                  if (!in_array($key, $datos['ocupadas_now'])){
+                    $nombre_posicion = 'defensa';
+                    if (in_array($key, $datos['ocupadas'])){
+                      foreach ($data->field_jugadores[LANGUAGE_NONE] as $jugador) {
+                        $player = entity_load_single('fichajes',$jugador['target_id']);
+                          if ($player->field_posici_n[LANGUAGE_NONE][0]['value'] == 2) {
+                            if($player->field_equipo[LANGUAGE_NONE][0]['value'] == 'Águilas Pereira'){
+                              $camisa = 'aguilas';
+                            }else{
+                              $camisa = $player->field_equipo[LANGUAGE_NONE][0]['value'];
+                            }
+                            $nombre = $player->field_nombre[LANGUAGE_NONE][0]['value'];
+                            $parte_nombre = explode(" ", $nombre); // piece1
+                            $no_partes = count($parte_nombre);
+
+                            if($no_partes == 4){
+                               $nombre_final = $parte_nombre[2];
+                            }elseif($no_partes == 3){
+                               $nombre_final = $parte_nombre[1];
+                            }
+                            foreach ($data->field_jugadores[LANGUAGE_NONE] as $jugadores_alineacion => $key_ja) {
+                               if($key_ja['target_id'] == $jugador['target_id'] ){
+
+                                $key_jugador = $jugadores_alineacion;
+                               }
+                            }
+                            if($data->field_capitan[LANGUAGE_NONE][0]['target_id'] == $jugador['target_id']){
+                              $capitan = 1;
+                            }else{
+                              $capitan = 0;
+                            }
+                            $presupuesto_act = $presupuesto + $player->field_precio[LANGUAGE_NONE][0]['value'];
+
+                            if($contador_defensa1 <= 5){
+                              $id_posicion = $datos['posiciones']['defensa'][$contador_defensa1];
+                            }else{
+                              $id_posicion = 'suplente';
+                            }
+                            $contador_defensa1++;
+
+                            $datos['ocupadas_now'][] = $id_posicion;
+                        
+                            $datos['players'][] = array('posicion' => $id_posicion, 'id' => $jugador['target_id'], 'camisa'=>$camisa, 'capitan'=> $capitan, 'nombre' => $nombre_final, 'key_jugador' => $key_jugador,'presu_act' => $presupuesto_act,'n_fichajes' => $numero_fichajes, 'alineacion' => $alineacion, 'ocupados'=> 0,'nombre_posicion' => $nombre_posicion);
+                            $contador_posiciones++;
+                          }
+                      } 
+                    }else{
+                        $datos['players'][] = array('id' => '', 'posicion' => $key,'nombre_posicion' => $nombre_posicion);
+                        $datos['ocupadas_now'][] = $key;
+                    }  
+                  }
+                break;
+              case 'dfd':
+                  if (!in_array($key, $datos['ocupadas_now'])){
+                    $nombre_posicion = 'defensa';
+                    if (in_array($key, $datos['ocupadas'])){
+                      foreach ($data->field_jugadores[LANGUAGE_NONE] as $jugador) {
+                        $player = entity_load_single('fichajes',$jugador['target_id']);
+                          if ($player->field_posici_n[LANGUAGE_NONE][0]['value'] == 2) {
+                            if($player->field_equipo[LANGUAGE_NONE][0]['value'] == 'Águilas Pereira'){
+                              $camisa = 'aguilas';
+                            }else{
+                              $camisa = $player->field_equipo[LANGUAGE_NONE][0]['value'];
+                            }
+                            $nombre = $player->field_nombre[LANGUAGE_NONE][0]['value'];
+                            $parte_nombre = explode(" ", $nombre); // piece1
+                            $no_partes = count($parte_nombre);
+
+                            if($no_partes == 4){
+                               $nombre_final = $parte_nombre[2];
+                            }elseif($no_partes == 3){
+                               $nombre_final = $parte_nombre[1];
+                            }
+                            foreach ($data->field_jugadores[LANGUAGE_NONE] as $jugadores_alineacion => $key_ja) {
+                               if($key_ja['target_id'] == $jugador['target_id'] ){
+
+                                $key_jugador = $jugadores_alineacion;
+                               }
+                            }
+                            $presupuesto_act = $presupuesto + $player->field_precio[LANGUAGE_NONE][0]['value'];
+
+                            if($contador_defensa1 <= 5){
+                              $id_posicion = $datos['posiciones']['defensa'][$contador_defensa1];
+                            }else{
+                              $id_posicion = 'suplente';
+                            }
+                            if($data->field_capitan[LANGUAGE_NONE][0]['target_id'] == $jugador['target_id']){
+                              $capitan = 1;
+                            }else{
+                              $capitan = 0;
+                            }
+
+                            $contador_defensa1++;
+
+                            $datos['ocupadas_now'][] = $id_posicion;
+                        
+                            $datos['players'][] = array('posicion' => $id_posicion, 'id' => $jugador['target_id'], 'camisa'=>$camisa,  'capitan'=> $capitan,'nombre' => $nombre_final, 'key_jugador' => $key_jugador,'presu_act' => $presupuesto_act,'n_fichajes' => $numero_fichajes, 'alineacion' => $alineacion, 'ocupados'=> 0,'nombre_posicion' => $nombre_posicion);
+                            $contador_posiciones++;
+                          }
+                      } 
+                    }else{
+                        $datos['players'][] = array('id' => '', 'posicion' => $key,'nombre_posicion' => $nombre_posicion);
+                        $datos['ocupadas_now'][] = $key;
+                    }  
+                  }
+                break;
+              case 'mcd':
+                  if (!in_array($key, $datos['ocupadas_now'])){
+                    $nombre_posicion = 'volante';
+                    if (in_array($key, $datos['ocupadas'])){
+                      foreach ($data->field_jugadores[LANGUAGE_NONE] as $jugador) {
+                        $player = entity_load_single('fichajes',$jugador['target_id']);
+                          if ($player->field_posici_n[LANGUAGE_NONE][0]['value'] == 3) {
+                            if($player->field_equipo[LANGUAGE_NONE][0]['value'] == 'Águilas Pereira'){
+                              $camisa = 'aguilas';
+                            }else{
+                              $camisa = $player->field_equipo[LANGUAGE_NONE][0]['value'];
+                            }
+                            $nombre = $player->field_nombre[LANGUAGE_NONE][0]['value'];
+                            $parte_nombre = explode(" ", $nombre); // piece1
+                            $no_partes = count($parte_nombre);
+
+                            if($no_partes == 4){
+                               $nombre_final = $parte_nombre[2];
+                            }elseif($no_partes == 3){
+                               $nombre_final = $parte_nombre[1];
+                            }
+                            foreach ($data->field_jugadores[LANGUAGE_NONE] as $jugadores_alineacion => $key_ja) {
+                               if($key_ja['target_id'] == $jugador['target_id'] ){
+
+                                $key_jugador = $jugadores_alineacion;
+                               }
+                            }
+                            $presupuesto_act = $presupuesto + $player->field_precio[LANGUAGE_NONE][0]['value'];
+
+
+                             if($contador_volante1 <= 9){
+                                $id_posicion = $datos['posiciones']['volante'][$contador_volante1];
+                              }else{
+                                $id_posicion = 'suplente';
+                              }
+                              $contador_volante1++;
+                              if($data->field_capitan[LANGUAGE_NONE][0]['target_id'] == $jugador['target_id']){
+                              $capitan = 1;
+                            }else{
+                              $capitan = 0;
+                            }
+                            $datos['ocupadas_now'][] = $id_posicion;
+                        
+                            $datos['players'][] = array('posicion' => $id_posicion, 'id' => $jugador['target_id'], 'camisa'=>$camisa, 'capitan'=> $capitan, 'nombre' => $nombre_final, 'key_jugador' => $key_jugador,'presu_act' => $presupuesto_act,'n_fichajes' => $numero_fichajes, 'alineacion' => $alineacion, 'ocupados'=> 0,'nombre_posicion' => $nombre_posicion);
+                            $contador_posiciones++;
+                          }
+                      } 
+                    }else{
+                        $datos['players'][] = array('id' => '', 'posicion' => $key,'nombre_posicion' => $nombre_posicion);
+                        $datos['ocupadas_now'][] = $key;
+                    }  
+                  }
+                break;
+              case 'mi':
+                  if (!in_array($key, $datos['ocupadas_now'])){
+                    $nombre_posicion = 'volante';
+                    if (in_array($key, $datos['ocupadas'])){
+                      foreach ($data->field_jugadores[LANGUAGE_NONE] as $jugador) {
+                        $player = entity_load_single('fichajes',$jugador['target_id']);
+                          if ($player->field_posici_n[LANGUAGE_NONE][0]['value'] == 3) {
+                            if($player->field_equipo[LANGUAGE_NONE][0]['value'] == 'Águilas Pereira'){
+                              $camisa = 'aguilas';
+                            }else{
+                              $camisa = $player->field_equipo[LANGUAGE_NONE][0]['value'];
+                            }
+                            $nombre = $player->field_nombre[LANGUAGE_NONE][0]['value'];
+                            $parte_nombre = explode(" ", $nombre); // piece1
+                            $no_partes = count($parte_nombre);
+
+                            if($no_partes == 4){
+                               $nombre_final = $parte_nombre[2];
+                            }elseif($no_partes == 3){
+                               $nombre_final = $parte_nombre[1];
+                            }
+                            foreach ($data->field_jugadores[LANGUAGE_NONE] as $jugadores_alineacion => $key_ja) {
+                               if($key_ja['target_id'] == $jugador['target_id'] ){
+
+                                $key_jugador = $jugadores_alineacion;
+                               }
+                            }
+                            $presupuesto_act = $presupuesto + $player->field_precio[LANGUAGE_NONE][0]['value'];
+
+
+                             if($contador_volante1 <= 9){
+                                $id_posicion = $datos['posiciones']['volante'][$contador_volante1];
+                              }else{
+                                $id_posicion = 'suplente';
+                              }
+                              if($data->field_capitan[LANGUAGE_NONE][0]['target_id'] == $jugador['target_id']){
+                              $capitan = 1;
+                            }else{
+                              $capitan = 0;
+                            }
+                              $contador_volante1++;
+
+                            $datos['ocupadas_now'][] = $id_posicion;
+                        
+                            $datos['players'][] = array('posicion' => $id_posicion, 'id' => $jugador['target_id'], 'camisa'=>$camisa, 'capitan'=> $capitan, 'nombre' => $nombre_final, 'key_jugador' => $key_jugador,'presu_act' => $presupuesto_act,'n_fichajes' => $numero_fichajes, 'alineacion' => $alineacion, 'ocupados'=> 0,'nombre_posicion' => $nombre_posicion);
+                            $contador_posiciones++;
+                          }
+                      } 
+                    }else{
+                        $datos['players'][] = array('id' => '', 'posicion' => $key,'nombre_posicion' => $nombre_posicion);
+                        $datos['ocupadas_now'][] = $key;
+                    }  
+                  }
+                break;
+              case 'md':
+                  if (!in_array($key, $datos['ocupadas_now'])){
+                    $nombre_posicion = 'volante';
+                    if (in_array($key, $datos['ocupadas'])){
+                      foreach ($data->field_jugadores[LANGUAGE_NONE] as $jugador) {
+                        $player = entity_load_single('fichajes',$jugador['target_id']);
+                          if ($player->field_posici_n[LANGUAGE_NONE][0]['value'] == 3) {
+                            if($player->field_equipo[LANGUAGE_NONE][0]['value'] == 'Águilas Pereira'){
+                              $camisa = 'aguilas';
+                            }else{
+                              $camisa = $player->field_equipo[LANGUAGE_NONE][0]['value'];
+                            }
+                            $nombre = $player->field_nombre[LANGUAGE_NONE][0]['value'];
+                            $parte_nombre = explode(" ", $nombre); // piece1
+                            $no_partes = count($parte_nombre);
+
+                            if($no_partes == 4){
+                               $nombre_final = $parte_nombre[2];
+                            }elseif($no_partes == 3){
+                               $nombre_final = $parte_nombre[1];
+                            }
+                            foreach ($data->field_jugadores[LANGUAGE_NONE] as $jugadores_alineacion => $key_ja) {
+                               if($key_ja['target_id'] == $jugador['target_id'] ){
+
+                                $key_jugador = $jugadores_alineacion;
+                               }
+                            }
+                            $presupuesto_act = $presupuesto + $player->field_precio[LANGUAGE_NONE][0]['value'];
+
+
+                             if($contador_volante1 <= 9){
+                                $id_posicion = $datos['posiciones']['volante'][$contador_volante1];
+                              }else{
+                                $id_posicion = 'suplente';
+                              }
+                              if($data->field_capitan[LANGUAGE_NONE][0]['target_id'] == $jugador['target_id']){
+                              $capitan = 1;
+                            }else{
+                              $capitan = 0;
+                            }
+                              $contador_volante1++;
+
+                            $datos['ocupadas_now'][] = $id_posicion;
+                        
+                            $datos['players'][] = array('posicion' => $id_posicion, 'id' => $jugador['target_id'], 'camisa'=>$camisa, 'capitan'=> $capitan, 'nombre' => $nombre_final, 'key_jugador' => $key_jugador,'presu_act' => $presupuesto_act,'n_fichajes' => $numero_fichajes, 'alineacion' => $alineacion, 'ocupados'=> 0, 'nombre_posicion' => $nombre_posicion);
+                            $contador_posiciones++;
+                          }
+                      } 
+                    }else{
+                        $datos['players'][] = array('id' => '', 'posicion' => $key, 'nombre_posicion' => $nombre_posicion);
+                        $datos['ocupadas_now'][] = $key;
+                    }  
+                  }
+                break;
+              case 'mco':
+                  if (!in_array($key, $datos['ocupadas_now'])){
+                    $nombre_posicion = 'volante';
+                    if (in_array($key, $datos['ocupadas'])){
+                      foreach ($data->field_jugadores[LANGUAGE_NONE] as $jugador) {
+                        $player = entity_load_single('fichajes',$jugador['target_id']);
+                          if ($player->field_posici_n[LANGUAGE_NONE][0]['value'] == 3) {
+                            if($player->field_equipo[LANGUAGE_NONE][0]['value'] == 'Águilas Pereira'){
+                              $camisa = 'aguilas';
+                            }else{
+                              $camisa = $player->field_equipo[LANGUAGE_NONE][0]['value'];
+                            }
+                            $nombre = $player->field_nombre[LANGUAGE_NONE][0]['value'];
+                            $parte_nombre = explode(" ", $nombre); // piece1
+                            $no_partes = count($parte_nombre);
+
+                            if($no_partes == 4){
+                               $nombre_final = $parte_nombre[2];
+                            }elseif($no_partes == 3){
+                               $nombre_final = $parte_nombre[1];
+                            }
+                            foreach ($data->field_jugadores[LANGUAGE_NONE] as $jugadores_alineacion => $key_ja) {
+                               if($key_ja['target_id'] == $jugador['target_id'] ){
+
+                                $key_jugador = $jugadores_alineacion;
+                               }
+                            }
+                            $presupuesto_act = $presupuesto + $player->field_precio[LANGUAGE_NONE][0]['value'];
+
+
+                             if($contador_volante1 <= 9){
+                                $id_posicion = $datos['posiciones']['volante'][$contador_volante1];
+                              }else{
+                                $id_posicion = 'suplente';
+                              }
+                              if($data->field_capitan[LANGUAGE_NONE][0]['target_id'] == $jugador['target_id']){
+                              $capitan = 1;
+                            }else{
+                              $capitan = 0;
+                            }
+                              $contador_volante1++;
+
+                            $datos['ocupadas_now'][] = $id_posicion;
+                        
+                            $datos['players'][] = array('posicion' => $id_posicion, 'id' => $jugador['target_id'], 'camisa'=>$camisa, 'capitan'=> $capitan, 'nombre' => $nombre_final, 'key_jugador' => $key_jugador,'presu_act' => $presupuesto_act,'n_fichajes' => $numero_fichajes, 'alineacion' => $alineacion, 'ocupados'=> 0,'nombre_posicion' => $nombre_posicion);
+                            $contador_posiciones++;
+                          }
+                      } 
+                    }else{
+                        $datos['players'][] = array('id' => '', 'posicion' => $key,'nombre_posicion' => $nombre_posicion);
+                        $datos['ocupadas_now'][] = $key;
+                    }  
+                  }
+                break;
+              case 'di':
+                  if (!in_array($key, $datos['ocupadas_now'])){
+                    $nombre_posicion = 'delantero';
+                    if (in_array($key, $datos['ocupadas'])){
+                      foreach ($data->field_jugadores[LANGUAGE_NONE] as $jugador) {
+                        $player = entity_load_single('fichajes',$jugador['target_id']);
+                          if ($player->field_posici_n[LANGUAGE_NONE][0]['value'] == 4) {
+                            if($player->field_equipo[LANGUAGE_NONE][0]['value'] == 'Águilas Pereira'){
+                              $camisa = 'aguilas';
+                            }else{
+                              $camisa = $player->field_equipo[LANGUAGE_NONE][0]['value'];
+                            }
+                            $nombre = $player->field_nombre[LANGUAGE_NONE][0]['value'];
+                            $parte_nombre = explode(" ", $nombre); // piece1
+                            $no_partes = count($parte_nombre);
+
+                            if($no_partes == 4){
+                               $nombre_final = $parte_nombre[2];
+                            }elseif($no_partes == 3){
+                               $nombre_final = $parte_nombre[1];
+                            }
+                            foreach ($data->field_jugadores[LANGUAGE_NONE] as $jugadores_alineacion => $key_ja) {
+                               if($key_ja['target_id'] == $jugador['target_id'] ){
+
+                                $key_jugador = $jugadores_alineacion;
+                               }
+                            }
+                            $presupuesto_act = $presupuesto + $player->field_precio[LANGUAGE_NONE][0]['value'];
+
+
+                                if($contador_delantero1 <= 11){
+                                  $id_posicion = $datos['posiciones']['delantero'][$contador_delantero1];
+                                }else{
+                                  $id_posicion = 'suplente';
+                                }
+                                if($data->field_capitan[LANGUAGE_NONE][0]['target_id'] == $jugador['target_id']){
+                              $capitan = 1;
+                            }else{
+                              $capitan = 0;
+                            }
+                                $contador_delantero1++;
+
+                            $datos['ocupadas_now'][] = $id_posicion;
+                        
+                            $datos['players'][] = array('posicion' => $id_posicion, 'id' => $jugador['target_id'], 'camisa'=>$camisa, 'capitan'=> $capitan, 'nombre' => $nombre_final, 'key_jugador' => $key_jugador,'presu_act' => $presupuesto_act,'n_fichajes' => $numero_fichajes, 'alineacion' => $alineacion, 'ocupados'=> 0,'nombre_posicion' => $nombre_posicion);
+                            $contador_posiciones++;
+                          }
+                      } 
+                    }else{
+                        $datos['players'][] = array('id' => '', 'posicion' => $key,'nombre_posicion' => $nombre_posicion);
+                        $datos['ocupadas_now'][] = $key;
+                    }  
+                  }
+                break;
+              case 'dd':
+                  if (!in_array($key, $datos['ocupadas_now'])){
+                    $nombre_posicion = 'delantero';
+                    if (in_array($key, $datos['ocupadas'])){
+                      foreach ($data->field_jugadores[LANGUAGE_NONE] as $jugador) {
+                        $player = entity_load_single('fichajes',$jugador['target_id']);
+                          if ($player->field_posici_n[LANGUAGE_NONE][0]['value'] == 4) {
+                            if($player->field_equipo[LANGUAGE_NONE][0]['value'] == 'Águilas Pereira'){
+                              $camisa = 'aguilas';
+                            }else{
+                              $camisa = $player->field_equipo[LANGUAGE_NONE][0]['value'];
+                            }
+                            $nombre = $player->field_nombre[LANGUAGE_NONE][0]['value'];
+                            $parte_nombre = explode(" ", $nombre); // piece1
+                            $no_partes = count($parte_nombre);
+
+                            if($no_partes == 4){
+                               $nombre_final = $parte_nombre[2];
+                            }elseif($no_partes == 3){
+                               $nombre_final = $parte_nombre[1];
+                            }
+                            foreach ($data->field_jugadores[LANGUAGE_NONE] as $jugadores_alineacion => $key_ja) {
+                               if($key_ja['target_id'] == $jugador['target_id'] ){
+
+                                $key_jugador = $jugadores_alineacion;
+                               }
+                            }
+                            $presupuesto_act = $presupuesto + $player->field_precio[LANGUAGE_NONE][0]['value'];
+
+
+                                if($contador_delantero1 <= 11){
+                                  $id_posicion = $datos['posiciones']['delantero'][$contador_delantero1];
+                                }else{
+                                  $id_posicion = 'suplente';
+                                }
+                                if($data->field_capitan[LANGUAGE_NONE][0]['target_id'] == $jugador['target_id']){
+                              $capitan = 1;
+                            }else{
+                              $capitan = 0;
+                            }
+                                $contador_delantero1++;
+
+                            $datos['ocupadas_now'][] = $id_posicion;
+                        
+                            $datos['players'][] = array('posicion' => $id_posicion, 'id' => $jugador['target_id'], 'camisa'=>$camisa,'capitan'=> $capitan,  'nombre' => $nombre_final, 'key_jugador' => $key_jugador,'presu_act' => $presupuesto_act,'n_fichajes' => $numero_fichajes, 'alineacion' => $alineacion, 'ocupados'=> 0,'nombre_posicion' => $nombre_posicion);
+                            $contador_posiciones++;
+                          }
+                      } 
+                    }else{
+                        $datos['players'][] = array('id' => '', 'posicion' => $key,'nombre_posicion' => $nombre_posicion);
+                        $datos['ocupadas_now'][] = $key;
+                    }  
+                  }
+                break;
+          }
+        
+          $datos['positions'][] = $key;
+        } 
+    }
+
+
+    //$datos['alin'] = 'no existe';
+  }
+  dpm($_SESSION);
+
+    return $datos;
+}
+
+ function posiciones_alineacion($formacion){
+  switch ($formacion) {
+    case '4-4-2':
+        $posiciones['arquero'] = array(1 => 'po');
+        $posiciones['defensa'] = array(2 => 'dfi', 3 => 'dfc1', 4 => 'dfc2',5 => 'dfd');
+        $posiciones['volante'] = array(6 => 'mcd',7 => 'mi',8 => 'md',9 => 'mco');
+        $posiciones['delantero'] = array(10 => 'di', 11 => 'dd');
+      break;
+    case '4-3-3':
+        $posiciones['arquero'] = array(1 => 'po');
+        $posiciones['defensa'] = array(2 => 'dfi', 3 => 'dfc1', 4 => 'dfc2',5 => 'dfd');
+        $posiciones['volante'] = array(6 => 'mcd',7 => 'mi',8 => 'md');
+        $posiciones['delantero'] = array(10 => 'di', 11 => 'dc',9 => 'dd');
+      break;
+    
+    default:
+      # code...
+      break;
+  }
+
+  return $posiciones;
+
+ }
+
+ function select_capitan(){
+  $id = $_POST['id'];
+  $alin = $_POST['aling'];
+  $alineado = $_POST['alineado'];
+
+  global $user;
+
+  $entities = node_load($alin);
+
+  $entities->field_capitan[LANGUAGE_NONE][0]['target_id'] = $id;
+
+  // Save the entity
+  node_save($entities);
+
+  $query = db_select('alineaciones', 'a');
+      $query->fields('a', array('id_dato'))
+          ->condition('a.user', $user->uid)
+          ->condition('a.fecha', $_SESSION['fecha']);
+      $result = $query->execute();
+      $existe = $query->execute()->fetchField();
+
+      if(empty($existe)){
+        $pos = db_insert('alineaciones') // Table name no longer needs {}
+          ->fields(array(
+            'user' => $user->uid,
+            'capitan' => $id,
+            'alineacion' => $alineado,
+            'fecha' => $_SESSION['fecha'],
+          ))
+          ->execute();
+      }else{
+        $pos_updated = db_update('alineaciones') // Table name no longer needs {}
+          ->fields(array(
+            'capitan' => $id,
+            'alineacion' => $alineado,
+          ))
+          ->condition('user', $user->uid, '=')
+          ->condition('fecha', $_SESSION['fecha'], '=')
+          ->execute();
+      }
+ }
+
+ function alineacion_form($form, &$form_state){
+
+  $fechas = entity_load('fechas');
+  foreach ($fechas as $fecha) {
+    $id = $fecha->field_id_dayscore[LANGUAGE_NONE][0]['value'];
+    $name = $fecha->field_title[LANGUAGE_NONE][0]['value'];
+
+      $activo = $fecha->field_activo[LANGUAGE_NONE][0]['value'];
+       if($activo == 1){
+       $fechaActual = $fecha->field_id_dayscore[LANGUAGE_NONE][0]['value'];
+      }
+    //dpm($fecha);
+    //dpm($name);
+        $fechas_array[$id] = $name; 
+
+  }
+
+  //dpm($fechas);
+
+
+  //unset($_SESSION['fecha']);
+    $_SESSION['fecha'] = $fechaActual;
+  
+
+    $form['fecha'] = array(
+      '#type' => 'select',
+      '#options' => $fechas_array,
+      '#default_value' => arg(2),
+      '#title' => 'Fecha',
+    );
+    $formacion['4-4-2'] = '4-4-2';
+    //$formacion['4-3-3'] = '4-3-3';
+    $form['formacion'] = array(
+      '#type' => 'select',
+      '#options' => $formacion,
+      '#default_value' => '4-4-2',
+      '#title' => 'Formación',
+    );
+    //dpm($form);
+    return $form;
+
+  
+}
+
+
+ function vender_jugador(){
+    $fechas = entity_load('fechas');
+  foreach ($fechas as $fecha) {
+      $activo = $fecha->field_activo[LANGUAGE_NONE][0]['value'];
+       if($activo == 1){
+       $condicion = $fecha->field_id_dayscore[LANGUAGE_NONE][0]['value'];
+      }
+  }
+
+  $id = $_POST['id'];
+  $alin = $_POST['aling'];
+  $presu = $_POST['presu'];
+  $ficha = $_POST['ficha'];
+  $posicion = $_POST['posicion'];
+  global $user;
+  $fichaje = $ficha + 1;
+  $alin_deleted = db_delete('modulo')
+        ->condition('user', $user->uid)
+        ->condition('fechat', $condicion)
+        ->condition('posicion', $posicion)
+        ->execute();
+
+  $entities = node_load($alin);
+
+  // Remove the field value
+  unset($entities->field_jugadores[LANGUAGE_NONE][$id]);
+
+  // Reset the array to zero-based sequential keys
+  $entities->field_jugadores[LANGUAGE_NONE] = array_values($entities->field_jugadores[LANGUAGE_NONE]);
+  $entities->field_dinero[LANGUAGE_NONE][0]['value'] = $presu;
+  $entities->field_n_fichajes[LANGUAGE_NONE][0]['value'] = $fichaje;
+
+  // Save the entity
+  node_save($entities);
+ }
+
+function guardar_alineacion(){
+
+  $fechas = entity_load('fechas');
+  foreach ($fechas as $fecha) {
+      $activo = $fecha->field_activo[LANGUAGE_NONE][0]['value'];
+       if($activo == 1){
+       $condicion = $fecha->field_id_dayscore[LANGUAGE_NONE][0]['value'];
+      }
+  }
+  global $user;
+  $ids = $_POST['id'];
+  $ides = explode(",", $ids);
+  $posiciones = $_POST['posiciones'];
+  $posces = explode(",", $posiciones);
+  $horaServer = getdate();
+    
+    $i = 0;
+    foreach ($ides as $key) {
+
+      $query = db_select('modulo', 'm');
+      $query->fields('m', array('id_dato'))
+          ->condition('m.user', $user->uid)
+          ->condition('m.posicion', $posces[$i])
+          ->condition('m.fechat', $condicion);
+      $result = $query->execute();
+      $existe = $query->execute()->fetchField();
+
+      if(empty($existe)){
+        $pos = db_insert('modulo') // Table name no longer needs {}
+          ->fields(array(
+            'user' => $user->uid,
+            'fecha' => $horaServer[0],
+            'jugador' => $key,
+            'posicion' => $posces[$i],
+            'fechat' => $condicion,
+          ))
+          ->execute();
+      }else{
+        $pos_updated = db_update('modulo') // Table name no longer needs {}
+          ->fields(array(
+            'jugador' => $key,
+            'fecha' => $horaServer[0],
+          ))
+          ->condition('user', $user->uid, '=')
+          ->condition('posicion', $posces[$i], '=')
+          ->condition('fechat', $condicion, '=')
+          ->execute();
+      }
+      $i++;
+    }
+
+
+  /* $nid = db_insert('modulo') // Table name no longer needs {}
+  ->fields(array(
+    'nombre' => $form_state['values']['nombre'],
+    'apellido' => $form_state['values']['apellido'],
+    'numero_identificacion' => $form_state['values']['numero_identificacion'],
+    'correo_electronico' => $form_state['values']['email'],
+    'telefono' => $form_state['values']['telefono'],
+    'celular' => $form_state['values']['celular'],
+  ))
+  ->execute();*/
+}
+
+function alineaciones_update_7105() {
+  $schema['points_by_user'] = array(
+     'description' => 'Almacena los puntos por jugador.',
+    'fields' => array(
+      'id_dato' => array(
+        'description' => 'El id de la entrada.',
+        'type' => 'serial',
+        'unsigned' => TRUE,
+        'not null' => TRUE,
+      ),
+      'id_user' => array(
+        'description' => 'id jugador.',
+        'type' => 'varchar',
+        'length' => 255,
+      ),
+      'fecha' => array(
+        'description' => 'fecha.',
+        'type' => 'varchar',
+        'length' => 255,
+      ),
+      'puntos' => array(
+        'description' => 'puntos',
+        'type' => 'int',
+        'unsigned' => TRUE,
+        'not null' => TRUE,
+      ),
+    ),
+    'primary key' => array('id_dato'),
+  );
+  db_create_table('points_by_user', $schema['points_by_user']);
+}

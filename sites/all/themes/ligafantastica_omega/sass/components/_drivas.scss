@@ -1,0 +1,342 @@
+.pass-form{
+position: absolute;
+border: 1px solid #ddd;
+-webkit-border-radius: 8px;
+-moz-border-radius: 8px;
+border-radius: 8px;
+width: 140px;
+height: auto;
+padding-left: 1em;
+padding-right: 2em;
+padding-top: 1em;
+padding-bottom: 1em;
+z-index: 100000000000;
+box-shadow: 1px 1px 5px #333;
+background-color: #33629A;
+margin-left: -5%;
+margin-top: -9.5em;
+}
+.pass-form label{
+	color: #FFF;
+	padding-bottom: .1em;
+	text-align: center; 
+	margin-left: .7em;
+	font-family: "dinmittelschrift", sans-serif;
+}
+.pass-form .form-text{
+	margin-left: .6em;
+	margin-bottom: 1em;
+	margin-top: 1em;
+}
+.pass-form .form-submit{
+	margin-right: .2em;
+}
+.views-field-ver-liga .form-submit{
+	background: #898484;
+	color: #FFFFFF;
+padding: .4em;
+padding-right: 1em;
+padding-left: .9em;
+font-size: .9em;
+text-decoration: none;
+min-width: 49px;
+font-weight: normal;
+font-family: "Open Sans", sans-serif;
+}
+.view-pruebas .view-content{
+	margin-top: -2.7em;
+}
+.mis-ligas{
+	margin-top: 5em;
+}
+.page-jugar-ligas .group-left .mis-ligas table {
+margin-top: 0em;
+}
+.form-league{
+	width: 95%;
+	color: #5f6062;
+	font-family: "Open Sans", sans-serif;
+	text-transform: uppercase;
+	font-size: .7em;
+}
+.form-league label{
+	display: inline-block;
+	font-weight: normal !important;
+	padding-right: 1em;
+}
+.form-league .password-parent,
+.form-league .field-name-field-clave-pass,
+.form-league .form-item-title,
+.form-league .form-item-field-tipo-de-liga-und{
+	width: 50%;
+	float: left;
+}
+.form-league .form-item-field-tipo-de-liga-und select{
+	width: 60%;
+}
+.form-league .form-item-title input{
+	width: 57%;
+}
+.form-league .field-name-field-participantes,
+.form-league .vertical-tabs,
+.form-league .password-strength,
+.form-league div.password-confirm,
+.form-league .form-type-textarea .grippie,
+.form-league .form-item-field-clave-und-0-pass2 .description,
+.form-league .password-indicator,
+.form-league .password-strength-title{
+	display: none;
+}
+.form-league .field-name-field-clave-pass label{
+	padding-right: 4.3em;
+}
+.form-league .field-name-field-clave-pass input{
+	width: 60%;
+}
+.form-league .field-name-field-repetir-clave label{
+	padding-right: 2.5em;
+}
+.form-league .field-name-field-repetir-clave input{
+	width: 28.4%;
+}
+.form-league .form-type-textarea label{
+	float: left;
+	margin-top: 1em;
+}
+.form-league .form-type-textarea .form-textarea{
+	width: 82%;
+	float: left;
+	background: #fff;
+	border-radius: 5px;
+	color: #5f6062;
+	font-size: .8em;
+	padding: 5px 10px;
+	margin-top: 1em;
+}
+.form-league .field-name-field-email-de-amigos{
+	margin-top: 1em;
+}
+.form-league .field-name-field-email-de-amigos label{width: 8.4em;}
+.form-league .field-name-field-email-de-amigos .description{margin-left: 10.4em;
+padding-top: 7em;}
+.form-league .form-submit{
+	background: url(/sites/all/themes/ligafantastica_omega/css/img/blocktitle-bg.png) no-repeat 0 0;
+	background-size: 100%;
+	color: #fff;
+	font-family: "dinmittelschrift", sans-serif;
+	font-size: 2em;
+	float: right;
+	padding-left: 10%;
+	padding-right: 10%;
+	padding-top: 2%;
+	padding-bottom: 1%;
+	font-weight: normal;
+}
+.page-jugar-ligas .l-content{
+	width: 100%;
+	float: right;
+	margin-left: 0;
+	margin-right: 0;
+	clear: none;
+}
+.page-jugar-ligas .group-left,
+.page-jugar-ligas .group-right{
+	width: 50%;
+	float: left;
+	color: #5f6062;
+	font-family: "Open Sans", sans-serif;
+	font-weight: normal;
+	text-transform: lowercase;
+}
+.page-jugar-ligas .group-right table {
+	width: 100%;
+}
+
+.page-jugar-ligas .group-left table{
+	width: 34.5em;
+	margin-top: 4em;
+}
+.unirse-pass,
+.unirse{
+	background-color: #33629A;
+	color: #FFFFFF;
+	padding: .4em;
+	font-size: .9em;
+	text-decoration: none;
+}
+.salir{
+	background-color: #D90000;
+	color: #FFFFFF;
+	padding: .4em;
+	font-size: .9em;
+	text-decoration: none;
+	padding-right: 1em;
+padding-left: .9em;
+}
+.views-throbbing{ display: none}
+
+.group-left thead th,
+.group-right thead th{
+	background: none;
+	font-weight: normal;
+	text-transform: uppercase;
+	color: #712740;
+	font-size: .8em;
+	padding: .3em;
+	border-bottom: 1px solid #9f9f9e;
+}
+.group-left tbody tr,
+.group-right tbody tr{
+	background: none;
+
+}
+.group-left tbody td,
+.group-right tbody td {
+	padding-bottom: .5em;
+	padding-top: .5em;
+	border-bottom: 1px solid #9f9f9e;
+	font-size: .75em;
+	color: #333333;
+	text-transform: uppercase;
+}
+.group-left tbody .views-field-points,
+.group-right tbody .views-field-points,
+.group-right tbody .views-field-points16,
+.group-right tbody .views-field-points17{
+	color: #b92424;
+} 
+.group-left .nombre-equipo{
+	color: #000;
+border-bottom: 1px solid #33629a;
+font-size: 1.7em;
+padding-top: .5em;
+font-family: "dinmittelschrift", sans-serif;
+width: 95%;
+margin-top: -3%;
+font-weight: 500;
+text-transform: uppercase;
+}
+.group-left .datos-equipo .nombre-equipo {
+color: #000;
+border-bottom: 1px solid #33629a;
+font-size: 1.7em;
+margin-left: 115px;
+padding-top: .5em;
+font-family: "dinmittelschrift", sans-serif;
+width: 73%;
+margin-top: -3%;
+font-weight: 500;}
+.group-left .escudo{
+	float: left;
+	margin-right: 20px;
+	width: 17%;
+}
+.group-left .data-equipo{
+	margin-top: 4em;
+}
+
+.text-total{
+	border-bottom: none !important;
+	text-align: right;
+	padding-right: 1em;
+	font-weight: bold;
+	font-size: .8em !important;
+}
+.count-total{
+	color: #b92424 !important;
+	font-weight: bold;
+	border-bottom: none !important;
+	font-size: .9em !important;
+}
+
+
+/*
+  Resultados
+  
+*/
+
+.page-jugar-resultados .l-content{
+	width: 100%;
+	float: right;
+	margin-left: 0;
+	margin-right: 0;
+	clear: none;
+}
+.page-jugar-resultados .group-left,
+.page-jugar-resultados .group-right{
+	width: 50%;
+	float: left;
+	color: #5f6062;
+	font-family: "Open Sans", sans-serif;
+	font-weight: normal;
+	text-transform: lowercase;
+}
+.page-jugar-resultados .group-right table {
+	width: 100%;
+}
+
+.page-jugar-resultados .group-left table{
+	width: 34.5em;
+	margin-top: 4em;
+}
+
+.group-left thead th,
+.group-right thead th{
+	background: none;
+	font-weight: normal;
+	text-transform: uppercase;
+	color: #712740;
+	font-size: .8em;
+	padding: .3em;
+	border-bottom: 1px solid #9f9f9e;
+}
+.group-left tbody tr,
+.group-right tbody tr{
+	background: none;
+
+}
+.group-left tbody td,
+.group-right tbody td {
+	padding-bottom: .5em;
+	padding-top: .5em;
+	border-bottom: 1px solid #9f9f9e;
+	font-size: .75em;
+	color: #333333;
+	text-transform: uppercase;
+}
+.group-left tbody .views-field-points,
+.group-right tbody .views-field-points{
+	color: #b92424;
+} 
+.group-left .datos-equipo .nombre-equipo {
+color: #000;
+border-bottom: 1px solid #33629a;
+font-size: 1.7em;
+margin-left: 115px;
+padding-top: .5em;
+font-family: "dinmittelschrift", sans-serif;
+width: 73%;
+margin-top: -3%;
+font-weight: 500;}
+.group-left .escudo{
+	float: left;
+	margin-right: 20px;
+	width: 17%;
+}
+.group-left .data-equipo{
+	margin-top: 4em;
+}
+
+.text-total{
+	border-bottom: none !important;
+	text-align: right;
+	padding-right: 1em;
+	font-weight: bold;
+	font-size: .8em !important;
+}
+.count-total{
+	color: #b92424 !important;
+	font-weight: bold;
+	border-bottom: none !important;
+	font-size: .9em !important;
+}

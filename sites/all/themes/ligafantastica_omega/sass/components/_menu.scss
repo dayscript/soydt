@@ -1,0 +1,55 @@
+#block-menu-menu-jugar{
+  display: none;
+  .block__title{
+    display: none;
+  }
+  @include breakpoint($tablet, true){
+    display: block;
+    margin-top: 45px;
+  }
+  .menu{
+    margin: 0px auto;
+    width: 100%;
+    li{
+      display: inline-block;
+      font-family: $fontMain;
+      list-style: none;
+      a{        
+        color: $darkgrey;
+        display: inline-block;
+        font-size: 1.2em;
+        margin: 0 30px;
+        padding: 14px 10px;
+        position: relative;
+        text-decoration: none;
+        text-transform: uppercase;
+      }
+      ul.menu{ // Ocultar el submenu:
+        display: none;
+      }
+      &.active-trail{
+        a{
+          background: $blue;
+          color: $white;
+          &:after,
+          &:before{
+            content: '';
+            background: url(../images/sprite.png) no-repeat 0px -274px;
+            display: inline-block;
+            height: 35px;
+            left: -25px;
+            position: absolute;
+            top: 9px;
+            width: 28px;
+          }
+          &:after{
+            content: '';
+            background-position: -55px -274px;
+            left: initial;
+            right: -28px;
+          }
+        }
+      }
+    }
+  }
+}

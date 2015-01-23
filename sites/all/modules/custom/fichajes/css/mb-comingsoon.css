@@ -1,0 +1,189 @@
+@import url(http://fonts.googleapis.com/css?family=Open+Sans+Condensed:700&text=0123456789);
+.cuenta-regresiva{
+  float: right;
+}
+.tile-count {
+  float: left;
+  display: inline-block;
+  line-height: 6em;
+  text-transform: uppercase;
+  padding-right: .7em;
+  font-size: 18px;
+}
+#countdown{
+ /* float: left;*/
+display: inline-block;
+}
+.counter-group {
+  margin-top: 1em;
+  display: inline-block;
+}
+.counter-group:before,
+.counter-group:after {
+  content: " ";
+  display: table;
+}
+.counter-group:after {
+  clear: both;
+}
+.counter-block {
+  float: left;
+  margin-right: 5px;
+  background: url(/sites/all/modules/custom/fichajes/images/bg-count.png);
+  width: 79px;
+height: 67px;
+}
+.counter-block .counter {
+  position: relative;
+  height: 42px;
+  margin-left: .8em;
+  margin-right: .9em;
+  margin-top: .3em;
+  overflow: hidden;
+}
+.counter-block .counter .number {
+  padding: 5%;
+  width: auto;
+  height: auto;
+  color: #FFF;
+  position: absolute;
+  font-size: 28px;
+  line-height: 38px;
+  top: -10000px;
+  font-family: "AdvDigital7", sans-serif;
+}
+.counter-block .counter .number.tens {
+  left: 0;
+}
+.counter-block .counter .number.units {
+  left: 50%;
+}
+.counter-block .counter .number.hundreds {
+  display: none;
+}
+.counter-block .counter .number.show {
+  top: 0;
+  z-index: 2;
+}
+.counter-block .counter .number.hidden-down {
+  top: 100%;
+}
+.counter-block .counter .number.hidden-up {
+  top: -100%;
+  z-index: 100;
+}
+.counter-block .counter.with-hundreds {
+  width: 300px;
+}
+.counter-block .counter.with-hundreds .number {
+  width: 30.66%;
+}
+.counter-block .counter.with-hundreds .number.tens {
+  left: 33.33%;
+}
+.counter-block .counter.with-hundreds .number.units {
+  left: 66.66%;
+}
+.counter-block .counter.with-hundreds .number.hundreds {
+  display: block;
+  left: 0;
+}
+
+.counter-block .counter-caption {
+  font-size: .4em;
+  text-align: center;
+  margin-top: .4em;
+  color: #FFF;
+  font-family: "AdvDigital7", sans-serif;
+}
+.puntos-box{
+  margin-top: 50px;
+  width: 500px;
+  margin-right: auto;
+  margin-left: auto;
+}
+.puntos-por-fecha{
+  background: url(/sites/all/modules/custom/fichajes/images/bg-count.png);
+  width: 79px;
+  height: 67px;
+  margin: 0 auto;
+  font-family: "AdvDigital7", sans-serif;
+  color: #FFF;
+}
+.puntos-por-fecha span{
+  text-transform: uppercase;
+  font-size: .5em;
+  text-align: center;
+  margin-left: 8px;
+}
+.puntos-por-fecha div{
+  font-size: 1.5em;
+  text-align: center;
+  margin-bottom: -15px;
+}
+.page-jugar-alineacion #page-wrap{
+  margin-top: 30px !important;
+}
+@media (max-width: 992px) {
+  .counter-group {
+    margin: 10px auto;
+  }
+  .counter-block {
+    margin-right: 10px;
+  }
+  .counter-block .counter {
+    width: 120px;
+    height: 100px;
+    overflow: hidden;
+
+  }
+  .counter-block .counter .number {
+    font-size: 108px;
+    line-height: 90px;
+  }
+  .counter-block .counter.with-hundreds {
+    width: 180px;
+  }
+  .counter-block .counter-caption {
+    font-size: 100%;
+  }
+}
+@media (max-width: 768px) {
+  .counter-group {
+    margin: 0 auto;
+  }
+  .counter-block {
+    margin-right: 8px;
+  }
+  .counter-block .counter {
+    width: 96px;
+    height: 80px;
+  }
+  .counter-block .counter .number {
+    font-size: 86px;
+    line-height: 72px;
+  }
+  .counter-block .counter.with-hundreds {
+    width: 144px;
+  }
+  .counter-block .counter-caption {
+    font-size: 85%;
+  }
+}
+@media (max-width: 480px) {
+  .counter-block .counter {
+    width: 61px;
+    height: 52px;
+  }
+  .counter-block .counter .number {
+    font-size: 55px;
+    line-height: 50px;
+  }
+  .counter-block .counter.with-hundreds {
+    width: 91px;
+  }
+  .counter-block .counter-caption {
+    font-size: 70%;
+  }
+}
+}

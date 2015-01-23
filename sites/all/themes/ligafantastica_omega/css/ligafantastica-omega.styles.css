@@ -1,0 +1,3309 @@
+@charset "UTF-8";
+/* Main Font: dinmittelschrift*/
+@font-face {
+  font-family: 'dinmittelschrift';
+  src: url("fonts/dinmittelschrift/dinmittelschriftstd.eot");
+  src: url("fonts/dinmittelschrift/dinmittelschriftstd?#iefix") format("embedded-opentype"), url("fonts/dinmittelschrift/dinmittelschriftstd.woff") format("woff"), url("fonts/dinmittelschrift/dinmittelschriftstd.ttf") format("truetype"), url("fonts/dinmittelschrift/dinmittelschriftstd.svg") format("svg");
+  font-weight: normal;
+  font-style: normal; }
+@font-face {
+  font-family: 'AdiHauPSConMd';
+  src: url("fonts/adihaupsconmd.eot");
+  src: url("fonts/adihaupsconmd.eot?#iefix") format("embedded-opentype"), url("fonts/adihaupsconmd.woff") format("woff"), url("fonts/adihaupsconmd.ttf") format("truetype"), url("fonts/adihaupsconmd.svg#AdiHauPSConMd") format("svg");
+  font-weight: normal;
+  font-style: normal; }
+@font-face {
+  font-family: 'AdiHauPSConBd';
+  src: url("fonts/adihauspsconbd.eot");
+  src: url("fonts/adihauspsconbd.eot?#iefix") format("embedded-opentype"), url("fonts/adihauspsconbd.woff") format("woff"), url("fonts/adihauspsconbd.ttf") format("truetype"), url("fonts/adihauspsconbd.svg#AdiHauPSConMb") format("svg");
+  font-weight: normal;
+  font-style: normal; }
+@font-face {
+  font-family: 'AdiHauPSConReg';
+  src: url("fonts/adihaupsconreg.eot");
+  src: url("fonts/adihaupsconreg.eot?#iefix") format("embedded-opentype"), url("fonts/adihaupsconreg.woff") format("woff"), url("fonts/adihaupsconreg.ttf") format("truetype"), url("fonts/adihaupsconreg.svg#AdiHauPSConReg") format("svg");
+  font-weight: normal;
+  font-style: normal; }
+@font-face {
+  font-family: 'AdvDigital7';
+  src: url("fonts/advanceddotdigital7.eot");
+  src: url("fonts/advanceddotdigital7.eot?#iefix") format("embedded-opentype"), url("fonts/advanceddotdigital7.woff") format("woff"), url("fonts/advanceddotdigital7.ttf") format("truetype"), url("fonts/advanceddotdigital7.svg#AdvDigital7") format("svg");
+  font-weight: normal;
+  font-style: normal; }
+@font-face {
+  font-family: 'clannan_0';
+  src: url("fonts/clannan_0.eot");
+  src: local("☺"), url("fonts/clannan_0.woff") format("woff"), url("fonts/clannan_0.ttf") format("truetype"), url("fonts/clannan_0.svg") format("svg");
+  font-weight: normal;
+  font-style: normal; }
+@font-face {
+  font-family: 'clannam_0';
+  src: url("fonts/clannam_0.eot");
+  src: local("☺"), url("fonts/clannam_0.woff") format("woff"), url("fonts/clannam_0.ttf") format("truetype"), url("fonts/clannam_0.svg") format("svg");
+  font-weight: normal;
+  font-style: normal; }
+@font-face {
+  font-family: 'clanna1_0';
+  src: url("fonts/clanna1_0.eot");
+  src: local("☺"), url("fonts/clanna1_0.woff") format("woff"), url("fonts/clanna1_0.ttf") format("truetype"), url("fonts/clanna1_0.svg") format("svg");
+  font-weight: normal;
+  font-style: normal; }
+@font-face {
+  font-family: 'pf_tempesta_seven';
+  src: url("fonts/pf_tempesta/pf_tempesta_seven.eot");
+  src: url("fonts/pf_tempesta/pf_tempesta_seven?#iefix") format("embedded-opentype"), url("fonts/pf_tempesta/pf_tempesta_seven.woff") format("woff"), url("fonts/pf_tempesta/pf_tempesta_seven.ttf") format("truetype"), url("fonts/pf_tempesta/pf_tempesta_seven.svg") format("svg");
+  font-weight: normal;
+  font-style: normal; }
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/dayscript\/ligafantastica2\/sites\/all\/themes\/ligafantastica_omega\/sass\/abstractions\/_helpers\.scss}line{font-family:\000031}}
+.right {
+  text-align: right;
+  margin-right: 15px; }
+
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/dayscript\/ligafantastica2\/sites\/all\/themes\/ligafantastica_omega\/sass\/abstractions\/_helpers\.scss}line{font-family:\000035}}
+.left {
+  text-align: left;
+  margin-left: 15px; }
+
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/dayscript\/ligafantastica2\/sites\/all\/themes\/ligafantastica_omega\/sass\/abstractions\/_helpers\.scss}line{font-family:\000039}}
+.inverted {
+  color: white; }
+
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/dayscript\/ligafantastica2\/sites\/all\/themes\/ligafantastica_omega\/sass\/abstractions\/_helpers\.scss}line{font-family:\0000312}}
+.upper {
+  text-transform: uppercase; }
+
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/dayscript\/ligafantastica2\/sites\/all\/themes\/ligafantastica_omega\/sass\/base\/_base\.scss}line{font-family:\000031}}
+a, a.active {
+  color: #eea51c;
+  text-decoration: none; }
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/dayscript\/ligafantastica2\/sites\/all\/themes\/ligafantastica_omega\/sass\/base\/_base\.scss}line{font-family:\000034}}
+  a:hover, a.active:hover {
+    text-decoration: underline; }
+
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/dayscript\/ligafantastica2\/sites\/all\/themes\/ligafantastica_omega\/sass\/base\/_base\.scss}line{font-family:\000038}}
+img {
+  vertical-align: middle; }
+
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/dayscript\/ligafantastica2\/sites\/all\/themes\/ligafantastica_omega\/sass\/base\/_base\.scss}line{font-family:\0000312}}
+h1, h2, h3 {
+  color: #000; }
+
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/dayscript\/ligafantastica2\/sites\/all\/themes\/ligafantastica_omega\/sass\/base\/_base\.scss}line{font-family:\0000317}}
+h2.block__title {
+  font-family: "dinmittelschrift", sans-serif;
+  font-weight: normal;
+  border-bottom: 1px solid #33629a;
+  margin-top: 0;
+  text-transform: uppercase; }
+
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/dayscript\/ligafantastica2\/sites\/all\/themes\/ligafantastica_omega\/sass\/base\/_base\.scss}line{font-family:\0000326}}
+.block.fancy h2.block__title {
+  color: white;
+  background: url("img/blocktitle-bg.png") center center no-repeat;
+  width: 290px;
+  height: 59px;
+  margin: 0 auto;
+  text-align: center;
+  padding-top: 12px;
+  border-bottom: none;
+  margin-top: 15px;
+  margin-bottom: 15px; }
+
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/dayscript\/ligafantastica2\/sites\/all\/themes\/ligafantastica_omega\/sass\/base\/_forms\.scss}line{font-family:\000031}}
+input[type="text"],
+input[type="password"] {
+  background: #fff;
+  border-radius: 5px;
+  color: #5f6062;
+  border: none;
+  font-size: .8em;
+  padding: 5px 10px;
+  width: 100%; }
+
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/dayscript\/ligafantastica2\/sites\/all\/themes\/ligafantastica_omega\/sass\/base\/_forms\.scss}line{font-family:\0000311}}
+input[type="submit"] {
+  background: #000;
+  border: none;
+  color: #fff;
+  font-family: "dinmittelschrift", sans-serif;
+  font-size: 1.15em;
+  text-transform: uppercase;
+  padding: 5px 10px; }
+
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/dayscript\/ligafantastica2\/sites\/all\/themes\/ligafantastica_omega\/sass\/base\/_forms\.scss}line{font-family:\0000320}}
+.form-actions {
+  text-align: center; }
+
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/dayscript\/ligafantastica2\/sites\/all\/themes\/ligafantastica_omega\/sass\/base\/_media\.scss}line{font-family:\000031}}
+img, media {
+  max-width: 100%; }
+
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/dayscript\/ligafantastica2\/sites\/all\/themes\/ligafantastica_omega\/sass\/components\/_alineacion\.scss}line{font-family:\000031}}
+.page-jugar-alineacion {
+  overflow-x: hidden; }
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/dayscript\/ligafantastica2\/sites\/all\/themes\/ligafantastica_omega\/sass\/components\/_alineacion\.scss}line{font-family:\000033}}
+  .page-jugar-alineacion .l-content {
+    width: 100%; }
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/dayscript\/ligafantastica2\/sites\/all\/themes\/ligafantastica_omega\/sass\/components\/_alineacion\.scss}line{font-family:\000036}}
+  .page-jugar-alineacion h1 {
+    display: none; }
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/dayscript\/ligafantastica2\/sites\/all\/themes\/ligafantastica_omega\/sass\/components\/_alineacion\.scss}line{font-family:\000039}}
+  .page-jugar-alineacion #block-fichajes-mi-carrito {
+    float: right; }
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/dayscript\/ligafantastica2\/sites\/all\/themes\/ligafantastica_omega\/sass\/components\/_alineacion\.scss}line{font-family:\0000311}}
+    .page-jugar-alineacion #block-fichajes-mi-carrito h2 {
+      border: 0; }
+    @media (min-width: 1em) {
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/dayscript\/ligafantastica2\/sites\/all\/themes\/ligafantastica_omega\/sass\/components\/_alineacion\.scss}line{font-family:\000039}}
+      .page-jugar-alineacion #block-fichajes-mi-carrito {
+        margin-top: 120px; } }
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/dayscript\/ligafantastica2\/sites\/all\/themes\/ligafantastica_omega\/sass\/components\/_alineacion\.scss}line{font-family:\0000318}}
+  .page-jugar-alineacion #page-wrap {
+    margin-top: 90px; }
+
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/dayscript\/ligafantastica2\/sites\/all\/themes\/ligafantastica_omega\/sass\/components\/_alineacion\.scss}line{font-family:\0000322}}
+.datos-equipo {
+  margin-top: 3em; }
+  @media (min-width: 1em) {
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/dayscript\/ligafantastica2\/sites\/all\/themes\/ligafantastica_omega\/sass\/components\/_alineacion\.scss}line{font-family:\0000322}}
+    .datos-equipo {
+      margin-top: 0; } }
+  @media (min-width: 1em) {
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/dayscript\/ligafantastica2\/sites\/all\/themes\/ligafantastica_omega\/sass\/components\/_alineacion\.scss}line{font-family:\0000327}}
+    .datos-equipo .escudo {
+      float: left;
+      margin-right: 20px;
+      width: 10%; } }
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/dayscript\/ligafantastica2\/sites\/all\/themes\/ligafantastica_omega\/sass\/components\/_alineacion\.scss}line{font-family:\0000333}}
+  .datos-equipo .escudo img {
+    border-radius: 100%; }
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/dayscript\/ligafantastica2\/sites\/all\/themes\/ligafantastica_omega\/sass\/components\/_alineacion\.scss}line{font-family:\0000337}}
+  .datos-equipo .nombre-equipo {
+    color: #fff;
+    font-family: .datos-equipo .nombre-equipo fontMain;
+    font-size: 1em;
+    margin-bottom: 10px;
+    margin-left: 10px;
+    text-transform: uppercase;
+    width: 60%; }
+    @media (min-width: 1em) {
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/dayscript\/ligafantastica2\/sites\/all\/themes\/ligafantastica_omega\/sass\/components\/_alineacion\.scss}line{font-family:\0000337}}
+      .datos-equipo .nombre-equipo {
+        color: #000;
+        border-bottom: 1px solid #33629a;
+        font-size: 1.8em;
+        margin-left: 120px; } }
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/dayscript\/ligafantastica2\/sites\/all\/themes\/ligafantastica_omega\/sass\/components\/_alineacion\.scss}line{font-family:\0000351}}
+    .datos-equipo .nombre-equipo + span {
+      display: none; }
+      @media (min-width: 1em) {
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/dayscript\/ligafantastica2\/sites\/all\/themes\/ligafantastica_omega\/sass\/components\/_alineacion\.scss}line{font-family:\0000351}}
+        .datos-equipo .nombre-equipo + span {
+          display: block; } }
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/dayscript\/ligafantastica2\/sites\/all\/themes\/ligafantastica_omega\/sass\/components\/_alineacion\.scss}line{font-family:\0000356}}
+      .datos-equipo .nombre-equipo + span a {
+        color: #000;
+        text-transform: uppercase; }
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/dayscript\/ligafantastica2\/sites\/all\/themes\/ligafantastica_omega\/sass\/components\/_alineacion\.scss}line{font-family:\0000359}}
+        .datos-equipo .nombre-equipo + span a:hover {
+          text-decoration: none; }
+
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/dayscript\/ligafantastica2\/sites\/all\/themes\/ligafantastica_omega\/sass\/components\/_alineacion\.scss}line{font-family:\0000366}}
+#ground,
+#suplentes {
+  display: none; }
+  @media (min-width: 1em) {
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/dayscript\/ligafantastica2\/sites\/all\/themes\/ligafantastica_omega\/sass\/components\/_alineacion\.scss}line{font-family:\0000366}}
+    #ground,
+    #suplentes {
+      display: block; } }
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/dayscript\/ligafantastica2\/sites\/all\/themes\/ligafantastica_omega\/sass\/components\/_alineacion\.scss}line{font-family:\0000374}}
+  #ground .player .player-info,
+  #ground .suplente .player-info,
+  #suplentes .player .player-info,
+  #suplentes .suplente .player-info {
+    border: 2px solid #252525;
+    border-radius: 5px;
+    bottom: -24px;
+    font-size: .7em;
+    left: 0;
+    position: absolute;
+    text-transform: uppercase; }
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/dayscript\/ligafantastica2\/sites\/all\/themes\/ligafantastica_omega\/sass\/components\/_alineacion\.scss}line{font-family:\0000382}}
+    #ground .player .player-info .nombre,
+    #ground .suplente .player-info .nombre,
+    #suplentes .player .player-info .nombre,
+    #suplentes .suplente .player-info .nombre {
+      background: #2d2d2d;
+      /* Old browsers */
+      background: -moz-linear-gradient(top, #2d2d2d 0%, #1d1d1b 100%);
+      /* FF3.6+ */
+      background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #2d2d2d), color-stop(100%, #1d1d1b));
+      /* Chrome,Safari4+ */
+      background: -webkit-linear-gradient(top, #2d2d2d 0%, #1d1d1b 100%);
+      /* Chrome10+,Safari5.1+ */
+      background: -o-linear-gradient(top, #2d2d2d 0%, #1d1d1b 100%);
+      /* Opera 11.10+ */
+      background: -ms-linear-gradient(top, #2d2d2d 0%, #1d1d1b 100%);
+      /* IE10+ */
+      background: linear-gradient(to bottom, #2d2d2d 0%, #1d1d1b 100%);
+      /* W3C */
+      filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#2d2d2d', endColorstr='#1d1d1b',GradientType=0 );
+      /* IE6-9 */
+      color: #fff;
+      display: inline-block;
+      float: left;
+      padding: 6px; }
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/dayscript\/ligafantastica2\/sites\/all\/themes\/ligafantastica_omega\/sass\/components\/_alineacion\.scss}line{font-family:\0000389}}
+    #ground .player .player-info .puntos,
+    #ground .suplente .player-info .puntos,
+    #suplentes .player .player-info .puntos,
+    #suplentes .suplente .player-info .puntos {
+      background: #333;
+      color: #fbac35;
+      display: inline-block;
+      padding: 6px 8px; }
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/dayscript\/ligafantastica2\/sites\/all\/themes\/ligafantastica_omega\/sass\/components\/_alineacion\.scss}line{font-family:\0000396}}
+  #ground .player .acciones,
+  #ground .suplente .acciones,
+  #suplentes .player .acciones,
+  #suplentes .suplente .acciones {
+    background: #aeaeae;
+    border-radius: 5px;
+    bottom: -44px;
+    float: left;
+    left: -6px;
+    padding: 0 5px;
+    position: absolute; }
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/dayscript\/ligafantastica2\/sites\/all\/themes\/ligafantastica_omega\/sass\/components\/_alineacion\.scss}line{font-family:\00003104}}
+    #ground .player .acciones span,
+    #ground .suplente .acciones span,
+    #suplentes .player .acciones span,
+    #suplentes .suplente .acciones span {
+      background: url(../images/alineacion.png) no-repeat -3px 2px;
+      display: inline-block;
+      height: 20px;
+      text-indent: -9999px;
+      width: 14px; }
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/dayscript\/ligafantastica2\/sites\/all\/themes\/ligafantastica_omega\/sass\/components\/_alineacion\.scss}line{font-family:\00003111}}
+    #ground .player .acciones .info-jugador,
+    #ground .suplente .acciones .info-jugador,
+    #suplentes .player .acciones .info-jugador,
+    #suplentes .suplente .acciones .info-jugador {
+      background-position: -3px 2px; }
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/dayscript\/ligafantastica2\/sites\/all\/themes\/ligafantastica_omega\/sass\/components\/_alineacion\.scss}line{font-family:\00003114}}
+    #ground .player .acciones .vender-jugador,
+    #ground .suplente .acciones .vender-jugador,
+    #suplentes .player .acciones .vender-jugador,
+    #suplentes .suplente .acciones .vender-jugador {
+      background-position: -3px -20px; }
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/dayscript\/ligafantastica2\/sites\/all\/themes\/ligafantastica_omega\/sass\/components\/_alineacion\.scss}line{font-family:\00003117}}
+    #ground .player .acciones .select-capitan,
+    #ground .suplente .acciones .select-capitan,
+    #suplentes .player .acciones .select-capitan,
+    #suplentes .suplente .acciones .select-capitan {
+      background-position: -3px -40px; }
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/dayscript\/ligafantastica2\/sites\/all\/themes\/ligafantastica_omega\/sass\/components\/_alineacion\.scss}line{font-family:\00003120}}
+    #ground .player .acciones .alinear-jugador,
+    #ground .suplente .acciones .alinear-jugador,
+    #suplentes .player .acciones .alinear-jugador,
+    #suplentes .suplente .acciones .alinear-jugador {
+      background-position: -6px -80px; }
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/dayscript\/ligafantastica2\/sites\/all\/themes\/ligafantastica_omega\/sass\/components\/_alineacion\.scss}line{font-family:\00003123}}
+    #ground .player .acciones .sacar-jugador,
+    #ground .suplente .acciones .sacar-jugador,
+    #suplentes .player .acciones .sacar-jugador,
+    #suplentes .suplente .acciones .sacar-jugador {
+      background-position: -4px -62px; }
+
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/dayscript\/ligafantastica2\/sites\/all\/themes\/ligafantastica_omega\/sass\/components\/_alineacion\.scss}line{font-family:\00003129}}
+.suplencia-titulo {
+  display: none;
+  color: #5f6062;
+  float: left;
+  font-family: "dinmittelschrift", sans-serif;
+  font-size: 1.7em;
+  margin-left: 2em;
+  margin-top: 1.5em;
+  margin-right: 1em;
+  text-transform: uppercase; }
+  @media (min-width: 1em) {
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/dayscript\/ligafantastica2\/sites\/all\/themes\/ligafantastica_omega\/sass\/components\/_alineacion\.scss}line{font-family:\00003129}}
+    .suplencia-titulo {
+      display: block; } }
+  @media (min-width: 1em) {
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/dayscript\/ligafantastica2\/sites\/all\/themes\/ligafantastica_omega\/sass\/components\/_alineacion\.scss}line{font-family:\00003129}}
+    .suplencia-titulo {
+      margin-left: 0;
+      width: 30%; } }
+  @media (min-width: 1em) {
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/dayscript\/ligafantastica2\/sites\/all\/themes\/ligafantastica_omega\/sass\/components\/_alineacion\.scss}line{font-family:\00003129}}
+    .suplencia-titulo {
+      width: 20%; } }
+  @media (min-width: 1200px) {
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/dayscript\/ligafantastica2\/sites\/all\/themes\/ligafantastica_omega\/sass\/components\/_alineacion\.scss}line{font-family:\00003129}}
+    .suplencia-titulo {
+      width: 15%; } }
+
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/dayscript\/ligafantastica2\/sites\/all\/themes\/ligafantastica_omega\/sass\/components\/_alineacion\.scss}line{font-family:\00003153}}
+#suplentes {
+  float: left;
+  margin-bottom: 3em;
+  margin-top: 1em; }
+  @media (min-width: 1em) {
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/dayscript\/ligafantastica2\/sites\/all\/themes\/ligafantastica_omega\/sass\/components\/_alineacion\.scss}line{font-family:\00003153}}
+    #suplentes {
+      width: 90%; } }
+  @media (min-width: 1em) {
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/dayscript\/ligafantastica2\/sites\/all\/themes\/ligafantastica_omega\/sass\/components\/_alineacion\.scss}line{font-family:\00003153}}
+    #suplentes {
+      width: 55%; } }
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/dayscript\/ligafantastica2\/sites\/all\/themes\/ligafantastica_omega\/sass\/components\/_alineacion\.scss}line{font-family:\00003163}}
+  #suplentes .suplente {
+    float: left;
+    margin-right: 1em;
+    padding: 0 20px 30px;
+    position: relative; }
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/dayscript\/ligafantastica2\/sites\/all\/themes\/ligafantastica_omega\/sass\/components\/_alineacion\.scss}line{font-family:\00003168}}
+    #suplentes .suplente .player-info {
+      bottom: -5px;
+      left: 10px; }
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/dayscript\/ligafantastica2\/sites\/all\/themes\/ligafantastica_omega\/sass\/components\/_alineacion\.scss}line{font-family:\00003172}}
+    #suplentes .suplente .acciones {
+      background: none;
+      bottom: -28px;
+      left: 6px; }
+
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/dayscript\/ligafantastica2\/sites\/all\/themes\/ligafantastica_omega\/sass\/components\/_alineacion\.scss}line{font-family:\00003179}}
+.guardar-compartir {
+  margin-top: 20px;
+  display: none; }
+  @media (min-width: 1em) {
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/dayscript\/ligafantastica2\/sites\/all\/themes\/ligafantastica_omega\/sass\/components\/_alineacion\.scss}line{font-family:\00003179}}
+    .guardar-compartir {
+      display: block;
+      float: left;
+      margin-bottom: 1em;
+      text-align: center;
+      width: 100%; } }
+  @media (min-width: 1em) {
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/dayscript\/ligafantastica2\/sites\/all\/themes\/ligafantastica_omega\/sass\/components\/_alineacion\.scss}line{font-family:\00003179}}
+    .guardar-compartir {
+      float: none; } }
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/dayscript\/ligafantastica2\/sites\/all\/themes\/ligafantastica_omega\/sass\/components\/_alineacion\.scss}line{font-family:\00003192}}
+  .guardar-compartir .boton-guardar {
+    background: url(../images/bkg-blue.png) no-repeat 0 0;
+    color: #fff;
+    display: inline-block;
+    font-size: 1.35em;
+    height: 50px;
+    line-height: 50px;
+    padding: 0;
+    text-transform: uppercase;
+    text-align: center;
+    width: 262px; }
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/dayscript\/ligafantastica2\/sites\/all\/themes\/ligafantastica_omega\/sass\/components\/_alineacion\.scss}line{font-family:\00003204}}
+  .guardar-compartir span {
+    font-size: 16px;
+    margin-left: 20px;
+    text-transform: uppercase; }
+
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/dayscript\/ligafantastica2\/sites\/all\/themes\/ligafantastica_omega\/sass\/components\/_alineacion\.scss}line{font-family:\00003210}}
+#alineacion-mobile {
+  background: url(../images/bkg-alineacion.jpg) no-repeat 0 0;
+  background-size: cover;
+  display: block;
+  margin-top: -165px;
+  padding-top: 165px; }
+  @media (min-width: 1em) {
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/dayscript\/ligafantastica2\/sites\/all\/themes\/ligafantastica_omega\/sass\/components\/_alineacion\.scss}line{font-family:\00003210}}
+    #alineacion-mobile {
+      display: none; } }
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/dayscript\/ligafantastica2\/sites\/all\/themes\/ligafantastica_omega\/sass\/components\/_alineacion\.scss}line{font-family:\00003219}}
+  #alineacion-mobile .player-mobile {
+    margin: 0;
+    padding: 0;
+    position: relative; }
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/dayscript\/ligafantastica2\/sites\/all\/themes\/ligafantastica_omega\/sass\/components\/_alineacion\.scss}line{font-family:\00003223}}
+    #alineacion-mobile .player-mobile li {
+      display: inline-block;
+      list-style: none; }
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/dayscript\/ligafantastica2\/sites\/all\/themes\/ligafantastica_omega\/sass\/components\/_alineacion\.scss}line{font-family:\00003227}}
+    #alineacion-mobile .player-mobile .posicion-mobile {
+      background: rgba(0, 0, 0, 0.5);
+      color: #fff;
+      padding: 20px 10px; }
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/dayscript\/ligafantastica2\/sites\/all\/themes\/ligafantastica_omega\/sass\/components\/_alineacion\.scss}line{font-family:\00003233}}
+    #alineacion-mobile .player-mobile .camisa-mobile img {
+      height: 55px;
+      width: 50px; }
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/dayscript\/ligafantastica2\/sites\/all\/themes\/ligafantastica_omega\/sass\/components\/_alineacion\.scss}line{font-family:\00003238}}
+    #alineacion-mobile .player-mobile .nombre-mobile {
+      text-transform: uppercase;
+      font-size: 1.2em;
+      color: #fff;
+      padding: 0 20px; }
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/dayscript\/ligafantastica2\/sites\/all\/themes\/ligafantastica_omega\/sass\/components\/_alineacion\.scss}line{font-family:\00003244}}
+    #alineacion-mobile .player-mobile .puntos-mobile {
+      font-size: 1.2em;
+      color: #fff;
+      font-weight: bold;
+      position: absolute;
+      right: 150px;
+      top: 16px; }
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/dayscript\/ligafantastica2\/sites\/all\/themes\/ligafantastica_omega\/sass\/components\/_alineacion\.scss}line{font-family:\00003252}}
+    #alineacion-mobile .player-mobile .accion-mobile {
+      display: inline-block;
+      float: right; }
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/dayscript\/ligafantastica2\/sites\/all\/themes\/ligafantastica_omega\/sass\/components\/_alineacion\.scss}line{font-family:\00003255}}
+      #alineacion-mobile .player-mobile .accion-mobile .form-submit {
+        background: url(../images/switch.png) no-repeat 0px 0;
+        display: block;
+        height: 50px;
+        text-indent: -9999px;
+        width: 100px; }
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/dayscript\/ligafantastica2\/sites\/all\/themes\/ligafantastica_omega\/sass\/components\/_alineacion\.scss}line{font-family:\00003262}}
+      #alineacion-mobile .player-mobile .accion-mobile .inactivo {
+        background-position: 0px -85px; }
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/dayscript\/ligafantastica2\/sites\/all\/themes\/ligafantastica_omega\/sass\/components\/_alineacion\.scss}line{font-family:\00003266}}
+    #alineacion-mobile .player-mobile:nth-child(2n) {
+      background: rgba(0, 0, 0, 0.3); }
+
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/dayscript\/ligafantastica2\/sites\/all\/themes\/ligafantastica_omega\/sass\/components\/_alineacion\.scss}line{font-family:\00003271}}
+.convenciones {
+  display: none; }
+  @media (min-width: 1em) {
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/dayscript\/ligafantastica2\/sites\/all\/themes\/ligafantastica_omega\/sass\/components\/_alineacion\.scss}line{font-family:\00003271}}
+    .convenciones {
+      display: block; } }
+
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/dayscript\/ligafantastica2\/sites\/all\/themes\/ligafantastica_omega\/sass\/components\/_alineacion\.scss}line{font-family:\00003277}}
+.comentarios-de-aliniacion ol {
+  width: 100%; }
+  @media (min-width: 1em) {
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/dayscript\/ligafantastica2\/sites\/all\/themes\/ligafantastica_omega\/sass\/components\/_alineacion\.scss}line{font-family:\00003277}}
+    .comentarios-de-aliniacion ol {
+      width: 400px; } }
+  @media (min-width: 1em) {
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/dayscript\/ligafantastica2\/sites\/all\/themes\/ligafantastica_omega\/sass\/components\/_alineacion\.scss}line{font-family:\00003277}}
+    .comentarios-de-aliniacion ol {
+      width: 100%; } }
+
+@media (min-width: 10em) and (max-width: 43em) {
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/dayscript\/ligafantastica2\/sites\/all\/themes\/ligafantastica_omega\/sass\/components\/_alineacion\.scss}line{font-family:\00003288}}
+  .l-content .comentarios-de-aliniacion {
+    margin-left: 0; }
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/dayscript\/ligafantastica2\/sites\/all\/themes\/ligafantastica_omega\/sass\/components\/_alineacion\.scss}line{font-family:\00003290}}
+    .l-content .comentarios-de-aliniacion .alerta-admiracion {
+      margin-left: 10px; }
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/dayscript\/ligafantastica2\/sites\/all\/themes\/ligafantastica_omega\/sass\/components\/_alineacion\.scss}line{font-family:\00003293}}
+    .l-content .comentarios-de-aliniacion ol {
+      margin: 40px 0;
+      margin-left: 15px; }
+
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/dayscript\/ligafantastica2\/sites\/all\/themes\/ligafantastica_omega\/sass\/components\/_alineacion\.scss}line{font-family:\00003300}}
+  #navigation-wrapper #watch-watch {
+    background-color: #d6d6d4; } }
+@media (min-width: 1em) {
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/dayscript\/ligafantastica2\/sites\/all\/themes\/ligafantastica_omega\/sass\/components\/_alineacion\.scss}line{font-family:\00003307}}
+  .page-jugar-alineacion .convenciones {
+    display: block;
+    margin: 0 auto;
+    overflow: hidden;
+    padding-left: 0;
+    width: 675px; }
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/dayscript\/ligafantastica2\/sites\/all\/themes\/ligafantastica_omega\/sass\/components\/_alineacion\.scss}line{font-family:\00003313}}
+    .page-jugar-alineacion .convenciones li {
+      padding-right: 1em;
+      width: auto !important; } }
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/dayscript\/ligafantastica2\/sites\/all\/themes\/ligafantastica_omega\/sass\/components\/_alineacion\.scss}line{font-family:\00003323}}
+.puntos-box .puntos-por-fecha div {
+  height: 59px;
+  top: 7px;
+  position: relative;
+  line-height: 1.5em; }
+
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/dayscript\/ligafantastica2\/sites\/all\/themes\/ligafantastica_omega\/sass\/components\/_branding\.scss}line{font-family:\000031}}
+#branding-wrapper {
+  background-color: #000;
+  display: block;
+  float: left;
+  width: 100%; }
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/dayscript\/ligafantastica2\/sites\/all\/themes\/ligafantastica_omega\/sass\/components\/_branding\.scss}line{font-family:\000037}}
+  #branding-wrapper #branding {
+    color: #fff;
+    font-size: 0.7em;
+    font-family: "Open Sans", sans-serif;
+    margin: 0 auto;
+    width: 100%; }
+    @media (min-width: 1em) {
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/dayscript\/ligafantastica2\/sites\/all\/themes\/ligafantastica_omega\/sass\/components\/_branding\.scss}line{font-family:\000037}}
+      #branding-wrapper #branding {
+        max-width: 1200px; } }
+
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/dayscript\/ligafantastica2\/sites\/all\/themes\/ligafantastica_omega\/sass\/components\/_branding\.scss}line{font-family:\0000319}}
+.l-region--branding {
+  width: 100%;
+  float: right;
+  margin-left: 0;
+  margin-right: 0;
+  clear: none;
+  padding: 0px; }
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/dayscript\/ligafantastica2\/sites\/all\/themes\/ligafantastica_omega\/sass\/components\/_branding\.scss}line{font-family:\0000322}}
+  .l-region--branding #block-block-1 {
+    display: none;
+    width: 49.15254%;
+    float: right;
+    margin-left: 0;
+    margin-right: 0;
+    clear: none;
+    padding-left: 15px; }
+    @media (min-width: 1em) {
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/dayscript\/ligafantastica2\/sites\/all\/themes\/ligafantastica_omega\/sass\/components\/_branding\.scss}line{font-family:\0000322}}
+      .l-region--branding #block-block-1 {
+        width: 15.25424%;
+        float: left;
+        margin-right: -100%;
+        margin-left: 0;
+        clear: none;
+        display: block; } }
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/dayscript\/ligafantastica2\/sites\/all\/themes\/ligafantastica_omega\/sass\/components\/_branding\.scss}line{font-family:\0000330}}
+    .l-region--branding #block-block-1 img {
+      position: absolute; }
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/dayscript\/ligafantastica2\/sites\/all\/themes\/ligafantastica_omega\/sass\/components\/_branding\.scss}line{font-family:\0000333}}
+    .l-region--branding #block-block-1 p {
+      margin: 0; }
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/dayscript\/ligafantastica2\/sites\/all\/themes\/ligafantastica_omega\/sass\/components\/_branding\.scss}line{font-family:\0000337}}
+  .l-region--branding #block-block-2 {
+    padding-left: 15px;
+    width: 49.15254%;
+    float: left;
+    margin-right: -100%;
+    margin-left: 0;
+    clear: none; }
+    @media (min-width: 1em) {
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/dayscript\/ligafantastica2\/sites\/all\/themes\/ligafantastica_omega\/sass\/components\/_branding\.scss}line{font-family:\0000337}}
+      .l-region--branding #block-block-2 {
+        width: 49.15254%;
+        float: left;
+        margin-right: -100%;
+        margin-left: 25.42373%;
+        clear: none; } }
+    @media (min-width: 1em) {
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/dayscript\/ligafantastica2\/sites\/all\/themes\/ligafantastica_omega\/sass\/components\/_branding\.scss}line{font-family:\0000337}}
+      .l-region--branding #block-block-2 {
+        width: 49.15254%;
+        float: left;
+        margin-right: -100%;
+        margin-left: 16.94915%;
+        clear: none; } }
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/dayscript\/ligafantastica2\/sites\/all\/themes\/ligafantastica_omega\/sass\/components\/_branding\.scss}line{font-family:\0000346}}
+    .l-region--branding #block-block-2 p {
+      margin: 8px 0; }
+
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/dayscript\/ligafantastica2\/sites\/all\/themes\/ligafantastica_omega\/sass\/components\/_branding\.scss}line{font-family:\0000352}}
+#block-block-4 {
+  padding-left: 15px;
+  width: 49.15254%;
+  float: left;
+  margin-right: -100%;
+  margin-left: 0;
+  clear: none; }
+  @media (min-width: 1em) {
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/dayscript\/ligafantastica2\/sites\/all\/themes\/ligafantastica_omega\/sass\/components\/_branding\.scss}line{font-family:\0000352}}
+    #block-block-4 {
+      width: 49.15254%;
+      float: left;
+      margin-right: -100%;
+      margin-left: 16.94915%;
+      clear: none; } }
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/dayscript\/ligafantastica2\/sites\/all\/themes\/ligafantastica_omega\/sass\/components\/_branding\.scss}line{font-family:\0000358}}
+  #block-block-4 p {
+    margin: 8px 0; }
+
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/dayscript\/ligafantastica2\/sites\/all\/themes\/ligafantastica_omega\/sass\/components\/_branding\.scss}line{font-family:\0000362}}
+#block-block-5 {
+  display: none;
+  width: 49.15254%;
+  float: right;
+  margin-left: 0;
+  margin-right: 0;
+  clear: none;
+  padding-left: 15px; }
+  @media (min-width: 1em) {
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/dayscript\/ligafantastica2\/sites\/all\/themes\/ligafantastica_omega\/sass\/components\/_branding\.scss}line{font-family:\0000362}}
+    #block-block-5 {
+      width: 15.25424%;
+      float: left;
+      margin-right: -100%;
+      margin-left: 0;
+      clear: none;
+      display: block; } }
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/dayscript\/ligafantastica2\/sites\/all\/themes\/ligafantastica_omega\/sass\/components\/_branding\.scss}line{font-family:\0000370}}
+  #block-block-5 img {
+    position: absolute; }
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/dayscript\/ligafantastica2\/sites\/all\/themes\/ligafantastica_omega\/sass\/components\/_branding\.scss}line{font-family:\0000373}}
+  #block-block-5 p {
+    margin: 0; }
+
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/dayscript\/ligafantastica2\/sites\/all\/themes\/ligafantastica_omega\/sass\/components\/_branding\.scss}line{font-family:\0000378}}
+#block-views-usuario-actual-block,
+#block-usuarios-bloque-usuario-logueado {
+  padding-right: 15px;
+  padding-left: 15px;
+  font-size: 1.4em;
+  position: absolute;
+  right: 0;
+  top: 50px;
+  color: #5f6062;
+  text-align: right;
+  width: 66.10169%;
+  float: right;
+  margin-left: 0;
+  margin-right: 0;
+  clear: none; }
+  @media (min-width: 1em) {
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/dayscript\/ligafantastica2\/sites\/all\/themes\/ligafantastica_omega\/sass\/components\/_branding\.scss}line{font-family:\0000378}}
+    #block-views-usuario-actual-block,
+    #block-usuarios-bloque-usuario-logueado {
+      font-size: 1em;
+      position: relative;
+      color: white;
+      top: auto;
+      right: auto;
+      margin-top: 4px;
+      width: 32.20339%;
+      float: right;
+      margin-left: 0;
+      margin-right: 0;
+      clear: none;
+      width: auto; } }
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/dayscript\/ligafantastica2\/sites\/all\/themes\/ligafantastica_omega\/sass\/components\/_branding\.scss}line{font-family:\0000399}}
+  #block-views-usuario-actual-block ul,
+  #block-usuarios-bloque-usuario-logueado ul {
+    float: right;
+    padding: 0; }
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/dayscript\/ligafantastica2\/sites\/all\/themes\/ligafantastica_omega\/sass\/components\/_branding\.scss}line{font-family:\00003102}}
+    #block-views-usuario-actual-block ul li,
+    #block-usuarios-bloque-usuario-logueado ul li {
+      display: inline-block;
+      list-style: none;
+      margin-left: 5px; }
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/dayscript\/ligafantastica2\/sites\/all\/themes\/ligafantastica_omega\/sass\/components\/_branding\.scss}line{font-family:\00003108}}
+  #block-views-usuario-actual-block .views-field-picture,
+  #block-usuarios-bloque-usuario-logueado .views-field-picture {
+    margin-right: 3px; }
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/dayscript\/ligafantastica2\/sites\/all\/themes\/ligafantastica_omega\/sass\/components\/_branding\.scss}line{font-family:\00003110}}
+    #block-views-usuario-actual-block .views-field-picture img,
+    #block-usuarios-bloque-usuario-logueado .views-field-picture img {
+      border-radius: 17px; }
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/dayscript\/ligafantastica2\/sites\/all\/themes\/ligafantastica_omega\/sass\/components\/_branding\.scss}line{font-family:\00003114}}
+  #block-views-usuario-actual-block .views-field-field-nombres,
+  #block-usuarios-bloque-usuario-logueado .views-field-field-nombres {
+    height: 20px;
+    overflow: hidden;
+    display: inline-block;
+    width: 113px; }
+    @media (min-width: 1em) {
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/dayscript\/ligafantastica2\/sites\/all\/themes\/ligafantastica_omega\/sass\/components\/_branding\.scss}line{font-family:\00003114}}
+      #block-views-usuario-actual-block .views-field-field-nombres,
+      #block-usuarios-bloque-usuario-logueado .views-field-field-nombres {
+        height: auto;
+        overflow: auto;
+        width: auto;
+        line-height: 1em; } }
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/dayscript\/ligafantastica2\/sites\/all\/themes\/ligafantastica_omega\/sass\/components\/_branding\.scss}line{font-family:\00003126}}
+  #block-views-usuario-actual-block .views-field-view-user,
+  #block-usuarios-bloque-usuario-logueado .views-field-view-user {
+    clear: left;
+    display: block; }
+    @media (min-width: 1em) {
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/dayscript\/ligafantastica2\/sites\/all\/themes\/ligafantastica_omega\/sass\/components\/_branding\.scss}line{font-family:\00003126}}
+      #block-views-usuario-actual-block .views-field-view-user,
+      #block-usuarios-bloque-usuario-logueado .views-field-view-user {
+        clear: none;
+        display: inline;
+        margin-left: 10px; } }
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/dayscript\/ligafantastica2\/sites\/all\/themes\/ligafantastica_omega\/sass\/components\/_branding\.scss}line{font-family:\00003138}}
+  #block-views-usuario-actual-block .menu .first a,
+  #block-views-usuario-actual-block .menu .last a,
+  #block-usuarios-bloque-usuario-logueado .menu .first a,
+  #block-usuarios-bloque-usuario-logueado .menu .last a {
+    background: url(img/sprite.png) no-repeat 10px 0;
+    display: inline-block;
+    clear: both;
+    height: 60px;
+    text-indent: 9999px;
+    width: 60px; }
+    @media (min-width: 1em) {
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/dayscript\/ligafantastica2\/sites\/all\/themes\/ligafantastica_omega\/sass\/components\/_branding\.scss}line{font-family:\00003138}}
+      #block-views-usuario-actual-block .menu .first a,
+      #block-views-usuario-actual-block .menu .last a,
+      #block-usuarios-bloque-usuario-logueado .menu .first a,
+      #block-usuarios-bloque-usuario-logueado .menu .last a {
+        background: none;
+        display: inline;
+        text-indent: 1px; } }
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/dayscript\/ligafantastica2\/sites\/all\/themes\/ligafantastica_omega\/sass\/components\/_branding\.scss}line{font-family:\00003153}}
+  #block-views-usuario-actual-block .menu .last a,
+  #block-usuarios-bloque-usuario-logueado .menu .last a {
+    background-position: 0px -61px; }
+
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/dayscript\/ligafantastica2\/sites\/all\/themes\/ligafantastica_omega\/sass\/components\/_branding\.scss}line{font-family:\00003161}}
+.logged-in #block-usuarios-bloque-usuario-logueado ul {
+  margin: 0; }
+  @media (min-width: 1em) {
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/dayscript\/ligafantastica2\/sites\/all\/themes\/ligafantastica_omega\/sass\/components\/_branding\.scss}line{font-family:\00003161}}
+    .logged-in #block-usuarios-bloque-usuario-logueado ul {
+      width: auto; } }
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/dayscript\/ligafantastica2\/sites\/all\/themes\/ligafantastica_omega\/sass\/components\/_branding\.scss}line{font-family:\00003169}}
+.logged-in #block-usuarios-bloque-usuario-logueado .menu .last a {
+  background: none;
+  display: inline;
+  width: auto; }
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/dayscript\/ligafantastica2\/sites\/all\/themes\/ligafantastica_omega\/sass\/components\/_branding\.scss}line{font-family:\00003176}}
+.logged-in #block-usuarios-bloque-usuario-logueado .menu li img {
+  border-radius: 100%; }
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/dayscript\/ligafantastica2\/sites\/all\/themes\/ligafantastica_omega\/sass\/components\/_branding\.scss}line{font-family:\00003180}}
+.logged-in #block-usuarios-bloque-usuario-logueado .menu li:nth-child(2) {
+  vertical-align: bottom; }
+  @media (min-width: 1em) {
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/dayscript\/ligafantastica2\/sites\/all\/themes\/ligafantastica_omega\/sass\/components\/_branding\.scss}line{font-family:\00003180}}
+    .logged-in #block-usuarios-bloque-usuario-logueado .menu li:nth-child(2) {
+      vertical-align: initial; } }
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/dayscript\/ligafantastica2\/sites\/all\/themes\/ligafantastica_omega\/sass\/components\/_branding\.scss}line{font-family:\00003186}}
+.logged-in #block-usuarios-bloque-usuario-logueado .menu li:nth-child(3),
+.logged-in #block-usuarios-bloque-usuario-logueado .menu li:nth-child(4) {
+  margin-left: 50px; }
+  @media (min-width: 1em) {
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/dayscript\/ligafantastica2\/sites\/all\/themes\/ligafantastica_omega\/sass\/components\/_branding\.scss}line{font-family:\00003186}}
+    .logged-in #block-usuarios-bloque-usuario-logueado .menu li:nth-child(3),
+    .logged-in #block-usuarios-bloque-usuario-logueado .menu li:nth-child(4) {
+      margin-left: 0; } }
+
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/dayscript\/ligafantastica2\/sites\/all\/themes\/ligafantastica_omega\/sass\/components\/_branding\.scss}line{font-family:\00003197}}
+body.not-logged-in #block-views-usuario-actual-block {
+  margin-top: 14px; }
+
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/dayscript\/ligafantastica2\/sites\/all\/themes\/ligafantastica_omega\/sass\/components\/_countdown\.scss}line{font-family:\000032}}
+#block-fichajes-countdown .tile-count {
+  line-height: 4.5em; }
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/dayscript\/ligafantastica2\/sites\/all\/themes\/ligafantastica_omega\/sass\/components\/_countdown\.scss}line{font-family:\000035}}
+#block-fichajes-countdown .counter-group {
+  margin-top: 0.3em; }
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/dayscript\/ligafantastica2\/sites\/all\/themes\/ligafantastica_omega\/sass\/components\/_countdown\.scss}line{font-family:\000038}}
+  #block-fichajes-countdown .counter-group .counter-block .counter {
+    margin-top: 9px; }
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/dayscript\/ligafantastica2\/sites\/all\/themes\/ligafantastica_omega\/sass\/components\/_countdown\.scss}line{font-family:\0000310}}
+    #block-fichajes-countdown .counter-group .counter-block .counter .number {
+      line-height: 46px; }
+
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/dayscript\/ligafantastica2\/sites\/all\/themes\/ligafantastica_omega\/sass\/components\/_drivas\.scss}line{font-family:\000031}}
+.pass-form {
+  position: absolute;
+  border: 1px solid #ddd;
+  -webkit-border-radius: 8px;
+  -moz-border-radius: 8px;
+  border-radius: 8px;
+  width: 140px;
+  height: auto;
+  padding-left: 1em;
+  padding-right: 2em;
+  padding-top: 1em;
+  padding-bottom: 1em;
+  z-index: 100000000000;
+  box-shadow: 1px 1px 5px #333;
+  background-color: #33629A;
+  margin-left: -5%;
+  margin-top: -9.5em; }
+
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/dayscript\/ligafantastica2\/sites\/all\/themes\/ligafantastica_omega\/sass\/components\/_drivas\.scss}line{font-family:\0000319}}
+.pass-form label {
+  color: #FFF;
+  padding-bottom: .1em;
+  text-align: center;
+  margin-left: .7em;
+  font-family: "dinmittelschrift", sans-serif; }
+
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/dayscript\/ligafantastica2\/sites\/all\/themes\/ligafantastica_omega\/sass\/components\/_drivas\.scss}line{font-family:\0000326}}
+.pass-form .form-text {
+  margin-left: .6em;
+  margin-bottom: 1em;
+  margin-top: 1em; }
+
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/dayscript\/ligafantastica2\/sites\/all\/themes\/ligafantastica_omega\/sass\/components\/_drivas\.scss}line{font-family:\0000331}}
+.pass-form .form-submit {
+  margin-right: .2em; }
+
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/dayscript\/ligafantastica2\/sites\/all\/themes\/ligafantastica_omega\/sass\/components\/_drivas\.scss}line{font-family:\0000334}}
+.views-field-ver-liga .form-submit {
+  background: #898484;
+  color: #FFFFFF;
+  padding: .4em;
+  padding-right: 1em;
+  padding-left: .9em;
+  font-size: .9em;
+  text-decoration: none;
+  min-width: 49px;
+  font-weight: normal;
+  font-family: "Open Sans", sans-serif; }
+
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/dayscript\/ligafantastica2\/sites\/all\/themes\/ligafantastica_omega\/sass\/components\/_drivas\.scss}line{font-family:\0000346}}
+.view-pruebas .view-content {
+  margin-top: -2.7em; }
+
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/dayscript\/ligafantastica2\/sites\/all\/themes\/ligafantastica_omega\/sass\/components\/_drivas\.scss}line{font-family:\0000349}}
+.mis-ligas {
+  margin-top: 5em; }
+
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/dayscript\/ligafantastica2\/sites\/all\/themes\/ligafantastica_omega\/sass\/components\/_drivas\.scss}line{font-family:\0000352}}
+.page-jugar-ligas .group-left .mis-ligas table {
+  margin-top: 0em; }
+
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/dayscript\/ligafantastica2\/sites\/all\/themes\/ligafantastica_omega\/sass\/components\/_drivas\.scss}line{font-family:\0000355}}
+.form-league {
+  width: 95%;
+  color: #5f6062;
+  font-family: "Open Sans", sans-serif;
+  text-transform: uppercase;
+  font-size: .7em; }
+
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/dayscript\/ligafantastica2\/sites\/all\/themes\/ligafantastica_omega\/sass\/components\/_drivas\.scss}line{font-family:\0000362}}
+.form-league label {
+  display: inline-block;
+  font-weight: normal !important;
+  padding-right: 1em; }
+
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/dayscript\/ligafantastica2\/sites\/all\/themes\/ligafantastica_omega\/sass\/components\/_drivas\.scss}line{font-family:\0000367}}
+.form-league .password-parent,
+.form-league .field-name-field-clave-pass,
+.form-league .form-item-title,
+.form-league .form-item-field-tipo-de-liga-und {
+  width: 50%;
+  float: left; }
+
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/dayscript\/ligafantastica2\/sites\/all\/themes\/ligafantastica_omega\/sass\/components\/_drivas\.scss}line{font-family:\0000374}}
+.form-league .form-item-field-tipo-de-liga-und select {
+  width: 60%; }
+
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/dayscript\/ligafantastica2\/sites\/all\/themes\/ligafantastica_omega\/sass\/components\/_drivas\.scss}line{font-family:\0000377}}
+.form-league .form-item-title input {
+  width: 57%; }
+
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/dayscript\/ligafantastica2\/sites\/all\/themes\/ligafantastica_omega\/sass\/components\/_drivas\.scss}line{font-family:\0000380}}
+.form-league .field-name-field-participantes,
+.form-league .vertical-tabs,
+.form-league .password-strength,
+.form-league div.password-confirm,
+.form-league .form-type-textarea .grippie,
+.form-league .form-item-field-clave-und-0-pass2 .description,
+.form-league .password-indicator,
+.form-league .password-strength-title {
+  display: none; }
+
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/dayscript\/ligafantastica2\/sites\/all\/themes\/ligafantastica_omega\/sass\/components\/_drivas\.scss}line{font-family:\0000390}}
+.form-league .field-name-field-clave-pass label {
+  padding-right: 4.3em; }
+
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/dayscript\/ligafantastica2\/sites\/all\/themes\/ligafantastica_omega\/sass\/components\/_drivas\.scss}line{font-family:\0000393}}
+.form-league .field-name-field-clave-pass input {
+  width: 60%; }
+
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/dayscript\/ligafantastica2\/sites\/all\/themes\/ligafantastica_omega\/sass\/components\/_drivas\.scss}line{font-family:\0000396}}
+.form-league .field-name-field-repetir-clave label {
+  padding-right: 2.5em; }
+
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/dayscript\/ligafantastica2\/sites\/all\/themes\/ligafantastica_omega\/sass\/components\/_drivas\.scss}line{font-family:\0000399}}
+.form-league .field-name-field-repetir-clave input {
+  width: 28.4%; }
+
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/dayscript\/ligafantastica2\/sites\/all\/themes\/ligafantastica_omega\/sass\/components\/_drivas\.scss}line{font-family:\00003102}}
+.form-league .form-type-textarea label {
+  float: left;
+  margin-top: 1em; }
+
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/dayscript\/ligafantastica2\/sites\/all\/themes\/ligafantastica_omega\/sass\/components\/_drivas\.scss}line{font-family:\00003106}}
+.form-league .form-type-textarea .form-textarea {
+  width: 82%;
+  float: left;
+  background: #fff;
+  border-radius: 5px;
+  color: #5f6062;
+  font-size: .8em;
+  padding: 5px 10px;
+  margin-top: 1em; }
+
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/dayscript\/ligafantastica2\/sites\/all\/themes\/ligafantastica_omega\/sass\/components\/_drivas\.scss}line{font-family:\00003116}}
+.form-league .field-name-field-email-de-amigos {
+  margin-top: 1em; }
+
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/dayscript\/ligafantastica2\/sites\/all\/themes\/ligafantastica_omega\/sass\/components\/_drivas\.scss}line{font-family:\00003119}}
+.form-league .field-name-field-email-de-amigos label {
+  width: 8.4em; }
+
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/dayscript\/ligafantastica2\/sites\/all\/themes\/ligafantastica_omega\/sass\/components\/_drivas\.scss}line{font-family:\00003120}}
+.form-league .field-name-field-email-de-amigos .description {
+  margin-left: 10.4em;
+  padding-top: 7em; }
+
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/dayscript\/ligafantastica2\/sites\/all\/themes\/ligafantastica_omega\/sass\/components\/_drivas\.scss}line{font-family:\00003122}}
+.form-league .form-submit {
+  background: url(/sites/all/themes/ligafantastica_omega/css/img/blocktitle-bg.png) no-repeat 0 0;
+  background-size: 100%;
+  color: #fff;
+  font-family: "dinmittelschrift", sans-serif;
+  font-size: 2em;
+  float: right;
+  padding-left: 10%;
+  padding-right: 10%;
+  padding-top: 2%;
+  padding-bottom: 1%;
+  font-weight: normal; }
+
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/dayscript\/ligafantastica2\/sites\/all\/themes\/ligafantastica_omega\/sass\/components\/_drivas\.scss}line{font-family:\00003135}}
+.page-jugar-ligas .l-content {
+  width: 100%;
+  float: right;
+  margin-left: 0;
+  margin-right: 0;
+  clear: none; }
+
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/dayscript\/ligafantastica2\/sites\/all\/themes\/ligafantastica_omega\/sass\/components\/_drivas\.scss}line{font-family:\00003142}}
+.page-jugar-ligas .group-left,
+.page-jugar-ligas .group-right {
+  width: 50%;
+  float: left;
+  color: #5f6062;
+  font-family: "Open Sans", sans-serif;
+  font-weight: normal;
+  text-transform: lowercase; }
+
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/dayscript\/ligafantastica2\/sites\/all\/themes\/ligafantastica_omega\/sass\/components\/_drivas\.scss}line{font-family:\00003151}}
+.page-jugar-ligas .group-right table {
+  width: 100%; }
+
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/dayscript\/ligafantastica2\/sites\/all\/themes\/ligafantastica_omega\/sass\/components\/_drivas\.scss}line{font-family:\00003155}}
+.page-jugar-ligas .group-left table {
+  width: 34.5em;
+  margin-top: 4em; }
+
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/dayscript\/ligafantastica2\/sites\/all\/themes\/ligafantastica_omega\/sass\/components\/_drivas\.scss}line{font-family:\00003159}}
+.unirse-pass,
+.unirse {
+  background-color: #33629A;
+  color: #FFFFFF;
+  padding: .4em;
+  font-size: .9em;
+  text-decoration: none; }
+
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/dayscript\/ligafantastica2\/sites\/all\/themes\/ligafantastica_omega\/sass\/components\/_drivas\.scss}line{font-family:\00003167}}
+.salir {
+  background-color: #D90000;
+  color: #FFFFFF;
+  padding: .4em;
+  font-size: .9em;
+  text-decoration: none;
+  padding-right: 1em;
+  padding-left: .9em; }
+
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/dayscript\/ligafantastica2\/sites\/all\/themes\/ligafantastica_omega\/sass\/components\/_drivas\.scss}line{font-family:\00003176}}
+.views-throbbing {
+  display: none; }
+
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/dayscript\/ligafantastica2\/sites\/all\/themes\/ligafantastica_omega\/sass\/components\/_drivas\.scss}line{font-family:\00003178}}
+.group-left thead th,
+.group-right thead th {
+  background: none;
+  font-weight: normal;
+  text-transform: uppercase;
+  color: #712740;
+  font-size: .8em;
+  padding: .3em;
+  border-bottom: 1px solid #9f9f9e; }
+
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/dayscript\/ligafantastica2\/sites\/all\/themes\/ligafantastica_omega\/sass\/components\/_drivas\.scss}line{font-family:\00003188}}
+.group-left tbody tr,
+.group-right tbody tr {
+  background: none; }
+
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/dayscript\/ligafantastica2\/sites\/all\/themes\/ligafantastica_omega\/sass\/components\/_drivas\.scss}line{font-family:\00003193}}
+.group-left tbody td,
+.group-right tbody td {
+  padding-bottom: .5em;
+  padding-top: .5em;
+  border-bottom: 1px solid #9f9f9e;
+  font-size: .75em;
+  color: #333333;
+  text-transform: uppercase; }
+
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/dayscript\/ligafantastica2\/sites\/all\/themes\/ligafantastica_omega\/sass\/components\/_drivas\.scss}line{font-family:\00003202}}
+.group-left tbody .views-field-points,
+.group-right tbody .views-field-points,
+.group-right tbody .views-field-points16,
+.group-right tbody .views-field-points17 {
+  color: #b92424; }
+
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/dayscript\/ligafantastica2\/sites\/all\/themes\/ligafantastica_omega\/sass\/components\/_drivas\.scss}line{font-family:\00003208}}
+.group-left .nombre-equipo {
+  color: #000;
+  border-bottom: 1px solid #33629a;
+  font-size: 1.7em;
+  padding-top: .5em;
+  font-family: "dinmittelschrift", sans-serif;
+  width: 95%;
+  margin-top: -3%;
+  font-weight: 500;
+  text-transform: uppercase; }
+
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/dayscript\/ligafantastica2\/sites\/all\/themes\/ligafantastica_omega\/sass\/components\/_drivas\.scss}line{font-family:\00003219}}
+.group-left .datos-equipo .nombre-equipo {
+  color: #000;
+  border-bottom: 1px solid #33629a;
+  font-size: 1.7em;
+  margin-left: 115px;
+  padding-top: .5em;
+  font-family: "dinmittelschrift", sans-serif;
+  width: 73%;
+  margin-top: -3%;
+  font-weight: 500; }
+
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/dayscript\/ligafantastica2\/sites\/all\/themes\/ligafantastica_omega\/sass\/components\/_drivas\.scss}line{font-family:\00003229}}
+.group-left .escudo {
+  float: left;
+  margin-right: 20px;
+  width: 17%; }
+
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/dayscript\/ligafantastica2\/sites\/all\/themes\/ligafantastica_omega\/sass\/components\/_drivas\.scss}line{font-family:\00003234}}
+.group-left .data-equipo {
+  margin-top: 4em; }
+
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/dayscript\/ligafantastica2\/sites\/all\/themes\/ligafantastica_omega\/sass\/components\/_drivas\.scss}line{font-family:\00003238}}
+.text-total {
+  border-bottom: none !important;
+  text-align: right;
+  padding-right: 1em;
+  font-weight: bold;
+  font-size: .8em !important; }
+
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/dayscript\/ligafantastica2\/sites\/all\/themes\/ligafantastica_omega\/sass\/components\/_drivas\.scss}line{font-family:\00003245}}
+.count-total {
+  color: #b92424 !important;
+  font-weight: bold;
+  border-bottom: none !important;
+  font-size: .9em !important; }
+
+/*
+  Resultados
+  
+*/
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/dayscript\/ligafantastica2\/sites\/all\/themes\/ligafantastica_omega\/sass\/components\/_drivas\.scss}line{font-family:\00003258}}
+.page-jugar-resultados .l-content {
+  width: 100%;
+  float: right;
+  margin-left: 0;
+  margin-right: 0;
+  clear: none; }
+
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/dayscript\/ligafantastica2\/sites\/all\/themes\/ligafantastica_omega\/sass\/components\/_drivas\.scss}line{font-family:\00003265}}
+.page-jugar-resultados .group-left,
+.page-jugar-resultados .group-right {
+  width: 50%;
+  float: left;
+  color: #5f6062;
+  font-family: "Open Sans", sans-serif;
+  font-weight: normal;
+  text-transform: lowercase; }
+
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/dayscript\/ligafantastica2\/sites\/all\/themes\/ligafantastica_omega\/sass\/components\/_drivas\.scss}line{font-family:\00003274}}
+.page-jugar-resultados .group-right table {
+  width: 100%; }
+
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/dayscript\/ligafantastica2\/sites\/all\/themes\/ligafantastica_omega\/sass\/components\/_drivas\.scss}line{font-family:\00003278}}
+.page-jugar-resultados .group-left table {
+  width: 34.5em;
+  margin-top: 4em; }
+
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/dayscript\/ligafantastica2\/sites\/all\/themes\/ligafantastica_omega\/sass\/components\/_drivas\.scss}line{font-family:\00003283}}
+.group-left thead th,
+.group-right thead th {
+  background: none;
+  font-weight: normal;
+  text-transform: uppercase;
+  color: #712740;
+  font-size: .8em;
+  padding: .3em;
+  border-bottom: 1px solid #9f9f9e; }
+
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/dayscript\/ligafantastica2\/sites\/all\/themes\/ligafantastica_omega\/sass\/components\/_drivas\.scss}line{font-family:\00003293}}
+.group-left tbody tr,
+.group-right tbody tr {
+  background: none; }
+
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/dayscript\/ligafantastica2\/sites\/all\/themes\/ligafantastica_omega\/sass\/components\/_drivas\.scss}line{font-family:\00003298}}
+.group-left tbody td,
+.group-right tbody td {
+  padding-bottom: .5em;
+  padding-top: .5em;
+  border-bottom: 1px solid #9f9f9e;
+  font-size: .75em;
+  color: #333333;
+  text-transform: uppercase; }
+
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/dayscript\/ligafantastica2\/sites\/all\/themes\/ligafantastica_omega\/sass\/components\/_drivas\.scss}line{font-family:\00003307}}
+.group-left tbody .views-field-points,
+.group-right tbody .views-field-points {
+  color: #b92424; }
+
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/dayscript\/ligafantastica2\/sites\/all\/themes\/ligafantastica_omega\/sass\/components\/_drivas\.scss}line{font-family:\00003311}}
+.group-left .datos-equipo .nombre-equipo {
+  color: #000;
+  border-bottom: 1px solid #33629a;
+  font-size: 1.7em;
+  margin-left: 115px;
+  padding-top: .5em;
+  font-family: "dinmittelschrift", sans-serif;
+  width: 73%;
+  margin-top: -3%;
+  font-weight: 500; }
+
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/dayscript\/ligafantastica2\/sites\/all\/themes\/ligafantastica_omega\/sass\/components\/_drivas\.scss}line{font-family:\00003321}}
+.group-left .escudo {
+  float: left;
+  margin-right: 20px;
+  width: 17%; }
+
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/dayscript\/ligafantastica2\/sites\/all\/themes\/ligafantastica_omega\/sass\/components\/_drivas\.scss}line{font-family:\00003326}}
+.group-left .data-equipo {
+  margin-top: 4em; }
+
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/dayscript\/ligafantastica2\/sites\/all\/themes\/ligafantastica_omega\/sass\/components\/_drivas\.scss}line{font-family:\00003330}}
+.text-total {
+  border-bottom: none !important;
+  text-align: right;
+  padding-right: 1em;
+  font-weight: bold;
+  font-size: .8em !important; }
+
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/dayscript\/ligafantastica2\/sites\/all\/themes\/ligafantastica_omega\/sass\/components\/_drivas\.scss}line{font-family:\00003337}}
+.count-total {
+  color: #b92424 !important;
+  font-weight: bold;
+  border-bottom: none !important;
+  font-size: .9em !important; }
+
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/dayscript\/ligafantastica2\/sites\/all\/themes\/ligafantastica_omega\/sass\/components\/_fichajes\.scss}line{font-family:\000032}}
+.page-jugar-fichajes .l-content {
+  width: 100%; }
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/dayscript\/ligafantastica2\/sites\/all\/themes\/ligafantastica_omega\/sass\/components\/_fichajes\.scss}line{font-family:\000035}}
+.page-jugar-fichajes .views-view-grid {
+  width: 100%; }
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/dayscript\/ligafantastica2\/sites\/all\/themes\/ligafantastica_omega\/sass\/components\/_fichajes\.scss}line{font-family:\000037}}
+  .page-jugar-fichajes .views-view-grid td {
+    display: block;
+    margin: 0 auto;
+    min-height: 120px;
+    padding: 0 20px;
+    width: 100%; }
+    @media (min-width: 1em) {
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/dayscript\/ligafantastica2\/sites\/all\/themes\/ligafantastica_omega\/sass\/components\/_fichajes\.scss}line{font-family:\000037}}
+      .page-jugar-fichajes .views-view-grid td {
+        display: inline-block;
+        float: left;
+        margin-bottom: 14px;
+        padding: 0;
+        width: calc(100%/4); } }
+    @media (min-width: 1em) {
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/dayscript\/ligafantastica2\/sites\/all\/themes\/ligafantastica_omega\/sass\/components\/_fichajes\.scss}line{font-family:\000037}}
+      .page-jugar-fichajes .views-view-grid td {
+        margin-bottom: 0; } }
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/dayscript\/ligafantastica2\/sites\/all\/themes\/ligafantastica_omega\/sass\/components\/_fichajes\.scss}line{font-family:\0000324}}
+  .page-jugar-fichajes .views-view-grid .views-field {
+    float: left;
+    width: 50%; }
+    @media (min-width: 1em) {
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/dayscript\/ligafantastica2\/sites\/all\/themes\/ligafantastica_omega\/sass\/components\/_fichajes\.scss}line{font-family:\0000324}}
+      .page-jugar-fichajes .views-view-grid .views-field {
+        float: none; } }
+    @media (min-width: 1em) {
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/dayscript\/ligafantastica2\/sites\/all\/themes\/ligafantastica_omega\/sass\/components\/_fichajes\.scss}line{font-family:\0000324}}
+      .page-jugar-fichajes .views-view-grid .views-field {
+        float: left; } }
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/dayscript\/ligafantastica2\/sites\/all\/themes\/ligafantastica_omega\/sass\/components\/_fichajes\.scss}line{font-family:\0000334}}
+  .page-jugar-fichajes .views-view-grid .views-field-imagen-jugador {
+    margin-right: 10px;
+    width: 38%; }
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/dayscript\/ligafantastica2\/sites\/all\/themes\/ligafantastica_omega\/sass\/components\/_fichajes\.scss}line{font-family:\0000337}}
+    .page-jugar-fichajes .views-view-grid .views-field-imagen-jugador img {
+      border: 2px solid #fff; }
+    @media (min-width: 1em) {
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/dayscript\/ligafantastica2\/sites\/all\/themes\/ligafantastica_omega\/sass\/components\/_fichajes\.scss}line{font-family:\0000334}}
+      .page-jugar-fichajes .views-view-grid .views-field-imagen-jugador {
+        width: 60%; } }
+    @media (min-width: 1em) {
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/dayscript\/ligafantastica2\/sites\/all\/themes\/ligafantastica_omega\/sass\/components\/_fichajes\.scss}line{font-family:\0000334}}
+      .page-jugar-fichajes .views-view-grid .views-field-imagen-jugador {
+        width: 44%; } }
+    @media (min-width: 1200px) {
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/dayscript\/ligafantastica2\/sites\/all\/themes\/ligafantastica_omega\/sass\/components\/_fichajes\.scss}line{font-family:\0000334}}
+      .page-jugar-fichajes .views-view-grid .views-field-imagen-jugador {
+        width: 35%; } }
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/dayscript\/ligafantastica2\/sites\/all\/themes\/ligafantastica_omega\/sass\/components\/_fichajes\.scss}line{font-family:\0000350}}
+  .page-jugar-fichajes .views-view-grid .views-field-field-nombre {
+    color: #000;
+    font-size: 1em; }
+    @media (min-width: 1em) {
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/dayscript\/ligafantastica2\/sites\/all\/themes\/ligafantastica_omega\/sass\/components\/_fichajes\.scss}line{font-family:\0000350}}
+      .page-jugar-fichajes .views-view-grid .views-field-field-nombre {
+        font-size: .8em;
+        margin-top: 15px;
+        width: 100%; } }
+    @media (min-width: 1em) {
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/dayscript\/ligafantastica2\/sites\/all\/themes\/ligafantastica_omega\/sass\/components\/_fichajes\.scss}line{font-family:\0000350}}
+      .page-jugar-fichajes .views-view-grid .views-field-field-nombre {
+        width: 50%; } }
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/dayscript\/ligafantastica2\/sites\/all\/themes\/ligafantastica_omega\/sass\/components\/_fichajes\.scss}line{font-family:\0000362}}
+  .page-jugar-fichajes .views-view-grid .views-field-posicion-jugador {
+    color: #de6d26;
+    font-size: .95em;
+    font-style: italic; }
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/dayscript\/ligafantastica2\/sites\/all\/themes\/ligafantastica_omega\/sass\/components\/_fichajes\.scss}line{font-family:\0000366}}
+    .page-jugar-fichajes .views-view-grid .views-field-posicion-jugador p {
+      margin: 0; }
+    @media (min-width: 1em) {
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/dayscript\/ligafantastica2\/sites\/all\/themes\/ligafantastica_omega\/sass\/components\/_fichajes\.scss}line{font-family:\0000362}}
+      .page-jugar-fichajes .views-view-grid .views-field-posicion-jugador {
+        font-size: .75em; } }
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/dayscript\/ligafantastica2\/sites\/all\/themes\/ligafantastica_omega\/sass\/components\/_fichajes\.scss}line{font-family:\0000373}}
+  .page-jugar-fichajes .views-view-grid .views-field-field-precio {
+    color: #89304e;
+    font-size: 1.2em;
+    font-weight: bold; }
+    @media (min-width: 1em) {
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/dayscript\/ligafantastica2\/sites\/all\/themes\/ligafantastica_omega\/sass\/components\/_fichajes\.scss}line{font-family:\0000373}}
+      .page-jugar-fichajes .views-view-grid .views-field-field-precio {
+        float: left;
+        font-size: .95em; } }
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/dayscript\/ligafantastica2\/sites\/all\/themes\/ligafantastica_omega\/sass\/components\/_fichajes\.scss}line{font-family:\0000384}}
+.page-jugar-fichajes .views-field-anadir-al-carro input[type="submit"] {
+  background: url(../images/sprite.png) no-repeat 0 0;
+  display: inline-block;
+  height: 30px;
+  text-indent: -9999px;
+  width: 30px; }
+@media (min-width: 1em) {
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/dayscript\/ligafantastica2\/sites\/all\/themes\/ligafantastica_omega\/sass\/components\/_fichajes\.scss}line{font-family:\0000383}}
+  .page-jugar-fichajes .views-field-anadir-al-carro {
+    float: left;
+    display: inline-block;
+    margin-top: -8px; } }
+@media (min-width: 1em) {
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/dayscript\/ligafantastica2\/sites\/all\/themes\/ligafantastica_omega\/sass\/components\/_fichajes\.scss}line{font-family:\0000383}}
+  .page-jugar-fichajes .views-field-anadir-al-carro {
+    display: block;
+    float: none;
+    margin-top: 0; } }
+
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/dayscript\/ligafantastica2\/sites\/all\/themes\/ligafantastica_omega\/sass\/components\/_fichajes\.scss}line{font-family:\00003103}}
+#block-views-slider-fichajes-home,
+#block-views-slider-fichajes-block {
+  display: none;
+  float: left;
+  margin-right: 2%;
+  width: 70%; }
+  @media (min-width: 1em) {
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/dayscript\/ligafantastica2\/sites\/all\/themes\/ligafantastica_omega\/sass\/components\/_fichajes\.scss}line{font-family:\00003103}}
+    #block-views-slider-fichajes-home,
+    #block-views-slider-fichajes-block {
+      display: block; } }
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/dayscript\/ligafantastica2\/sites\/all\/themes\/ligafantastica_omega\/sass\/components\/_fichajes\.scss}line{font-family:\00003112}}
+  #block-views-slider-fichajes-home h2,
+  #block-views-slider-fichajes-block h2 {
+    margin-bottom: 10px; }
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/dayscript\/ligafantastica2\/sites\/all\/themes\/ligafantastica_omega\/sass\/components\/_fichajes\.scss}line{font-family:\00003115}}
+  #block-views-slider-fichajes-home .flexslider,
+  #block-views-slider-fichajes-block .flexslider {
+    background: #33629a;
+    border: 0;
+    border-radius: 0;
+    box-shadow: none;
+    margin-bottom: 20px;
+    padding: 0 30px; }
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/dayscript\/ligafantastica2\/sites\/all\/themes\/ligafantastica_omega\/sass\/components\/_fichajes\.scss}line{font-family:\00003122}}
+    #block-views-slider-fichajes-home .flexslider .slides,
+    #block-views-slider-fichajes-block .flexslider .slides {
+      padding: 36px 0; }
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/dayscript\/ligafantastica2\/sites\/all\/themes\/ligafantastica_omega\/sass\/components\/_fichajes\.scss}line{font-family:\00003124}}
+      #block-views-slider-fichajes-home .flexslider .slides li,
+      #block-views-slider-fichajes-block .flexslider .slides li {
+        color: #fff;
+        margin-right: 5px; }
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/dayscript\/ligafantastica2\/sites\/all\/themes\/ligafantastica_omega\/sass\/components\/_fichajes\.scss}line{font-family:\00003127}}
+        #block-views-slider-fichajes-home .flexslider .slides li .views-field-imagen-jugador,
+        #block-views-slider-fichajes-block .flexslider .slides li .views-field-imagen-jugador {
+          float: left;
+          margin-right: 10px; }
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/dayscript\/ligafantastica2\/sites\/all\/themes\/ligafantastica_omega\/sass\/components\/_fichajes\.scss}line{font-family:\00003130}}
+          #block-views-slider-fichajes-home .flexslider .slides li .views-field-imagen-jugador img,
+          #block-views-slider-fichajes-block .flexslider .slides li .views-field-imagen-jugador img {
+            border: 1px solid #fff; }
+          @media (min-width: 1em) {
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/dayscript\/ligafantastica2\/sites\/all\/themes\/ligafantastica_omega\/sass\/components\/_fichajes\.scss}line{font-family:\00003127}}
+            #block-views-slider-fichajes-home .flexslider .slides li .views-field-imagen-jugador,
+            #block-views-slider-fichajes-block .flexslider .slides li .views-field-imagen-jugador {
+              float: none; } }
+          @media (min-width: 1em) {
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/dayscript\/ligafantastica2\/sites\/all\/themes\/ligafantastica_omega\/sass\/components\/_fichajes\.scss}line{font-family:\00003127}}
+            #block-views-slider-fichajes-home .flexslider .slides li .views-field-imagen-jugador,
+            #block-views-slider-fichajes-block .flexslider .slides li .views-field-imagen-jugador {
+              float: left; } }
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/dayscript\/ligafantastica2\/sites\/all\/themes\/ligafantastica_omega\/sass\/components\/_fichajes\.scss}line{font-family:\00003140}}
+        #block-views-slider-fichajes-home .flexslider .slides li .views-field-field-nombre,
+        #block-views-slider-fichajes-block .flexslider .slides li .views-field-field-nombre {
+          font-size: .8em;
+          display: inline-block;
+          width: 140px; }
+          @media (min-width: 1em) {
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/dayscript\/ligafantastica2\/sites\/all\/themes\/ligafantastica_omega\/sass\/components\/_fichajes\.scss}line{font-family:\00003140}}
+            #block-views-slider-fichajes-home .flexslider .slides li .views-field-field-nombre,
+            #block-views-slider-fichajes-block .flexslider .slides li .views-field-field-nombre {
+              display: inline;
+              width: auto; } }
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/dayscript\/ligafantastica2\/sites\/all\/themes\/ligafantastica_omega\/sass\/components\/_fichajes\.scss}line{font-family:\00003149}}
+        #block-views-slider-fichajes-home .flexslider .slides li .views-field-posicion-jugador,
+        #block-views-slider-fichajes-block .flexslider .slides li .views-field-posicion-jugador {
+          color: #de6d26;
+          font-size: .75em;
+          font-style: italic; }
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/dayscript\/ligafantastica2\/sites\/all\/themes\/ligafantastica_omega\/sass\/components\/_fichajes\.scss}line{font-family:\00003153}}
+          #block-views-slider-fichajes-home .flexslider .slides li .views-field-posicion-jugador p,
+          #block-views-slider-fichajes-block .flexslider .slides li .views-field-posicion-jugador p {
+            margin: 0; }
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/dayscript\/ligafantastica2\/sites\/all\/themes\/ligafantastica_omega\/sass\/components\/_fichajes\.scss}line{font-family:\00003157}}
+        #block-views-slider-fichajes-home .flexslider .slides li .views-field-field-precio,
+        #block-views-slider-fichajes-block .flexslider .slides li .views-field-field-precio {
+          color: #fbac35;
+          font-weight: bold; }
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/dayscript\/ligafantastica2\/sites\/all\/themes\/ligafantastica_omega\/sass\/components\/_fichajes\.scss}line{font-family:\00003162}}
+        #block-views-slider-fichajes-home .flexslider .slides li .views-field-anadir-al-carro input[type="submit"],
+        #block-views-slider-fichajes-block .flexslider .slides li .views-field-anadir-al-carro input[type="submit"] {
+          background-position: 0px -40px; }
+        @media (min-width: 1em) {
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/dayscript\/ligafantastica2\/sites\/all\/themes\/ligafantastica_omega\/sass\/components\/_fichajes\.scss}line{font-family:\00003161}}
+          #block-views-slider-fichajes-home .flexslider .slides li .views-field-anadir-al-carro,
+          #block-views-slider-fichajes-block .flexslider .slides li .views-field-anadir-al-carro {
+            margin-top: 0; } }
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/dayscript\/ligafantastica2\/sites\/all\/themes\/ligafantastica_omega\/sass\/components\/_fichajes\.scss}line{font-family:\00003171}}
+    #block-views-slider-fichajes-home .flexslider .flex-control-paging,
+    #block-views-slider-fichajes-block .flexslider .flex-control-paging {
+      display: none; }
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/dayscript\/ligafantastica2\/sites\/all\/themes\/ligafantastica_omega\/sass\/components\/_fichajes\.scss}line{font-family:\00003176}}
+    #block-views-slider-fichajes-home .flexslider .flex-direction-nav a:before,
+    #block-views-slider-fichajes-block .flexslider .flex-direction-nav a:before {
+      content: '';
+      background: url(../images/arrow-flex.png) no-repeat 0 -46px;
+      height: 30px;
+      width: 30px; }
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/dayscript\/ligafantastica2\/sites\/all\/themes\/ligafantastica_omega\/sass\/components\/_fichajes\.scss}line{font-family:\00003183}}
+    #block-views-slider-fichajes-home .flexslider .flex-direction-nav a.flex-next:before,
+    #block-views-slider-fichajes-block .flexslider .flex-direction-nav a.flex-next:before {
+      content: '';
+      background: url(../images/arrow-flex.png) no-repeat 0 0; }
+
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/dayscript\/ligafantastica2\/sites\/all\/themes\/ligafantastica_omega\/sass\/components\/_fichajes\.scss}line{font-family:\00003192}}
+#block-views-slider-fichajes-home {
+  /*margin-top: 3em;*/
+  width: 100%; }
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/dayscript\/ligafantastica2\/sites\/all\/themes\/ligafantastica_omega\/sass\/components\/_fichajes\.scss}line{font-family:\00003195}}
+  #block-views-slider-fichajes-home .block__title {
+    border: 0;
+    margin-bottom: 0; }
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/dayscript\/ligafantastica2\/sites\/all\/themes\/ligafantastica_omega\/sass\/components\/_fichajes\.scss}line{font-family:\00003199}}
+  #block-views-slider-fichajes-home .flexslider {
+    padding: 0 45px; }
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/dayscript\/ligafantastica2\/sites\/all\/themes\/ligafantastica_omega\/sass\/components\/_fichajes\.scss}line{font-family:\00003204}}
+    #block-views-slider-fichajes-home .flexslider .slides li .views-field-field-nombre span {
+      display: inline-block;
+      width: 160px; }
+    @media (min-width: 1em) {
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/dayscript\/ligafantastica2\/sites\/all\/themes\/ligafantastica_omega\/sass\/components\/_fichajes\.scss}line{font-family:\00003202}}
+      #block-views-slider-fichajes-home .flexslider .slides li {
+        text-align: left; }
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/dayscript\/ligafantastica2\/sites\/all\/themes\/ligafantastica_omega\/sass\/components\/_fichajes\.scss}line{font-family:\00003211}}
+        #block-views-slider-fichajes-home .flexslider .slides li .views-field-imagen-jugador {
+          width: auto; }
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/dayscript\/ligafantastica2\/sites\/all\/themes\/ligafantastica_omega\/sass\/components\/_fichajes\.scss}line{font-family:\00003213}}
+          #block-views-slider-fichajes-home .flexslider .slides li .views-field-imagen-jugador img {
+            margin: 0 auto; }
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/dayscript\/ligafantastica2\/sites\/all\/themes\/ligafantastica_omega\/sass\/components\/_fichajes\.scss}line{font-family:\00003216}}
+          #block-views-slider-fichajes-home .flexslider .slides li .views-field-imagen-jugador span {
+            width: 145px; } }
+    @media (min-width: 1em) {
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/dayscript\/ligafantastica2\/sites\/all\/themes\/ligafantastica_omega\/sass\/components\/_fichajes\.scss}line{font-family:\00003202}}
+      #block-views-slider-fichajes-home .flexslider .slides li {
+        text-align: center; }
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/dayscript\/ligafantastica2\/sites\/all\/themes\/ligafantastica_omega\/sass\/components\/_fichajes\.scss}line{font-family:\00003223}}
+        #block-views-slider-fichajes-home .flexslider .slides li .views-field-imagen-jugador {
+          width: 240px; }
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/dayscript\/ligafantastica2\/sites\/all\/themes\/ligafantastica_omega\/sass\/components\/_fichajes\.scss}line{font-family:\00003225}}
+          #block-views-slider-fichajes-home .flexslider .slides li .views-field-imagen-jugador img {
+            margin: 0 auto; }
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/dayscript\/ligafantastica2\/sites\/all\/themes\/ligafantastica_omega\/sass\/components\/_fichajes\.scss}line{font-family:\00003228}}
+          #block-views-slider-fichajes-home .flexslider .slides li .views-field-imagen-jugador span {
+            width: 160px; } }
+    @media (min-width: 1200px) {
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/dayscript\/ligafantastica2\/sites\/all\/themes\/ligafantastica_omega\/sass\/components\/_fichajes\.scss}line{font-family:\00003202}}
+      #block-views-slider-fichajes-home .flexslider .slides li {
+        text-align: left; }
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/dayscript\/ligafantastica2\/sites\/all\/themes\/ligafantastica_omega\/sass\/components\/_fichajes\.scss}line{font-family:\00003235}}
+        #block-views-slider-fichajes-home .flexslider .slides li .views-field-imagen-jugador {
+          width: auto; }
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/dayscript\/ligafantastica2\/sites\/all\/themes\/ligafantastica_omega\/sass\/components\/_fichajes\.scss}line{font-family:\00003237}}
+          #block-views-slider-fichajes-home .flexslider .slides li .views-field-imagen-jugador img {
+            margin: 0 auto; }
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/dayscript\/ligafantastica2\/sites\/all\/themes\/ligafantastica_omega\/sass\/components\/_fichajes\.scss}line{font-family:\00003240}}
+          #block-views-slider-fichajes-home .flexslider .slides li .views-field-imagen-jugador span {
+            width: 160px; } }
+
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/dayscript\/ligafantastica2\/sites\/all\/themes\/ligafantastica_omega\/sass\/components\/_fichajes\.scss}line{font-family:\00003250}}
+.front #block-fichajes-mi-carrito {
+  width: 100%; }
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/dayscript\/ligafantastica2\/sites\/all\/themes\/ligafantastica_omega\/sass\/components\/_fichajes\.scss}line{font-family:\00003254}}
+.front.logged-in #block-fichajes-mi-carrito {
+  margin-bottom: 40px; }
+
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/dayscript\/ligafantastica2\/sites\/all\/themes\/ligafantastica_omega\/sass\/components\/_fichajes\.scss}line{font-family:\00003260}}
+#block-fichajes-mi-carrito {
+  float: left;
+  margin-bottom: 2.5em;
+  padding: 0 10px;
+  width: 100%; }
+  @media (min-width: 1em) {
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/dayscript\/ligafantastica2\/sites\/all\/themes\/ligafantastica_omega\/sass\/components\/_fichajes\.scss}line{font-family:\00003260}}
+    #block-fichajes-mi-carrito {
+      margin-bottom: 0;
+      width: 28%; } }
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/dayscript\/ligafantastica2\/sites\/all\/themes\/ligafantastica_omega\/sass\/components\/_fichajes\.scss}line{font-family:\00003269}}
+  #block-fichajes-mi-carrito h2 {
+    margin-bottom: 10px; }
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/dayscript\/ligafantastica2\/sites\/all\/themes\/ligafantastica_omega\/sass\/components\/_fichajes\.scss}line{font-family:\00003272}}
+  #block-fichajes-mi-carrito .block__content {
+    background: #eea320;
+    /* Old browsers */
+    background: -moz-linear-gradient(top, #eea320 0%, #eea320 43%, #b37b18 54%, #eea320 100%);
+    /* FF3.6+ */
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #eea320), color-stop(43%, #eea320), color-stop(54%, #b37b18), color-stop(100%, #eea320));
+    /* Chrome,Safari4+ */
+    background: -webkit-linear-gradient(top, #eea320 0%, #eea320 43%, #b37b18 54%, #eea320 100%);
+    /* Chrome10+,Safari5.1+ */
+    background: -o-linear-gradient(top, #eea320 0%, #eea320 43%, #b37b18 54%, #eea320 100%);
+    /* Opera 11.10+ */
+    background: -ms-linear-gradient(top, #eea320 0%, #eea320 43%, #b37b18 54%, #eea320 100%);
+    /* IE10+ */
+    background: linear-gradient(to bottom, #eea320 0%, #eea320 43%, #b37b18 54%, #eea320 100%);
+    /* W3C */
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#eea320', endColorstr='#eea320',GradientType=0 );
+    /* IE6-9 */
+    border-radius: 4px;
+    color: #fff;
+    float: left;
+    padding: 5px 10px;
+    position: relative;
+    padding-bottom: 20px;
+    width: 100%; }
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/dayscript\/ligafantastica2\/sites\/all\/themes\/ligafantastica_omega\/sass\/components\/_fichajes\.scss}line{font-family:\00003289}}
+  #block-fichajes-mi-carrito .presupuesto {
+    background: #000;
+    border-radius: 8px;
+    display: block;
+    font-family: "AdvDigital7", sans-serif;
+    font-size: 1.85em;
+    height: 58px;
+    line-height: 65px;
+    padding: 0 5px;
+    text-align: center;
+    width: 100%; }
+    @media (min-width: 1em) {
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/dayscript\/ligafantastica2\/sites\/all\/themes\/ligafantastica_omega\/sass\/components\/_fichajes\.scss}line{font-family:\00003289}}
+      #block-fichajes-mi-carrito .presupuesto {
+        font-size: 1.05em; } }
+    @media (min-width: 1em) {
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/dayscript\/ligafantastica2\/sites\/all\/themes\/ligafantastica_omega\/sass\/components\/_fichajes\.scss}line{font-family:\00003289}}
+      #block-fichajes-mi-carrito .presupuesto {
+        font-size: 1.5em; } }
+    @media (min-width: 1200px) {
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/dayscript\/ligafantastica2\/sites\/all\/themes\/ligafantastica_omega\/sass\/components\/_fichajes\.scss}line{font-family:\00003289}}
+      #block-fichajes-mi-carrito .presupuesto {
+        font-size: 1.85em; } }
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/dayscript\/ligafantastica2\/sites\/all\/themes\/ligafantastica_omega\/sass\/components\/_fichajes\.scss}line{font-family:\00003310}}
+  #block-fichajes-mi-carrito .checkout {
+    background: url(../images/sprite.png) no-repeat 0px -72px;
+    display: block;
+    float: left;
+    height: 42px;
+    margin-left: 10px;
+    width: 40px;
+    text-indent: -9999px; }
+    @media (min-width: 1em) {
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/dayscript\/ligafantastica2\/sites\/all\/themes\/ligafantastica_omega\/sass\/components\/_fichajes\.scss}line{font-family:\00003310}}
+      #block-fichajes-mi-carrito .checkout {
+        margin-left: 37px; } }
+    @media (min-width: 1em) {
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/dayscript\/ligafantastica2\/sites\/all\/themes\/ligafantastica_omega\/sass\/components\/_fichajes\.scss}line{font-family:\00003310}}
+      #block-fichajes-mi-carrito .checkout {
+        margin-left: 0; } }
+    @media (min-width: 1200px) {
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/dayscript\/ligafantastica2\/sites\/all\/themes\/ligafantastica_omega\/sass\/components\/_fichajes\.scss}line{font-family:\00003310}}
+      #block-fichajes-mi-carrito .checkout {
+        margin-left: 10px; } }
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/dayscript\/ligafantastica2\/sites\/all\/themes\/ligafantastica_omega\/sass\/components\/_fichajes\.scss}line{font-family:\00003328}}
+  #block-fichajes-mi-carrito .fichajes,
+  #block-fichajes-mi-carrito .total-fichajes {
+    float: left; }
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/dayscript\/ligafantastica2\/sites\/all\/themes\/ligafantastica_omega\/sass\/components\/_fichajes\.scss}line{font-family:\00003331}}
+    #block-fichajes-mi-carrito .fichajes .nro-fichajes,
+    #block-fichajes-mi-carrito .fichajes .ttl-fichajes,
+    #block-fichajes-mi-carrito .total-fichajes .nro-fichajes,
+    #block-fichajes-mi-carrito .total-fichajes .ttl-fichajes {
+      display: inline-block;
+      font-size: 1.85em;
+      font-weight: bold;
+      margin-top: 5px; }
+    @media (min-width: 1em) {
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/dayscript\/ligafantastica2\/sites\/all\/themes\/ligafantastica_omega\/sass\/components\/_fichajes\.scss}line{font-family:\00003338}}
+      #block-fichajes-mi-carrito .fichajes .ttl-fichajes,
+      #block-fichajes-mi-carrito .total-fichajes .ttl-fichajes {
+        font-size: 1.65em; } }
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/dayscript\/ligafantastica2\/sites\/all\/themes\/ligafantastica_omega\/sass\/components\/_fichajes\.scss}line{font-family:\00003343}}
+    #block-fichajes-mi-carrito .fichajes p,
+    #block-fichajes-mi-carrito .total-fichajes p {
+      font-family: "pf_tempesta_seven";
+      font-size: .5em;
+      margin: 0;
+      text-align: center; }
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/dayscript\/ligafantastica2\/sites\/all\/themes\/ligafantastica_omega\/sass\/components\/_fichajes\.scss}line{font-family:\00003350}}
+  #block-fichajes-mi-carrito .fichajes {
+    text-align: center;
+    width: 18%; }
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/dayscript\/ligafantastica2\/sites\/all\/themes\/ligafantastica_omega\/sass\/components\/_fichajes\.scss}line{font-family:\00003354}}
+  #block-fichajes-mi-carrito .total-fichajes {
+    float: right;
+    text-align: center;
+    width: 60%; }
+    @media (min-width: 1em) {
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/dayscript\/ligafantastica2\/sites\/all\/themes\/ligafantastica_omega\/sass\/components\/_fichajes\.scss}line{font-family:\00003354}}
+      #block-fichajes-mi-carrito .total-fichajes {
+        width: 100%; } }
+    @media (min-width: 1em) {
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/dayscript\/ligafantastica2\/sites\/all\/themes\/ligafantastica_omega\/sass\/components\/_fichajes\.scss}line{font-family:\00003354}}
+      #block-fichajes-mi-carrito .total-fichajes {
+        width: 60%; } }
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/dayscript\/ligafantastica2\/sites\/all\/themes\/ligafantastica_omega\/sass\/components\/_fichajes\.scss}line{font-family:\00003365}}
+  #block-fichajes-mi-carrito .bt-confirmar {
+    background: url(img/blocktitle-bg.png) no-repeat 0 0;
+    background-size: contain;
+    bottom: -28px;
+    display: inline-block;
+    color: #fff;
+    font-family: "dinmittelschrift", sans-serif;
+    font-size: 1.25em;
+    height: 40px;
+    left: 50%;
+    line-height: 34px;
+    margin-left: -80px;
+    position: absolute;
+    text-align: center;
+    width: 160px; }
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/dayscript\/ligafantastica2\/sites\/all\/themes\/ligafantastica_omega\/sass\/components\/_fichajes\.scss}line{font-family:\00003380}}
+    #block-fichajes-mi-carrito .bt-confirmar:hover {
+      text-decoration: none; }
+
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/dayscript\/ligafantastica2\/sites\/all\/themes\/ligafantastica_omega\/sass\/components\/_fichajes\.scss}line{font-family:\00003386}}
+#block-fichajes-filtros-fichajes {
+  float: left;
+  width: 100%; }
+  @media (min-width: 1em) {
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/dayscript\/ligafantastica2\/sites\/all\/themes\/ligafantastica_omega\/sass\/components\/_fichajes\.scss}line{font-family:\00003386}}
+    #block-fichajes-filtros-fichajes {
+      margin-bottom: 1.5em; } }
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/dayscript\/ligafantastica2\/sites\/all\/themes\/ligafantastica_omega\/sass\/components\/_fichajes\.scss}line{font-family:\00003392}}
+  #block-fichajes-filtros-fichajes .form-submit {
+    margin: 10px; }
+    @media (min-width: 1em) {
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/dayscript\/ligafantastica2\/sites\/all\/themes\/ligafantastica_omega\/sass\/components\/_fichajes\.scss}line{font-family:\00003392}}
+      #block-fichajes-filtros-fichajes .form-submit {
+        margin: 0; } }
+
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/dayscript\/ligafantastica2\/sites\/all\/themes\/ligafantastica_omega\/sass\/components\/_fichajes\.scss}line{font-family:\00003400}}
+.filtros-fichajes-form .filtros-label {
+  color: #000;
+  font-size: .8em;
+  font-weight: bold;
+  margin-right: 10px; }
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/dayscript\/ligafantastica2\/sites\/all\/themes\/ligafantastica_omega\/sass\/components\/_fichajes\.scss}line{font-family:\00003406}}
+.filtros-fichajes-form .form-item {
+  background: #fff;
+  border-top: 1px solid #aeaeae;
+  display: block;
+  margin: 0;
+  padding: 10px;
+  position: relative; }
+  @media (min-width: 1em) {
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/dayscript\/ligafantastica2\/sites\/all\/themes\/ligafantastica_omega\/sass\/components\/_fichajes\.scss}line{font-family:\00003406}}
+    .filtros-fichajes-form .form-item {
+      background: none;
+      border: 0;
+      display: inline-block;
+      margin-right: 20px;
+      padding: 0; } }
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/dayscript\/ligafantastica2\/sites\/all\/themes\/ligafantastica_omega\/sass\/components\/_fichajes\.scss}line{font-family:\00003420}}
+  .filtros-fichajes-form .form-item:last-child {
+    border-bottom: 1px solid #aeaeae; }
+    @media (min-width: 1em) {
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/dayscript\/ligafantastica2\/sites\/all\/themes\/ligafantastica_omega\/sass\/components\/_fichajes\.scss}line{font-family:\00003420}}
+      .filtros-fichajes-form .form-item:last-child {
+        border-bottom: 0; } }
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/dayscript\/ligafantastica2\/sites\/all\/themes\/ligafantastica_omega\/sass\/components\/_fichajes\.scss}line{font-family:\00003426}}
+  .filtros-fichajes-form .form-item label {
+    color: #000;
+    display: inline-block;
+    font-size: .75em;
+    font-weight: bold;
+    text-transform: uppercase;
+    width: 20%; }
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/dayscript\/ligafantastica2\/sites\/all\/themes\/ligafantastica_omega\/sass\/components\/_fichajes\.scss}line{font-family:\00003433}}
+    .filtros-fichajes-form .form-item label:before {
+      content: '';
+      background: url(../images/arrow-select.png) no-repeat 0 0;
+      display: block;
+      height: 20px;
+      position: absolute;
+      right: 0;
+      top: 16px;
+      width: 82px; }
+    @media (min-width: 1em) {
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/dayscript\/ligafantastica2\/sites\/all\/themes\/ligafantastica_omega\/sass\/components\/_fichajes\.scss}line{font-family:\00003426}}
+      .filtros-fichajes-form .form-item label {
+        font-weight: normal;
+        width: auto; }
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/dayscript\/ligafantastica2\/sites\/all\/themes\/ligafantastica_omega\/sass\/components\/_fichajes\.scss}line{font-family:\00003446}}
+        .filtros-fichajes-form .form-item label:before {
+          content: '';
+          display: none; } }
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/dayscript\/ligafantastica2\/sites\/all\/themes\/ligafantastica_omega\/sass\/components\/_fichajes\.scss}line{font-family:\00003452}}
+  .filtros-fichajes-form .form-item select {
+    border: none;
+    color: #aeaeae;
+    font-size: 1em;
+    padding: 5px 0;
+    width: 76%; }
+    @media (min-width: 1em) {
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/dayscript\/ligafantastica2\/sites\/all\/themes\/ligafantastica_omega\/sass\/components\/_fichajes\.scss}line{font-family:\00003452}}
+      .filtros-fichajes-form .form-item select {
+        font-size: .8em;
+        width: auto; } }
+
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/dayscript\/ligafantastica2\/sites\/all\/themes\/ligafantastica_omega\/sass\/components\/_fichajes\.scss}line{font-family:\00003465}}
+#fichajes {
+  float: left;
+  width: 100%; }
+
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/dayscript\/ligafantastica2\/sites\/all\/themes\/ligafantastica_omega\/sass\/components\/_footer\.scss}line{font-family:\000031}}
+#block-block-1 {
+  width: 49.15254%;
+  float: right;
+  margin-left: 0;
+  margin-right: 0;
+  clear: none; }
+
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/dayscript\/ligafantastica2\/sites\/all\/themes\/ligafantastica_omega\/sass\/components\/_footer\.scss}line{font-family:\000034}}
+#block-block-2 {
+  width: 49.15254%;
+  float: left;
+  margin-right: -100%;
+  margin-left: 0;
+  clear: none; }
+
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/dayscript\/ligafantastica2\/sites\/all\/themes\/ligafantastica_omega\/sass\/components\/_footer\.scss}line{font-family:\000037}}
+#block-block-3 {
+  width: 100%;
+  float: right;
+  margin-left: 0;
+  margin-right: 0;
+  clear: none; }
+
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/dayscript\/ligafantastica2\/sites\/all\/themes\/ligafantastica_omega\/sass\/components\/_footer\.scss}line{font-family:\0000310}}
+.l-region--footer {
+  width: 100%;
+  float: right;
+  margin-left: 0;
+  margin-right: 0;
+  clear: none;
+  padding: 15px; }
+
+@media (min-width: 1em) {
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/dayscript\/ligafantastica2\/sites\/all\/themes\/ligafantastica_omega\/sass\/components\/_footer\.scss}line{font-family:\0000315}}
+  #block-block-1 {
+    width: 15.25424%;
+    float: right;
+    margin-left: 0;
+    margin-right: 0;
+    clear: none; }
+
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/dayscript\/ligafantastica2\/sites\/all\/themes\/ligafantastica_omega\/sass\/components\/_footer\.scss}line{font-family:\0000318}}
+  #block-block-2 {
+    width: 15.25424%;
+    float: left;
+    margin-right: -100%;
+    margin-left: 0;
+    clear: none; }
+
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/dayscript\/ligafantastica2\/sites\/all\/themes\/ligafantastica_omega\/sass\/components\/_footer\.scss}line{font-family:\0000321}}
+  #block-block-3 {
+    width: 57.62712%;
+    float: left;
+    margin-right: -100%;
+    margin-left: 16.94915%;
+    clear: none;
+    margin-top: 15px; } }
+  @media (min-width: 1em) and (min-width: 1em) {
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/dayscript\/ligafantastica2\/sites\/all\/themes\/ligafantastica_omega\/sass\/components\/_footer\.scss}line{font-family:\0000321}}
+    #block-block-3 {
+      margin-top: 25px; } }
+
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/dayscript\/ligafantastica2\/sites\/all\/themes\/ligafantastica_omega\/sass\/components\/_footer\.scss}line{font-family:\0000329}}
+#block-block-9 {
+  display: inline-block; }
+
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/dayscript\/ligafantastica2\/sites\/all\/themes\/ligafantastica_omega\/sass\/components\/_footer\.scss}line{font-family:\0000332}}
+#block-block-11 {
+  width: 600px;
+  padding-top: 30px; }
+
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/dayscript\/ligafantastica2\/sites\/all\/themes\/ligafantastica_omega\/sass\/components\/_footer\.scss}line{font-family:\0000336}}
+.floatright {
+  float: right; }
+
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/dayscript\/ligafantastica2\/sites\/all\/themes\/ligafantastica_omega\/sass\/components\/_footer\.scss}line{font-family:\0000339}}
+#footer-wrapper {
+  background-color: #5f6062;
+  background-color: #000;
+  display: block;
+  float: left;
+  width: 100%; }
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/dayscript\/ligafantastica2\/sites\/all\/themes\/ligafantastica_omega\/sass\/components\/_footer\.scss}line{font-family:\0000345}}
+  #footer-wrapper #footer {
+    color: white;
+    font-size: 0.7em;
+    font-family: "Open Sans", sans-serif;
+    margin: 0 auto;
+    width: 100%; }
+    @media (min-width: 1em) {
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/dayscript\/ligafantastica2\/sites\/all\/themes\/ligafantastica_omega\/sass\/components\/_footer\.scss}line{font-family:\0000345}}
+      #footer-wrapper #footer {
+        max-width: 1200px; } }
+
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/dayscript\/ligafantastica2\/sites\/all\/themes\/ligafantastica_omega\/sass\/components\/_header\.scss}line{font-family:\000031}}
+#header-wrapper {
+  background-color: #fff;
+  display: block;
+  float: left;
+  width: 100%;
+  height: 100px; }
+  @media (min-width: 1em) {
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/dayscript\/ligafantastica2\/sites\/all\/themes\/ligafantastica_omega\/sass\/components\/_header\.scss}line{font-family:\000031}}
+    #header-wrapper {
+      height: auto; } }
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/dayscript\/ligafantastica2\/sites\/all\/themes\/ligafantastica_omega\/sass\/components\/_header\.scss}line{font-family:\0000310}}
+  #header-wrapper #header {
+    color: #5f6062;
+    font-size: 1em;
+    font-family: "Open Sans", sans-serif;
+    margin: 0 auto;
+    width: 100%; }
+    @media (min-width: 1em) {
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/dayscript\/ligafantastica2\/sites\/all\/themes\/ligafantastica_omega\/sass\/components\/_header\.scss}line{font-family:\0000310}}
+      #header-wrapper #header {
+        max-width: 1200px; } }
+
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/dayscript\/ligafantastica2\/sites\/all\/themes\/ligafantastica_omega\/sass\/components\/_header\.scss}line{font-family:\0000322}}
+.l-header {
+  width: 100%;
+  float: right;
+  margin-left: 0;
+  margin-right: 0;
+  clear: none;
+  text-align: center;
+  position: relative;
+  padding: 15px; }
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/dayscript\/ligafantastica2\/sites\/all\/themes\/ligafantastica_omega\/sass\/components\/_header\.scss}line{font-family:\0000327}}
+  .l-header .site-logo {
+    position: absolute;
+    top: -7px;
+    left: 15px; }
+    @media (min-width: 1em) {
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/dayscript\/ligafantastica2\/sites\/all\/themes\/ligafantastica_omega\/sass\/components\/_header\.scss}line{font-family:\0000327}}
+      .l-header .site-logo {
+        top: 15px;
+        left: 4%;
+        z-index: 1; } }
+    @media (min-width: 1em) {
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/dayscript\/ligafantastica2\/sites\/all\/themes\/ligafantastica_omega\/sass\/components\/_header\.scss}line{font-family:\0000327}}
+      .l-header .site-logo {
+        top: -45px;
+        left: 40%; } }
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/dayscript\/ligafantastica2\/sites\/all\/themes\/ligafantastica_omega\/sass\/components\/_header\.scss}line{font-family:\0000340}}
+    .l-header .site-logo img {
+      height: 110px; }
+      @media (min-width: 1em) {
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/dayscript\/ligafantastica2\/sites\/all\/themes\/ligafantastica_omega\/sass\/components\/_header\.scss}line{font-family:\0000340}}
+        .l-header .site-logo img {
+          height: auto; } }
+
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/dayscript\/ligafantastica2\/sites\/all\/themes\/ligafantastica_omega\/sass\/components\/_header\.scss}line{font-family:\0000349}}
+#block-block-4 {
+  width: 100%;
+  float: right;
+  margin-left: 0;
+  margin-right: 0;
+  clear: none; }
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/dayscript\/ligafantastica2\/sites\/all\/themes\/ligafantastica_omega\/sass\/components\/_header\.scss}line{font-family:\0000351}}
+  #block-block-4 p {
+    margin: 8px 0; }
+
+@media (min-width: 1em) {
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/dayscript\/ligafantastica2\/sites\/all\/themes\/ligafantastica_omega\/sass\/components\/_header\.scss}line{font-family:\0000356}}
+  #block-block-4 {
+    width: 15.25424%;
+    float: left;
+    margin-right: -100%;
+    margin-left: 16.94915%;
+    clear: none; } }
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/dayscript\/ligafantastica2\/sites\/all\/themes\/ligafantastica_omega\/sass\/components\/_highlighted\.scss}line{font-family:\000031}}
+#highlighted-wrapper {
+  background: #d6d6d4;
+  display: block;
+  float: left;
+  width: 100%; }
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/dayscript\/ligafantastica2\/sites\/all\/themes\/ligafantastica_omega\/sass\/components\/_highlighted\.scss}line{font-family:\000036}}
+  #highlighted-wrapper #highlighted {
+    margin: 0 auto;
+    width: 100%; }
+    @media (min-width: 1em) {
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/dayscript\/ligafantastica2\/sites\/all\/themes\/ligafantastica_omega\/sass\/components\/_highlighted\.scss}line{font-family:\000036}}
+      #highlighted-wrapper #highlighted {
+        max-width: 1200px; } }
+
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/dayscript\/ligafantastica2\/sites\/all\/themes\/ligafantastica_omega\/sass\/components\/_menu\.scss}line{font-family:\000031}}
+#block-menu-menu-jugar {
+  display: none; }
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/dayscript\/ligafantastica2\/sites\/all\/themes\/ligafantastica_omega\/sass\/components\/_menu\.scss}line{font-family:\000033}}
+  #block-menu-menu-jugar .block__title {
+    display: none; }
+  @media (min-width: 1em) {
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/dayscript\/ligafantastica2\/sites\/all\/themes\/ligafantastica_omega\/sass\/components\/_menu\.scss}line{font-family:\000031}}
+    #block-menu-menu-jugar {
+      display: block;
+      margin-top: 45px; } }
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/dayscript\/ligafantastica2\/sites\/all\/themes\/ligafantastica_omega\/sass\/components\/_menu\.scss}line{font-family:\0000310}}
+  #block-menu-menu-jugar .menu {
+    margin: 0px auto;
+    width: 100%; }
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/dayscript\/ligafantastica2\/sites\/all\/themes\/ligafantastica_omega\/sass\/components\/_menu\.scss}line{font-family:\0000313}}
+    #block-menu-menu-jugar .menu li {
+      display: inline-block;
+      font-family: "dinmittelschrift", sans-serif;
+      list-style: none; }
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/dayscript\/ligafantastica2\/sites\/all\/themes\/ligafantastica_omega\/sass\/components\/_menu\.scss}line{font-family:\0000317}}
+      #block-menu-menu-jugar .menu li a {
+        color: #5f6062;
+        display: inline-block;
+        font-size: 1.2em;
+        margin: 0 30px;
+        padding: 14px 10px;
+        position: relative;
+        text-decoration: none;
+        text-transform: uppercase; }
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/dayscript\/ligafantastica2\/sites\/all\/themes\/ligafantastica_omega\/sass\/components\/_menu\.scss}line{font-family:\0000327}}
+      #block-menu-menu-jugar .menu li ul.menu {
+        display: none; }
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/dayscript\/ligafantastica2\/sites\/all\/themes\/ligafantastica_omega\/sass\/components\/_menu\.scss}line{font-family:\0000331}}
+      #block-menu-menu-jugar .menu li.active-trail a {
+        background: #33629a;
+        color: #fff; }
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/dayscript\/ligafantastica2\/sites\/all\/themes\/ligafantastica_omega\/sass\/components\/_menu\.scss}line{font-family:\0000334}}
+        #block-menu-menu-jugar .menu li.active-trail a:after, #block-menu-menu-jugar .menu li.active-trail a:before {
+          content: '';
+          background: url(../images/sprite.png) no-repeat 0px -274px;
+          display: inline-block;
+          height: 35px;
+          left: -25px;
+          position: absolute;
+          top: 9px;
+          width: 28px; }
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/dayscript\/ligafantastica2\/sites\/all\/themes\/ligafantastica_omega\/sass\/components\/_menu\.scss}line{font-family:\0000345}}
+        #block-menu-menu-jugar .menu li.active-trail a:after {
+          content: '';
+          background-position: -55px -274px;
+          left: initial;
+          right: -28px; }
+
+@media (min-width: 1em) {
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/dayscript\/ligafantastica2\/sites\/all\/themes\/ligafantastica_omega\/sass\/components\/_mi-carrito\.scss}line{font-family:\000032}}
+  .page-jugar-fichajes-carrito .l-content {
+    width: 66.10169%; } }
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/dayscript\/ligafantastica2\/sites\/all\/themes\/ligafantastica_omega\/sass\/components\/_mi-carrito\.scss}line{font-family:\000036}}
+.page-jugar-fichajes-carrito .l-content .l-content {
+  width: 100%; }
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/dayscript\/ligafantastica2\/sites\/all\/themes\/ligafantastica_omega\/sass\/components\/_mi-carrito\.scss}line{font-family:\0000310}}
+.page-jugar-fichajes-carrito h1 {
+  font-family: "dinmittelschrift", sans-serif;
+  font-size: 1.5em;
+  font-weight: normal;
+  border-bottom: 1px solid #33629a;
+  margin-top: 0;
+  text-transform: uppercase; }
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/dayscript\/ligafantastica2\/sites\/all\/themes\/ligafantastica_omega\/sass\/components\/_mi-carrito\.scss}line{font-family:\0000318}}
+.page-jugar-fichajes-carrito .message {
+  float: left;
+  min-height: 70px;
+  padding: 0 10px 0 65px;
+  position: relative;
+  text-align: center;
+  width: 100%; }
+  @media (min-width: 1em) {
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/dayscript\/ligafantastica2\/sites\/all\/themes\/ligafantastica_omega\/sass\/components\/_mi-carrito\.scss}line{font-family:\0000318}}
+    .page-jugar-fichajes-carrito .message {
+      width: 52%; } }
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/dayscript\/ligafantastica2\/sites\/all\/themes\/ligafantastica_omega\/sass\/components\/_mi-carrito\.scss}line{font-family:\0000328}}
+  .page-jugar-fichajes-carrito .message:before {
+    content: '';
+    background: url(../images/sprite.png) no-repeat 0px -150px;
+    display: inline-block;
+    height: 65px;
+    left: 0;
+    position: absolute;
+    vertical-align: middle;
+    width: 65px; }
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/dayscript\/ligafantastica2\/sites\/all\/themes\/ligafantastica_omega\/sass\/components\/_mi-carrito\.scss}line{font-family:\0000339}}
+.page-jugar-fichajes-carrito .presupuesto {
+  background: #eea320;
+  /* Old browsers */
+  background: -moz-linear-gradient(top, #eea320 44%, #b37a18 56%, #eda220 100%);
+  /* FF3.6+ */
+  background: -webkit-gradient(linear, left top, left bottom, color-stop(44%, #eea320), color-stop(56%, #b37a18), color-stop(100%, #eda220));
+  /* Chrome,Safari4+ */
+  background: -webkit-linear-gradient(top, #eea320 44%, #b37a18 56%, #eda220 100%);
+  /* Chrome10+,Safari5.1+ */
+  background: -o-linear-gradient(top, #eea320 44%, #b37a18 56%, #eda220 100%);
+  /* Opera 11.10+ */
+  background: -ms-linear-gradient(top, #eea320 44%, #b37a18 56%, #eda220 100%);
+  /* IE10+ */
+  background: linear-gradient(to bottom, #eea320 44%, #b37a18 56%, #eda220 100%);
+  /* W3C */
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#eea320', endColorstr='#eda220',GradientType=0 );
+  /* IE6-9 */
+  float: right;
+  padding: 8px 5px;
+  width: 100%; }
+  @media (min-width: 1em) {
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/dayscript\/ligafantastica2\/sites\/all\/themes\/ligafantastica_omega\/sass\/components\/_mi-carrito\.scss}line{font-family:\0000339}}
+    .page-jugar-fichajes-carrito .presupuesto {
+      width: 48%; } }
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/dayscript\/ligafantastica2\/sites\/all\/themes\/ligafantastica_omega\/sass\/components\/_mi-carrito\.scss}line{font-family:\0000347}}
+  .page-jugar-fichajes-carrito .presupuesto .fichajes {
+    color: #fff;
+    font-size: 1.85em;
+    font-weight: bold;
+    float: left;
+    padding-left: 40px;
+    padding-right: 10px;
+    padding-top: 5px;
+    position: relative;
+    text-align: center;
+    width: 30%; }
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/dayscript\/ligafantastica2\/sites\/all\/themes\/ligafantastica_omega\/sass\/components\/_mi-carrito\.scss}line{font-family:\0000358}}
+    .page-jugar-fichajes-carrito .presupuesto .fichajes span {
+      display: block;
+      font-family: "pf_tempesta_seven";
+      font-size: .3em;
+      font-weight: normal;
+      text-transform: uppercase; }
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/dayscript\/ligafantastica2\/sites\/all\/themes\/ligafantastica_omega\/sass\/components\/_mi-carrito\.scss}line{font-family:\0000365}}
+    .page-jugar-fichajes-carrito .presupuesto .fichajes:before {
+      content: '';
+      background: url(../images/sprite.png) no-repeat 0px -72px;
+      display: inline-block;
+      height: 42px;
+      left: 0px;
+      position: absolute;
+      top: 5px;
+      width: 40px; }
+    @media (min-width: 1em) {
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/dayscript\/ligafantastica2\/sites\/all\/themes\/ligafantastica_omega\/sass\/components\/_mi-carrito\.scss}line{font-family:\0000347}}
+      .page-jugar-fichajes-carrito .presupuesto .fichajes {
+        padding-left: 5px; }
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/dayscript\/ligafantastica2\/sites\/all\/themes\/ligafantastica_omega\/sass\/components\/_mi-carrito\.scss}line{font-family:\0000377}}
+        .page-jugar-fichajes-carrito .presupuesto .fichajes:before {
+          content: '';
+          display: none; } }
+    @media (min-width: 1em) {
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/dayscript\/ligafantastica2\/sites\/all\/themes\/ligafantastica_omega\/sass\/components\/_mi-carrito\.scss}line{font-family:\0000347}}
+      .page-jugar-fichajes-carrito .presupuesto .fichajes {
+        padding-left: 40px; }
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/dayscript\/ligafantastica2\/sites\/all\/themes\/ligafantastica_omega\/sass\/components\/_mi-carrito\.scss}line{font-family:\0000384}}
+        .page-jugar-fichajes-carrito .presupuesto .fichajes:before {
+          content: '';
+          display: block; } }
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/dayscript\/ligafantastica2\/sites\/all\/themes\/ligafantastica_omega\/sass\/components\/_mi-carrito\.scss}line{font-family:\0000390}}
+  .page-jugar-fichajes-carrito .presupuesto .presupuesto-restante {
+    background: #000;
+    border-radius: 8px;
+    color: #fff;
+    display: block;
+    float: left;
+    font-family: "AdvDigital7", sans-serif;
+    font-size: 1.8em;
+    height: 58px;
+    line-height: 65px;
+    padding: 0 5px;
+    text-align: center;
+    width: 70%; }
+    @media (min-width: 1em) {
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/dayscript\/ligafantastica2\/sites\/all\/themes\/ligafantastica_omega\/sass\/components\/_mi-carrito\.scss}line{font-family:\0000390}}
+      .page-jugar-fichajes-carrito .presupuesto .presupuesto-restante {
+        font-size: 1.05em; } }
+    @media (min-width: 1em) {
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/dayscript\/ligafantastica2\/sites\/all\/themes\/ligafantastica_omega\/sass\/components\/_mi-carrito\.scss}line{font-family:\0000390}}
+      .page-jugar-fichajes-carrito .presupuesto .presupuesto-restante {
+        font-size: 1.45em; } }
+    @media (min-width: 1200px) {
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/dayscript\/ligafantastica2\/sites\/all\/themes\/ligafantastica_omega\/sass\/components\/_mi-carrito\.scss}line{font-family:\0000390}}
+      .page-jugar-fichajes-carrito .presupuesto .presupuesto-restante {
+        font-size: 1.8em; } }
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/dayscript\/ligafantastica2\/sites\/all\/themes\/ligafantastica_omega\/sass\/components\/_mi-carrito\.scss}line{font-family:\00003114}}
+.page-jugar-fichajes-carrito table {
+  border-top: 1px solid #33629a;
+  display: block;
+  float: left;
+  margin-top: 1em;
+  width: 100%; }
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/dayscript\/ligafantastica2\/sites\/all\/themes\/ligafantastica_omega\/sass\/components\/_mi-carrito\.scss}line{font-family:\00003120}}
+  .page-jugar-fichajes-carrito table thead {
+    display: block;
+    width: 100%; }
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/dayscript\/ligafantastica2\/sites\/all\/themes\/ligafantastica_omega\/sass\/components\/_mi-carrito\.scss}line{font-family:\00003124}}
+  .page-jugar-fichajes-carrito table tr {
+    border-bottom: 1px solid #aeaeae;
+    display: block;
+    float: left;
+    padding: 10px 0;
+    width: 100%; }
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/dayscript\/ligafantastica2\/sites\/all\/themes\/ligafantastica_omega\/sass\/components\/_mi-carrito\.scss}line{font-family:\00003131}}
+  .page-jugar-fichajes-carrito table th {
+    background: none;
+    color: #000;
+    display: inline-block;
+    float: left;
+    font-size: .8em;
+    padding: 10px 0;
+    text-align: center;
+    text-transform: uppercase;
+    width: calc(100% / 3); }
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/dayscript\/ligafantastica2\/sites\/all\/themes\/ligafantastica_omega\/sass\/components\/_mi-carrito\.scss}line{font-family:\00003143}}
+  .page-jugar-fichajes-carrito table .eliminar-jugador .boton-eliminar {
+    background: url(../images/sprite.png) no-repeat 0px -220px;
+    text-indent: -9999px;
+    width: 40px;
+    height: 40px; }
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/dayscript\/ligafantastica2\/sites\/all\/themes\/ligafantastica_omega\/sass\/components\/_mi-carrito\.scss}line{font-family:\00003150}}
+  .page-jugar-fichajes-carrito table tbody {
+    display: block;
+    float: left;
+    width: 100%; }
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/dayscript\/ligafantastica2\/sites\/all\/themes\/ligafantastica_omega\/sass\/components\/_mi-carrito\.scss}line{font-family:\00003154}}
+    .page-jugar-fichajes-carrito table tbody td {
+      display: block;
+      float: left;
+      text-align: center;
+      width: calc(100% / 3); }
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/dayscript\/ligafantastica2\/sites\/all\/themes\/ligafantastica_omega\/sass\/components\/_mi-carrito\.scss}line{font-family:\00003159}}
+      .page-jugar-fichajes-carrito table tbody td.eliminar-jugador {
+        height: 100px;
+        line-height: 100px; }
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/dayscript\/ligafantastica2\/sites\/all\/themes\/ligafantastica_omega\/sass\/components\/_mi-carrito\.scss}line{font-family:\00003163}}
+      .page-jugar-fichajes-carrito table tbody td .imagen-jugador {
+        float: left;
+        margin-right: 10px; }
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/dayscript\/ligafantastica2\/sites\/all\/themes\/ligafantastica_omega\/sass\/components\/_mi-carrito\.scss}line{font-family:\00003166}}
+        .page-jugar-fichajes-carrito table tbody td .imagen-jugador img {
+          border: 1px solid #fff; }
+        @media (min-width: 1em) {
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/dayscript\/ligafantastica2\/sites\/all\/themes\/ligafantastica_omega\/sass\/components\/_mi-carrito\.scss}line{font-family:\00003163}}
+          .page-jugar-fichajes-carrito table tbody td .imagen-jugador {
+            width: 100%; } }
+        @media (min-width: 1em) {
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/dayscript\/ligafantastica2\/sites\/all\/themes\/ligafantastica_omega\/sass\/components\/_mi-carrito\.scss}line{font-family:\00003163}}
+          .page-jugar-fichajes-carrito table tbody td .imagen-jugador {
+            width: auto; } }
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/dayscript\/ligafantastica2\/sites\/all\/themes\/ligafantastica_omega\/sass\/components\/_mi-carrito\.scss}line{font-family:\00003176}}
+      .page-jugar-fichajes-carrito table tbody td .nombre-jugador {
+        color: #000;
+        font-size: .8em;
+        font-weight: bold;
+        margin: 10px 0 0;
+        text-align: left; }
+        @media (min-width: 1em) {
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/dayscript\/ligafantastica2\/sites\/all\/themes\/ligafantastica_omega\/sass\/components\/_mi-carrito\.scss}line{font-family:\00003176}}
+          .page-jugar-fichajes-carrito table tbody td .nombre-jugador {
+            text-align: center; } }
+        @media (min-width: 1em) {
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/dayscript\/ligafantastica2\/sites\/all\/themes\/ligafantastica_omega\/sass\/components\/_mi-carrito\.scss}line{font-family:\00003176}}
+          .page-jugar-fichajes-carrito table tbody td .nombre-jugador {
+            text-align: left; } }
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/dayscript\/ligafantastica2\/sites\/all\/themes\/ligafantastica_omega\/sass\/components\/_mi-carrito\.scss}line{font-family:\00003189}}
+      .page-jugar-fichajes-carrito table tbody td .posicion-jugador {
+        color: #de6d26;
+        font-size: .75em;
+        font-style: italic;
+        margin: 0;
+        text-align: left; }
+        @media (min-width: 1em) {
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/dayscript\/ligafantastica2\/sites\/all\/themes\/ligafantastica_omega\/sass\/components\/_mi-carrito\.scss}line{font-family:\00003189}}
+          .page-jugar-fichajes-carrito table tbody td .posicion-jugador {
+            text-align: center; } }
+        @media (min-width: 1em) {
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/dayscript\/ligafantastica2\/sites\/all\/themes\/ligafantastica_omega\/sass\/components\/_mi-carrito\.scss}line{font-family:\00003189}}
+          .page-jugar-fichajes-carrito table tbody td .posicion-jugador {
+            text-align: left; } }
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/dayscript\/ligafantastica2\/sites\/all\/themes\/ligafantastica_omega\/sass\/components\/_mi-carrito\.scss}line{font-family:\00003202}}
+      .page-jugar-fichajes-carrito table tbody td:last-child {
+        color: #33629a;
+        font-size: .9em;
+        font-weight: bold;
+        text-align: right; }
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/dayscript\/ligafantastica2\/sites\/all\/themes\/ligafantastica_omega\/sass\/components\/_mi-carrito\.scss}line{font-family:\00003210}}
+  .page-jugar-fichajes-carrito table tfoot {
+    display: block;
+    float: left;
+    padding: 10px 0;
+    width: 100%; }
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/dayscript\/ligafantastica2\/sites\/all\/themes\/ligafantastica_omega\/sass\/components\/_mi-carrito\.scss}line{font-family:\00003215}}
+    .page-jugar-fichajes-carrito table tfoot td:first-child {
+      color: #000;
+      font-size: .8em;
+      font-weight: bold;
+      float: left;
+      margin-top: 5px;
+      text-align: right;
+      text-transform: uppercase;
+      width: 65%; }
+      @media (min-width: 1em) {
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/dayscript\/ligafantastica2\/sites\/all\/themes\/ligafantastica_omega\/sass\/components\/_mi-carrito\.scss}line{font-family:\00003215}}
+        .page-jugar-fichajes-carrito table tfoot td:first-child {
+          width: 70%; } }
+      @media (min-width: 1em) {
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/dayscript\/ligafantastica2\/sites\/all\/themes\/ligafantastica_omega\/sass\/components\/_mi-carrito\.scss}line{font-family:\00003215}}
+        .page-jugar-fichajes-carrito table tfoot td:first-child {
+          width: 78%; } }
+      @media (min-width: 1200px) {
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/dayscript\/ligafantastica2\/sites\/all\/themes\/ligafantastica_omega\/sass\/components\/_mi-carrito\.scss}line{font-family:\00003215}}
+        .page-jugar-fichajes-carrito table tfoot td:first-child {
+          width: 82%; } }
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/dayscript\/ligafantastica2\/sites\/all\/themes\/ligafantastica_omega\/sass\/components\/_mi-carrito\.scss}line{font-family:\00003235}}
+    .page-jugar-fichajes-carrito table tfoot td:last-child {
+      color: #33629a;
+      float: right;
+      font-size: 1.4em;
+      font-weight: bold; }
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/dayscript\/ligafantastica2\/sites\/all\/themes\/ligafantastica_omega\/sass\/components\/_mi-carrito\.scss}line{font-family:\00003243}}
+.page-jugar-fichajes-carrito #acciones {
+  float: left;
+  font-family: "dinmittelschrift", sans-serif;
+  padding: 10px 8%;
+  width: 100%; }
+  @media (min-width: 1em) {
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/dayscript\/ligafantastica2\/sites\/all\/themes\/ligafantastica_omega\/sass\/components\/_mi-carrito\.scss}line{font-family:\00003243}}
+    .page-jugar-fichajes-carrito #acciones {
+      padding: 10px 6%; } }
+  @media (min-width: 1200px) {
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/dayscript\/ligafantastica2\/sites\/all\/themes\/ligafantastica_omega\/sass\/components\/_mi-carrito\.scss}line{font-family:\00003243}}
+    .page-jugar-fichajes-carrito #acciones {
+      padding: 10px 100px; } }
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/dayscript\/ligafantastica2\/sites\/all\/themes\/ligafantastica_omega\/sass\/components\/_mi-carrito\.scss}line{font-family:\00003254}}
+  .page-jugar-fichajes-carrito #acciones .boton-continuar {
+    background: url(../images/bkg-blue.png) no-repeat 0 0;
+    color: #fff;
+    display: inline-block;
+    float: left;
+    font-size: 1.35em;
+    height: 50px;
+    line-height: 50px;
+    text-transform: uppercase;
+    text-align: center;
+    width: 262px; }
+    @media (min-width: 1em) {
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/dayscript\/ligafantastica2\/sites\/all\/themes\/ligafantastica_omega\/sass\/components\/_mi-carrito\.scss}line{font-family:\00003254}}
+      .page-jugar-fichajes-carrito #acciones .boton-continuar {
+        background-size: contain;
+        height: 38px;
+        width: 200px; } }
+    @media (min-width: 1em) {
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/dayscript\/ligafantastica2\/sites\/all\/themes\/ligafantastica_omega\/sass\/components\/_mi-carrito\.scss}line{font-family:\00003254}}
+      .page-jugar-fichajes-carrito #acciones .boton-continuar {
+        height: 50px;
+        width: 262px; } }
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/dayscript\/ligafantastica2\/sites\/all\/themes\/ligafantastica_omega\/sass\/components\/_mi-carrito\.scss}line{font-family:\00003274}}
+    .page-jugar-fichajes-carrito #acciones .boton-continuar:hover {
+      text-decoration: none; }
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/dayscript\/ligafantastica2\/sites\/all\/themes\/ligafantastica_omega\/sass\/components\/_mi-carrito\.scss}line{font-family:\00003278}}
+  .page-jugar-fichajes-carrito #acciones .boton-comprar {
+    background: url(../images/bkg-orange.png) no-repeat 0 0;
+    color: #fff;
+    display: inline-block;
+    font-size: 1.35em;
+    height: 50px;
+    text-align: center;
+    text-transform: uppercase;
+    width: 262px; }
+    @media (min-width: 1em) {
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/dayscript\/ligafantastica2\/sites\/all\/themes\/ligafantastica_omega\/sass\/components\/_mi-carrito\.scss}line{font-family:\00003278}}
+      .page-jugar-fichajes-carrito #acciones .boton-comprar {
+        background-size: contain;
+        float: right;
+        height: 38px;
+        width: 200px; } }
+    @media (min-width: 1em) {
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/dayscript\/ligafantastica2\/sites\/all\/themes\/ligafantastica_omega\/sass\/components\/_mi-carrito\.scss}line{font-family:\00003278}}
+      .page-jugar-fichajes-carrito #acciones .boton-comprar {
+        height: 50px;
+        width: 262px; } }
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/dayscript\/ligafantastica2\/sites\/all\/themes\/ligafantastica_omega\/sass\/components\/_mi-carrito\.scss}line{font-family:\00003297}}
+    .page-jugar-fichajes-carrito #acciones .boton-comprar:hover {
+      text-decoration: none; }
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/dayscript\/ligafantastica2\/sites\/all\/themes\/ligafantastica_omega\/sass\/components\/_mi-carrito\.scss}line{font-family:\00003301}}
+  .page-jugar-fichajes-carrito #acciones .message {
+    display: none !important; }
+
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/dayscript\/ligafantastica2\/sites\/all\/themes\/ligafantastica_omega\/sass\/components\/_mi-carrito\.scss}line{font-family:\00003306}}
+#block-fichajes-mi-carrito {
+  margin-bottom: 40px !important; }
+
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/dayscript\/ligafantastica2\/sites\/all\/themes\/ligafantastica_omega\/sass\/components\/_mi-cuenta\.scss}line{font-family:\000032}}
+.page-user-edit .l-content {
+  width: 100%; }
+
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/dayscript\/ligafantastica2\/sites\/all\/themes\/ligafantastica_omega\/sass\/components\/_mi-cuenta\.scss}line{font-family:\000037}}
+#user-profile-form {
+  font-size: .8em; }
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/dayscript\/ligafantastica2\/sites\/all\/themes\/ligafantastica_omega\/sass\/components\/_mi-cuenta\.scss}line{font-family:\000039}}
+  #user-profile-form h2 {
+    font-size: 2em;
+    font-weight: normal; }
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/dayscript\/ligafantastica2\/sites\/all\/themes\/ligafantastica_omega\/sass\/components\/_mi-cuenta\.scss}line{font-family:\0000312}}
+    #user-profile-form h2 + div {
+      margin-bottom: 5px; }
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/dayscript\/ligafantastica2\/sites\/all\/themes\/ligafantastica_omega\/sass\/components\/_mi-cuenta\.scss}line{font-family:\0000314}}
+      #user-profile-form h2 + div + div {
+        margin-bottom: 15px; }
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/dayscript\/ligafantastica2\/sites\/all\/themes\/ligafantastica_omega\/sass\/components\/_mi-cuenta\.scss}line{font-family:\0000319}}
+  #user-profile-form .field-widget-image-image {
+    float: left;
+    width: 100%; }
+    @media (min-width: 1em) {
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/dayscript\/ligafantastica2\/sites\/all\/themes\/ligafantastica_omega\/sass\/components\/_mi-cuenta\.scss}line{font-family:\0000319}}
+      #user-profile-form .field-widget-image-image {
+        width: 18%; } }
+    @media (min-width: 1em) {
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/dayscript\/ligafantastica2\/sites\/all\/themes\/ligafantastica_omega\/sass\/components\/_mi-cuenta\.scss}line{font-family:\0000319}}
+      #user-profile-form .field-widget-image-image {
+        width: 22%; } }
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/dayscript\/ligafantastica2\/sites\/all\/themes\/ligafantastica_omega\/sass\/components\/_mi-cuenta\.scss}line{font-family:\0000328}}
+    #user-profile-form .field-widget-image-image input[type="submit"] {
+      display: block;
+      margin: 10px 0; }
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/dayscript\/ligafantastica2\/sites\/all\/themes\/ligafantastica_omega\/sass\/components\/_mi-cuenta\.scss}line{font-family:\0000333}}
+    #user-profile-form .field-widget-image-image .image-preview img {
+      border-radius: 100%;
+      height: 98px; }
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/dayscript\/ligafantastica2\/sites\/all\/themes\/ligafantastica_omega\/sass\/components\/_mi-cuenta\.scss}line{font-family:\0000338}}
+    #user-profile-form .field-widget-image-image .image-widget-data {
+      float: none; }
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/dayscript\/ligafantastica2\/sites\/all\/themes\/ligafantastica_omega\/sass\/components\/_mi-cuenta\.scss}line{font-family:\0000340}}
+      #user-profile-form .field-widget-image-image .image-widget-data input.form-file {
+        width: 100%; }
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/dayscript\/ligafantastica2\/sites\/all\/themes\/ligafantastica_omega\/sass\/components\/_mi-cuenta\.scss}line{font-family:\0000343}}
+      #user-profile-form .field-widget-image-image .image-widget-data .file {
+        display: inline-block;
+        margin-top: 20px; }
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/dayscript\/ligafantastica2\/sites\/all\/themes\/ligafantastica_omega\/sass\/components\/_mi-cuenta\.scss}line{font-family:\0000346}}
+        #user-profile-form .field-widget-image-image .image-widget-data .file img {
+          display: none; }
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/dayscript\/ligafantastica2\/sites\/all\/themes\/ligafantastica_omega\/sass\/components\/_mi-cuenta\.scss}line{font-family:\0000350}}
+      #user-profile-form .field-widget-image-image .image-widget-data .file-size {
+        display: block; }
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/dayscript\/ligafantastica2\/sites\/all\/themes\/ligafantastica_omega\/sass\/components\/_mi-cuenta\.scss}line{font-family:\0000356}}
+  #user-profile-form .field-type-image label {
+    display: none; }
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/dayscript\/ligafantastica2\/sites\/all\/themes\/ligafantastica_omega\/sass\/components\/_mi-cuenta\.scss}line{font-family:\0000361}}
+  #user-profile-form .field-type-text label {
+    font-weight: normal; }
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/dayscript\/ligafantastica2\/sites\/all\/themes\/ligafantastica_omega\/sass\/components\/_mi-cuenta\.scss}line{font-family:\0000365}}
+  #user-profile-form #edit-picture {
+    border: 0;
+    float: left;
+    width: 100%; }
+    @media (min-width: 1em) {
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/dayscript\/ligafantastica2\/sites\/all\/themes\/ligafantastica_omega\/sass\/components\/_mi-cuenta\.scss}line{font-family:\0000365}}
+      #user-profile-form #edit-picture {
+        width: 20%; } }
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/dayscript\/ligafantastica2\/sites\/all\/themes\/ligafantastica_omega\/sass\/components\/_mi-cuenta\.scss}line{font-family:\0000372}}
+    #user-profile-form #edit-picture legend {
+      display: none; }
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/dayscript\/ligafantastica2\/sites\/all\/themes\/ligafantastica_omega\/sass\/components\/_mi-cuenta\.scss}line{font-family:\0000375}}
+    #user-profile-form #edit-picture .fieldset-wrapper {
+      float: left;
+      text-align: center;
+      width: 320px; }
+      @media (min-width: 1em) {
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/dayscript\/ligafantastica2\/sites\/all\/themes\/ligafantastica_omega\/sass\/components\/_mi-cuenta\.scss}line{font-family:\0000375}}
+        #user-profile-form #edit-picture .fieldset-wrapper {
+          width: auto; } }
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/dayscript\/ligafantastica2\/sites\/all\/themes\/ligafantastica_omega\/sass\/components\/_mi-cuenta\.scss}line{font-family:\0000383}}
+    #user-profile-form #edit-picture .user-picture {
+      float: left;
+      width: 100%; }
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/dayscript\/ligafantastica2\/sites\/all\/themes\/ligafantastica_omega\/sass\/components\/_mi-cuenta\.scss}line{font-family:\0000386}}
+      #user-profile-form #edit-picture .user-picture img {
+        border-radius: 100%;
+        height: 96px;
+        width: 96px; }
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/dayscript\/ligafantastica2\/sites\/all\/themes\/ligafantastica_omega\/sass\/components\/_mi-cuenta\.scss}line{font-family:\0000392}}
+      #user-profile-form #edit-picture .user-picture .form-item-files-picture-upload label {
+        display: none; }
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/dayscript\/ligafantastica2\/sites\/all\/themes\/ligafantastica_omega\/sass\/components\/_mi-cuenta\.scss}line{font-family:\0000397}}
+    #user-profile-form #edit-picture .form-item-files-picture-upload {
+      display: block;
+      margin: 0 auto;
+      overflow: hidden;
+      width: 150px; }
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/dayscript\/ligafantastica2\/sites\/all\/themes\/ligafantastica_omega\/sass\/components\/_mi-cuenta\.scss}line{font-family:\00003103}}
+    #user-profile-form #edit-picture .form-file {
+      background: url(../images/btn-avatar.png) no-repeat 0 0;
+      border: 0;
+      cursor: pointer;
+      height: 30px;
+      margin-top: 10px;
+      overflow: hidden;
+      padding-left: 154px;
+      width: 150px; }
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/dayscript\/ligafantastica2\/sites\/all\/themes\/ligafantastica_omega\/sass\/components\/_mi-cuenta\.scss}line{font-family:\00003114}}
+    #user-profile-form #edit-picture .form-item-files-picture-upload label,
+    #user-profile-form #edit-picture .form-item-files-picture-upload .description {
+      display: none; }
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/dayscript\/ligafantastica2\/sites\/all\/themes\/ligafantastica_omega\/sass\/components\/_mi-cuenta\.scss}line{font-family:\00003120}}
+  #user-profile-form label {
+    font-weight: normal;
+    margin-bottom: 8px;
+    text-transform: uppercase; }
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/dayscript\/ligafantastica2\/sites\/all\/themes\/ligafantastica_omega\/sass\/components\/_mi-cuenta\.scss}line{font-family:\00003125}}
+  #user-profile-form input {
+    border: 1px solid #aeaeae;
+    font-size: 1em;
+    padding: 8px 10px; }
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/dayscript\/ligafantastica2\/sites\/all\/themes\/ligafantastica_omega\/sass\/components\/_mi-cuenta\.scss}line{font-family:\00003130}}
+  #user-profile-form .field-name-field-nombre {
+    float: left;
+    margin-left: 15px;
+    width: 100%; }
+    @media (min-width: 1em) {
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/dayscript\/ligafantastica2\/sites\/all\/themes\/ligafantastica_omega\/sass\/components\/_mi-cuenta\.scss}line{font-family:\00003130}}
+      #user-profile-form .field-name-field-nombre {
+        width: 28%; } }
+    @media (min-width: 1em) {
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/dayscript\/ligafantastica2\/sites\/all\/themes\/ligafantastica_omega\/sass\/components\/_mi-cuenta\.scss}line{font-family:\00003130}}
+      #user-profile-form .field-name-field-nombre {
+        width: 30%; } }
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/dayscript\/ligafantastica2\/sites\/all\/themes\/ligafantastica_omega\/sass\/components\/_mi-cuenta\.scss}line{font-family:\00003141}}
+  #user-profile-form .mis-datos {
+    float: right;
+    margin-bottom: 10px;
+    width: 100%; }
+    @media (min-width: 1em) {
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/dayscript\/ligafantastica2\/sites\/all\/themes\/ligafantastica_omega\/sass\/components\/_mi-cuenta\.scss}line{font-family:\00003141}}
+      #user-profile-form .mis-datos {
+        margin-bottom: 0;
+        width: 50%; } }
+    @media (min-width: 1em) {
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/dayscript\/ligafantastica2\/sites\/all\/themes\/ligafantastica_omega\/sass\/components\/_mi-cuenta\.scss}line{font-family:\00003141}}
+      #user-profile-form .mis-datos {
+        width: 45%; } }
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/dayscript\/ligafantastica2\/sites\/all\/themes\/ligafantastica_omega\/sass\/components\/_mi-cuenta\.scss}line{font-family:\00003152}}
+    #user-profile-form .mis-datos div {
+      background: #1d619a;
+      /* Old browsers */
+      background: -moz-linear-gradient(top, #1d619a 0%, #1d619a 42%, #164974 51%, #1d619a 100%);
+      /* FF3.6+ */
+      background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #1d619a), color-stop(42%, #1d619a), color-stop(51%, #164974), color-stop(100%, #1d619a));
+      /* Chrome,Safari4+ */
+      background: -webkit-linear-gradient(top, #1d619a 0%, #1d619a 42%, #164974 51%, #1d619a 100%);
+      /* Chrome10+,Safari5.1+ */
+      background: -o-linear-gradient(top, #1d619a 0%, #1d619a 42%, #164974 51%, #1d619a 100%);
+      /* Opera 11.10+ */
+      background: -ms-linear-gradient(top, #1d619a 0%, #1d619a 42%, #164974 51%, #1d619a 100%);
+      /* IE10+ */
+      background: linear-gradient(to bottom, #1d619a 0%, #1d619a 42%, #164974 51%, #1d619a 100%);
+      /* W3C */
+      filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#1d619a', endColorstr='#1d619a',GradientType=0 );
+      /* IE6-9 */
+      border-radius: 5px;
+      color: #fff;
+      display: inline-block;
+      float: left;
+      height: 70px;
+      margin-left: 8px;
+      text-align: center; }
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/dayscript\/ligafantastica2\/sites\/all\/themes\/ligafantastica_omega\/sass\/components\/_mi-cuenta\.scss}line{font-family:\00003161}}
+      #user-profile-form .mis-datos div h3 {
+        color: #fff;
+        font-family: "AdvDigital7", sans-serif;
+        font-size: 1.85em;
+        margin: 0;
+        height: 46px;
+        line-height: 46px;
+        padding-top: 4px; }
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/dayscript\/ligafantastica2\/sites\/all\/themes\/ligafantastica_omega\/sass\/components\/_mi-cuenta\.scss}line{font-family:\00003170}}
+      #user-profile-form .mis-datos div span {
+        font-family: "pf_tempesta_seven";
+        font-size: .6em;
+        text-transform: uppercase; }
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/dayscript\/ligafantastica2\/sites\/all\/themes\/ligafantastica_omega\/sass\/components\/_mi-cuenta\.scss}line{font-family:\00003176}}
+    #user-profile-form .mis-datos .pts-acumulados {
+      width: 20%; }
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/dayscript\/ligafantastica2\/sites\/all\/themes\/ligafantastica_omega\/sass\/components\/_mi-cuenta\.scss}line{font-family:\00003179}}
+    #user-profile-form .mis-datos .pos-general {
+      width: 25%; }
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/dayscript\/ligafantastica2\/sites\/all\/themes\/ligafantastica_omega\/sass\/components\/_mi-cuenta\.scss}line{font-family:\00003182}}
+    #user-profile-form .mis-datos .pres-actual {
+      background: #eea320;
+      /* Old browsers */
+      background: -moz-linear-gradient(top, #eea320 44%, #b37a18 56%, #eda220 100%);
+      /* FF3.6+ */
+      background: -webkit-gradient(linear, left top, left bottom, color-stop(44%, #eea320), color-stop(56%, #b37a18), color-stop(100%, #eda220));
+      /* Chrome,Safari4+ */
+      background: -webkit-linear-gradient(top, #eea320 44%, #b37a18 56%, #eda220 100%);
+      /* Chrome10+,Safari5.1+ */
+      background: -o-linear-gradient(top, #eea320 44%, #b37a18 56%, #eda220 100%);
+      /* Opera 11.10+ */
+      background: -ms-linear-gradient(top, #eea320 44%, #b37a18 56%, #eda220 100%);
+      /* IE10+ */
+      background: linear-gradient(to bottom, #eea320 44%, #b37a18 56%, #eda220 100%);
+      /* W3C */
+      filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#eea320', endColorstr='#eda220',GradientType=0 );
+      /* IE6-9 */
+      padding: 5px;
+      width: 47%; }
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/dayscript\/ligafantastica2\/sites\/all\/themes\/ligafantastica_omega\/sass\/components\/_mi-cuenta\.scss}line{font-family:\00003186}}
+      #user-profile-form .mis-datos .pres-actual h3,
+      #user-profile-form .mis-datos .pres-actual span {
+        background: #000; }
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/dayscript\/ligafantastica2\/sites\/all\/themes\/ligafantastica_omega\/sass\/components\/_mi-cuenta\.scss}line{font-family:\00003190}}
+      #user-profile-form .mis-datos .pres-actual span {
+        display: block;
+        height: 15px;
+        width: 100%;
+        line-height: 10px; }
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/dayscript\/ligafantastica2\/sites\/all\/themes\/ligafantastica_omega\/sass\/components\/_mi-cuenta\.scss}line{font-family:\00003197}}
+    #user-profile-form .mis-datos + h2 {
+      float: left;
+      width: 100%; }
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/dayscript\/ligafantastica2\/sites\/all\/themes\/ligafantastica_omega\/sass\/components\/_mi-cuenta\.scss}line{font-family:\00003203}}
+  #user-profile-form .left {
+    float: left;
+    margin: 0;
+    width: 100%; }
+    @media (min-width: 1em) {
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/dayscript\/ligafantastica2\/sites\/all\/themes\/ligafantastica_omega\/sass\/components\/_mi-cuenta\.scss}line{font-family:\00003203}}
+      #user-profile-form .left {
+        width: 36%; } }
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/dayscript\/ligafantastica2\/sites\/all\/themes\/ligafantastica_omega\/sass\/components\/_mi-cuenta\.scss}line{font-family:\00003210}}
+    #user-profile-form .left .form-item-current-pass {
+      float: left;
+      margin-right: 4%;
+      width: 100%; }
+      @media (min-width: 1em) {
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/dayscript\/ligafantastica2\/sites\/all\/themes\/ligafantastica_omega\/sass\/components\/_mi-cuenta\.scss}line{font-family:\00003210}}
+        #user-profile-form .left .form-item-current-pass {
+          width: 48%; } }
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/dayscript\/ligafantastica2\/sites\/all\/themes\/ligafantastica_omega\/sass\/components\/_mi-cuenta\.scss}line{font-family:\00003218}}
+    #user-profile-form .left .form-item-mail {
+      float: left;
+      width: 100%; }
+      @media (min-width: 1em) {
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/dayscript\/ligafantastica2\/sites\/all\/themes\/ligafantastica_omega\/sass\/components\/_mi-cuenta\.scss}line{font-family:\00003218}}
+        #user-profile-form .left .form-item-mail {
+          width: 48%; } }
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/dayscript\/ligafantastica2\/sites\/all\/themes\/ligafantastica_omega\/sass\/components\/_mi-cuenta\.scss}line{font-family:\00003226}}
+    #user-profile-form .left .form-type-password-confirm .form-type-password {
+      float: left;
+      width: 100%; }
+      @media (min-width: 1em) {
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/dayscript\/ligafantastica2\/sites\/all\/themes\/ligafantastica_omega\/sass\/components\/_mi-cuenta\.scss}line{font-family:\00003226}}
+        #user-profile-form .left .form-type-password-confirm .form-type-password {
+          width: 48%; } }
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/dayscript\/ligafantastica2\/sites\/all\/themes\/ligafantastica_omega\/sass\/components\/_mi-cuenta\.scss}line{font-family:\00003233}}
+    #user-profile-form .left .form-type-password-confirm .password-parent {
+      margin-right: 4%; }
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/dayscript\/ligafantastica2\/sites\/all\/themes\/ligafantastica_omega\/sass\/components\/_mi-cuenta\.scss}line{font-family:\00003236}}
+    #user-profile-form .left .form-type-password-confirm .password-parent,
+    #user-profile-form .left .form-type-password-confirm .confirm-parent {
+      padding-bottom: 20px;
+      position: relative; }
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/dayscript\/ligafantastica2\/sites\/all\/themes\/ligafantastica_omega\/sass\/components\/_mi-cuenta\.scss}line{font-family:\00003240}}
+      #user-profile-form .left .form-type-password-confirm .password-parent div.password-confirm,
+      #user-profile-form .left .form-type-password-confirm .password-parent .password-strength,
+      #user-profile-form .left .form-type-password-confirm .confirm-parent div.password-confirm,
+      #user-profile-form .left .form-type-password-confirm .confirm-parent .password-strength {
+        bottom: -5px;
+        position: absolute; }
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/dayscript\/ligafantastica2\/sites\/all\/themes\/ligafantastica_omega\/sass\/components\/_mi-cuenta\.scss}line{font-family:\00003248}}
+  #user-profile-form .right {
+    float: right;
+    margin-right: 0;
+    text-align: left;
+    width: 100%; }
+    @media (min-width: 1em) {
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/dayscript\/ligafantastica2\/sites\/all\/themes\/ligafantastica_omega\/sass\/components\/_mi-cuenta\.scss}line{font-family:\00003248}}
+      #user-profile-form .right {
+        width: 38%; } }
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/dayscript\/ligafantastica2\/sites\/all\/themes\/ligafantastica_omega\/sass\/components\/_mi-cuenta\.scss}line{font-family:\00003257}}
+    #user-profile-form .right .field-name-field-fecha-de-nacimiento legend,
+    #user-profile-form .right .field-name-field-fecha-de-nacimiento .description {
+      display: none; }
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/dayscript\/ligafantastica2\/sites\/all\/themes\/ligafantastica_omega\/sass\/components\/_mi-cuenta\.scss}line{font-family:\00003261}}
+    #user-profile-form .right .field-name-field-fecha-de-nacimiento fieldset {
+      border: 0;
+      padding: 0; }
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/dayscript\/ligafantastica2\/sites\/all\/themes\/ligafantastica_omega\/sass\/components\/_mi-cuenta\.scss}line{font-family:\00003265}}
+    #user-profile-form .right .field-name-field-fecha-de-nacimiento .date-padding {
+      padding: 0; }
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/dayscript\/ligafantastica2\/sites\/all\/themes\/ligafantastica_omega\/sass\/components\/_mi-cuenta\.scss}line{font-family:\00003269}}
+    #user-profile-form .right .field-name-field-fecha-de-nacimiento .container-inline-date div,
+    #user-profile-form .right .field-name-field-fecha-de-nacimiento .container-inline-date input {
+      width: 100%; }
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/dayscript\/ligafantastica2\/sites\/all\/themes\/ligafantastica_omega\/sass\/components\/_mi-cuenta\.scss}line{font-family:\00003275}}
+    #user-profile-form .right select {
+      border: 1px solid #aeaeae;
+      border-radius: 5px;
+      height: 30px;
+      width: 100%; }
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/dayscript\/ligafantastica2\/sites\/all\/themes\/ligafantastica_omega\/sass\/components\/_mi-cuenta\.scss}line{font-family:\00003281}}
+    #user-profile-form .right .field-name-field-desea-recibir-informaci-n- {
+      margin: 45px 0; }
+  @media (min-width: 1em) {
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/dayscript\/ligafantastica2\/sites\/all\/themes\/ligafantastica_omega\/sass\/components\/_mi-cuenta\.scss}line{font-family:\00003285}}
+    #user-profile-form #edit-account {
+      margin-left: -12em; } }
+  @media (min-width: 1em) {
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/dayscript\/ligafantastica2\/sites\/all\/themes\/ligafantastica_omega\/sass\/components\/_mi-cuenta\.scss}line{font-family:\00003285}}
+    #user-profile-form #edit-account {
+      margin-left: -14em; } }
+  @media (min-width: 1200px) {
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/dayscript\/ligafantastica2\/sites\/all\/themes\/ligafantastica_omega\/sass\/components\/_mi-cuenta\.scss}line{font-family:\00003285}}
+    #user-profile-form #edit-account {
+      margin-left: -18em; } }
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/dayscript\/ligafantastica2\/sites\/all\/themes\/ligafantastica_omega\/sass\/components\/_mi-cuenta\.scss}line{font-family:\00003295}}
+  #user-profile-form #edit-account .description {
+    display: none; }
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/dayscript\/ligafantastica2\/sites\/all\/themes\/ligafantastica_omega\/sass\/components\/_mi-cuenta\.scss}line{font-family:\00003299}}
+  #user-profile-form .form-actions {
+    border-top: 1px solid #33629a;
+    float: left;
+    margin-top: 10px;
+    padding-top: 20px;
+    width: 100%; }
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/dayscript\/ligafantastica2\/sites\/all\/themes\/ligafantastica_omega\/sass\/components\/_mi-cuenta\.scss}line{font-family:\00003305}}
+    #user-profile-form .form-actions input {
+      background: url(img/blocktitle-bg.png) no-repeat 0 0;
+      background-size: contain;
+      border: 0;
+      font-size: 2em;
+      height: 50px;
+      width: 250px; }
+
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/dayscript\/ligafantastica2\/sites\/all\/themes\/ligafantastica_omega\/sass\/components\/_navigation\.scss}line{font-family:\000031}}
+#navigation-wrapper {
+  background-color: #33629a;
+  display: block;
+  float: left;
+  width: 100%; }
+  @media (min-width: 1em) {
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/dayscript\/ligafantastica2\/sites\/all\/themes\/ligafantastica_omega\/sass\/components\/_navigation\.scss}line{font-family:\000031}}
+    #navigation-wrapper {
+      background-color: #fff;
+      padding-top: 30px; } }
+  @media (min-width: 1em) {
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/dayscript\/ligafantastica2\/sites\/all\/themes\/ligafantastica_omega\/sass\/components\/_navigation\.scss}line{font-family:\000031}}
+    #navigation-wrapper {
+      padding-top: 0; } }
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/dayscript\/ligafantastica2\/sites\/all\/themes\/ligafantastica_omega\/sass\/components\/_navigation\.scss}line{font-family:\0000313}}
+  #navigation-wrapper #navigation {
+    color: #fff;
+    font-size: 1em;
+    font-family: "dinmittelschrift", sans-serif;
+    margin: 0 auto;
+    width: 100%; }
+    @media (min-width: 1em) {
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/dayscript\/ligafantastica2\/sites\/all\/themes\/ligafantastica_omega\/sass\/components\/_navigation\.scss}line{font-family:\0000313}}
+      #navigation-wrapper #navigation {
+        color: #5f6062; } }
+    @media (min-width: 1em) {
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/dayscript\/ligafantastica2\/sites\/all\/themes\/ligafantastica_omega\/sass\/components\/_navigation\.scss}line{font-family:\0000313}}
+      #navigation-wrapper #navigation {
+        max-width: 1200px; } }
+
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/dayscript\/ligafantastica2\/sites\/all\/themes\/ligafantastica_omega\/sass\/components\/_navigation\.scss}line{font-family:\0000328}}
+.l-navigation {
+  width: 100%;
+  float: right;
+  margin-left: 0;
+  margin-right: 0;
+  clear: none; }
+
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/dayscript\/ligafantastica2\/sites\/all\/themes\/ligafantastica_omega\/sass\/components\/_navigation\.scss}line{font-family:\0000333}}
+#block-system-main-menu {
+  width: 100%;
+  float: right;
+  margin-left: 0;
+  margin-right: 0;
+  clear: none; }
+  @media (min-width: 1em) {
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/dayscript\/ligafantastica2\/sites\/all\/themes\/ligafantastica_omega\/sass\/components\/_navigation\.scss}line{font-family:\0000333}}
+    #block-system-main-menu {
+      width: 60%; } }
+  @media (min-width: 1em) {
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/dayscript\/ligafantastica2\/sites\/all\/themes\/ligafantastica_omega\/sass\/components\/_navigation\.scss}line{font-family:\0000333}}
+    #block-system-main-menu {
+      width: 49.15254%;
+      float: left;
+      margin-right: -100%;
+      margin-left: 0;
+      clear: none; } }
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/dayscript\/ligafantastica2\/sites\/all\/themes\/ligafantastica_omega\/sass\/components\/_navigation\.scss}line{font-family:\0000341}}
+  #block-system-main-menu ul.menu {
+    padding-left: 0;
+    margin: 0; }
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/dayscript\/ligafantastica2\/sites\/all\/themes\/ligafantastica_omega\/sass\/components\/_navigation\.scss}line{font-family:\0000345}}
+  #block-system-main-menu .leaf {
+    font-family: "dinmittelschrift", sans-serif;
+    list-style-image: none;
+    list-style-type: none;
+    color: #5f6062;
+    font-size: 1.4em; }
+    @media (min-width: 1em) {
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/dayscript\/ligafantastica2\/sites\/all\/themes\/ligafantastica_omega\/sass\/components\/_navigation\.scss}line{font-family:\0000345}}
+      #block-system-main-menu .leaf {
+        display: inline;
+        font-size: 1.3em; } }
+    @media (min-width: 1em) {
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/dayscript\/ligafantastica2\/sites\/all\/themes\/ligafantastica_omega\/sass\/components\/_navigation\.scss}line{font-family:\0000345}}
+      #block-system-main-menu .leaf {
+        display: inline;
+        font-size: 1.25em; } }
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/dayscript\/ligafantastica2\/sites\/all\/themes\/ligafantastica_omega\/sass\/components\/_navigation\.scss}line{font-family:\0000359}}
+    #block-system-main-menu .leaf a {
+      color: #fff;
+      background: url("img/icon-rightarrow.png") 90% center no-repeat;
+      display: block;
+      padding: 10px 15px;
+      border-bottom: 1px solid #5484b5; }
+      @media (min-width: 1em) {
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/dayscript\/ligafantastica2\/sites\/all\/themes\/ligafantastica_omega\/sass\/components\/_navigation\.scss}line{font-family:\0000359}}
+        #block-system-main-menu .leaf a {
+          border-bottom: none;
+          padding: 30px 10px 53px 10px;
+          background: url("img/menu-item-bg.jpg") left center no-repeat;
+          display: inline-block;
+          color: #5f6062; }
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/dayscript\/ligafantastica2\/sites\/all\/themes\/ligafantastica_omega\/sass\/components\/_navigation\.scss}line{font-family:\0000371}}
+          #block-system-main-menu .leaf a.active, #block-system-main-menu .leaf a:hover {
+            color: #609fdf; } }
+      @media (min-width: 1em) {
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/dayscript\/ligafantastica2\/sites\/all\/themes\/ligafantastica_omega\/sass\/components\/_navigation\.scss}line{font-family:\0000359}}
+        #block-system-main-menu .leaf a {
+          padding: 34px 12px 50px 12px; } }
+      @media (min-width: 1200px) {
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/dayscript\/ligafantastica2\/sites\/all\/themes\/ligafantastica_omega\/sass\/components\/_navigation\.scss}line{font-family:\0000359}}
+        #block-system-main-menu .leaf a {
+          padding: 34px 18px 50px 18px; } }
+
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/dayscript\/ligafantastica2\/sites\/all\/themes\/ligafantastica_omega\/sass\/components\/_noticias\.scss}line{font-family:\000031}}
+.section-noticias .l-region--sidebar-first, .section-blogs .l-region--sidebar-first {
+  margin-top: 0 !important; }
+
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/dayscript\/ligafantastica2\/sites\/all\/themes\/ligafantastica_omega\/sass\/components\/_noticias\.scss}line{font-family:\000036}}
+.node--noticias.view-mode-full .field--name-title {
+  font-family: "dinmittelschrift", sans-serif;
+  font-weight: normal;
+  border-bottom: 1px solid #33629a;
+  margin-top: 0;
+  text-transform: uppercase;
+  font-size: 1.2em;
+  margin-bottom: 5px; }
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/dayscript\/ligafantastica2\/sites\/all\/themes\/ligafantastica_omega\/sass\/components\/_noticias\.scss}line{font-family:\0000314}}
+  .node--noticias.view-mode-full .field--name-title h2 {
+    margin: 0;
+    font-weight: normal; }
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/dayscript\/ligafantastica2\/sites\/all\/themes\/ligafantastica_omega\/sass\/components\/_noticias\.scss}line{font-family:\0000319}}
+.node--noticias.view-mode-full .field--name-post-date {
+  font-size: 13px;
+  font-style: italic;
+  color: #de6d26;
+  font-weight: 400; }
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/dayscript\/ligafantastica2\/sites\/all\/themes\/ligafantastica_omega\/sass\/components\/_noticias\.scss}line{font-family:\0000325}}
+.node--noticias.view-mode-full .field--name-body {
+  font-size: 0.9em; }
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/dayscript\/ligafantastica2\/sites\/all\/themes\/ligafantastica_omega\/sass\/components\/_noticias\.scss}line{font-family:\0000329}}
+.node--noticias.view-mode-full .field--name-numero-de-comentario .field__label {
+  position: relative;
+  left: 62px;
+  top: 23px;
+  text-transform: uppercase;
+  font-weight: normal;
+  font-size: 0.8em; }
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/dayscript\/ligafantastica2\/sites\/all\/themes\/ligafantastica_omega\/sass\/components\/_noticias\.scss}line{font-family:\0000337}}
+.node--noticias.view-mode-full .field--name-numero-de-comentario .field__items {
+  position: relative;
+  left: -100px; }
+
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/dayscript\/ligafantastica2\/sites\/all\/themes\/ligafantastica_omega\/sass\/components\/_noticias\.scss}line{font-family:\0000345}}
+#comments .comment {
+  border-top: 1px solid #aeaeae;
+  padding-top: 10px; }
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/dayscript\/ligafantastica2\/sites\/all\/themes\/ligafantastica_omega\/sass\/components\/_noticias\.scss}line{font-family:\0000348}}
+  #comments .comment ul.links {
+    float: right; }
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/dayscript\/ligafantastica2\/sites\/all\/themes\/ligafantastica_omega\/sass\/components\/_noticias\.scss}line{font-family:\0000350}}
+    #comments .comment ul.links li {
+      margin-left: 5px;
+      margin-right: 0; }
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/dayscript\/ligafantastica2\/sites\/all\/themes\/ligafantastica_omega\/sass\/components\/_noticias\.scss}line{font-family:\0000353}}
+      #comments .comment ul.links li a {
+        background: #000;
+        color: white;
+        padding: 3px 8px;
+        text-transform: uppercase;
+        margin-left: 5px;
+        font-size: 0.7em; }
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/dayscript\/ligafantastica2\/sites\/all\/themes\/ligafantastica_omega\/sass\/components\/_noticias\.scss}line{font-family:\0000363}}
+  #comments .comment a.username {
+    color: #5484b5;
+    font-family: "dinmittelschrift", sans-serif; }
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/dayscript\/ligafantastica2\/sites\/all\/themes\/ligafantastica_omega\/sass\/components\/_noticias\.scss}line{font-family:\0000367}}
+  #comments .comment .field--name-comment-body {
+    font-size: 0.8em; }
+
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/dayscript\/ligafantastica2\/sites\/all\/themes\/ligafantastica_omega\/sass\/components\/_noticias\.scss}line{font-family:\0000372}}
+#block-views-noticias-home-block-3 {
+  margin-top: 0 !important; }
+
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/dayscript\/ligafantastica2\/sites\/all\/themes\/ligafantastica_omega\/sass\/components\/_page\.scss}line{font-family:\000031}}
+#page-wrapper {
+  background-color: #d6d6d4;
+  display: block;
+  float: left;
+  width: 100%;
+  padding: 10px 0px; }
+  @media (min-width: 1em) {
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/dayscript\/ligafantastica2\/sites\/all\/themes\/ligafantastica_omega\/sass\/components\/_page\.scss}line{font-family:\000031}}
+    #page-wrapper {
+      padding: 40px 15px 30px; } }
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/dayscript\/ligafantastica2\/sites\/all\/themes\/ligafantastica_omega\/sass\/components\/_page\.scss}line{font-family:\0000310}}
+  #page-wrapper #page {
+    color: #5f6062;
+    font-family: "Open Sans", sans-serif;
+    margin: 0 auto;
+    width: 100%; }
+    @media (min-width: 1em) {
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/dayscript\/ligafantastica2\/sites\/all\/themes\/ligafantastica_omega\/sass\/components\/_page\.scss}line{font-family:\0000310}}
+      #page-wrapper #page {
+        max-width: 1200px; } }
+
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/dayscript\/ligafantastica2\/sites\/all\/themes\/ligafantastica_omega\/sass\/components\/_page\.scss}line{font-family:\0000323}}
+body.front #page h1 {
+  display: none; }
+
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/dayscript\/ligafantastica2\/sites\/all\/themes\/ligafantastica_omega\/sass\/components\/_page\.scss}line{font-family:\0000330}}
+.node-type-page h1 {
+  border-bottom: 1px solid #712740;
+  font-family: "dinmittelschrift", sans-serif;
+  font-size: 1.8em;
+  text-transform: uppercase; }
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/dayscript\/ligafantastica2\/sites\/all\/themes\/ligafantastica_omega\/sass\/components\/_page\.scss}line{font-family:\0000337}}
+.node-type-page .node__content .field__item {
+  font-size: .8em; }
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/dayscript\/ligafantastica2\/sites\/all\/themes\/ligafantastica_omega\/sass\/components\/_page\.scss}line{font-family:\0000340}}
+  .node-type-page .node__content .field__item p strong {
+    color: #712740;
+    display: inline-block;
+    font-family: "dinmittelschrift", sans-serif;
+    font-size: 1.4em;
+    font-weight: bold;
+    margin-bottom: 5px;
+    text-transform: uppercase; }
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/dayscript\/ligafantastica2\/sites\/all\/themes\/ligafantastica_omega\/sass\/components\/_page\.scss}line{font-family:\0000351}}
+  .node-type-page .node__content .field__item ul li {
+    list-style: none; }
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/dayscript\/ligafantastica2\/sites\/all\/themes\/ligafantastica_omega\/sass\/components\/_page\.scss}line{font-family:\0000353}}
+    .node-type-page .node__content .field__item ul li:before {
+      content: '';
+      border-radius: 100%;
+      background: #de6d26;
+      display: inline-block;
+      height: 5px;
+      margin-right: 6px;
+      width: 5px; }
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/dayscript\/ligafantastica2\/sites\/all\/themes\/ligafantastica_omega\/sass\/components\/_page\.scss}line{font-family:\0000365}}
+  .node-type-page .node__content .field__item table td,
+  .node-type-page .node__content .field__item table th {
+    padding: 0 10px; }
+
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/dayscript\/ligafantastica2\/sites\/all\/themes\/ligafantastica_omega\/sass\/components\/_page\.scss}line{font-family:\0000373}}
+.ui-widget-overlay {
+  background: #000 !important; }
+
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/dayscript\/ligafantastica2\/sites\/all\/themes\/ligafantastica_omega\/sass\/components\/_page\.scss}line{font-family:\0000376}}
+.ui-dialog {
+  background: #f1a221;
+  color: #fff;
+  font-size: 1.5em;
+  left: 50% !important;
+  margin-left: -302px;
+  width: 605px !important; }
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/dayscript\/ligafantastica2\/sites\/all\/themes\/ligafantastica_omega\/sass\/components\/_page\.scss}line{font-family:\0000383}}
+  .ui-dialog .ui-dialog-titlebar {
+    background: none;
+    border: 0;
+    height: 35px;
+    position: absolute;
+    top: 0px;
+    right: 0px;
+    padding: 0;
+    width: 35px; }
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/dayscript\/ligafantastica2\/sites\/all\/themes\/ligafantastica_omega\/sass\/components\/_page\.scss}line{font-family:\0000392}}
+    .ui-dialog .ui-dialog-titlebar .ui-dialog-title {
+      margin: 0; }
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/dayscript\/ligafantastica2\/sites\/all\/themes\/ligafantastica_omega\/sass\/components\/_page\.scss}line{font-family:\0000395}}
+    .ui-dialog .ui-dialog-titlebar .ui-dialog-titlebar-close {
+      height: 35px;
+      padding: 0;
+      right: 8px;
+      width: 35px; }
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/dayscript\/ligafantastica2\/sites\/all\/themes\/ligafantastica_omega\/sass\/components\/_page\.scss}line{font-family:\00003101}}
+    .ui-dialog .ui-dialog-titlebar .ui-icon {
+      background: url(../images/sprite.png) no-repeat -3px -223px;
+      display: inline-block;
+      height: 35px;
+      width: 35px; }
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/dayscript\/ligafantastica2\/sites\/all\/themes\/ligafantastica_omega\/sass\/components\/_page\.scss}line{font-family:\00003107}}
+    .ui-dialog .ui-dialog-titlebar .ui-state-hover,
+    .ui-dialog .ui-dialog-titlebar .ui-state-focus {
+      background: none;
+      border: 0; }
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/dayscript\/ligafantastica2\/sites\/all\/themes\/ligafantastica_omega\/sass\/components\/_page\.scss}line{font-family:\00003113}}
+  .ui-dialog .ui-dialog-content {
+    color: #fff;
+    margin-top: 35px;
+    padding: 0;
+    padding-left: 10px; }
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/dayscript\/ligafantastica2\/sites\/all\/themes\/ligafantastica_omega\/sass\/components\/_page\.scss}line{font-family:\00003118}}
+    .ui-dialog .ui-dialog-content:before {
+      content: '';
+      background: url(../images/icon-popup.png) no-repeat 0 0;
+      display: inline-block;
+      float: left;
+      margin-right: 10px;
+      height: 90px;
+      width: 90px; }
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/dayscript\/ligafantastica2\/sites\/all\/themes\/ligafantastica_omega\/sass\/components\/_page\.scss}line{font-family:\00003127}}
+    .ui-dialog .ui-dialog-content a {
+      background: url(../images/bkg-blue.png) no-repeat 0 0;
+      color: #fff;
+      display: inline-block;
+      font-family: "dinmittelschrift", sans-serif;
+      font-size: 1.35em;
+      height: 50px;
+      line-height: 50px;
+      margin-left: 3em;
+      text-transform: uppercase;
+      text-align: center;
+      width: 262px; }
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/dayscript\/ligafantastica2\/sites\/all\/themes\/ligafantastica_omega\/sass\/components\/_page\.scss}line{font-family:\00003139}}
+      .ui-dialog .ui-dialog-content a:hover {
+        text-decoration: none; }
+
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/dayscript\/ligafantastica2\/sites\/all\/themes\/ligafantastica_omega\/sass\/components\/_puntajes\.scss}line{font-family:\000032}}
+.view-resultados .views-field-name,
+.view-resultados .views-field-uid {
+  display: none; }
+
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/dayscript\/ligafantastica2\/sites\/all\/themes\/ligafantastica_omega\/sass\/components\/_register\.scss}line{font-family:\000031}}
+#block-formblock-user-register {
+  padding: 0 15px; }
+  @media (min-width: 1em) {
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/dayscript\/ligafantastica2\/sites\/all\/themes\/ligafantastica_omega\/sass\/components\/_register\.scss}line{font-family:\000031}}
+    #block-formblock-user-register {
+      padding: 0; } }
+
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/dayscript\/ligafantastica2\/sites\/all\/themes\/ligafantastica_omega\/sass\/components\/_register\.scss}line{font-family:\000038}}
+#janrainEngageEmbed .janrainContent {
+  margin: 0 auto;
+  padding-left: 0px !important;
+  padding-right: 0px !important;
+  width: 100% !important;
+  text-align: center;
+  border: none !important; }
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/dayscript\/ligafantastica2\/sites\/all\/themes\/ligafantastica_omega\/sass\/components\/_register\.scss}line{font-family:\0000315}}
+  #janrainEngageEmbed .janrainContent #janrainAuthReturnExperience {
+    position: relative !important;
+    margin: 0 auto !important;
+    width: 90% !important; }
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/dayscript\/ligafantastica2\/sites\/all\/themes\/ligafantastica_omega\/sass\/components\/_register\.scss}line{font-family:\0000319}}
+    #janrainEngageEmbed .janrainContent #janrainAuthReturnExperience a#janrain-facebook {
+      border: none !important; }
+
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/dayscript\/ligafantastica2\/sites\/all\/themes\/ligafantastica_omega\/sass\/components\/_register\.scss}line{font-family:\0000326}}
+#block-user-login {
+  display: none; }
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/dayscript\/ligafantastica2\/sites\/all\/themes\/ligafantastica_omega\/sass\/components\/_register\.scss}line{font-family:\0000328}}
+  #block-user-login h2 {
+    background: none;
+    border-bottom: 1px solid #712740;
+    color: #000;
+    font-size: 1.85em;
+    height: auto;
+    margin-bottom: 4px;
+    text-align: left;
+    width: 100%; }
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/dayscript\/ligafantastica2\/sites\/all\/themes\/ligafantastica_omega\/sass\/components\/_register\.scss}line{font-family:\0000338}}
+  #block-user-login .form-item {
+    display: inline-block;
+    margin: 5px 0px 5px 6px;
+    width: 46%; }
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/dayscript\/ligafantastica2\/sites\/all\/themes\/ligafantastica_omega\/sass\/components\/_register\.scss}line{font-family:\0000342}}
+    #block-user-login .form-item label {
+      display: none; }
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/dayscript\/ligafantastica2\/sites\/all\/themes\/ligafantastica_omega\/sass\/components\/_register\.scss}line{font-family:\0000345}}
+    #block-user-login .form-item.form-type-password {
+      margin-left: 5px; }
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/dayscript\/ligafantastica2\/sites\/all\/themes\/ligafantastica_omega\/sass\/components\/_register\.scss}line{font-family:\0000349}}
+  #block-user-login ul {
+    font-size: .8em;
+    font-style: italic;
+    margin: 0;
+    margin-bottom: 5px;
+    padding-left: 10px; }
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/dayscript\/ligafantastica2\/sites\/all\/themes\/ligafantastica_omega\/sass\/components\/_register\.scss}line{font-family:\0000355}}
+    #block-user-login ul li {
+      list-style: none; }
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/dayscript\/ligafantastica2\/sites\/all\/themes\/ligafantastica_omega\/sass\/components\/_register\.scss}line{font-family:\0000357}}
+      #block-user-login ul li:first-child {
+        display: none; }
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/dayscript\/ligafantastica2\/sites\/all\/themes\/ligafantastica_omega\/sass\/components\/_register\.scss}line{font-family:\0000360}}
+      #block-user-login ul li a {
+        color: #de6d26; }
+  @media (min-width: 1em) {
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/dayscript\/ligafantastica2\/sites\/all\/themes\/ligafantastica_omega\/sass\/components\/_register\.scss}line{font-family:\0000326}}
+    #block-user-login {
+      display: block; } }
+
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/dayscript\/ligafantastica2\/sites\/all\/themes\/ligafantastica_omega\/sass\/components\/_register\.scss}line{font-family:\0000370}}
+#block-formblock-user-register h2 {
+  background: url("img/big-blocktitle-bg.png") center center no-repeat;
+  background-size: contain;
+  border-bottom: 0;
+  color: #fff;
+  height: 90px;
+  font-size: 1.6em;
+  line-height: 90px;
+  margin: 0;
+  text-align: center;
+  width: 100%; }
+  @media (min-width: 1em) {
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/dayscript\/ligafantastica2\/sites\/all\/themes\/ligafantastica_omega\/sass\/components\/_register\.scss}line{font-family:\0000370}}
+    #block-formblock-user-register h2 {
+      font-size: 1.2em; } }
+  @media (min-width: 1em) {
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/dayscript\/ligafantastica2\/sites\/all\/themes\/ligafantastica_omega\/sass\/components\/_register\.scss}line{font-family:\0000370}}
+    #block-formblock-user-register h2 {
+      font-size: 1.85em; } }
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/dayscript\/ligafantastica2\/sites\/all\/themes\/ligafantastica_omega\/sass\/components\/_register\.scss}line{font-family:\0000388}}
+#block-formblock-user-register p {
+  margin: 10px 0;
+  text-align: center; }
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/dayscript\/ligafantastica2\/sites\/all\/themes\/ligafantastica_omega\/sass\/components\/_register\.scss}line{font-family:\0000393}}
+#block-formblock-user-register form .description {
+  display: none; }
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/dayscript\/ligafantastica2\/sites\/all\/themes\/ligafantastica_omega\/sass\/components\/_register\.scss}line{font-family:\0000396}}
+#block-formblock-user-register form label {
+  font-size: .8em; }
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/dayscript\/ligafantastica2\/sites\/all\/themes\/ligafantastica_omega\/sass\/components\/_register\.scss}line{font-family:\0000398}}
+  #block-formblock-user-register form label .form-required {
+    color: #5f6062; }
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/dayscript\/ligafantastica2\/sites\/all\/themes\/ligafantastica_omega\/sass\/components\/_register\.scss}line{font-family:\00003103}}
+#block-formblock-user-register form .form-actions input {
+  margin: 50px 0 10px;
+  display: block;
+  float: left;
+  margin-left: 5em; }
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/dayscript\/ligafantastica2\/sites\/all\/themes\/ligafantastica_omega\/sass\/components\/_register\.scss}line{font-family:\00003111}}
+#block-formblock-user-register form #edit-account .form-type-textfield,
+#block-formblock-user-register form #edit-account .form-type-password {
+  position: relative; }
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/dayscript\/ligafantastica2\/sites\/all\/themes\/ligafantastica_omega\/sass\/components\/_register\.scss}line{font-family:\00003114}}
+  #block-formblock-user-register form #edit-account .form-type-textfield .password-strength,
+  #block-formblock-user-register form #edit-account .form-type-textfield div.password-confirm,
+  #block-formblock-user-register form #edit-account .form-type-password .password-strength,
+  #block-formblock-user-register form #edit-account .form-type-password div.password-confirm {
+    bottom: -92px;
+    font-size: .8em;
+    position: absolute; }
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/dayscript\/ligafantastica2\/sites\/all\/themes\/ligafantastica_omega\/sass\/components\/_register\.scss}line{font-family:\00003119}}
+    #block-formblock-user-register form #edit-account .form-type-textfield .password-strength .password-strength-text,
+    #block-formblock-user-register form #edit-account .form-type-textfield div.password-confirm .password-strength-text,
+    #block-formblock-user-register form #edit-account .form-type-password .password-strength .password-strength-text,
+    #block-formblock-user-register form #edit-account .form-type-password div.password-confirm .password-strength-text {
+      font-size: .95em; }
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/dayscript\/ligafantastica2\/sites\/all\/themes\/ligafantastica_omega\/sass\/components\/_register\.scss}line{font-family:\00003124}}
+  #block-formblock-user-register form #edit-account .form-type-textfield.confirm-parent div.password-confirm,
+  #block-formblock-user-register form #edit-account .form-type-password.confirm-parent div.password-confirm {
+    bottom: -38px;
+    text-align: right;
+    right: 0;
+    width: 10em; }
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/dayscript\/ligafantastica2\/sites\/all\/themes\/ligafantastica_omega\/sass\/components\/_register\.scss}line{font-family:\00003132}}
+#block-formblock-user-register form #edit-account .password-suggestions {
+  background: #fff;
+  border: 0;
+  border-radius: 5px;
+  color: #919191;
+  margin-top: 68px;
+  padding: 15px 10px 10px; }
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/dayscript\/ligafantastica2\/sites\/all\/themes\/ligafantastica_omega\/sass\/components\/_register\.scss}line{font-family:\00003141}}
+#block-formblock-user-register form .form-actions {
+  margin-top: 30px;
+  margin-bottom: 0; }
+@media (min-width: 1em) {
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/dayscript\/ligafantastica2\/sites\/all\/themes\/ligafantastica_omega\/sass\/components\/_register\.scss}line{font-family:\00003146}}
+  #block-formblock-user-register form label,
+  #block-formblock-user-register form .description {
+    display: none; }
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/dayscript\/ligafantastica2\/sites\/all\/themes\/ligafantastica_omega\/sass\/components\/_register\.scss}line{font-family:\00003150}}
+  #block-formblock-user-register form .field-type-text,
+  #block-formblock-user-register form .field-type-number-integer {
+    float: left;
+    margin: 0 5px;
+    width: 45%; }
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/dayscript\/ligafantastica2\/sites\/all\/themes\/ligafantastica_omega\/sass\/components\/_register\.scss}line{font-family:\00003157}}
+  #block-formblock-user-register form #edit-account .form-type-password-confirm {
+    float: left;
+    margin: 0; }
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/dayscript\/ligafantastica2\/sites\/all\/themes\/ligafantastica_omega\/sass\/components\/_register\.scss}line{font-family:\00003161}}
+  #block-formblock-user-register form #edit-account .form-type-textfield,
+  #block-formblock-user-register form #edit-account .form-type-password {
+    float: left;
+    margin: 0 5px;
+    width: 45%; }
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/dayscript\/ligafantastica2\/sites\/all\/themes\/ligafantastica_omega\/sass\/components\/_register\.scss}line{font-family:\00003166}}
+    #block-formblock-user-register form #edit-account .form-type-textfield .password-strength,
+    #block-formblock-user-register form #edit-account .form-type-textfield div.password-confirm,
+    #block-formblock-user-register form #edit-account .form-type-password .password-strength,
+    #block-formblock-user-register form #edit-account .form-type-password div.password-confirm {
+      bottom: -30px; } }
+
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/dayscript\/ligafantastica2\/sites\/all\/themes\/ligafantastica_omega\/sass\/components\/_register\.scss}line{font-family:\00003176}}
+#block-fboauth-login p {
+  font-size: .75em;
+  margin: 0 auto 10px;
+  text-align: center;
+  width: 16em; }
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/dayscript\/ligafantastica2\/sites\/all\/themes\/ligafantastica_omega\/sass\/components\/_register\.scss}line{font-family:\00003182}}
+#block-fboauth-login a {
+  display: block;
+  margin: 0 auto;
+  text-align: center;
+  width: 50%; }
+@media (min-width: 1em) {
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/dayscript\/ligafantastica2\/sites\/all\/themes\/ligafantastica_omega\/sass\/components\/_register\.scss}line{font-family:\00003189}}
+  #block-fboauth-login p {
+    float: left;
+    text-align: right;
+    width: 90%; }
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/dayscript\/ligafantastica2\/sites\/all\/themes\/ligafantastica_omega\/sass\/components\/_register\.scss}line{font-family:\00003194}}
+  #block-fboauth-login a {
+    float: right;
+    margin: 10px;
+    width: 90%; } }
+@media (min-width: 1em) {
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/dayscript\/ligafantastica2\/sites\/all\/themes\/ligafantastica_omega\/sass\/components\/_register\.scss}line{font-family:\00003201}}
+  #block-fboauth-login p {
+    width: 52%; }
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/dayscript\/ligafantastica2\/sites\/all\/themes\/ligafantastica_omega\/sass\/components\/_register\.scss}line{font-family:\00003204}}
+  #block-fboauth-login a {
+    margin: 0;
+    width: 46%; } }
+
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/dayscript\/ligafantastica2\/sites\/all\/themes\/ligafantastica_omega\/sass\/components\/_resultados\.scss}line{font-family:\000031}}
+.mipuntaje-form,
+.rankinggeneral-form {
+  text-transform: none; }
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/dayscript\/ligafantastica2\/sites\/all\/themes\/ligafantastica_omega\/sass\/components\/_resultados\.scss}line{font-family:\000036}}
+  .mipuntaje-form .form-item-fecha label,
+  .mipuntaje-form .form-item-fecha2 label,
+  .rankinggeneral-form .form-item-fecha label,
+  .rankinggeneral-form .form-item-fecha2 label {
+    float: left;
+    display: block;
+    font-weight: bold;
+    padding: 0 6px 0 0; }
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/dayscript\/ligafantastica2\/sites\/all\/themes\/ligafantastica_omega\/sass\/components\/_resultados\.scss}line{font-family:\0000312}}
+  .mipuntaje-form .form-item-fecha select,
+  .mipuntaje-form .form-item-fecha2 select,
+  .rankinggeneral-form .form-item-fecha select,
+  .rankinggeneral-form .form-item-fecha2 select {
+    -webkit-appearance: button;
+    -moz-appearance: button;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -webkit-padding-end: 20px;
+    -moz-padding-end: 20px;
+    -webkit-padding-start: 2px;
+    -moz-padding-start: 2px;
+    background-color: #999;
+    background-image: url(../images/image_preview.png), -webkit-linear-gradient(top, #999, #999);
+    background-image: url(../images/image_preview.png), -moz-linear-gradient(top, #999, #999);
+    background-image: url(../images/image_preview.png), -ms-linear-gradient(top, #999, #999);
+    background-image: url(../images/image_preview.png), -o-linear-gradient(top, #999, #999);
+    background-image: url(../images/image_preview.png), linear-gradient(to bottom, #999999, #999999);
+    background-position: center right;
+    background-repeat: no-repeat;
+    border-radius: 8px;
+    color: #fff;
+    font-size: inherit;
+    margin: 0 10px 0 0;
+    overflow: hidden;
+    padding-top: 2px;
+    padding-bottom: 2px;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    width: 200px;
+    outline: none;
+    border: none;
+    cursor: pointer; }
+
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/dayscript\/ligafantastica2\/sites\/all\/themes\/ligafantastica_omega\/sass\/components\/_titulos-ocultos\.scss}line{font-family:\000034}}
+.page-jugar-ligas h1,
+.page-jugar-resultados h1,
+.section-noticias h1 {
+  display: none; }
+
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/dayscript\/ligafantastica2\/sites\/all\/themes\/ligafantastica_omega\/sass\/ligafantastica-omega\.styles\.scss}line{font-family:\0000324}}
+.l-region--sidebar-first {
+  width: 100%;
+  float: right;
+  margin-left: 0;
+  margin-right: 0;
+  clear: none;
+  padding-right: 0;
+  position: relative; }
+  @media (min-width: 1em) {
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/dayscript\/ligafantastica2\/sites\/all\/themes\/ligafantastica_omega\/sass\/ligafantastica-omega\.styles\.scss}line{font-family:\0000324}}
+    .l-region--sidebar-first {
+      width: 32.20339%;
+      float: right;
+      margin-left: 0;
+      margin-right: 0;
+      clear: none; } }
+
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/dayscript\/ligafantastica2\/sites\/all\/themes\/ligafantastica_omega\/sass\/ligafantastica-omega\.styles\.scss}line{font-family:\0000332}}
+.l-content {
+  width: 100%;
+  float: right;
+  margin-left: 0;
+  margin-right: 0;
+  clear: none; }
+  @media (min-width: 1em) {
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/dayscript\/ligafantastica2\/sites\/all\/themes\/ligafantastica_omega\/sass\/ligafantastica-omega\.styles\.scss}line{font-family:\0000332}}
+    .l-content {
+      width: 66.10169%;
+      float: left;
+      margin-right: -100%;
+      margin-left: 0;
+      clear: none; } }
+
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/dayscript\/ligafantastica2\/sites\/all\/themes\/ligafantastica_omega\/sass\/ligafantastica-omega\.styles\.scss}line{font-family:\0000338}}
+.pager {
+  font-size: .9em;
+  margin: 2em 0; }
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/dayscript\/ligafantastica2\/sites\/all\/themes\/ligafantastica_omega\/sass\/ligafantastica-omega\.styles\.scss}line{font-family:\0000342}}
+  .pager li.pager__item--current {
+    color: #de6d26; }
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/dayscript\/ligafantastica2\/sites\/all\/themes\/ligafantastica_omega\/sass\/ligafantastica-omega\.styles\.scss}line{font-family:\0000345}}
+  .pager li a {
+    color: #000; }
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/dayscript\/ligafantastica2\/sites\/all\/themes\/ligafantastica_omega\/sass\/ligafantastica-omega\.styles\.scss}line{font-family:\0000349}}
+  .pager .pager__item--next,
+  .pager .pager__item--last,
+  .pager .pager__item--previous,
+  .pager .pager__item--first {
+    background: #712740;
+    padding: 0.2em 0.5em;
+    text-transform: uppercase; }
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/dayscript\/ligafantastica2\/sites\/all\/themes\/ligafantastica_omega\/sass\/ligafantastica-omega\.styles\.scss}line{font-family:\0000356}}
+    .pager .pager__item--next a,
+    .pager .pager__item--last a,
+    .pager .pager__item--previous a,
+    .pager .pager__item--first a {
+      color: #fff; }
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/dayscript\/ligafantastica2\/sites\/all\/themes\/ligafantastica_omega\/sass\/ligafantastica-omega\.styles\.scss}line{font-family:\0000358}}
+      .pager .pager__item--next a:hover,
+      .pager .pager__item--last a:hover,
+      .pager .pager__item--previous a:hover,
+      .pager .pager__item--first a:hover {
+        text-decoration: none; }
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/dayscript\/ligafantastica2\/sites\/all\/themes\/ligafantastica_omega\/sass\/ligafantastica-omega\.styles\.scss}line{font-family:\0000363}}
+  .pager .pager__item--last,
+  .pager .pager__item--first {
+    display: none; }
+
+/* Flexslider */
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/dayscript\/ligafantastica2\/sites\/all\/themes\/ligafantastica_omega\/sass\/ligafantastica-omega\.styles\.scss}line{font-family:\0000372}}
+.flexslider .flex-direction-nav a {
+  display: block;
+  height: 34px;
+  margin: 0;
+  opacity: 1; }
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/dayscript\/ligafantastica2\/sites\/all\/themes\/ligafantastica_omega\/sass\/ligafantastica-omega\.styles\.scss}line{font-family:\0000378}}
+.flexslider .flex-direction-nav .flex-prev {
+  left: 0; }
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/dayscript\/ligafantastica2\/sites\/all\/themes\/ligafantastica_omega\/sass\/ligafantastica-omega\.styles\.scss}line{font-family:\0000381}}
+.flexslider .flex-direction-nav .flex-next {
+  right: 0; }
+
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/dayscript\/ligafantastica2\/sites\/all\/themes\/ligafantastica_omega\/sass\/ligafantastica-omega\.styles\.scss}line{font-family:\0000387}}
+.degr {
+  background: #1d619a;
+  /* Old browsers */
+  background: -moz-linear-gradient(top, #1d619a 0%, #1d619a 42%, #164974 51%, #1d619a 100%);
+  /* FF3.6+ */
+  background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #1d619a), color-stop(42%, #1d619a), color-stop(51%, #164974), color-stop(100%, #1d619a));
+  /* Chrome,Safari4+ */
+  background: -webkit-linear-gradient(top, #1d619a 0%, #1d619a 42%, #164974 51%, #1d619a 100%);
+  /* Chrome10+,Safari5.1+ */
+  background: -o-linear-gradient(top, #1d619a 0%, #1d619a 42%, #164974 51%, #1d619a 100%);
+  /* Opera 11.10+ */
+  background: -ms-linear-gradient(top, #1d619a 0%, #1d619a 42%, #164974 51%, #1d619a 100%);
+  /* IE10+ */
+  background: linear-gradient(to bottom, #1d619a 0%, #1d619a 42%, #164974 51%, #1d619a 100%);
+  /* W3C */
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#1d619a', endColorstr='#1d619a',GradientType=0 );
+  /* IE6-9 */ }
