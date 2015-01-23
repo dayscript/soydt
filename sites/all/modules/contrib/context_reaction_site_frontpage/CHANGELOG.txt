@@ -1,4 +1,0 @@
-Unset Assets 7.x-1.0 2014-07-18
--------------------------------
-
-First stable release, compatible to Drupal 7.x.

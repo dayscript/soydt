@@ -1,2 +1,0 @@
-# soydt
-SoyDT.co Website

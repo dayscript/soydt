@@ -1,9 +1,0 @@
-@font-face {
-    font-family: 'DIN1451StdMittelschrift';
-    src: url('dinmittelschriftstd.eot');
-    src: url('dinmittelschriftstd.eot') format('embedded-opentype'),
-         url('dinmittelschriftstd.woff2') format('woff2'),
-         url('dinmittelschriftstd.woff') format('woff'),
-         url('dinmittelschriftstd.ttf') format('truetype'),
-         url('dinmittelschriftstd.svg#DIN1451StdMittelschrift') format('svg');
-}

@@ -1,9 +1,0 @@
-@font-face {
-    font-family: 'PFTempestaSevenRegular';
-    src: url('pf_tempesta_seven.eot');
-    src: url('pf_tempesta_seven.eot') format('embedded-opentype'),
-         url('pf_tempesta_seven.woff2') format('woff2'),
-         url('pf_tempesta_seven.woff') format('woff'),
-         url('pf_tempesta_seven.ttf') format('truetype'),
-         url('pf_tempesta_seven.svg#PFTempestaSevenRegular') format('svg');
-}
