@@ -1,8 +1,8 @@
 .view{
   .view-content{
     .views-row{
-      margin-bottom: $space;
-      padding-bottom: $space;
+      margin-bottom: 40px;
+      padding-bottom: 40px;
       border-bottom: 1px solid $grayline;
     }
   }
@@ -20,9 +20,37 @@
   }
 }
 .views-exposed-form{
+  label{
+    font-weight: normal;
+    color: #aaa;
+    font-size: 0.8rem;
+  }
   button.form-submit{
     margin-top: 21px !important;
-    padding: 8px 15px;
+    padding: 10px 15px;
+    background: $blueline;
+    text-transform: uppercase;
+    font-size: 0.8rem;
+  }
+  #edit-bef-sort-options{
+    background: $gray;
+    position: relative;
+    text-transform: uppercase;
+    height: 37px;
+    display: inline-block;
+    margin-top: 19px;
+    width: 120px;
+    legend{
+      position: absolute;
+      background: $gray;
+      top: 7px;
+    }
+    a{
+      color: white;
+      font-family: $font-sans;
+      font-weight: normal;
+      font-size: 0.8rem;
+    }
   }
 }
 
@@ -34,10 +62,11 @@
     margin: 0;
     display: inline-block;
     vertical-align: top;
+    padding-right: 15px;
     .views-field-field-equipo{
       position: absolute;
-      bottom: 9px;
-      left: 118px;
+      bottom: 31px;
+      left: 102px;
       .image{
         display: inline-block;
         margin-right: 5px;
@@ -47,8 +76,8 @@
         h5{
           font-size: 0.9rem;
           a{
-            color: $secondary-color;
-            text-shadow: 1px 1px #eee;
+            color: $gray;
+            font-style: italic;
             &:hover{
               text-decoration: underline;
             }
@@ -65,8 +94,9 @@
     .views-field-title{
       font-family: $font-main;
       line-height: 1.2rem;
+      margin-top: 3px;
       a{
-        color: #000000;
+        color: $secondary-color;
         &:hover{
           text-decoration: underline;
         }
