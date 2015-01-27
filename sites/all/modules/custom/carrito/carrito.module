@@ -87,8 +87,10 @@ function carrito_add_player_ajax($page_callback_result) {
 function carrito_checkout_ajax($page_callback_result) {
     if($page_callback_result=="OK")
         $html = '<p>Todas las compras se han procesado correctamente.</p>
+                <a
                 <div>
-                    <a href="#" onclick="document.location.reload();" class="button success tiny columns">Aceptar</a>
+                    <a href="#" onclick="document.location.reload();" class="button success tiny columns">Continuar</a>
+                    <a href="/jugar/alineaciones" class="button tiny columns">Vamos a linear estas compras!</a>
                 </div>
                 <a onclick="document.location.reload();" class="close-reveal-modal">&#215;</a>';
     else if($page_callback_result=="ERROR")
