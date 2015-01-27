@@ -113,10 +113,10 @@ function alineaciones_alinear_jugador_ajax($page_callback_result) {
  */
 function alineaciones_desalinear_jugador_ajax($page_callback_result) {
     if($page_callback_result=="OK")
-        $html = '<p>Jugador sacado correctamente.</p><script>document.location.reload();</script>
+        $html = '<p>Jugador desalineado correctamente. Ha sido enviado al banquillo.</p><script>document.location.reload();</script>
                     <a onclick="document.location.reload();" class="close-reveal-modal">&#215;</a>';
     else
-        $html = '<p>Ha ocurrido un error.</p>
+        $html = '<p>Este jugador ya se encuentra en el banquillo de suplentes.</p>
                 <div>
                     <a href="#" onclick="document.location.reload();" class="button alert tiny columns">Aceptar</a>
                 </div>
