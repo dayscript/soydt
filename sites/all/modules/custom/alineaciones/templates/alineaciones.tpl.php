@@ -28,6 +28,7 @@
         <div class="small-4 columns">
             <label>Capit&aacute;n
                 <select name="capitan" id="capitan" class="text-center">
+                    <option value="0">Seleccione un capit&aacute;n...</option>
                     <?php if(isset($data["equipo"]->field_jugadores2['und'])):?>
                         <?php foreach($data["equipo"]->field_jugadores2['und'] as $player):?>
                             <?php $pl = node_load($player['target_id']);?>
