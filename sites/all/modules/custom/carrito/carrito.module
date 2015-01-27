@@ -203,6 +203,7 @@ function carrito_sell($playerid){
         foreach ($equipo->field_jugadores2['und'] as $key => $jugador) {
             if( $jugador['target_id'] == $playerid){
                 $equipo->field_jugadores2['und'][$key]['target_id'] = 0;
+                unset($equipo->field_jugadores2['und'][$key]);
                 node_save($equipo);
                 $jug = node_load($jugador['target_id']);
                 $saldo += $jug->field_precio['und'][0]['value'];
