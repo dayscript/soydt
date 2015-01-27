@@ -1,0 +1,414 @@
+<?php
+/**
+ * Implements hook_menu().
+ */
+function carrito_menu()
+{
+    $items = array();
+    $items['carrito/add/%'] = array(
+        'title' => 'Agregar jugador al carrito',
+        'description' => 'Agrega un jugador al carrito de compras',
+        'page callback' => 'carrito_add_player',
+        'page arguments' => array(2),
+        'access arguments' => array('access content'),
+        'delivery callback' => 'carrito_add_player_ajax',
+    );
+    $items['carrito/checkout'] = array(
+        'title' => 'Realiza checkout',
+        'description' => 'Reliza la compra de jugadores',
+        'page callback' => 'carrito_checkout',
+        'access arguments' => array('access content'),
+        'delivery callback' => 'carrito_checkout_ajax',
+    );
+    $items['carrito/delete/%'] = array(
+        'title' => 'Eliminar jugador del carrito',
+        'description' => 'limina un jugador del carrito de compras',
+        'page callback' => 'carrito_delete_player',
+        'page arguments' => array(2),
+        'access arguments' => array('access content'),
+        'delivery callback' => 'carrito_delete_player_ajax',
+    );
+    return $items;
+}
+
+/**
+ * @param $page_callback_result
+ */
+function carrito_add_player_ajax($page_callback_result) {
+    if($page_callback_result=="AGREGADO")
+        $html = '<p>Se ha agregado correctamente al jugador al carrito de compras.</p>
+                <div>
+                    <a href="#" onclick="document.location.reload();" class="button columns success tiny">Aceptar</a>
+                </div>
+                <a onclick="document.location.reload();" class="close-reveal-modal">&#215;</a>';
+    else if($page_callback_result=="YA EXISTE")
+        $html = '<p>El jugador ya se encuentra en su carro de compras.</p>
+                <div>
+                    <a href="#" onclick="document.location.reload();" class="button alert columns tiny">Aceptar</a>
+                </div>
+                <a onclick="document.location.reload();" class="close-reveal-modal">&#215;</a>';
+    else
+        $html = '<p>Ha ocurrido un error al agregar el jugador.</p>
+                <div>
+                    <a href="#" onclick="document.location.reload();" class="button alert tiny columns">Aceptar</a>
+                </div>
+                <a onclick="document.location.reload();" class="close-reveal-modal">&#215;</a>';
+    print $html;
+}
+/**
+ * @param $page_callback_result
+ */
+function carrito_checkout_ajax($page_callback_result) {
+    if($page_callback_result=="OK")
+        $html = '<p>Todas las compras se han procesado correctamente.</p>
+                <div>
+                    <a href="#" onclick="document.location.reload();" class="button success tiny columns">Aceptar</a>
+                </div>
+                <a onclick="document.location.reload();" class="close-reveal-modal">&#215;</a>';
+    else if($page_callback_result=="ERROR")
+        $html = '<p>Ha ocurrido un error al procesar las compras.</p>
+                <div>
+                    <a href="#" onclick="document.location.reload();" class="button alert tiny columns">Aceptar</a>
+                </div>
+                <a onclick="document.location.reload();" class="close-reveal-modal">&#215;</a>';
+    else
+        $html = '<p>Ha ocurrido un error desconocido al procesar las compras.</p>
+                <div>
+                    <a href="#" onclick="document.location.reload();" class="button alert tiny columns">Aceptar</a>
+                </div>
+                <a onclick="document.location.reload();" class="close-reveal-modal">&#215;</a>';
+    print $html;
+}
+
+/**
+ * @param $page_callback_result
+ */
+function carrito_delete_player_ajax($page_callback_result) {
+    if($page_callback_result=="ELIMINADO")
+        $html = '<p>Jugador eliminado de su carro de compras.</p>
+                <div>
+                    <a href="#" onclick="document.location.reload();" class="button success tiny columns">Aceptar</a>
+                </div>
+                <a onclick="document.location.reload();" class="close-reveal-modal">&#215;</a>';
+    else if($page_callback_result=="NO EXISTE")
+        $html = '<p>El Jugador no se encuentra en su carro de compras.</p>
+                <div>
+                    <a href="#" onclick="document.location.reload();" class="button alert tiny columns">Aceptar</a>
+                </div>
+                <a onclick="document.location.reload();" class="close-reveal-modal">&#215;</a>';
+    else
+        $html = '<p>Ha ocurrido un error desconocido.</p>
+                <div>
+                    <a href="#" onclick="document.location.reload();" class="button alert tiny columns">Aceptar</a>
+                </div>
+                <a onclick="document.location.reload();" class="close-reveal-modal">&#215;</a>';
+    print $html;
+}
+
+/**
+ * Agrega un jugador
+ */
+function carrito_add_player($player){
+    $carrito = get_carrito_compras();
+    if(isset($carrito->field_jugadores['und'])){
+        foreach($carrito->field_jugadores['und'] as $key=>$jugador){
+            if($jugador['target_id'] == $player)
+                return "YA EXISTE";
+        }
+        $carrito->field_jugadores['und'][count($carrito->field_jugadores['und'])]['target_id'] = $player;
+    } else{
+        $carrito->field_jugadores['und'][0]['target_id'] = $player;
+    }
+    node_save($carrito);
+    return "AGREGADO";
+}
+/**
+ * Elimina un jugador del carro de compras
+ */
+function carrito_delete_player($player){
+    $carrito = get_carrito_compras();
+    if(isset($carrito->field_jugadores['und'])){
+        foreach($carrito->field_jugadores['und'] as $key=>$jugador){
+            if($jugador['target_id'] == $player){
+                array_splice($carrito->field_jugadores['und'],$key,1);
+                node_save($carrito);
+                return "ELIMINADO";
+            }
+        }
+    }
+    return "NO EXISTE";
+}
+/**
+ * Procesa las compras
+ */
+function carrito_checkout(){
+    global $user;
+    $us = user_load($user->uid);
+    $saldo = get_saldo();
+    $carrito = get_carrito_compras();
+    $equipo = carrito_get_equipo_usuario();
+    if (isset($carrito->field_jugadores['und'])) {
+        foreach ($carrito->field_jugadores['und'] as $key => $jugador) {
+            if(!isset( $equipo->field_jugadores2['und'])) $equipo->field_jugadores2['und'] = array();
+            $equipo->field_jugadores2['und'][] = $jugador;
+            $jug = node_load($jugador['target_id']);
+            $saldo -= $jug->field_precio['und'][0]['value'];
+        }
+    }
+    $carrito->field_jugadores['und'] = array();
+    $us->field_saldo['und'][0]['value'] = $saldo;
+    node_save($carrito);
+    node_save($equipo);
+    user_save($us);
+    return "OK";
+}
+
+/**
+ * Implements hook_theme().
+ */
+function carrito_theme($existing, $type, $theme, $path) {
+    $hooks = array();
+    $hooks['carrito'] = array(
+        'variables' => array('data' => array()),
+        'template' => "templates/carrito"
+    );
+    $hooks['checkout'] = array(
+        'variables' => array('data' => array()),
+        'template' => "templates/checkout"
+    );
+    $hooks['equipo'] = array(
+        'variables' => array('data' => array()),
+        'template' => "templates/equipo"
+    );
+    $hooks['agregar'] = array(
+        'variables' => array('data' => array()),
+        'template' => "templates/agregar"
+    );
+    return $hooks;
+}
+/**
+ * Implements hook_hook_info().
+ */
+function carrito_block_info()
+{
+    $blocks = array();
+    $blocks['carrito'] = array(
+        'info' => t('Carrito de jugadores'),
+        'cache' => DRUPAL_NO_CACHE,
+    );
+    $blocks['carrito2'] = array(
+        'info' => t('Carrito de jugadores 2'),
+        'cache' => DRUPAL_NO_CACHE,
+    );
+    $blocks['checkout'] = array(
+        'info' => t('Opciones checkout'),
+        'cache' => DRUPAL_NO_CACHE,
+    );
+    $blocks['equipo'] = array(
+        'info' => t('Resumen de mi equipo'),
+        'cache' => DRUPAL_NO_CACHE,
+    );
+    $blocks['equipo2'] = array(
+        'info' => t('Resumen de mi equipo 2'),
+        'cache' => DRUPAL_NO_CACHE,
+    );
+    $blocks['agregar'] = array(
+        'info' => t('Agregar jugador'),
+        'cache' => DRUPAL_NO_CACHE,
+    );
+    return $blocks;
+}
+
+/**
+ * Implements hook_block_view().
+ */
+function carrito_block_view($delta = '')
+{
+    $block = array();
+    switch ($delta) {
+        case 'carrito':
+        case 'carrito2':
+            $block['content'] = theme('carrito', array('data' => carrito_data()));
+            break;
+        case 'checkout':
+            $block['content'] = theme('checkout', array('data' => carrito_data()));
+            break;
+        case 'equipo':
+        case 'equipo2':
+            $block['content'] = theme('equipo', array('data' => equipo_data()));
+            break;
+        case 'agregar':
+            $block['content'] = theme('agregar', array('data' => agregar_data()));
+            break;
+    }
+    return $block;
+}
+
+
+/**
+ * Obtiene los datos para el boton de agregar al carrito
+ */
+function agregar_data(){
+    $data["disabled"] = false;
+    $data["text"] = "Agregar";
+    $data["subtext"] = "Al carrito de compras";
+    $saldo = get_saldo();
+    if (arg(0) == 'node' && is_numeric(arg(1))) $nodeid = arg(1);
+    else $nodeid = 0;
+    $data["nid"] = $nodeid;
+    $node = node_load($nodeid);
+    $saldo -= $node->field_precio["und"][0]["value"];
+    $carrito = get_carrito_compras();
+    $equipo = carrito_get_equipo_usuario();
+    $total = 0;
+    if(isset($carrito->field_jugadores['und'])){
+        foreach($carrito->field_jugadores['und'] as $key=>$jugador){
+            if($jugador['target_id'] == $nodeid){
+                $data["disabled"] = true;
+                $data["subtext"] = "Este jugador ya se encuentra en el carrito";
+                return $data;
+            }
+            $jug = node_load($jugador["target_id"]);
+            $saldo -= $jug->field_precio["und"][0]["value"];
+            $total++;
+        }
+    }
+    if(isset($equipo->field_jugadores2['und'])){
+        foreach($equipo->field_jugadores2['und'] as $key=>$jugador){
+            if($jugador['target_id'] == $nodeid){
+                $data["disabled"] = true;
+                $data["subtext"] = "Este jugador ya está en su equipo";
+                return $data;
+            }
+            $total++;
+        }
+    }
+    if($total>=15){
+        $data["disabled"] = true;
+        $data["subtext"] = "Ha alcanzado el limite de jugadores.";
+        return $data;
+
+    }
+    if($saldo < 0){
+        $data["disabled"] = true;
+        $data["subtext"] = "Presupuesto insuficiente para agregar este jugador";
+        return $data;
+    }
+    return $data;
+}
+/**
+ * Obtiene los datos de mi equipo
+ */
+function equipo_data(){
+    $data["total"] = 0;
+    $data["count"] = 0;
+    $equipo= carrito_get_equipo_usuario();
+    $data['obj'] = $equipo;
+    if(isset($equipo->field_jugadores2['und'])){
+        $data["count"] = count($equipo->field_jugadores2['und']);
+        foreach($equipo->field_jugadores2['und'] as $key=>$jugador){
+            $jug = node_load($jugador['target_id']);
+            $data["total"] += $jug->field_precio['und'][0]['value'];
+        }
+    }
+    return $data;
+}
+
+/**
+ * Obtiene los datos para el carrito
+ */
+function carrito_data(){
+    $data["saldo"] = get_saldo();
+    $data["total"] = 0;
+    $data["count"] = 0;
+    $carrito = get_carrito_compras();
+    $data['obj'] = $carrito;
+    if(isset($carrito->field_jugadores['und'])){
+        $data["count"] = count($carrito->field_jugadores['und']);
+        foreach($carrito->field_jugadores['und'] as $key=>$jugador){
+            $jug = node_load($jugador['target_id']);
+            $data["total"] += $jug->field_precio['und'][0]['value'];
+        }
+    }
+    return $data;
+}
+
+/**
+ * @return bool|mixed|stdClass
+ * @throws Exception
+ */
+function get_carrito_compras(){
+    global $user;
+    $query = new EntityFieldQuery();
+    $result = $query->entityCondition('entity_type', 'node')
+        ->entityCondition('bundle', 'carro_de_compras')
+        ->propertyCondition('status', 1)
+        ->propertyCondition('uid',$user->uid,"=")
+        ->execute();
+    if (isset($result['node'])) {
+        $nids = array_keys($result['node']);
+        $node = node_load($nids[0]);
+    } else {
+        $node = new stdClass();
+        $node->title = 'Carrito de compras de ' . $user->name;
+        $node->type = "carro_de_compras";
+        node_object_prepare($node);
+        $node->language = LANGUAGE_NONE;
+        $node->uid = $user->uid;
+        $node->status = 1;
+        $node->promote = 0;
+        $node->comment = 0;
+        $node = node_submit($node);
+        node_save($node);
+    }
+    return $node;
+}
+
+/**
+ * @return bool|mixed|stdClass
+ * @throws Exception
+ */
+function carrito_get_equipo_usuario(){
+    global $user;
+    $query = new EntityFieldQuery();
+    $result = $query->entityCondition('entity_type', 'node')
+        ->entityCondition('bundle', 'equipo_de_usuario')
+        ->propertyCondition('status', 1)
+        ->propertyCondition('uid',$user->uid,"=")
+        ->execute();
+    if (isset($result['node'])) {
+        $nids = array_keys($result['node']);
+        $node = node_load($nids[0]);
+    } else {
+        $node = new stdClass();
+        $node->title = 'Equipo de ' . $user->name;
+        $node->type = "equipo_de_usuario";
+        node_object_prepare($node);
+        $node->language = LANGUAGE_NONE;
+        $node->uid = $user->uid;
+        $node->status = 1;
+        $node->promote = 0;
+        $node->comment = 0;
+        $node = node_submit($node);
+        node_save($node);
+        $us = user_load($user->uid);
+        $us->field_saldo['und'][0]['value'] = 500000000;
+        user_save($us);
+    }
+    return $node;
+}
+
+/**
+ * @throws Exception
+ */
+function get_saldo(){
+    global $user;
+    $us = user_load($user->uid);
+    if (!isset($us->field_saldo['und']) || $us->field_saldo['und'][0]['value'] <= 0) {
+        $us->field_saldo['und'][0]['value'] = 500000000;
+        user_save($us);
+    }
+    return $us->field_saldo['und'][0]['value'];
+}
+
+

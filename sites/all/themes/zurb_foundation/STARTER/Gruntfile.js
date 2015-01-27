@@ -9,6 +9,8 @@ module.exports = function(grunt) {
     theme_scss: 'scss'
   }
 
+  var bourbon = require('node-bourbon').includePaths;
+
   grunt.initConfig({
     global_vars: global_vars,
     pkg: grunt.file.readJSON('package.json'),
@@ -17,7 +19,7 @@ module.exports = function(grunt) {
       dist: {
         options: {
           outputStyle: 'compressed',
-          includePaths: ['<%= global_vars.theme_scss %>', require('node-bourbon').includePaths]
+          includePaths: ['<%= global_vars.theme_scss %>'].concat(bourbon)
         },
         files: {
           '<%= global_vars.theme_css %>/<%= global_vars.theme_name %>.css': '<%= global_vars.theme_scss %>/<%= global_vars.theme_name %>.scss'

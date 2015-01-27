@@ -31,7 +31,7 @@ function zurb_foundation_html_head_alter(&$head_elements) {
     '#tag' => 'meta',
     '#attributes' => array(
       'name' => 'viewport',
-      'content' => 'width=device-width',
+      'content' => 'width=device-width, initial-scale=1.0',
     ),
   );
 
@@ -512,6 +512,7 @@ function zurb_foundation_preprocess_page(&$variables) {
         'rel'   => 'home',
         'title' => strip_tags($variables['site_name']) . ' ' . t('Home'),
       ),
+      'html' => TRUE
     ));
   }
 

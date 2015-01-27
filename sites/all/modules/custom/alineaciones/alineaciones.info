@@ -1,0 +1,5 @@
+name = Alineaciones por fecha
+description = Pagina de alineaciones
+package = Dayscript
+core = 7.x
+

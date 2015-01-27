@@ -1,0 +1,320 @@
+<?php
+/**
+ * Implements hook_menu().
+ */
+function alineaciones_menu(){
+    $items = array();
+    $items['jugar/alineaciones'] = array(
+        'title' => 'Alineaciones',
+        'page callback' => 'theme',
+        'page arguments' => array('alineacion'),
+//        'access arguments' => array('access content'),
+        'access callback' => 'user_is_logged_in',
+        'type' => MENU_CALLBACK,
+    );
+    $items['formacion/%/%'] = array(
+        'title' => 'Cambiar formacion',
+        'description' => 'Cambia la formacion de una alineacion',
+        'page callback' => 'alineaciones_cambio_formacion',
+        'page arguments' => array(1,2),
+        'access arguments' => array('access content'),
+        'delivery callback' => 'alineaciones_cambio_formacion_ajax',
+    );
+    $items['capitan/%/%'] = array(
+        'title' => 'Cambiar capitan',
+        'description' => 'Cambia el capitan de una alineacion',
+        'page callback' => 'alineaciones_cambio_capitan',
+        'page arguments' => array(1,2),
+        'access arguments' => array('access content'),
+        'delivery callback' => 'alineaciones_cambio_capitan_ajax',
+    );
+    $items['alinear/%/%/%'] = array(
+        'title' => 'Alinear jugador',
+        'description' => 'Asigna una posicion a un jugador',
+        'page callback' => 'alineaciones_alinear_jugador',
+        'page arguments' => array(1,2,3),
+        'access arguments' => array('access content'),
+        'delivery callback' => 'alineaciones_alinear_jugador_ajax',
+    );
+    $items['desalinear/%/%'] = array(
+        'title' => 'Desalinear jugador',
+        'description' => 'Desasigna una posicion a un jugador',
+        'page callback' => 'alineaciones_desalinear_jugador',
+        'page arguments' => array(1,2),
+        'access arguments' => array('access content'),
+        'delivery callback' => 'alineaciones_desalinear_jugador_ajax',
+    );
+    return $items;
+}
+
+/**
+ * Implements hook_theme().
+ */
+function alineaciones_theme($existing, $type, $theme, $path){
+    $hooks = array();
+    $hooks['alineacion'] = array(
+        'variables' => array(),
+        'template' => "templates/alineaciones",
+        'cache' => DRUPAL_NO_CACHE,
+    );
+    return $hooks;
+
+}
+/**
+ * @param $page_callback_result
+ */
+function alineaciones_cambio_capitan_ajax($page_callback_result) {
+    if($page_callback_result=="OK")
+        $html = '<p>Se cambió el capitán para esta fecha.</p>
+                <div>
+                    <a href="#" onclick="document.location.reload();" class="button columns success tiny">Continuar</a>
+                </div>
+                <a onclick="document.location.reload();" class="close-reveal-modal">&#215;</a>';
+    else
+        $html = '<p>Ha ocurrido un error.</p>
+                <div>
+                    <a href="#" onclick="document.location.reload();" class="button alert tiny columns">Aceptar</a>
+                </div>
+                <a onclick="document.location.reload();" class="close-reveal-modal">&#215;</a>';
+    print $html;
+}
+/**
+ * @param $page_callback_result
+ */
+function alineaciones_alinear_jugador_ajax($page_callback_result) {
+    if($page_callback_result=="OK")
+        $html = '<p>Jugador alineado correctamente.</p>
+                <div>
+                    <a href="#" onclick="document.location.reload();" class="button columns success tiny">Continuar</a>
+                </div>
+                <a onclick="document.location.reload();" class="close-reveal-modal">&#215;</a>';
+    else if($page_callback_result=="CAMBIO")
+        $html = '<p>Los jugadores han intercambiado posiciones correctamente.</p>
+                <div>
+                    <a href="#" onclick="document.location.reload();" class="button columns success tiny">Continuar</a>
+                </div>
+                <a onclick="document.location.reload();" class="close-reveal-modal">&#215;</a>';
+    else if($page_callback_result=="REEMPLAZO")
+        $html = '<p>El jugador ha sustituido al otro correctamente.</p>
+                <div>
+                    <a href="#" onclick="document.location.reload();" class="button columns success tiny">Continuar</a>
+                </div>
+                <a onclick="document.location.reload();" class="close-reveal-modal">&#215;</a>';
+    else
+        $html = '<p>Ha ocurrido un error.</p>
+                <div>
+                    <a href="#" onclick="document.location.reload();" class="button alert tiny columns">Aceptar</a>
+                </div>
+                <a onclick="document.location.reload();" class="close-reveal-modal">&#215;</a>';
+    print $html;
+}
+/**
+ * @param $page_callback_result
+ */
+function alineaciones_desalinear_jugador_ajax($page_callback_result) {
+    if($page_callback_result=="OK")
+        $html = '<p>Jugador sacado correctamente.</p><script>document.location.reload();</script>
+                    <a onclick="document.location.reload();" class="close-reveal-modal">&#215;</a>';
+    else
+        $html = '<p>Ha ocurrido un error.</p>
+                <div>
+                    <a href="#" onclick="document.location.reload();" class="button alert tiny columns">Aceptar</a>
+                </div>
+                <a onclick="document.location.reload();" class="close-reveal-modal">&#215;</a>';
+    print $html;
+}
+/**
+ * @param $page_callback_result
+ */
+function alineaciones_cambio_formacion_ajax($page_callback_result) {
+    if($page_callback_result=="OK")
+        $html = '<p>Se cambió la formación para esta fecha.<br /><small><strong>Nota:</strong> Tenga en cuenta que algunos jugadores pueden haber pasado a la banca.</small></p>
+                <div>
+                    <a href="#" onclick="document.location.reload();" class="button columns success tiny">Continuar</a>
+                </div>
+                <a onclick="document.location.reload();" class="close-reveal-modal">&#215;</a>';
+    else
+        $html = '<p>Ha ocurrido un error.</p>
+                <div>
+                    <a href="#" onclick="document.location.reload();" class="button alert tiny columns">Aceptar</a>
+                </div>
+                <a onclick="document.location.reload();" class="close-reveal-modal">&#215;</a>';
+    print $html;
+}
+/**
+ * Cambia la formacion
+ */
+function alineaciones_cambio_formacion($alineacion_nid, $formacion_tid){
+    $ali = node_load($alineacion_nid);
+    $term = taxonomy_term_load($formacion_tid);
+    $posiciones = get_posiciones($term->description);
+    $ali->field_formacion['und'][0]['tid'] = $formacion_tid;
+    for($i=1;$i<=11;$i++) {
+        if (isset($ali->{"field_jugador" . $i}['und']) && $ali->{"field_jugador" . $i}['und'][0]['target_id'] >0) {
+            $pl = node_load($ali->{"field_jugador" . $i}['und'][0]['target_id']);
+            if(intval($pl->field_posicion['und'][0]['tid']) != intval($posiciones[$i]["position"])){
+                $ali->{"field_jugador" . $i}['und'][0]['target_id'] = 0;
+            }
+        }
+    }
+    node_save($ali);
+    return "OK";
+}
+
+/**
+ * Alinear jugador
+ */
+function alineaciones_alinear_jugador($alineacion_nid,$position, $playerid){
+    $position = str_replace("place","",$position);
+    $ali = node_load($alineacion_nid);
+    $prev = 0;
+    for($i=1;$i<=11;$i++){
+        if(isset($ali->{"field_jugador".$i}['und']) && $ali->{"field_jugador".$i}['und'][0]['target_id']==$playerid) {
+            $prev = $i;
+            $ali->{"field_jugador".$i}['und'][0]['target_id'] = 0;
+        }
+    }
+
+    if(isset($ali->{"field_jugador".$position}['und']) && $ali->{"field_jugador".$position}['und'][0]['target_id'] >0){
+        $pl = node_load($ali->{"field_jugador".$position}['und'][0]['target_id']);
+        $player = node_load($playerid);
+        if($pl->field_posicion['und'][0]['tid'] == $player->field_posicion['und'][0]['tid'] && $prev){
+            $ali->{"field_jugador".$prev}['und'][0]['target_id'] = $pl->nid;
+            $ali->{"field_jugador".$position}['und'][0]['target_id'] = $player->nid;
+            node_save($ali);
+            return "CAMBIO";
+        }
+        $ali->{"field_jugador".$position}['und'][0]['target_id'] = $player->nid;
+        node_save($ali);
+        return "REEMPLAZO";
+    }
+    $ali->{"field_jugador".$position}['und'][0]['target_id'] = $playerid;
+    node_save($ali);
+    return "OK";
+}
+
+/**
+ * Desalinear jugador
+ */
+function alineaciones_desalinear_jugador($alineacion_nid, $playerid){
+    $playerid = str_replace("drop","",$playerid);
+    $ali = node_load($alineacion_nid);
+    for($i=1;$i<=11;$i++){
+        if(isset($ali->{"field_jugador".$i}['und']) && $ali->{"field_jugador".$i}['und'][0]['target_id']==$playerid) {
+            $ali->{"field_jugador".$i}['und'][0]['target_id'] = 0;
+            node_save($ali);
+            return "OK";
+        }
+    }
+    return "NO EXISTE";
+}
+/**
+ * Cambia el capitan
+ */
+function alineaciones_cambio_capitan($alineacion_nid, $capitan_nid){
+    $ali = node_load($alineacion_nid);
+    $ali->field_capitan['und'][0]['target_id'] = $capitan_nid;
+    node_save($ali);
+    return "OK";
+}
+
+/**
+ * Pagina de alineaciones
+ */
+function alineaciones_data(){
+    $path = drupal_get_path('module','alineaciones');
+    drupal_add_js($path.'/js/alineaciones.js');
+    drupal_add_library('system', 'ui.draggable');
+    drupal_add_library('system', 'ui.droppable');
+
+    $data = array();
+    $data["fecha"] = $_SESSION["fecha_activa"];
+    $data["alineacion"] = get_alineacion($data["fecha"]);
+    $data["equipo"] = carrito_get_equipo_usuario();
+    $data["formaciones"] = get_formaciones();
+    $data["fechas"] = get_fechas();
+/*    if(isset($equipo->field_jugadores2['und'])){
+        $data["count"] = count($equipo->field_jugadores2['und']);
+        foreach($equipo->field_jugadores2['und'] as $key=>$jugador){
+            $jug = node_load($jugador['target_id']);
+            $data["total"] += $jug->field_precio['und'][0]['value'];
+        }
+    }*/
+    return $data;
+}
+
+/**
+ * @param $fecha
+ */
+function get_alineacion($fecha){
+    global $user;
+    $query = new EntityFieldQuery();
+    $result = $query->entityCondition('entity_type', 'node')
+        ->entityCondition('bundle', 'alineacion')
+        ->propertyCondition('status', 1)
+        ->propertyCondition('uid',$user->uid,"=")
+        ->fieldCondition('field_fecha_torneo', 'target_id', $fecha->nid ,'=')
+        ->execute();
+    if (isset($result['node'])) {
+        $nids = array_keys($result['node']);
+        $node = node_load($nids[0]);
+    } else {
+        $node = new stdClass();
+        $node->title = 'Alineación para: ' . $fecha->title. " - Usuario: ".$user->name;
+        $node->type = "alineacion";
+        node_object_prepare($node);
+        $node->language = LANGUAGE_NONE;
+        $node->uid = $user->uid;
+        $node->status = 1;
+        $node->promote = 0;
+        $node->comment = 0;
+        $node = node_submit($node);
+        node_save($node);
+    }
+    return $node;
+}
+
+/**
+ * @return array
+ */
+function get_formaciones(){
+    $voc = taxonomy_vocabulary_machine_name_load('formaciones');
+    $terminos = taxonomy_get_tree($voc->vid);
+    return $terminos;
+}
+
+/**
+ * @return array
+ * @throws EntityFieldQueryException
+ */
+function get_fechas(){
+    $fechas = array();
+    $query = new EntityFieldQuery();
+    $result = $query->entityCondition('entity_type', 'node')
+        ->entityCondition('bundle', 'fecha_del_torneo')
+        ->propertyCondition('status', 1)
+        ->fieldOrderBy('field_inicio', 'value', 'ASC')
+        ->execute();
+    if (isset($result['node'])) {
+        $nids = array_keys($result['node']);
+        $fechas = entity_load("node", $nids);
+    }
+    return $fechas;
+}
+
+/**
+ * @param $text
+ */
+function get_posiciones($text){
+    $positions = array();
+    $lines = explode(";",$text);
+    foreach($lines as $line){
+        if(trim($line) != ""){
+            $row = explode("|",$line);
+            $positions[trim($row[0])] = array("position"=>trim($row[1]),
+                "x"=>trim($row[2]),
+                "y"=>trim($row[3]));
+        }
+    }
+    return$positions;
+}

@@ -1,0 +1,5 @@
+name = Carrito de compras de jugadores
+description = Crea un bloque con el estado del carro de compras del usuario
+package = Dayscript
+core = 7.x
+

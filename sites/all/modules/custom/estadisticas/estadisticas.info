@@ -1,0 +1,5 @@
+name = Estadisticas del jugador
+description = Crea un bloque con las estadísticas del jugador
+package = Dayscript
+core = 7.x
+

@@ -1,0 +1,46 @@
+<?php
+/**
+ * Implements hook_theme().
+ */
+function estadisticas_theme($existing, $type, $theme, $path) {
+    $hooks = array();
+    $hooks['estadisticas'] = array(
+        'variables' => array('data' => array()),
+        'template' => "templates/estadisticas"
+    );
+    return $hooks;
+}
+
+/**
+ * Implements hook_hook_info().
+ */
+function estadisticas_block_info()
+{
+    $blocks = array();
+    $blocks['estadisticas'] = array(
+        'info' => t('Estadisticas del jugador'),
+        'cache' => DRUPAL_NO_CACHE,
+    );
+    return $blocks;
+}
+
+/**
+ * Implements hook_block_view().
+ */
+function estadisticas_block_view($delta = '')
+{
+    $block = array();
+    switch ($delta) {
+        case 'estadisticas':
+            $block['content'] = theme('estadisticas', array('data' => estadisticas_data()));
+            break;
+    }
+    return $block;
+}
+
+/**
+ * Genera los datos para el bloque de estadisticas
+ */
+function estadisticas_data(){
+    return array("puntos"=>0,"fichajes"=>0,"alineaciones"=>0);
+}

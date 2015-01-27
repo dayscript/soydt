@@ -1,0 +1,5 @@
+name = Contador próxima fecha
+description = Crea un bloque con la cuenta regresiva para la próxima fecha del FPC
+package = Dayscript
+core = 7.x
+

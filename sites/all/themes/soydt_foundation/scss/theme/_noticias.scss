@@ -1,0 +1,28 @@
+.node-article{
+  &.node-teaser{
+    h2{
+      margin-bottom: 0;
+    }
+    .body{
+      color: $secondary-color;
+      p{
+        font-size: 0.8rem;
+      }
+    }
+  }
+  &.view-mode-full{
+    .image{
+      img{
+        width: 100%;
+      }
+    }
+  }
+}
+.node-page{
+  .body.field{
+    strong{
+      color: $highlight-color;
+      text-transform: uppercase;
+    }
+  }
+}
