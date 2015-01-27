@@ -20,6 +20,14 @@ function carrito_menu()
         'access arguments' => array('access content'),
         'delivery callback' => 'carrito_checkout_ajax',
     );
+    $items['carrito/sell/%'] = array(
+        'title' => 'Venta',
+        'description' => 'Venta de jugadores',
+        'page callback' => 'carrito_sell',
+        'page arguments' => array(2),
+        'access arguments' => array('access content'),
+        'delivery callback' => 'carrito_sell_ajax',
+    );
     $items['carrito/delete/%'] = array(
         'title' => 'Eliminar jugador del carrito',
         'description' => 'limina un jugador del carrito de compras',
@@ -31,6 +39,24 @@ function carrito_menu()
     return $items;
 }
 
+/**
+ * @param $page_callback_result
+ */
+function carrito_sell_ajax($page_callback_result) {
+    if($page_callback_result=="OK")
+        $html = '<p>Se ha vendido correctamente el jugador.</p>
+                <div>
+                    <a href="#" onclick="document.location.reload();" class="button columns success tiny">Aceptar</a>
+                </div>
+                <a onclick="document.location.reload();" class="close-reveal-modal">&#215;</a>';
+    else
+        $html = '<p>Ha ocurrido un error al agregar el jugador.</p>
+                <div>
+                    <a href="#" onclick="document.location.reload();" class="button alert tiny columns">Aceptar</a>
+                </div>
+                <a onclick="document.location.reload();" class="close-reveal-modal">&#215;</a>';
+    print $html;
+}
 /**
  * @param $page_callback_result
  */
@@ -158,6 +184,30 @@ function carrito_checkout(){
     $carrito->field_jugadores['und'] = array();
     $us->field_saldo['und'][0]['value'] = $saldo;
     node_save($carrito);
+    node_save($equipo);
+    user_save($us);
+    return "OK";
+}
+/**
+ * Vende un jugador
+ */
+function carrito_sell($playerid){
+    $playerid = str_replace("sell","",$playerid);
+    global $user;
+    $us = user_load($user->uid);
+    $saldo = get_saldo();
+    $equipo = carrito_get_equipo_usuario();
+    if (isset($equipo->field_jugadores2['und'])) {
+        foreach ($equipo->field_jugadores2['und'] as $key => $jugador) {
+            if( $jugador['target_id'] == $playerid){
+                $equipo->field_jugadores2['und'][$key]['target_id'] = 0;
+                node_save($equipo);
+                $jug = node_load($jugador['target_id']);
+                $saldo += $jug->field_precio['und'][0]['value'];
+            }
+        }
+    }
+    $us->field_saldo['und'][0]['value'] = $saldo;
     node_save($equipo);
     user_save($us);
     return "OK";

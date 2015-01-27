@@ -5,6 +5,9 @@ jQuery( document ).ready(function() {
     jQuery('a.drop').click( function(){
         jQuery('#alineaciones-popup').foundation('reveal', 'open', '/desalinear/'+ jQuery("#id_alineacion").val()  +'/'+this.id);
     });
+    jQuery('a.sell').click( function(){
+        jQuery('#alineaciones-popup').foundation('reveal', 'open', '/carrito/sell'+'/'+this.id);
+    });
     jQuery('#capitan').change( function(){
         jQuery('#alineaciones-popup').foundation('reveal', 'open', '/capitan/'+ jQuery("#id_alineacion").val()  +'/'+this.value);
     });

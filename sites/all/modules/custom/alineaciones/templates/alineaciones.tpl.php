@@ -71,7 +71,7 @@
                     <?php endif?>
                 </div>
                 <div class="options columns small-10 small-centered text-center">
-                    <a href="/node/<?php echo $pl->nid?>" class="info"></a><a id="drop<?php echo $pl->nid?>" class="drop"></a><a class="sell"></a>
+                    <a href="/node/<?php echo $pl->nid?>" class="info"></a><a id="drop<?php echo $pl->nid?>" class="drop"></a><a class="sell" id="sell<?php echo $pl->nid?>"></a>
                 </div>
             </div>
         <?php endforeach?>
