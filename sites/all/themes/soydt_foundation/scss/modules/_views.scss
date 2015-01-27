@@ -40,6 +40,9 @@
     display: inline-block;
     margin-top: 19px;
     width: 120px;
+    .fieldset-wrapper{
+      margin-top: 30px;
+    }
     legend{
       position: absolute;
       background: $gray;
