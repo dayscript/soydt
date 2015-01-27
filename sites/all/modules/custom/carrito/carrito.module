@@ -59,18 +59,44 @@ function carrito_sell_ajax($page_callback_result) {
 }
 /**
  * @param $page_callback_result
+ * "YA EXISTE", "AGREGADO", "EQUIPO", "LIMITE JUGADORES", "PRESUPUESTO"
  */
 function carrito_add_player_ajax($page_callback_result) {
     if($page_callback_result=="AGREGADO")
         $html = '<p>Se ha agregado correctamente al jugador al carrito de compras.</p>
                 <div>
-                    <a href="#" onclick="document.location.reload();" class="button columns success tiny">Aceptar</a>
+                    <a href="/jugar/carrito" class="button columns tiny">Ir a procesar esta compra</a>
+                    <a href="#" onclick="document.location.reload();" class="button columns success tiny">Continuar</a>
                 </div>
                 <a onclick="document.location.reload();" class="close-reveal-modal">&#215;</a>';
     else if($page_callback_result=="YA EXISTE")
-        $html = '<p>El jugador ya se encuentra en su carro de compras.</p>
+        $html = '<p>El jugador ya se encuentra en su carrito de compras.</p>
                 <div>
-                    <a href="#" onclick="document.location.reload();" class="button alert columns tiny">Aceptar</a>
+                    <a href="/jugar/carrito" class="button columns tiny">Ver carrito de compras</a>
+                    <a href="#" onclick="document.location.reload();" class="button alert columns tiny">Continuar</a>
+                </div>
+                <a onclick="document.location.reload();" class="close-reveal-modal">&#215;</a>';
+    else if($page_callback_result=="EQUIPO")
+        $html = '<p>El jugador ya se encuentra en su equipo.</p>
+                <div>
+                    <a href="/jugar/alineaciones" class="button columns tiny">Ver mi equipo</a>
+                    <a href="#" onclick="document.location.reload();" class="button alert columns tiny">Continuar</a>
+                </div>
+                <a onclick="document.location.reload();" class="close-reveal-modal">&#215;</a>';
+    else if($page_callback_result=="LIMITE JUGADORES")
+        $html = '<p>No puede agregar mas jugadores a su carrito de compras. Recuerde que hay un límite de 15 jugadores.</p>
+                <div>
+                    <a href="/jugar/alineaciones" class="button columns tiny">Ver mi equipo</a>
+                    <a href="/jugar/carrito" class="button columns tiny">Ver carrito de compras</a>
+                    <a href="#" onclick="document.location.reload();" class="button alert columns tiny">Continuar</a>
+                </div>
+                <a onclick="document.location.reload();" class="close-reveal-modal">&#215;</a>';
+    else if($page_callback_result=="PRESUPUESTO")
+        $html = '<p>No tiene dimero suficiente para agregar este jugador a su carrito de compras. </p>
+                <div>
+                    <a href="/jugar/alineaciones" class="button columns tiny">Ver mi equipo</a>
+                    <a href="/jugar/carrito" class="button columns tiny">Ver carrito de compras</a>
+                    <a href="#" onclick="document.location.reload();" class="button alert columns tiny">Continuar</a>
                 </div>
                 <a onclick="document.location.reload();" class="close-reveal-modal">&#215;</a>';
     else
@@ -90,7 +116,7 @@ function carrito_checkout_ajax($page_callback_result) {
                 <a
                 <div>
                     <a href="#" onclick="document.location.reload();" class="button success tiny columns">Continuar</a>
-                    <a href="/jugar/alineaciones" class="button tiny columns">Vamos a linear estas compras!</a>
+                    <a href="/jugar/alineaciones" class="button tiny columns">Vamos a alinear estas compras!</a>
                 </div>
                 <a onclick="document.location.reload();" class="close-reveal-modal">&#215;</a>';
     else if($page_callback_result=="ERROR")
@@ -132,24 +158,6 @@ function carrito_delete_player_ajax($page_callback_result) {
                 <a onclick="document.location.reload();" class="close-reveal-modal">&#215;</a>';
     print $html;
 }
-
-/**
- * Agrega un jugador
- */
-function carrito_add_player($player){
-    $carrito = get_carrito_compras();
-    if(isset($carrito->field_jugadores['und'])){
-        foreach($carrito->field_jugadores['und'] as $key=>$jugador){
-            if($jugador['target_id'] == $player)
-                return "YA EXISTE";
-        }
-        $carrito->field_jugadores['und'][count($carrito->field_jugadores['und'])]['target_id'] = $player;
-    } else{
-        $carrito->field_jugadores['und'][0]['target_id'] = $player;
-    }
-    node_save($carrito);
-    return "AGREGADO";
-}
 /**
  * Elimina un jugador del carro de compras
  */
@@ -166,30 +174,7 @@ function carrito_delete_player($player){
     }
     return "NO EXISTE";
 }
-/**
- * Procesa las compras
- */
-function carrito_checkout(){
-    global $user;
-    $us = user_load($user->uid);
-    $saldo = get_saldo();
-    $carrito = get_carrito_compras();
-    $equipo = carrito_get_equipo_usuario();
-    if (isset($carrito->field_jugadores['und'])) {
-        foreach ($carrito->field_jugadores['und'] as $key => $jugador) {
-            if(!isset( $equipo->field_jugadores2['und'])) $equipo->field_jugadores2['und'] = array();
-            $equipo->field_jugadores2['und'][] = $jugador;
-            $jug = node_load($jugador['target_id']);
-            $saldo -= $jug->field_precio['und'][0]['value'];
-        }
-    }
-    $carrito->field_jugadores['und'] = array();
-    $us->field_saldo['und'][0]['value'] = $saldo;
-    node_save($carrito);
-    node_save($equipo);
-    user_save($us);
-    return "OK";
-}
+
 /**
  * Vende un jugador
  */
@@ -297,7 +282,74 @@ function carrito_block_view($delta = '')
     return $block;
 }
 
+/**
+ * Procesa las compras
+ */
+function carrito_checkout(){
+    global $user;
+    $us = user_load($user->uid);
+    $saldo = get_saldo();
+    $carrito = get_carrito_compras();
+    $equipo = carrito_get_equipo_usuario();
+    if (isset($carrito->field_jugadores['und'])) {
+        foreach ($carrito->field_jugadores['und'] as $key => $jugador) {
+            if(!isset( $equipo->field_jugadores2['und'])) $equipo->field_jugadores2['und'] = array();
+            $equipo->field_jugadores2['und'][] = $jugador;
+            $jug = node_load($jugador['target_id']);
+            $saldo -= $jug->field_precio['und'][0]['value'];
+        }
+    }
+    $carrito->field_jugadores['und'] = array();
+    $us->field_saldo['und'][0]['value'] = $saldo;
+    node_save($carrito);
+    node_save($equipo);
+    user_save($us);
+    return "OK";
+}
 
+/**
+ * Agrega un jugador
+ * @param $player id de jugador a agregar
+ * @return "YA EXISTE", "AGREGADO", "EQUIPO", "LIMITE JUGADORES", "PRESUPUESTO"
+ */
+function carrito_add_player($player){
+    $carrito = get_carrito_compras();
+    $saldo = get_saldo();
+    $equipo = carrito_get_equipo_usuario();
+    $total = 0;
+    if(isset($carrito->field_jugadores['und'])){
+        foreach($carrito->field_jugadores['und'] as $key=>$jugador){
+            if($jugador['target_id'] == $player){
+                return "YA EXISTE";
+            }
+            $jug = node_load($jugador["target_id"]);
+            $saldo -= $jug->field_precio["und"][0]["value"];
+            $total++;
+        }
+    }
+    if(isset($equipo->field_jugadores2['und'])){
+        foreach($equipo->field_jugadores2['und'] as $key=>$jugador){
+            if($jugador['target_id'] == $player){
+                return "EQUIPO";
+            }
+            $total++;
+        }
+    }
+    if($total>=15){
+        return "LIMITE JUGADORES";
+    }
+    $node = node_load($player);
+    if($saldo < $node->field_precio["und"][0]["value"]){
+        return "PRESUPUESTO";
+    }
+    if(isset($carrito->field_jugadores['und'])) {
+        $carrito->field_jugadores['und'][count($carrito->field_jugadores['und'])]['target_id'] = $player;
+    } else {
+        $carrito->field_jugadores['und'][0]['target_id'] = $player;
+    }
+    node_save($carrito);
+    return "AGREGADO";
+}
 /**
  * Obtiene los datos para el boton de agregar al carrito
  */
