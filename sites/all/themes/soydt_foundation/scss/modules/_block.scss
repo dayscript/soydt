@@ -62,6 +62,12 @@
 }
 .block-carrito-equipo2,
 .block-carrito-carrito2{
+  .carrito{
+    .data1,.data2{
+      width: 45%;
+      display: inline-block;
+    }
+  }
   .checkout{
     margin: 0 88px;
   }
