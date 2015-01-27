@@ -1,0 +1,16 @@
+// Non-modular or client styles for .l-header region.
+.l-header{
+  background: #000000;
+  color: white;
+  text-transform: uppercase;
+  p{
+    margin: 0;
+    font-size: 0.75rem;
+  }
+}
+.featured-wrapper{
+  background: white;
+  .l-featured{
+    height: 125px;
+  }
+}

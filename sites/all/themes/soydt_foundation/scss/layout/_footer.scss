@@ -1,0 +1,18 @@
+// Non-modular or client styles for .l-footer region.
+.footer-wrapper {
+  background: #000000;
+  color: white;
+  a{
+    color: orange;
+  }
+  .l-footer{
+    border: none;
+    background: none;
+    color: white;
+    margin-bottom: 0;
+    p{
+      color: white;
+      font-size: 0.75em;
+    }
+  }
+}

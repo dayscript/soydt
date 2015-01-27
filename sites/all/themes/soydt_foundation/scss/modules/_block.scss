@@ -1,0 +1,71 @@
+
+.block-block-1{
+  padding-top: 8px;
+}
+.block-block-4{
+  padding-top: 30px;
+}
+.block-contador-contador{
+  padding: 0;
+  small{
+    color: $primary-color;
+  }
+}
+.block-blockify-blockify-logo{
+  margin-top: -40px;
+  padding: 0;
+}
+.basket{
+  background: url("../images/backgrounds/sprite.png") no-repeat 0px -72px;
+  width: 40px;
+  height: 42px;
+}
+
+.carrito,
+.block-equipo{
+  position: relative;
+  @include background-image(linear-gradient(#eea320, #eea320 43%, #b37b18 54%, #eea320));
+  border-radius: 3px;
+  color: white;
+  padding: 10px 5px 25px;
+  text-align: center;
+  margin-bottom: 20px;
+  .total{
+    font-family: $font-digital;
+    background: #000000;
+    border-radius: 3px;
+    line-height: 3.4rem;
+    height: 43px;
+    font-size: 1.2rem;
+  }
+  .count{
+    text-transform: uppercase;
+    font-weight: bold;
+    font-family: $font-main;
+    font-size: 1.4rem;
+    padding-top: 10px;
+  }
+  .checkout{
+    position: absolute;
+    bottom: -15px;
+    display: block;
+    color: white;
+    text-transform: uppercase;
+    font-family: $font-main;
+    width: 140px;
+    height: 35px;
+    background: url("../images/buttons/checkout.png");
+    background-size: 100% 100%;
+    margin: 0 46px;
+    padding-top: 7px;
+  }
+}
+.block-equipo {
+  @include background-image(linear-gradient(#20a3ee, #20a3ee 43%, #187bb3 54%, #20a3ee));
+}
+.reveal-modal-bg{
+  z-index: 800;
+}
+.block-carrito{
+  //clear: both;
+}

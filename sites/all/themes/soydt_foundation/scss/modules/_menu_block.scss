@@ -1,0 +1,80 @@
+.block-system-main-menu{
+  padding: 10px 0 0 0;
+  ul.menu{
+    margin: 0;
+    li{
+      display: inline-block;
+      list-style: none;
+      a{
+        text-transform: uppercase;
+        font-size: 1.2rem;
+        font-family: $font-main;
+        padding: 34px 15px 50px 15px;
+        border-bottom: none;
+        background: url("../images/menu/item-bg.jpg") left center no-repeat;
+        display: inline-block;
+        color: $secondary-color;
+        &:hover,
+        &.active{
+          color: $primary-color;
+        }
+      }
+    }
+  }
+}
+.block-system-user-menu{
+  padding-top: 10px;
+  ul.menu{
+    margin: 0;
+    font-size: 0.75rem;
+    li{
+      display: inline-block;
+      list-style: none;
+      a{
+        color: orange;
+      }
+    }
+  }
+}
+.block-menu-menu-jugar{
+  ul.menu{
+    li {
+      display: inline-block;
+      list-style: none;
+      position: relative;
+      margin: 0 25px;
+      a{
+        text-transform: uppercase;
+        font-size: 1.2rem;
+        font-family: $font-main;
+        padding: 10px 15px 7px;
+        border-bottom: none;
+        display: inline-block;
+        color: $secondary-color;
+        &:hover{
+          color: $primary-color;
+        }
+        &.active{
+          color: white;
+          background: $blueline;
+          &::before,
+          &::after{
+            display: inline-block;
+            height: 35px;
+            content: "";
+            top: 9px;
+            width: 28px;
+            position: absolute;
+            background: url(../images/backgrounds/sprite.png) no-repeat 0px -274px;
+            left: -25px;
+          }
+          &::after{
+            left: initial;
+            right: -28px;
+            background-position: -55px -274px;
+          }
+        }
+      }
+    }
+  }
+}

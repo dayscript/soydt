@@ -1,0 +1,166 @@
+.view{
+  .view-content{
+    .views-row{
+      margin-bottom: $space;
+      padding-bottom: $space;
+      border-bottom: 1px solid $grayline;
+    }
+  }
+  .more-link{
+    background: #000000;
+    text-transform: uppercase;
+    font-family: $font-main;
+    float: right;
+    margin-bottom: $space;
+    a{
+      display: inline-block;
+      color: white;
+      padding: 13px 15px 10px 15px;
+    }
+  }
+}
+.views-exposed-form{
+  button.form-submit{
+    margin-top: 21px !important;
+    padding: 8px 15px;
+  }
+}
+
+.view-fichar-jugadores{
+  .views-row{
+    position: relative;
+    width: 24%;
+    padding: 0;
+    margin: 0;
+    display: inline-block;
+    vertical-align: top;
+    .views-field-field-equipo{
+      position: absolute;
+      bottom: 9px;
+      left: 118px;
+      .image{
+        display: inline-block;
+        margin-right: 5px;
+      }
+      .field-name-title{
+        display: inline-block;
+        h5{
+          font-size: 0.9rem;
+          a{
+            color: $secondary-color;
+            text-shadow: 1px 1px #eee;
+            &:hover{
+              text-decoration: underline;
+            }
+          }
+        }
+
+      }
+    }
+    .views-field-field-image{
+      float: left;
+      margin-right: $space;
+      border: 2px solid white;
+    }
+    .views-field-title{
+      font-family: $font-main;
+      line-height: 1.2rem;
+      a{
+        color: #000000;
+        &:hover{
+          text-decoration: underline;
+        }
+      }
+    }
+    .views-field-nothing{
+      .basket{
+        margin-left: 140px;
+      }
+    }
+  }
+  .flexslider{
+    height: 360px;
+    li{
+      height: 329px;
+      overflow: hidden;
+      .views-field-title{
+        position: absolute;
+        text-align: center;
+        bottom: 40px;
+        height: 30px;
+        width: 100%;
+        padding: 5px;
+        background: rgba(0,0,0,0.8);
+        font-size: 0.9rem;
+        a{
+          color: white;
+        }
+      }
+      .views-field-field-posicion{
+        position: absolute;
+        bottom: 0px;
+        height: 40px;
+        width: 100%;
+        padding: 5px 40px;
+        background: rgba(0,0,0,0.8);
+      }
+      .views-field-field-precio{
+        position: absolute;
+        bottom: 0px;
+        height: 40px;
+        padding: 5px;
+        right: 5px;
+        color: white;
+
+      }
+      .views-field-field-equipo{
+        position: absolute;
+        bottom: 0px;
+        height: 40px;
+        padding: 5px;
+        left: 15px;
+        .image{
+          display: inline-block;
+          margin-right: 5px;
+          vertical-align: middle;
+          img{
+            height: 30px;
+            width: 30px;
+          }
+        }
+        .field-name-title{
+          display: none;
+        }
+      }
+    }
+    .flex-control-nav{
+      bottom: 0px;
+      height: 16px;
+    }
+  }
+}
+.flex-direction-nav{
+  height: 20px;
+}
+.view-carrito{
+  margin-bottom: 20px;
+  .views-row{
+    height: 165px;
+    .views-field-title{
+      font-family: $font-main;
+      text-transform: uppercase;
+      a{
+        color: $secondary-color;
+      }
+    }
+    .views-field-field-image{
+      float: left;
+      margin-right: $space;
+    }
+    .views-field-nothing{
+      clear: left;
+      margin-top: 5px;
+    }
+
+  }
+}
