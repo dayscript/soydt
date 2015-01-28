@@ -1,5 +1,5 @@
 <div id="checkout">
-    <div class="columns small-6 right">
+    <div class="columns small-6 text-right">
         <div class="subheader">Si esta seguro que desea comprar estos jugadores, haga click a continuación.</div>
     </div>
     <div class="columns small-6">
