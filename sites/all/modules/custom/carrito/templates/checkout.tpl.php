@@ -1,6 +1,6 @@
 <div id="checkout">
     <div class="columns small-6 text-right">
-        <div class="subheader">Si esta seguro que desea comprar estos jugadores, haga click a continuación.</div>
+        <div class="subheader"><small>Si esta seguro que desea comprar estos jugadores, haga click a continuación.</small></div>
     </div>
     <div class="columns small-6">
         <div class="clearfix">
