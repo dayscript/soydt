@@ -178,7 +178,7 @@
 .view-carrito{
   margin-bottom: 20px;
   .views-row{
-    height: 165px;
+    padding: 0;
     .views-field-title{
       font-family: $font-main;
       text-transform: uppercase;
@@ -187,13 +187,7 @@
       }
     }
     .views-field-field-image{
-      float: left;
-      margin-right: $space;
+      padding: 0;
     }
-    .views-field-nothing{
-      clear: left;
-      margin-top: 5px;
-    }
-
   }
 }
