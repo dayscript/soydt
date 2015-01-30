@@ -20,11 +20,11 @@ function carrito_menu()
         'access arguments' => array('access content'),
         'delivery callback' => 'carrito_checkout_ajax',
     );
-    $items['carrito/sell/%'] = array(
+    $items['carrito/sell/%/%'] = array(
         'title' => 'Venta',
         'description' => 'Venta de jugadores',
         'page callback' => 'carrito_sell',
-        'page arguments' => array(2),
+        'page arguments' => array(2,3),
         'access arguments' => array('access content'),
         'delivery callback' => 'carrito_sell_ajax',
     );
@@ -178,9 +178,11 @@ function carrito_delete_player($player){
 /**
  * Vende un jugador
  */
-function carrito_sell($playerid){
+function carrito_sell($playerid,$alineacion_id){
     $playerid = str_replace("sell","",$playerid);
     global $user;
+    //$ali = node_load($alineacion_id);
+    alineaciones_desalinear_jugador($alineacion_id, $playerid);
     $us = user_load($user->uid);
     $saldo = get_saldo();
     $equipo = carrito_get_equipo_usuario();
