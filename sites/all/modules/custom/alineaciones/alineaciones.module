@@ -295,6 +295,7 @@ function get_fechas(){
         ->propertyCondition('status', 1)
         ->fieldOrderBy('field_inicio', 'value', 'ASC')
         ->execute();
+    dpm($result);
     if (isset($result['node'])) {
         $nids = array_keys($result['node']);
         $fechas = entity_load("node", $nids);
