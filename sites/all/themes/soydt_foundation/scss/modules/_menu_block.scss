@@ -54,7 +54,8 @@
         &:hover{
           color: $primary-color;
         }
-        &.active{
+        &.active,
+        &.active-trail{
           color: white;
           background: $blueline;
           &::before,
