@@ -8,6 +8,9 @@ jQuery( document ).ready(function() {
     jQuery('a.sell').click( function(){
         jQuery('#alineaciones-popup').foundation('reveal', 'open', '/carrito/sell'+'/'+this.id + '/' + jQuery("#id_alineacion").val());
     });
+    jQuery('a.info').click( function(){
+        jQuery('#alineaciones-popup2').foundation('reveal', 'open', '/detallejugador/'+this.id);
+    });
     jQuery('.active #capitan').change( function(){
         jQuery('#alineaciones-popup').foundation('reveal', 'open', '/capitan/'+ jQuery("#id_alineacion").val()  +'/'+this.value);
     });

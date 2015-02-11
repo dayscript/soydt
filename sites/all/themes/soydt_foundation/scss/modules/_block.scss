@@ -81,6 +81,7 @@
 }
 .reveal-modal-bg{
   z-index: 800;
+  position: fixed;
 }
 .block-carrito{
   //clear: both;
@@ -88,4 +89,18 @@
 .block-md-slider{
   padding: 0px;
   margin-bottom: 20px;
+}
+.sharethis-wrapper{
+  margin-bottom: 10px;
+  .stButton{
+    .stMainServices{
+      height: 23px;
+    }
+    .stArrow{
+      height: 23px;
+      .stButton_gradient{
+        height: 100%;
+      }
+    }
+  }
 }

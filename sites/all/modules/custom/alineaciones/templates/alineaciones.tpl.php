@@ -84,7 +84,7 @@
                     <?php endif?>
                 </div>
                 <div class="options columns small-10 small-centered text-center">
-                    <a href="/node/<?php echo $pl->nid?>" class="info"></a>
+                    <a id="info<?php echo $pl->nid?>" class="info"></a>
                     <?php if($data["alineacion"]->field_fecha_torneo['und'][0]['target_id'] == $_SESSION['fecha_activa']->nid):?>
                         <a id="drop<?php echo $pl->nid?>" class="drop"></a>
                         <a class="sell" id="sell<?php echo $pl->nid?>"></a>
@@ -108,7 +108,7 @@
                             <?php endif?>
                         </div>
                         <div class="options columns small-10 small-centered text-center">
-                            <a href="/node/<?php echo $pl->nid?>" class="info"></a>
+                            <a id="info<?php echo $pl->nid?>" class="info"></a>
                             <?php if($data["alineacion"]->field_fecha_torneo['und'][0]['target_id'] == $_SESSION['fecha_activa']->nid):?>
                                 <a id="drop<?php echo $pl->nid?>" class="drop"></a>
                                 <a class="sell" id="sell<?php echo $pl->nid?>"></a>
@@ -121,5 +121,5 @@
     </div>
 </div>
 
-<div id="alineaciones-popup" class="reveal-modal tiny" data-reveal data-options="close_on_background_click: false;" >
-</div>
+<div id="alineaciones-popup" class="reveal-modal tiny" data-reveal data-options="close_on_background_click: false;" ></div>
+<div id="alineaciones-popup2" class="reveal-modal tiny" data-reveal ></div>

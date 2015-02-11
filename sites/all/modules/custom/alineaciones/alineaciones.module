@@ -8,7 +8,6 @@ function alineaciones_menu(){
         'title' => 'Alineaciones',
         'page callback' => 'theme',
         'page arguments' => array('alineacion'),
-//        'access arguments' => array('access content'),
         'access callback' => 'user_is_logged_in',
         'type' => MENU_CALLBACK,
     );
@@ -35,6 +34,14 @@ function alineaciones_menu(){
         'page arguments' => array(1,2,3),
         'access arguments' => array('access content'),
         'delivery callback' => 'alineaciones_alinear_jugador_ajax',
+    );
+    $items['detallejugador/%'] = array(
+        'title' => 'Detalle jugador',
+        'description' => 'Muestra la ficha del jugador',
+        'page callback' => 'alineaciones_jugador_detalle',
+        'page arguments' => array(1),
+        'access arguments' => array('access content'),
+        'delivery callback' => 'alineaciones_jugador_detalle_ajax',
     );
     $items['desalinear/%/%'] = array(
         'title' => 'Desalinear jugador',
@@ -107,6 +114,12 @@ function alineaciones_alinear_jugador_ajax($page_callback_result) {
                 </div>
                 <a onclick="document.location.reload();" class="close-reveal-modal">&#215;</a>';
     print $html;
+}
+/**
+ * @param $page_callback_result
+ */
+function alineaciones_jugador_detalle_ajax($page_callback_result) {
+    print render($page_callback_result);
 }
 /**
  * @param $page_callback_result
@@ -199,6 +212,26 @@ function alineaciones_alinear_jugador($alineacion_nid,$position, $playerid){
     }
     node_save($ali);
     return "OK";
+}
+/**
+ * Detalle de jugador
+ */
+function alineaciones_jugador_detalle($playerid){
+    $data = array();
+    $playerid = str_replace("info","",$playerid);
+    $player = node_load($playerid);
+    $data["title"] = array(
+        '#markup'=>'<h2>' . $player->title . '</h2><a class="close-reveal-modal">&#215;</a>'
+    );
+    $data["image"] = array(
+        '#theme' => 'image_style',
+        '#path' => $player->field_image['und'][0]['uri'],
+        '#style_name' => 'escalar_y_recortar_a_a127x170',
+        '#alt' => $player->title,
+        '#title' => $player->title,
+    );
+
+    return $data;
 }
 
 /**
