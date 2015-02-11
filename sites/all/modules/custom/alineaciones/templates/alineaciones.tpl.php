@@ -43,7 +43,12 @@
 </div>
 <?php if ($data["alineacion"]->field_fecha_torneo['und'][0]['target_id'] == $_SESSION['fecha_activa']->nid):?>
     <div data-alert class="alert-box info radius">
-        Nota: Recuerda que ya no es necesario guardar la alineación. Cada cambio que realices queda grabado automáticamente.
+        <strong>Nota: </strong>Recuerda que ya no es necesario guardar la alineación. Cada cambio que realices queda grabado automáticamente.
+        <a href="#" class="close">&times;</a>
+    </div>
+<?php else :?>
+    <div data-alert class="alert-box warning radius">
+        <strong>Nota:</strong> Esta fecha se encuentra cerrada. No se pueden realizar cambios en la alineación.
         <a href="#" class="close">&times;</a>
     </div>
 <?php endif?>
