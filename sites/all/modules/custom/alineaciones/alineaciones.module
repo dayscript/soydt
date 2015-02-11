@@ -4,7 +4,7 @@
  */
 function alineaciones_menu(){
     $items = array();
-    $items['jugar/alineaciones'] = array(
+    $items['jugar/alineaciones/%'] = array(
         'title' => 'Alineaciones',
         'page callback' => 'theme',
         'page arguments' => array('alineacion'),
@@ -149,15 +149,16 @@ function alineaciones_cambio_formacion($alineacion_nid, $formacion_tid){
     $term = taxonomy_term_load($formacion_tid);
     $posiciones = get_posiciones($term->description);
     $ali->field_formacion['und'][0]['tid'] = $formacion_tid;
+    node_save($ali);
     for($i=1;$i<=11;$i++) {
         if (isset($ali->{"field_jugador" . $i}['und']) && $ali->{"field_jugador" . $i}['und'][0]['target_id'] >0) {
             $pl = node_load($ali->{"field_jugador" . $i}['und'][0]['target_id']);
             if(intval($pl->field_posicion['und'][0]['tid']) != intval($posiciones[$i]["position"])){
-                $ali->{"field_jugador" . $i}['und'][0]['target_id'] = 0;
+                alineaciones_desalinear_jugador($ali->nid, $pl->nid);
+                //$ali->{"field_jugador" . $i}['und'][0]['target_id'] = 0;
             }
         }
     }
-    node_save($ali);
     return "OK";
 }
 
@@ -185,10 +186,17 @@ function alineaciones_alinear_jugador($alineacion_nid,$position, $playerid){
             return "CAMBIO";
         }
         $ali->{"field_jugador".$position}['und'][0]['target_id'] = $player->nid;
+        $ali->field_suplentes['und'][] = array('target_id'=>$pl->nid);
         node_save($ali);
         return "REEMPLAZO";
     }
     $ali->{"field_jugador".$position}['und'][0]['target_id'] = $playerid;
+    foreach ($ali->field_suplentes['und'] as $key => $supl) {
+        if ($supl['target_id'] == $playerid) {
+            $ali->field_suplentes['und'][$key]['target_id'] = 0;
+            unset($ali->field_suplentes['und'][$key]);
+        }
+    }
     node_save($ali);
     return "OK";
 }
@@ -196,12 +204,13 @@ function alineaciones_alinear_jugador($alineacion_nid,$position, $playerid){
 /**
  * Desalinear jugador
  */
-function alineaciones_desalinear_jugador($alineacion_nid, $playerid){
+function alineaciones_desalinear_jugador($alineacion_nid, $playerid, $sell = false){
     $playerid = str_replace("drop","",$playerid);
     $ali = node_load($alineacion_nid);
     for($i=1;$i<=11;$i++){
         if(isset($ali->{"field_jugador".$i}['und']) && $ali->{"field_jugador".$i}['und'][0]['target_id']==$playerid) {
             $ali->{"field_jugador".$i}['und'][0]['target_id'] = 0;
+            if(!$sell)$ali->field_suplentes['und'][] = array('target_id'=>$playerid);
             node_save($ali);
             return "OK";
         }
@@ -229,10 +238,16 @@ function alineaciones_data(){
 
     $data = array();
     $data["fecha"] = $_SESSION["fecha_activa"];
-    $data["alineacion"] = get_alineacion($data["fecha"]);
+    $data["fechas"] = get_fechas();
+    if( arg(2) && is_numeric(arg(2)) && arg(2)>0){
+        $fecha_ali = node_load(arg(2));
+        $data["alineacion"] = get_alineacion($fecha_ali,$data["fechas"]);
+    } else {
+        $data["alineacion"] = get_alineacion($data["fecha"],$data["fechas"]);
+    }
     $data["equipo"] = carrito_get_equipo_usuario();
     $data["formaciones"] = get_formaciones();
-    $data["fechas"] = get_fechas();
+
 /*    if(isset($equipo->field_jugadores2['und'])){
         $data["count"] = count($equipo->field_jugadores2['und']);
         foreach($equipo->field_jugadores2['und'] as $key=>$jugador){
@@ -240,13 +255,14 @@ function alineaciones_data(){
             $data["total"] += $jug->field_precio['und'][0]['value'];
         }
     }*/
+
     return $data;
 }
 
 /**
  * @param $fecha
  */
-function get_alineacion($fecha){
+function get_alineacion($fecha, $fechas){
     global $user;
     $query = new EntityFieldQuery();
     $result = $query->entityCondition('entity_type', 'node')
@@ -259,17 +275,35 @@ function get_alineacion($fecha){
         $nids = array_keys($result['node']);
         $node = node_load($nids[0]);
     } else {
-        $node = new stdClass();
-        $node->title = 'Alineación para: ' . $fecha->title. " - Usuario: ".$user->name;
-        $node->type = "alineacion";
-        node_object_prepare($node);
-        $node->language = LANGUAGE_NONE;
-        $node->uid = $user->uid;
-        $node->status = 1;
-        $node->promote = 0;
-        $node->comment = 0;
-        $node = node_submit($node);
-        node_save($node);
+        $keys = array_keys($fechas);
+        for($i=0;$i<count($keys); $i++){
+            if($fechas[$keys[$i]]->nid == $fecha->nid){
+                if($i==0){
+                    $node = new stdClass();
+                    $node->title = 'Alineación para: ' . $fecha->title. " - Usuario: ".$user->name;
+                    $node->type = "alineacion";
+                    node_object_prepare($node);
+                    $node->language = LANGUAGE_NONE;
+                    $node->uid = $user->uid;
+                    $node->status = 1;
+                    $node->promote = 0;
+                    $node->comment = 0;
+                    $node->field_fecha_torneo['und'][0]['target_id'] = $fecha->nid;
+                    $node = node_submit($node);
+                    node_save($node);
+                } else {
+                    $node = get_alineacion($fechas[$keys[$i-1]],$fechas);
+                    unset($node->nid);
+                    unset($node->vid);
+                    unset($node->path);
+                    $node->title = 'Alineación para: ' . $fecha->title. " - Usuario: ".$user->name;
+                    $node->field_fecha_torneo['und'][0]['target_id'] = $fecha->nid;
+                    $node = node_submit($node);
+                    node_save($node);
+                }
+                break;
+            }
+        }
     }
     return $node;
 }
@@ -288,17 +322,21 @@ function get_formaciones(){
  * @throws EntityFieldQueryException
  */
 function get_fechas(){
-    $fechas = array();
-    $query = new EntityFieldQuery();
-    $result = $query->entityCondition('entity_type', 'node')
-        ->entityCondition('bundle', 'fecha_del_torneo')
-        ->propertyCondition('status', 1)
-        ->fieldOrderBy('field_inicio', 'value', 'ASC')
-        ->execute();
-    dpm($result);
-    if (isset($result['node'])) {
-        $nids = array_keys($result['node']);
-        $fechas = entity_load("node", $nids);
+    if(isset($_SESSION['fechas']) && is_array($_SESSION['fechas']) && count($_SESSION['fechas'])>0){
+        $fechas = $_SESSION['fechas'];
+    } else {
+        $fechas = array();
+        $query = new EntityFieldQuery();
+        $result = $query->entityCondition('entity_type', 'node')
+            ->entityCondition('bundle', 'fecha_del_torneo')
+            ->propertyCondition('status', 1)
+            ->fieldOrderBy('field_inicio', 'value', 'ASC')
+            ->execute();
+        if (isset($result['node'])) {
+            $nids = array_keys($result['node']);
+            $fechas = entity_load("node", $nids);
+        }
+        $_SESSION['fechas'] = $fechas;
     }
     return $fechas;
 }

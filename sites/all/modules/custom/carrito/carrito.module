@@ -182,7 +182,7 @@ function carrito_sell($playerid,$alineacion_id){
     $playerid = str_replace("sell","",$playerid);
     global $user;
     //$ali = node_load($alineacion_id);
-    alineaciones_desalinear_jugador($alineacion_id, $playerid);
+    alineaciones_desalinear_jugador($alineacion_id, $playerid, true);
     $us = user_load($user->uid);
     $saldo = get_saldo();
     $equipo = carrito_get_equipo_usuario();
@@ -293,14 +293,19 @@ function carrito_checkout(){
     $saldo = get_saldo();
     $carrito = get_carrito_compras();
     $equipo = carrito_get_equipo_usuario();
+    $fecha = $_SESSION["fecha_activa"];
+    $fechas = get_fechas();
+    $alineacion = get_alineacion($fecha,$fechas);
     if (isset($carrito->field_jugadores['und'])) {
         foreach ($carrito->field_jugadores['und'] as $key => $jugador) {
             if(!isset( $equipo->field_jugadores2['und'])) $equipo->field_jugadores2['und'] = array();
             $equipo->field_jugadores2['und'][] = $jugador;
             $jug = node_load($jugador['target_id']);
             $saldo -= $jug->field_precio['und'][0]['value'];
+            $alineacion->field_suplentes['und'][] = $jugador;
         }
     }
+    node_save($alineacion);
     $carrito->field_jugadores['und'] = array();
     $us->field_saldo['und'][0]['value'] = $saldo;
     node_save($carrito);

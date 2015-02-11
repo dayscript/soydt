@@ -1,4 +1,11 @@
 #cancha{
+  opacity: 0.6;
+  &.active{
+    opacity: 1;
+    .player{
+      cursor: move;
+    }
+  }
   width: 1110px;
   position: relative;
   height: 672px;
@@ -16,7 +23,6 @@
     width: 90px;
     padding: 0;
     margin: 10px;
-    cursor: move;
     .star{
       background: url("../images/backgrounds/opciones-alineacion.png") no-repeat;
       height: 20px;
