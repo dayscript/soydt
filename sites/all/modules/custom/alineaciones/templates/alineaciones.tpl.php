@@ -47,7 +47,7 @@
         <a href="#" class="close">&times;</a>
     </div>
 <?php else :?>
-    <div data-alert class="alert-box warning radius">
+    <div data-alert class="alert-box secondary radius">
         <strong>Nota:</strong> Esta fecha se encuentra cerrada. No se pueden realizar cambios en la alineación.
         <a href="#" class="close">&times;</a>
     </div>
