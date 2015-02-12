@@ -2,4 +2,7 @@ name = Dayscript - Widgets de información FPC
 description = Crea bloques con la información del FPC
 package = Dayscript
 core = 7.x
+dependencies[] = block
+version = "7.x-1.0"
+
 
