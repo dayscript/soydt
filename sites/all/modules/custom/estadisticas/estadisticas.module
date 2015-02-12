@@ -37,7 +37,6 @@ function estadisticas_block_view($delta = '')
     }
     return $block;
 }
-
 /**
  * Genera los datos para el bloque de estadisticas
  */

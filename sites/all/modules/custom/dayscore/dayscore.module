@@ -1,0 +1,45 @@
+<?php
+
+/**
+ * Implements hook_theme().
+ */
+function dayscore_theme($existing, $type, $theme, $path) {
+    $hooks = array();
+    $hooks['widgetgeneral'] = array(
+        'variables' => array('data' => array()),
+        'template' => "templates/widgetgeneral"
+    );
+    return $hooks;
+}
+/**
+ * Implements hook_block_info().
+ */
+function dayscore_block_info(){
+    $blocks = array();
+    $blocks['widgetgeneral'] = array(
+        'info' => t('Widget integrado con torneos , calendario y tablas.'),
+        'cache' => DRUPAL_NO_CACHE,
+    );
+    return $blocks;
+}
+
+/**
+ * Implements hook_block_view().
+ */
+function dayscore_block_view($delta = '')
+{
+    $block = array();
+    switch ($delta) {
+        case 'widgetgeneral':
+            $block['content'] = theme('widgetgeneral', array('data' => widgetgeneral_data()));
+            break;
+    }
+    return $block;
+}
+
+/**
+ * Genera los datos para el bloque de estadisticas
+ */
+function widgetgeneral_data(){
+    return array("puntos"=>0,"fichajes"=>0,"alineaciones"=>0);
+}

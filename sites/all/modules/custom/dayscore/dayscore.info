@@ -1,0 +1,5 @@
+name = Dayscript - Widgets de información FPC
+description = Crea bloques con la información del FPC
+package = Dayscript
+core = 7.x
+
