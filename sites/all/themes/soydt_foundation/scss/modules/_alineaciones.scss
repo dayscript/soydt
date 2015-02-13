@@ -88,6 +88,22 @@
     }
   }
 }
+.puntajes{
+  .puntos_fecha{
+    font-family: $font-digital;
+    color: white;
+    background: $blueline;
+    font-size: 2rem;
+    border: 5px solid white;
+    height: 88px;
+    padding: 25px;
+    @include radius(10px);
+    line-height: 1.4rem;
+    small{
+      font-size: 0.7rem;
+    }
+  }
+}
 #alineaciones-popup,
 #alineaciones-popup2{
   border: 6px solid $blueline2;
