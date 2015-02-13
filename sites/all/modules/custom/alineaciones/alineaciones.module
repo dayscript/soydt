@@ -220,16 +220,56 @@ function alineaciones_jugador_detalle($playerid){
     $data = array();
     $playerid = str_replace("info","",$playerid);
     $player = node_load($playerid);
-    $data["title"] = array(
-        '#markup'=>'<h2>' . $player->title . '</h2><a class="close-reveal-modal">&#215;</a>'
+    $title = array(
+        '#prefix' => '<div class="title">',
+        '#suffix' => '</div>',
+        '#markup'=>'<h2>' . $player->title . '</h2>'
     );
-    $data["image"] = array(
+    $position = array(
+        '#prefix' => '<div class="position text-orange">',
+        '#suffix' => '</div>',
+        '#markup'=> taxonomy_term_load($player->field_posicion['und'][0]['tid'])->name
+    );
+    $close = array(
+        '#prefix' => '<div class="small-1 right">',
+        '#suffix' => '</div>',
+        '#markup'=>'<a class="close-reveal-modal">&#215;</a>'
+    );
+    $image = array(
+        '#prefix' => '<div class="small-12 image">',
         '#theme' => 'image_style',
         '#path' => $player->field_image['und'][0]['uri'],
         '#style_name' => 'escalar_y_recortar_a_a127x170',
         '#alt' => $player->title,
         '#title' => $player->title,
+        '#suffix' => '</div>',
     );
+    $team = node_view(node_load($player->field_equipo['und'][0]['target_id']),'teaser');
+    $team['#prefix'] = '<div class="left team">';
+    $team['#suffix'] = '</div>';
+    $points_html = views_embed_view('jugadores', 'block', $playerid);
+    dpm($points);
+    $data["col1"] = array(
+        '#prefix' => '<div class="columns small-5 col1">',
+        '#suffix' => '</div>',
+        'content' => array(
+            $image,
+            $team
+        )
+
+    );
+    $data["col2"] = array(
+        '#prefix' => '<div class="columns small-7 col2">',
+        '#suffix' => '</div>',
+        'content' => array(
+            $title,
+            $position,
+            array('#markup'=>$points_html)
+        )
+    );
+    $data["col3"] = $close;
+
+
 
     return $data;
 }
@@ -266,7 +306,7 @@ function alineaciones_cambio_capitan($alineacion_nid, $capitan_nid){
 function alineaciones_data(){
     $path = drupal_get_path('module','alineaciones');
     drupal_add_js($path.'/js/alineaciones.js');
-    drupal_add_js($path.'/js/blur.js');
+//    drupal_add_js($path.'/js/blur.js');
     drupal_add_library('system', 'ui.draggable');
     drupal_add_library('system', 'ui.droppable');
 

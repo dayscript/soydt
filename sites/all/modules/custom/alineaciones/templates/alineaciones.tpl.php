@@ -120,6 +120,5 @@
         <?php endif?>
     </div>
 </div>
-
 <div id="alineaciones-popup" class="reveal-modal tiny" data-reveal data-options="close_on_background_click: false;" ></div>
 <div id="alineaciones-popup2" class="reveal-modal tiny" data-reveal ></div>

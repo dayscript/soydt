@@ -33,3 +33,67 @@
     }
   }
 }
+.node-type-jugador{
+  .view-jugadores {
+    .view-content {
+      padding: 15px;
+      background: white;
+    }
+  }
+}
+.view-jugadores{
+  table{
+    background: none;
+    font-family: $font-main;
+    border: none;
+    margin: 0;
+    thead{
+      background: none;
+    }
+    tbody{
+      border-top: none;
+      border-bottom: 1px solid $grayline;
+      tr{
+        background: none;
+        td{
+          font-size: 0.7rem;
+          color: $gray;
+          padding: 1px;
+          &.views-field-field-total{
+            color: $orangetext;
+            font-weight: bold;
+            padding-left: 15px;
+          }
+          &.views-field-title{
+            width: 50px;
+          }
+        }
+      }
+    }
+    tfoot{
+      background: none;
+      tr{
+        background: none;
+        th{
+          padding: 15px 3px 3px 3px;
+          border: none;
+          font-size: 0.7rem;
+          &.views-field-field-fecha-torneo{
+            color: $gray;
+            text-transform: uppercase;
+            text-align: right;
+          }
+          &.views-field-field-total{
+            color: $orangetext;
+            font-weight: bold;
+            padding-left: 15px;
+            font-size: 1.2rem;
+          }
+          &.views-field-title{
+            color: $orangetext;
+          }
+        }
+      }
+    }
+  }
+}
