@@ -77,7 +77,7 @@
             <div id="<?php echo $pl->nid?>" class="player player<?php echo $pl->nid?> player_position<?php echo $pl->field_posicion['und'][0]['tid']?> end columns text-center" >
                 <div class="image small-12 columns"><img src="/sites/all/themes/soydt_foundation/images/players/<?php echo $pl->field_equipo['und'][0]['target_id']?>.png"></div>
                 <div class="name_points columns small-12 text-center">
-                    <div class="columns small-9 name"><a class="info"><?php echo explode(" ",$pl->field_apellidos['und'][0]['value'])[0]?></a></div>
+                    <div class="columns small-9 name"><a id="3info<?php echo $pl->nid?>" class="info"><?php echo explode(" ",$pl->field_apellidos['und'][0]['value'])[0]?></a></div>
                     <div class="columns small-3 text-center points">0</div>
                     <?php if(isset($data["alineacion"]->field_capitan['und']) && $pl->nid == $data["alineacion"]->field_capitan['und'][0]['target_id']):?>
                         <div class="star"></div>
@@ -101,7 +101,7 @@
                     <div id="<?php echo $pl->nid?>" class="player player<?php echo $pl->nid?> player_position<?php echo $pl->field_posicion['und'][0]['tid']?> end columns text-center" >
                         <div class="image small-12 columns"><img src="/sites/all/themes/soydt_foundation/images/players/<?php echo $pl->field_equipo['und'][0]['target_id']?>.png"></div>
                         <div class="name_points columns small-12 text-center">
-                            <div class="columns small-9 name"><a class="info"><?php echo explode(" ",$pl->field_apellidos['und'][0]['value'])[0]?></a></div>
+                            <div class="columns small-9 name"><a id="2info<?php echo $pl->nid?>" class="info"><?php echo explode(" ",$pl->field_apellidos['und'][0]['value'])[0]?></a></div>
                             <div class="columns small-3 text-center points">0</div>
                             <?php if(isset($data["alineacion"]->field_capitan['und']) && $pl->nid == $data["alineacion"]->field_capitan['und'][0]['target_id']):?>
                                 <div class="star"></div>
