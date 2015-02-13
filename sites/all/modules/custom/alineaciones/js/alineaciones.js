@@ -10,12 +10,6 @@ jQuery( document ).ready(function() {
     });
     jQuery('a.info').click( function(){
         jQuery('#alineaciones-popup2').foundation('reveal', 'open', '/detallejugador/'+this.id);
-/*        jQuery('.reveal-modal-bg').blurjs({
-            source: 'body',
-            radius: 10,
-            overlay: 'rgba(255,255,255,0.4)'
-        });
-  */
     });
     jQuery('.active #capitan').change( function(){
         jQuery('#alineaciones-popup').foundation('reveal', 'open', '/capitan/'+ jQuery("#id_alineacion").val()  +'/'+this.value);
