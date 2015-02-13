@@ -53,7 +53,7 @@
     </div>
 <?php endif?>
 <div class="puntajes">
-    <div class="puntos_fecha small-2 small-centered columns text-center"><?php echo ($data['alineacion']->field_total['und'][0]['value'])?$data['alineacion']->field_total['und'][0]['value']:"0"?><br />
+    <div class="puntos_fecha small-2 small-centered columns text-center"><?php echo isset($data['alineacion']->field_total['und'][0]['value'])?$data['alineacion']->field_total['und'][0]['value']:"0"?><br />
         <small>puntos</small></div>
 </div>
 <div id="cancha" class="clearfix <?php echo ($data["alineacion"]->field_fecha_torneo['und'][0]['target_id'] == $_SESSION['fecha_activa']->nid)?"active":""?>">
