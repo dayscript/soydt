@@ -266,6 +266,7 @@ function alineaciones_cambio_capitan($alineacion_nid, $capitan_nid){
 function alineaciones_data(){
     $path = drupal_get_path('module','alineaciones');
     drupal_add_js($path.'/js/alineaciones.js');
+    drupal_add_js($path.'/js/blur.js');
     drupal_add_library('system', 'ui.draggable');
     drupal_add_library('system', 'ui.droppable');
 
