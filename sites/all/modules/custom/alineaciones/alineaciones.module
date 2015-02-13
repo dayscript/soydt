@@ -218,9 +218,9 @@ function alineaciones_alinear_jugador($alineacion_nid,$position, $playerid){
  */
 function alineaciones_jugador_detalle($playerid){
     $data = array();
-    $playerid = str_replace("info","",$playerid);
     $playerid = str_replace("2info","",$playerid);
     $playerid = str_replace("3info","",$playerid);
+    $playerid = str_replace("info","",$playerid);
     $player = node_load($playerid);
     $title = array(
         '#prefix' => '<div class="title">',
