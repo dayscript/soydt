@@ -49,13 +49,13 @@
       <?php endif; ?>
 
       <?php if ($alt_main_menu): ?>
-        <nav id="main-menu" class="navigation" role="navigation">
+        <nav id="main-menu" class="navigation show-for-small-only" role="navigation">
           <?php print ($alt_main_menu); ?>
         </nav> <!-- /#main-menu -->
       <?php endif; ?>
 
       <?php if ($alt_secondary_menu): ?>
-        <nav id="secondary-menu" class="navigation" role="navigation">
+        <nav id="secondary-menu" class="navigation show-for-small-only" role="navigation">
           <?php print $alt_secondary_menu; ?>
         </nav> <!-- /#secondary-menu -->
       <?php endif; ?>
