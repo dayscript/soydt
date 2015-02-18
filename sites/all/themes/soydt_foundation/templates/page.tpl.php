@@ -5,7 +5,7 @@
     <?php if ($top_bar): ?>
       <!--.top-bar -->
       <?php if ($top_bar_classes): ?>
-      <div class="<?php print $top_bar_classes; ?>">
+      <div class="<?php print $top_bar_classes; ?> show-for-small-only">
       <?php endif; ?>
         <nav class="top-bar" data-topbar <?php print $top_bar_options; ?>>
           <ul class="title-area">
