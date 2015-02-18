@@ -1,16 +1,19 @@
 @import url(http://fonts.googleapis.com/css?family=Open+Sans+Condensed:700&text=0123456789);
-.tile-count {
-  display: inline-block;
-  text-transform: uppercase;
-  padding-right: 0.7rem;
-  padding-top: 30px;
-  vertical-align: middle;
-  font-size: 0.75rem;
-}
-#countdown{
-  display: inline-block;
-  padding-top: 11px;
-  vertical-align: middle;
+.cuenta-regresiva{
+  text-align: center;
+  .tile-count {
+    display: inline-block;
+    text-transform: uppercase;
+    padding-right: 0.7rem;
+    padding-top: 30px;
+    vertical-align: middle;
+    font-size: 0.75rem;
+  }
+  #countdown{
+    display: inline-block;
+    padding-top: 11px;
+    vertical-align: middle;
+  }
 }
 .counter-group {
   margin-top: 1em;
