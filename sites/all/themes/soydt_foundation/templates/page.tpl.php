@@ -154,7 +154,7 @@
   </main>
   <!--/.main-->
   <?php if (!empty($page['secondary_content'])): ?>
-    <section class="row secondary_content ">
+    <section class="row secondary_content">
       <?php print render($page['secondary_content']); ?>
     </section>
   <?php endif; ?>

@@ -1,7 +1,7 @@
 <?php $data = alineaciones_data();?>
 <div id="filtros" class="clearfix <?php echo ($data["alineacion"]->field_fecha_torneo['und'][0]['target_id'] == $_SESSION['fecha_activa']->nid)?"active":""?>">
     <form>
-        <div class="small-4 columns">
+        <div class="small-12 medium-4 columns">
             <label>Fecha
                 <select name="fecha" id="fecha" class="text-center">
                     <?php foreach($data["fechas"] as $fecha):?>
@@ -11,7 +11,7 @@
                 </select>
             </label>
         </div>
-        <div class="small-4 columns">
+        <div class="small-12 medium-4 columns">
             <label>Formaci&oacute;n
                 <select name="formacion" id="formacion" class="text-center" <?php echo ($data["alineacion"]->field_fecha_torneo['und'][0]['target_id'] != $_SESSION['fecha_activa']->nid)?"disabled":""?>>
                     <?php foreach($data["formaciones"] as $formacion):?>
@@ -24,7 +24,7 @@
                 </select>
             </label>
         </div>
-        <div class="small-4 columns">
+        <div class="small-12 medium-4 columns">
             <label>Capit&aacute;n
                 <select name="capitan" id="capitan" class="text-center" <?php echo ($data["alineacion"]->field_fecha_torneo['und'][0]['target_id'] != $_SESSION['fecha_activa']->nid)?"disabled":""?>>
                     <option value="0">Seleccione un capit&aacute;n...</option>
@@ -53,7 +53,7 @@
     </div>
 <?php endif?>
 <div class="puntajes">
-    <div class="puntos_fecha small-2 small-centered columns text-center"><?php echo isset($data['alineacion']->field_total['und'][0]['value'])?$data['alineacion']->field_total['und'][0]['value']:"0"?><br />
+    <div class="puntos_fecha small-6 medium-2 small-centered columns text-center"><?php echo isset($data['alineacion']->field_total['und'][0]['value'])?$data['alineacion']->field_total['und'][0]['value']:"0"?><br />
         <small>puntos</small></div>
 </div>
 <div id="cancha" class="clearfix <?php echo ($data["alineacion"]->field_fecha_torneo['und'][0]['target_id'] == $_SESSION['fecha_activa']->nid)?"active":""?>">

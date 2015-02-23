@@ -14,6 +14,6 @@
                 <div class="count"><?php echo $data['count']?> <small>Jugador(es)</small></div>
             </div>
         </div>
+        <div class="checkout columns small-12"><a href="/jugar/carrito">Ver Carrito</a></div>
     </div>
-    <a class="checkout" href="/jugar/carrito">Ver Carrito</a>
 </div>
