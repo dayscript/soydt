@@ -139,21 +139,42 @@ Overview
 Grunt.js is a javascript library that runs on Node.js that allows tedious tasks to be automated behind the scenes so you can be more efficient with developing code. It is a full on replacement for the Compass/Ruby stack, relieving you from managing
 multiple versions of Ruby and gemsets while providing the benefit of LiveReload, automated Drush, and hundreds of extensible Node.js modules for Grunt to pad your workflow tools.
 
-System Requirements
- - Homebrew (OSX)
+System Requirements (Mac)
+ - Homebrew (OSX Package Manager - http://brew.sh/)
  - Node.js
  - Grunt
 
-Installation
+It is encouraged to use package managers like Homebrew (mac) and RVM (Ruby manager) so using sudo is not required to install global
+packages.
+
+If you do not use them and you get errors with the commands, you can try 'sudo' before the command to see if that works for you.
+
+Installation (Mac)
+==================
+
+Install Homebrew with the docs here: http://brew.sh/
+
 At the command line, enter the following commands:
 
-ruby -e "$(curl -fsSL https://raw.github.com/Homebrew/homebrew/go/install)"
 brew install node
 npm install -g grunt grunt-cli
 
 This will install homebrew, nodejs, and grunt at the global level (so npm and grunt are global level commands in terminal).
 
+Installation (Linux)
+====================
+
+TBD, need documentation.
+
+Installation (Windows)
+======================
+
+TBD, need documentation.
+
+
 Generating Subthemes
+====================
+
 See above - it is highly recommended that you use the drush function to do this.
 
 In terminal, navigate to the subtheme folder and type the following:
