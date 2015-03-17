@@ -124,13 +124,10 @@ Optional steps:
 
 CHANGING FOUNDATION DEFAULT SETTINGS
 ------------------------------------
-In order to avoid overwriting your customizations in _settings.scss when
-updating Zurb Foundation, subthemes default to placing the standard Foundation
-settings in [subtheme-name]/scss/_variables.scss.
+Subthemes use the parent theme Foundation settings in scss/foundation/_settings.scss.
 
-If you prefer to do it the standard Foundation way (at your own risk), you can
-rename _variables.scss to _settings.scss in your subtheme and then load
-"settings" instead of "variables" in [subtheme-name]/scss/base/_init.scss.
+If you want to override these, copy the _settings file from the parent theme into your subtheme,
+and include it in the base/init SCSS file of your subtheme.
 
 DEVELOPING A SUBTHEME WITH GRUNT.JS
 -----------------------------------

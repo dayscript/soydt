@@ -412,6 +412,7 @@ function md_slider_view($machine_name, $type="block") {
 
   $slider = MDSlider::get_by_machine_name($machine_name);
   if ($slider != NULL) {
+
     drupal_add_js($module_path . '/js/jquery.touchwipe.js');
     drupal_add_js($module_path . '/js/modernizr.js');
     if (variable_get("add_migrate", 0))
@@ -446,7 +447,26 @@ function md_slider_view($machine_name, $type="block") {
       drupal_add_css("public://md-slider-{$slider->machine_name}-layers.css");
 
     md_slider_load_css_file($slider->slid);
+    // Check width device and hide all object
+    if (isset($slider->settings['device_enable'])
+        && $slider->settings['device_enable'] == 1) {
+      $css = '@media (max-width: '.$slider->settings['device_width'].'px) {
+                #md-slider-'.$slider->slid.'-block .md-objects {
+                  display: none;
+                }
+              }';
+      drupal_add_css($css, "inline");
+    }
 
+    if (isset($slider->settings['device_width'])
+      && $slider->settings['device_width'] != '') {
+      $css = '@media (max-width: '.$slider->settings['device_width'].'px) {
+                .hideonmobile {
+                  display: none !important;
+                }
+              }';
+      drupal_add_css($css, "inline");
+    }
     $content = theme('md_slider_render', array('slider' => $slider, "type" => $type));
   }
 

@@ -446,7 +446,7 @@ ul.md-tabs-head {
 .md-toolbar input.mdt-p-right {left: 621px;}
 .md-toolbar input.mdt-p-bottom {left: 640px;}
 .md-toolbar input.mdt-p-left {left: 659px;}
-
+.md-toolbar input.mdt-custom-class{left: 788px; top: 95px; width: 165px }
 /*.md-toolbar input.mdt-link {width: 200px; top: 95px; left:735px}
 .md-toolbar .mdt-link:hover,
 .md-toolbar .mdt-link.active {background-position: -20px -344px}*/

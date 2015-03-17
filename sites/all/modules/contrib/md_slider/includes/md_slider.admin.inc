@@ -263,6 +263,23 @@ function md_slider_configure_form($form, &$form_state, $slid = NULL) {
         '#suffix' => '</div>',
         '#attributes' => array('class' => array('w60')),
     );
+    $form['sls_settings']['sls_device_width'] = array(
+      '#type' => 'textfield',
+      '#title' => t('Device Width'),
+      '#default_value' => isset($settings['device_width']) ? $settings['device_width'] : 460,
+      '#field_suffix' => 'px',
+      '#suffix' => '</div>',
+      '#description' => t('When you add class <strong>hideonmobile</strong> for a layer on the slider, this layer will be hidden if the device width is <= the above value'),
+      '#attributes' => array('class' => array('w60')),
+    );
+
+    $form['sls_settings']['sls_device_enable'] = array(
+      '#type' => 'checkbox',
+      '#title' => t('Hide all object with device width'),
+      '#default_value' => isset($settings['device_enable']) ? $settings['device_enable'] : '',
+      '#description' => 'All layers on slider will be hidden except background ifthe device width is <= "device width" value',
+    );
+
 
     $style_options = array();
     for ($id = 1; $id <= 9; $id++) {
@@ -400,6 +417,8 @@ function md_slider_configure_form_submit($form, &$form_state) {
     $settings['transtime'] = $custom['sls_transtime'];
     $settings['thumb_width'] = $custom['sls_thumb_width'];
     $settings['thumb_height'] = $custom['sls_thumb_height'];
+    $settings['device_enable'] = $custom['sls_device_enable'];
+    $settings['device_width'] = $custom['sls_device_width'];
     $settings['create_bg_imgstyle'] = $custom['sls_create_bg_imgstyle'];
     $settings['dmf_google'] = $custom['dmf_google'];
     $settings['enable_font_css'] = $custom['enable_font_css'];

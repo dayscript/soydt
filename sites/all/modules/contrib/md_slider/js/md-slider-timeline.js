@@ -4,4 +4,276 @@
 # Websites:  http://www.megadrupal.com -  Email: info@megadrupal.com
 --------------------------------------------------------------------------*/
 
-(function(e){var t=function(t){var n=this;this.panel=t;this.selectedItem=null;this.textItemTemplate='<div class="md-item clearfix">'+'<div class="mdi-view"><a href="#" class="btn-viewlayer"></a></div>'+'<div class="mdi-name">'+'<span class="mdit-text"></span>'+'<span class="title">&nbsp;</span>'+'<a href="#" class="btn-deletelayer"></a>'+'<a href="#" class="btn-clonelayer"></a>'+"</div>"+'<div class="mdtl-times">'+'<div class="mdi-frame"></div>'+"</div>"+"</div>";this.imageItemTemplate='<div class="md-item clearfix">'+'<div class="mdi-view"><a href="#" class="btn-viewlayer"></a></div>'+'<div class="mdi-name">'+'<span class="mdit-image"></span>'+'<span class="title">&nbsp;</span>'+'<a href="#" class="btn-deletelayer"></a>'+'<a href="#" class="btn-clonelayer"></a>'+"</div>"+'<div class="mdtl-times">'+'<div class="mdi-frame"></div>'+"</div>"+"</div>";this.videoItemTemplate='<div class="md-item clearfix">'+'<div class="mdi-view"><a href="#" class="btn-viewlayer"></a></div>'+'<div class="mdi-name">'+'<span class="mdit-video"></span>'+'<span class="title">&nbsp;</span>'+'<a href="#" class="btn-deletelayer"></a>'+'<a href="#" class="btn-clonelayer"></a>'+"</div>"+'<div class="mdtl-times">'+'<div class="mdi-frame"></div>'+"</div>"+"</div>";this.maxStart=0;this.rulewidth=7;this.init=function(){n.rulewidth=e(".mdtl-ruler").width()/200;e("#slideshow-time").css("left",100*n.rulewidth);e("#timeline-items").width(100*n.rulewidth+257);e("a.btn-viewlayer").live("click",function(){var t=e(this).parent().parent();var r=t.data("box");if(r!=null){if(e(this).hasClass("btn-blank")){r.show();r.attr("ishidden","false");t.removeClass("box-hide");e(this).removeClass("btn-blank")}else{r.hide();r.attr("ishidden","true");r.removeClass("ui-selected");t.addClass("box-hide");n.panel.triggerChangeSelectItem();e(this).addClass("btn-blank")}}return false});e("a.btn-deletelayer").live("click",function(){var t=e(this).parent().parent();var r=t.data("box");if(r!=null){t.remove();r.remove();n.panel.triggerChangeSelectItem()}return false});e("a.btn-clonelayer").live("click",function(){var t=e(this).parent().parent();var r=t.data("box");if(r!=null){n.panel.cloneBoxItem(r)}return false});e("#timeline-items").sortable({handle:".mdi-name",update:function(e,t){n.triggerChangeOrderItem()},placeholder:"md-item"});e("#slideshow-time").draggable({axis:"x",grid:[n.rulewidth,20],containment:"parent",drag:function(e,t){if(t.position.left<=n.maxStart+n.rulewidth)return false;return n.updateTimelineWidth()}})};this.updateTimelineWidth=function(){var t=e("#slideshow-time").position().left;n.panel.setTimelineWidth(Math.round(t/n.rulewidth));e("#timeline-items").width(257+t);e("#timeline-items .md-item").each(function(){var r=e(this).find(".mdi-frame");var i=e(this).data("box");if(i!=null&&r.position().left+r.width()>t){r.width(t-r.position().left);i.data("stoptime",t/n.rulewidth*100);n.panel.changeTimelineValue()}});return true};this.addTimelineItem=function(t,r){var i;if(t=="text"){i=e(this.textItemTemplate).clone()}else if(t=="image"){i=e(this.imageItemTemplate).clone()}else{i=e(this.videoItemTemplate).clone()}var s=r.data("title");i.find("span.title").html(s);var o=r.data("starttime")?r.data("starttime"):0;var u=r.data("stoptime")?r.data("stoptime"):Math.round((e("#timeline-items").width()-257)/n.rulewidth*100);if(u>o){i.find("div.mdi-frame").css({left:o*n.rulewidth/100,width:(u-o)*n.rulewidth/100});if(r.data("starttime")==null||r.data("stoptime")==null){r.data("starttime",o);r.data("stoptime",u);n.panel.changeTimelineValue()}}i.data("box",r);if(r.attr("ishidden")=="true"){i.addClass("box-hide");e("a.btn-viewlayer",i).addClass("btn-blank")}e("#timeline-items").prepend(i);e(i).find("div.mdi-frame").draggable({containment:"parent",grid:[n.rulewidth,20],stop:function(t,r){var i=e(this).parent().parent();var s=i.data("box");if(s!=null){var o=e(r.helper).position();s.data("starttime",o.left/n.rulewidth*100);s.data("stoptime",(o.left+e(r.helper).width())/n.rulewidth*100);if(s.hasClass("ui-selected")){n.panel.triggerChangeSettingItem()}}n.changeMaxStart()}});e(i.find("div.mdi-frame")).resizable({handles:"e, w",containment:"parent",minWidth:2*n.rulewidth,grid:[n.rulewidth,20],stop:function(t,r){var i=e(this).parent().parent();var s=i.data("box");if(s!=null){var o=e(r.helper).position();s.data("starttime",Math.round(o.left/n.rulewidth*100));s.data("stoptime",Math.round((o.left+e(r.helper).width())/n.rulewidth*100));if(s.hasClass("ui-selected")){n.panel.triggerChangeSettingItem()}}n.changeMaxStart()}});e(i).click(function(){if(!e(this).hasClass("active")&&!e(this).hasClass("box-hide")){var t=e(this).data("box");if(t!=null){n.panel.changeSelectItem(t)}}});r.data("timeline",i)};this.changeMaxStart=function(){var t=0;e("#timeline-items .mdtl-times").each(function(){var n=e(this).find("div.mdi-frame").position().left;if(n>t){t=n}});n.maxStart=t};this.changeSelectItem=function(e){this.selectedItem=e;n.triggerChangeSelectItem()};this.triggerChangeSelectItem=function(){e("#timeline-items > div.md-item.active").removeClass("active");if(this.selectedItem!=null){var t=this.selectedItem.data("timeline");if(t!=null){e(t).addClass("active")}}};this.triggerChangeOrderItem=function(){e("#timeline-items .md-item").each(function(t){var n=e(this).data("box");if(n!=null){n.css("z-index",1e3-t)}})};this.changeSelectedItemTitle=function(){if(this.selectedItem!=null){var t=this.selectedItem.data("timeline");if(t!=null){var n=this.selectedItem.data("title");e(t).find("span.title").html(n)}}};this.setTimelineWidth=function(t){if(t){e("#slideshow-time").css("left",t*n.rulewidth);n.updateTimelineWidth()}};this.changeActivePanel=function(){e("#timeline-items").html("");var t=n.panel.getTimelineWidth();if(t!=null){n.setTimelineWidth(t)}else n.panel.setTimelineWidth(e("#slideshow-time").position().left/n.rulewidth);var r=n.panel.getAllItemBox();r.sort(function(t,n){var r=parseInt(e(t).css("z-index"));var i=parseInt(e(n).css("z-index"));return r<i?-1:r>i?1:0});r.each(function(){n.addTimelineItem(e(this).data("type"),e(this))})};this.init()};window.MdSliderTimeline=t})(jQuery)
+(function($) {
+    var MdSliderTimeline = function(panel) {
+        var self = this;
+        this.panel = panel;
+        this.selectedItem = null;
+        this.textItemTemplate = '<div class="md-item clearfix">'
+            + '<div class="mdi-view"><a href="#" class="btn-viewlayer"></a></div>'
+            + '<div class="mdi-name">'
+            +       '<span class="mdit-text"></span>'
+            +       '<span class="title">&nbsp;</span>'
+            +       '<a href="#" class="btn-deletelayer"></a>'
+            +       '<a href="#" class="btn-clonelayer"></a>'
+            + '</div>'
+            + '<div class="mdtl-times">'
+            +    '<div class="mdi-frame"></div>'
+            +  '</div>'
+            +'</div>';
+        this.imageItemTemplate = '<div class="md-item clearfix">'
+            + '<div class="mdi-view"><a href="#" class="btn-viewlayer"></a></div>'
+            + '<div class="mdi-name">'
+            +       '<span class="mdit-image"></span>'
+            +       '<span class="title">&nbsp;</span>'
+            +       '<a href="#" class="btn-deletelayer"></a>'
+            +       '<a href="#" class="btn-clonelayer"></a>'
+            + '</div>'
+            + '<div class="mdtl-times">'
+            +    '<div class="mdi-frame"></div>'
+            +  '</div>'
+            +'</div>';
+        this.videoItemTemplate = '<div class="md-item clearfix">'
+            + '<div class="mdi-view"><a href="#" class="btn-viewlayer"></a></div>'
+            + '<div class="mdi-name">'
+            +       '<span class="mdit-video"></span>'
+            +       '<span class="title">&nbsp;</span>'
+            +       '<a href="#" class="btn-deletelayer"></a>'
+            +       '<a href="#" class="btn-clonelayer"></a>'
+            + '</div>'
+            + '<div class="mdtl-times">'
+            +    '<div class="mdi-frame"></div>'
+            +  '</div>'
+            +'</div>';
+        this.maxStart = 0;
+        this.rulewidth = 7;
+        this.init = function() {
+
+            self.rulewidth = $(".mdtl-ruler").width() / 200;
+            $("#slideshow-time").css("left", 100 * self.rulewidth);
+            $("#timeline-items").width(100 * self.rulewidth + 257);
+            $("a.btn-viewlayer").live("click", function() {
+                var timeline = $(this).parent().parent();
+                var box = timeline.data("box");
+                if(box != null) {
+                    if ($(this).hasClass("btn-blank")) {
+                        box.show();
+                        box.attr("ishidden", "false");
+                        timeline.removeClass("box-hide");
+                        $(this).removeClass("btn-blank");
+                    } else {
+                        box.hide();
+                        box.attr("ishidden", "true");
+                        box.removeClass("ui-selected");
+                        timeline.addClass("box-hide");
+                        self.panel.triggerChangeSelectItem();
+                        $(this).addClass("btn-blank");
+                    }
+                }
+                return false;
+            });
+            $("a.btn-deletelayer").live("click", function() {
+                var timeline = $(this).parent().parent();
+                var box = timeline.data("box");
+                if(box != null) {
+                    timeline.remove();
+                    box.remove();
+                    self.panel.triggerChangeSelectItem();
+                }
+                return false;
+            });
+            $("a.btn-clonelayer").live("click", function() {
+                var timeline = $(this).parent().parent();
+                var box = timeline.data("box");
+                if(box != null) {
+                    self.panel.cloneBoxItem(box);
+                }
+                return false;
+            });
+
+            $("#timeline-items").sortable({
+                handle: ".mdi-name",
+                update: function(event, ui) {
+                    self.triggerChangeOrderItem();
+                },
+                placeholder: "md-item"
+            });
+            $("#slideshow-time").draggable({
+                axis: "x",
+                grid: [self.rulewidth, 20],
+                containment: "parent",
+                drag: function(even, ui) {
+                    if (ui.position.left <= self.maxStart + self.rulewidth)
+                        return false;
+                    return self.updateTimelineWidth();
+                }
+            });
+
+        };
+        this.updateTimelineWidth = function() {
+            var width =  $("#slideshow-time").position().left;
+            self.panel.setTimelineWidth(Math.round(width / self.rulewidth));
+            $("#timeline-items").width(257 + width);
+            $("#timeline-items .md-item").each(function() {
+                var frame = $(this).find(".mdi-frame");
+                var box = $(this).data("box");
+                if(box != null && frame.position().left + frame.width() > width) {
+                    frame.width(width - frame.position().left);
+                    box.data("stoptime", width / self.rulewidth * 100);
+                    self.panel.changeTimelineValue();
+                }
+            });
+            return true;
+        }
+
+        this.addTimelineItem = function(type, box) {
+            var item;
+            if (type == "text") {
+                item = $(this.textItemTemplate).clone();
+            } else if (type == "image") {
+                item = $(this.imageItemTemplate).clone();
+            }  else {
+                item = $(this.videoItemTemplate).clone();
+            }
+            var title = box.data("title");
+            item.find("span.title").html(title);
+            var starttime = box.data("starttime") ? box.data("starttime") : 0;
+            var stoptime = box.data("stoptime") ? box.data("stoptime") : Math.round(($("#timeline-items").width() - 257) / self.rulewidth * 100);
+            if(stoptime >  starttime) {
+                item.find("div.mdi-frame").css({left: starttime * self.rulewidth / 100, width: (stoptime - starttime) * self.rulewidth / 100});
+                if(box.data("starttime") == null || box.data("stoptime") == null) {
+                    box.data("starttime", starttime);
+                    box.data("stoptime", stoptime);
+                    self.panel.changeTimelineValue();
+                }
+            }
+            item.data("box", box);
+            if(box.attr("ishidden") == "true") {
+                item.addClass("box-hide");
+                $("a.btn-viewlayer", item).addClass("btn-blank");
+            }
+
+            $("#timeline-items").prepend(item);
+            $(item).find("div.mdi-frame").draggable({
+                containment: "parent",
+                grid: [self.rulewidth, 20],
+                stop: function(event, ui) {
+                    var item = $(this).parent().parent();
+                    var box = item.data("box");
+                    if (box != null) {
+                        var position = $(ui.helper).position();
+                        box.data("starttime", position.left / self.rulewidth * 100);
+                        box.data("stoptime", (position.left + $(ui.helper).width()) / self.rulewidth * 100);
+                        if (box.hasClass("ui-selected")) {
+                            self.panel.triggerChangeSettingItem();
+                        }
+                    }
+                    self.changeMaxStart();
+                }
+            });
+
+            $(item.find("div.mdi-frame")).resizable({
+                handles: "e, w",
+                containment: "parent",
+                minWidth: 2 * self.rulewidth,
+                grid: [self.rulewidth, 20],
+                stop: function(event, ui) {
+                    var item = $(this).parent().parent();
+                    var box = item.data("box");
+                    if (box != null) {
+                        var position = $(ui.helper).position();
+                        box.data("starttime", Math.round(position.left / self.rulewidth * 100));
+                        box.data("stoptime", Math.round((position.left + $(ui.helper).width()) / self.rulewidth * 100));
+                        if (box.hasClass("ui-selected")) {
+                            self.panel.triggerChangeSettingItem();
+                        }
+                    }
+                    self.changeMaxStart();
+                }
+            });
+            $(item).click(function() {
+                if(!$(this).hasClass("active") && !$(this).hasClass("box-hide")) {
+                    var box = $(this).data("box");
+                    if (box != null) {
+                        self.panel.changeSelectItem(box);
+                    }
+                }
+            });
+            box.data("timeline", item);
+        }
+
+        this.changeMaxStart = function() {
+            var maxLeft = 0;
+            $("#timeline-items .mdtl-times").each(function() {
+                var thisLeft = $(this).find("div.mdi-frame").position().left;
+                if (thisLeft > maxLeft) {
+                    maxLeft = thisLeft;
+                }
+            });
+            self.maxStart = maxLeft;
+        }
+
+        this.changeSelectItem = function(item) {
+            this.selectedItem = item;
+            self.triggerChangeSelectItem();
+        }
+
+        this.triggerChangeSelectItem = function() {
+            $("#timeline-items > div.md-item.active").removeClass("active");
+            if (this.selectedItem != null) {
+                var item = this.selectedItem.data("timeline");
+                if (item != null) {
+                    $(item).addClass("active");
+                }
+            }
+        }
+        this.triggerChangeOrderItem = function() {
+            $("#timeline-items .md-item").each(function(index) {
+                var box = $(this).data("box");
+                if (box != null) {
+                    box.css("z-index", 1000 - index);
+                }
+            });
+        }
+        this.changeSelectedItemTitle = function() {
+            if (this.selectedItem != null) {
+
+                var item = this.selectedItem.data("timeline");
+                if (item != null) {
+                    var title = this.selectedItem.data("title");
+                    $(item).find("span.title").html(title);
+                }
+            }
+        }
+        this.setTimelineWidth = function(timelinewidth) {
+            if(timelinewidth) {
+                $("#slideshow-time").css("left", timelinewidth * self.rulewidth);
+                self.updateTimelineWidth();
+            }
+
+        }
+        this.changeActivePanel = function() {
+            $("#timeline-items").html("");
+            var  timelinewidth = self.panel.getTimelineWidth()
+            if(timelinewidth != null) {
+                self.setTimelineWidth(timelinewidth);
+            }
+            else
+                self.panel.setTimelineWidth($("#slideshow-time").position().left / self.rulewidth)
+            var items = self.panel.getAllItemBox();
+
+            items.sort(function(a, b){
+                var aZindex = parseInt($(a).css("z-index"));
+                var bZindex = parseInt($(b).css("z-index"));
+                return ((aZindex < bZindex) ? -1 : ((aZindex > bZindex) ? 1 : 0));
+            });
+
+            items.each(function() {
+                self.addTimelineItem($(this).data("type"), $(this));
+            });
+        }
+
+        this.init();
+    };
+    window.MdSliderTimeline = MdSliderTimeline;
+})(jQuery);

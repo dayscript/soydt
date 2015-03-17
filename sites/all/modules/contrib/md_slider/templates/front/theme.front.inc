@@ -92,7 +92,7 @@
       if (isset($slide->settings["custom_thumbnail_alt"]) && $slide->settings["custom_thumbnail_alt"])
         $thumb_alt = $slide->settings["custom_thumbnail_alt"];
 
-      $thumb_data = drupal_encode_path(image_style_url('md_slider_' . $slide->slid . '_thumb', $thumb->uri));
+      $thumb_data = image_style_url('md_slider_' . $slide->slid . '_thumb', $thumb->uri);
       $data_properties[] = "data-thumb-type='image'";
       $data_properties[] = "data-thumb-alt='{$thumb_alt}'";
     }
@@ -122,7 +122,7 @@
 
       if ($slide->settings['custom_thumbnail'] != -1) {
         $thumb = file_load($slide->settings['custom_thumbnail']);
-        $thumb_data = drupal_encode_path(image_style_url('md_slider_' . $slide->slid . '_thumb', $thumb->uri));
+        $thumb_data = image_style_url('md_slider_' . $slide->slid . '_thumb', $thumb->uri);
         $data_properties[] = "data-thumb-type='image'";
 
         // Process data for thumbnail alt
@@ -185,6 +185,9 @@
     $class = array('md-object');
     if (isset($layer['style']) && $layer['style'] != 'none') {
       $class[] = $layer['style'];
+    }
+    if (isset($layer['mdtclass']) && $layer['mdtclass'] != ''){
+      $class[] = $layer['mdtclass'];
     }
     $variables['class'] = implode(' ', $class);
 
