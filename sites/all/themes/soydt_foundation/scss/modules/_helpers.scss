@@ -1,0 +1,40 @@
+//---------------------------------------*
+//  Helpers: ClearFix
+// Clases CSS Utilitarias (OOCSS)
+//---------------------------------------*
+.cf {}
+
+.cf:before,
+.cf:after {
+    content: " ";
+    display: table;
+}
+
+.cf:after { clear: both; }
+
+// For IE 6/7 only: Include this rule to trigger hasLayout and contain floats.
+.cf { *zoom: 1; }
+
+//---------------------------------------*
+// Helpers: Floats
+//---------------------------------------*
+.fleft { float: left; }
+.fright { float: right; }
+
+.hidden {
+    display: none;
+    visibility: hidden;
+}
+
+
+//---------------------------------------*
+// Helpers: Typography
+//---------------------------------------*
+.upcase,
+.mayusculas {
+    text-transform: uppercase;
+}
+
+.center {
+    text-align: center;
+}

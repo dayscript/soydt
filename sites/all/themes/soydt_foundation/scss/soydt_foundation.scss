@@ -3,10 +3,10 @@
  * can be disabled.
  *
  * Do not name this file "STARTER.scss". This file should be named
- * soydt_foundation.scss. If you used the drush command to generate this subtheme,
+ * cirec.scss. If you used the drush command to generate this subtheme,
  * it should be named for you.
  *
- * This application file (soydt_foundation.scss) is where all the partials are
+ * This application file (cirec.scss) is where all the partials are
  * imported.
  *
  * Theme styles are categorized using SMACSS standards. They utilize
@@ -32,19 +32,21 @@
 // You may comment out bourbon if you don't want to use its library of mixins.
 // The theme will have compilation errors if Foundation is not imported.
 
-// Global Zurb Foundation variables.
-@import "vendor/foundation/variables";
+// Global Zurb Foundation variable overrides.
+@import "base/init";
+
 // Comment out this import if you don't want to use normalize.
-@import "vendor/foundation/normalize";
-// Comment out this import below if you are customizing you imports below.
-@import "vendor/foundation/foundation";
+@import "normalize";
+
 // Comment out this import if you don't want to use Bourbon, a replacement for Compass mixins.
 @import "bourbon";
 
+//Import custom variables
+@import "variables";
 
 // Import our mixins early so they can be used by other partials.
 // Optional.
-//@import "base/mixins";
+@import "base/mixins";
 
 // Common file is where you place common utility classes to extend or
 // parametrics.
@@ -55,18 +57,23 @@
 @import "base/drupal";
 
 // Styling for elements.
-// Optional.
-@import "base/init";
+@import "base/elements";
+@import "base/typography";
 
 // Layout
 // Each section of the document has it's own partial seperated out to improve
 // developer experience. Additionally, grids can be declared in layouts as well.
-@import "layout/header";
-@import "layout/main";
 @import "layout/aside";
 @import "layout/footer";
+@import "layout/header";
+@import "layout/main";
 
+
+//---------------------------------------
 // Modules
+//---------------------------------------
+// HELPER CSS Classes
+@import "modules/helpers";
 @import "modules/block";
 @import "modules/contador";
 @import "modules/views";

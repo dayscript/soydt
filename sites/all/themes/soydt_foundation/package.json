@@ -2,14 +2,22 @@
   "name": "soydt_foundation",
   "version": "0.0.1",
   "devDependencies": {
-    "grunt": "^0.4.5",
-    "grunt-contrib-copy": "~0.5.0",
-    "grunt-contrib-uglify": "^0.8.0",
+    "grunt": "~0.4.5",
+    "grunt-contrib-jshint": "~0.10.0",
+    "grunt-contrib-uglify": "~0.5.0",
     "grunt-contrib-watch": "~0.6.1",
     "grunt-drush": "*",
-    "grunt-lib-contrib": "0.5.2",
-    "grunt-sass": "^0.18.1",
-    "node-bourbon": "^4.2.1-beta1",
-    "node-sass": "^3.0.0-alpha.0"
+    "grunt-sass": "^0.18.0",
+    "load-grunt-tasks": "~0.6.0",
+    "node-bourbon": "1.2.3",
+    "node-sass": "^2.0.1"
+  },
+  "main": "Gruntfile.js",
+  "scripts": {
+    "start": "grunt"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/dayscript/soydt.git"
   }
 }
