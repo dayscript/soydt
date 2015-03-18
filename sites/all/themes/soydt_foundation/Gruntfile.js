@@ -16,8 +16,10 @@ module.exports = function(grunt) {
     sass: {
       dist: {
         options: {
-          outputStyle: 'compressed',
-          includePaths: ['<%= global_vars.theme_scss %>', require('node-bourbon').includePaths]
+          // outputStyle: 'compressed',
+          outputStyle: 'compact',
+          includePaths: ['<%= global_vars.theme_scss %>', require('node-bourbon').includePaths],
+          sourceMap: true
         },
         files: {
           '<%= global_vars.theme_css %>/<%= global_vars.theme_name %>.css': '<%= global_vars.theme_scss %>/<%= global_vars.theme_name %>.scss'
