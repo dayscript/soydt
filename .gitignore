@@ -12,3 +12,4 @@ sites/*/private
 # Dev files
 node_modules
 *.map
+nbproject
