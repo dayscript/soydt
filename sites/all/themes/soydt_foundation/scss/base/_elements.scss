@@ -7,8 +7,35 @@
 
 // Headings
 //------------------------------------------
-// h1, h2, h3,
-// h4, h5, h6 {}
+h1, h2, h3,
+h4, h5, h6 {
+    font-family: $font-main;
+}
+
+h1 {
+
+    border-bottom: 1px solid $blueline;
+    font-size: 2rem;
+    font-weight: 700;
+    text-transform: uppercase;
+}
+
+h2 {
+    color: $secondary-color;
+    font-size: 1.6rem;
+    letter-spacing: -0.5px;
+    text-transform: uppercase;
+
+    a {
+        color: $secondary-color;
+
+        &:hover{
+            color: $secondary-color;
+            text-decoration: underline;
+        }
+
+    }
+}
 
 // Anchors
 //-----------------------------------------------------------------------------

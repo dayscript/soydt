@@ -44,13 +44,15 @@
 //Import custom variables
 @import "variables";
 
+
+//---------------------------------------
+// Base
+//---------------------------------------
 // Import our mixins early so they can be used by other partials.
-// Optional.
 @import "base/mixins";
 
 // Common file is where you place common utility classes to extend or
 // parametrics.
-// Optional.
 @import "base/common";
 
 // Fix for some Drupal CSS quirks (Drupalisms).
@@ -60,7 +62,10 @@
 @import "base/elements";
 @import "base/typography";
 
-// Layout
+
+//---------------------------------------
+// Layouts
+//---------------------------------------
 // Each section of the document has it's own partial seperated out to improve
 // developer experience. Additionally, grids can be declared in layouts as well.
 @import "layout/aside";
@@ -73,23 +78,36 @@
 // Modules
 //---------------------------------------
 // HELPER CSS Classes
-@import "modules/helpers";
-@import "modules/block";
-@import "modules/contador";
-@import "modules/views";
-@import "modules/menu_block";
-@import "modules/alineaciones";
+@import "modules/_helpers";
 
+// Modules
+@import "modules/block";
+@import "modules/button";
+@import "modules/fboauth";
+@import "modules/menu_block";
+@import "modules/views";
+
+
+//---------------------------------------
+// Sections: Custom medium-components
+//---------------------------------------
+@import "modules/sections/alineaciones";
+@import "modules/sections/blogs";
+@import "modules/sections/contador";
+@import "modules/sections/equipos";
+@import "modules/sections/jugadores";
+@import "modules/sections/noticias";
+
+
+//---------------------------------------
 // States
+//---------------------------------------
 // @import "states/collapse";
 
+//---------------------------------------
 // Themes
-@import "theme/fboauth";
-@import "theme/text";
-@import "theme/noticias";
-@import "theme/equipos";
-@import "theme/jugadores";
-@import "theme/blogs";
+//---------------------------------------
+// @import "themes/dark"
 
 // Older IE support
 // @import "vendor/ie";

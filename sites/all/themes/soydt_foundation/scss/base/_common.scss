@@ -1,2 +1,33 @@
 // Common abstract classes to extend or parametrics are stored here.
 
+.destacado{
+  color: $highlight-color;
+  text-transform: uppercase;
+}
+.text-orange{
+  color: $orange;
+  font-style: italic;
+  font-size: 0.85rem;
+  font-weight: 400;
+}
+.text-blue{
+  font-family: $font-main;
+  color: $bluetext;
+  font-size: 1rem;
+  font-weight: 800;
+  text-transform: uppercase;
+}
+
+.text-purple{
+  font-family: $font-main;
+  color: $highlight-color;
+  font-size: 1rem;
+  font-weight: 800;
+  text-transform: uppercase;
+}
+.text-orange {
+  color: $orangetext;
+  font-style: italic;
+  font-size: 0.85rem;
+  font-weight: 600;
+}
