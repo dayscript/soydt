@@ -5,3 +5,10 @@ sites/*/settings*.php
 sites/*/files
 sites/*/private
 .idea
+
+# System files
+.DS_Store
+
+# Dev files
+node_modules
+*.map
