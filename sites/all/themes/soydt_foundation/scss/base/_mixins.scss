@@ -1,2 +1,80 @@
 // @file
 // Place your mixins here. Feel free to roll your own mixins.
+
+//---------------------------------------*
+// Animation
+//---------------------------------------*
+@mixin transition_hover(){
+  @include transition(.2s opacity linear);
+}
+
+//---------------------------------------*
+// CSS3
+//---------------------------------------*
+//TODO: Agregar Autoprefixer
+@mixin border_radius($radius) {
+  -webkit-border-radius: $radius;
+     -moz-border-radius: $radius;
+      -ms-border-radius: $radius;
+          border-radius: $radius;
+}
+
+@mixin box_shadow($values) {
+  -webkit-box-shadow: $values;
+     -moz-box-shadow: $values;
+      -ms-box-shadow: $values;
+          box-shadow: $values;
+}
+
+@mixin background_size($value) {
+  -webkit-background-size: $value;
+     -moz-background-size: $value;
+       -o-background-size: $value;
+          background-size: $value;
+}
+
+
+//---------------------------------------
+// Foundation
+//---------------------------------------
+// Heredar el ancho de fila establecido para Foundation-
+@mixin row() {
+  width: $row-width;
+  margin: 0 auto;
+}
+
+
+//---------------------------------------*
+// Utilities
+//---------------------------------------*
+
+// Apariencia general de botones
+@mixin btn($color_tx, $color_bg) {
+  @include transition_hover();
+
+  background: $color_bg;
+  color: $color_tx;
+  cursor: pointer;
+  display: inline-block;
+  font-size: em(14);
+  opacity: 1;
+  padding: 8px 20px;
+
+  &:hover {
+    background: $color_bg;
+    color: $color_tx;
+    opacity: 0.6;
+  }
+}
+
+
+//---------------------------------------*
+// Tipografia
+//---------------------------------------*
+@mixin font_title() {
+  font-family: 'dinmittelschrift', sans-serif;
+}
+
+@mixin font_digital() {
+  font-family: 'AdvDigital7', sans-serif;
+}
