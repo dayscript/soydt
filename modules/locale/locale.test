@@ -2956,7 +2956,7 @@ class LocaleLanguageNegotiationInfoFunctionalTest extends DrupalWebTestCase {
 
   function setUp() {
     parent::setUp('locale');
-    require_once DRUPAL_ROOT . '/includes/language.inc';
+    require_once DRUPAL_ROOT .'/includes/language.inc';
     $admin_user = $this->drupalCreateUser(array('administer languages', 'access administration pages', 'view the administration theme'));
     $this->drupalLogin($admin_user);
     $this->drupalPost('admin/config/regional/language/add', array('langcode' => 'it'), t('Add language'));
