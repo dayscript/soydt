@@ -47,7 +47,7 @@ function drush_zurb_foundation_foundation_sub_theme($name) {
   $machine_name = str_replace('-', '_', $machine_name);
 
   // Find theme paths.
-  $zurb_path = drush_locate_root() . '/' . drupal_get_path('theme', 'zurb_foundation');
+  $zurb_path = drush_get_context('DRUSH_DRUPAL_ROOT') . '/' . drupal_get_path('theme', 'zurb_foundation');
   $subtheme_path = dirname($zurb_path) . '/' . $machine_name;
   $relative_path = str_replace('zurb-foundation', $machine_name, drupal_get_path('theme', 'zurb_foundation'));
 
@@ -93,6 +93,8 @@ function drush_zurb_foundation_foundation_sub_theme($name) {
   drush_op('zurb_foundation_file_str_replace', "$subtheme_path/package.json", 'STARTER', "$machine_name");
   // Replace STARTER in Gruntfile.js
   drush_op('zurb_foundation_file_str_replace', "$subtheme_path/Gruntfile.js", 'STARTER', "$machine_name");
+  // Replace zurb-foundation to zurb_foundation in Gruntfile.js
+  drush_op('zurb_foundation_file_str_replace', "$subtheme_path/Gruntfile.js", 'zurb-foundation', "zurb_foundation");
   // Replace THEMENAME in STARTER.scss
   drush_op('zurb_foundation_file_str_replace', "$subtheme_path/scss/$machine_name.scss", 'THEMENAME', "$machine_name");
 

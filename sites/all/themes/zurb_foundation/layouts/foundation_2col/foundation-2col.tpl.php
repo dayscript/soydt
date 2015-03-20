@@ -15,10 +15,10 @@
  */
 ?>
 <div class="row" <?php !empty($css_id) ? print 'id="' . $css_id . '"' : ''; ?>>
-  <div class="large-6 columns">
+  <div class="medium-6 columns">
     <?php print $content['left']; ?>
   </div>
-  <div class="large-6 columns">
+  <div class="medium-6 columns">
     <?php print $content['right']; ?>
   </div>
 </div>

@@ -27,58 +27,58 @@
 ?>
 <?php !empty($css_id) ? print '<div id="' . $css_id . '">' : ''; ?>
   <div class="row">
-    <div class="large-12 columns"><?php print $content['top']; ?></div>
+    <div class="medium-12 columns"><?php print $content['top']; ?></div>
   </div>
 
   <div class="row">
-    <div class="large-3 columns">
+    <div class="medium-3 columns">
       <?php print $content['top_first']; ?>
     </div>
-    <div class="large-3 columns">
+    <div class="medium-3 columns">
       <?php print $content['top_second']; ?>
     </div>
-    <div class="large-3 columns">
+    <div class="medium-3 columns">
       <?php print $content['top_third']; ?>
     </div>
-    <div class="large-3 columns">
+    <div class="medium-3 columns">
       <?php print $content['top_fourth']; ?>
     </div>
   </div>
 
   <div class="row">
-    <div class="large-3 columns">
+    <div class="medium-3 columns">
       <?php print $content['middle_small']; ?>
     </div>
-    <div class="large-9 columns">
-      <?php print $content['middle_large']; ?>
+    <div class="medium-9 columns">
+      <?php print $content['middle_medium']; ?>
     </div>
   </div>
 
   <div class="row">
-    <div class="large-6 columns">
+    <div class="medium-6 columns">
       <?php print $content['middle_first']; ?>
     </div>
-    <div class="large-6 columns">
+    <div class="medium-6 columns">
       <?php print $content['middle_second']; ?>
     </div>
   </div>
 
   <div class="row">
-    <div class="large-3 columns">
+    <div class="medium-3 columns">
       <?php print $content['bottom_first']; ?>
     </div>
-    <div class="large-3 columns">
+    <div class="medium-3 columns">
       <?php print $content['bottom_second']; ?>
     </div>
-    <div class="large-3 columns">
+    <div class="medium-3 columns">
       <?php print $content['bottom_third']; ?>
     </div>
-    <div class="large-3 columns">
+    <div class="medium-3 columns">
       <?php print $content['bottom_fourth']; ?>
     </div>
   </div>
 
   <div class="row">
-    <div class="large-12 columns"><?php print $content['bottom']; ?></div>
+    <div class="medium-12 columns"><?php print $content['bottom']; ?></div>
   </div>
 <?php !empty($css_id) ? print '</div>' : ''; ?>

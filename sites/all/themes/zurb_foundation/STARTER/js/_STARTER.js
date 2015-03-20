@@ -1,1 +1,1 @@
-/* Implement customer javascript here */
+/* Implement custom javascript here */

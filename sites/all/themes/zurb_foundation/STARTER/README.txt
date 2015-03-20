@@ -186,3 +186,14 @@ should react and generate a new file, based on the information given to it in th
 the right paths to the CSS/SCSS folders within it.
 
 When the SASS task fires, so is LiveReload, so any connected browser should instantly refresh with the changes.
+
+Strange issues on iOS?
+======================
+
+You may be seeing issues with the FastClick plugin.
+
+Try disabling FastClick in your subtheme by opening the Gruntfile and commenting out this line:
+
+'<%= global_vars.base_theme_path %>/js/vendor/fastclick.js'
+
+Trigger Grunt to recompile your theme, and reload to see if the issue persists.
