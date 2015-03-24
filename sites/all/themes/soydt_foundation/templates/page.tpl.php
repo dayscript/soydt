@@ -1,5 +1,5 @@
 <!--.page -->
-<div role="document" class="page">
+<div role="document" class="page" id="document-page">
   <!--.l-header region -->
   <header role="banner" class="l-header">
     <?php if ($top_bar): ?>
@@ -73,9 +73,9 @@
       </section>
       <!--/.l-header-region -->
     <?php endif; ?>
-
   </header>
   <!--/.l-header -->
+
 
   <div class="featured-wrapper">
   <?php if (!empty($page['featured'])): ?>
@@ -89,6 +89,7 @@
   <?php endif; ?>
   </div>
 
+
   <?php if ($messages && !$zurb_foundation_messages_modal): ?>
     <!--/.l-messages -->
     <section class="l-messages row">
@@ -99,6 +100,7 @@
     <!--/.l-messages -->
   <?php endif; ?>
 
+
   <?php if (!empty($page['help'])): ?>
     <!--/.l-help -->
     <section class="l-help row">
@@ -108,6 +110,7 @@
     </section>
     <!--/.l-help -->
   <?php endif; ?>
+
 
   <main role="main" class="row l-main">
     <div class="<?php print $main_grid; ?> main columns">
@@ -140,6 +143,7 @@
     </div>
     <!--/.main region -->
 
+
     <?php if (!empty($page['sidebar_first'])): ?>
       <aside role="complementary" class="<?php print $sidebar_first_grid; ?> sidebar-first columns sidebar">
         <?php print render($page['sidebar_first']); ?>
@@ -153,11 +157,23 @@
     <?php endif; ?>
   </main>
   <!--/.main-->
+
+
   <?php if (!empty($page['secondary_content'])): ?>
     <section class="row secondary_content">
       <?php print render($page['secondary_content']); ?>
     </section>
   <?php endif; ?>
+
+
+  <!-- l-content-after -->
+  <?php if (!empty($page['content_after'])): ?>
+    <section class="l-content-after">
+      <?php print render($page['content_after']); ?>
+    </section>
+  <?php endif; ?>
+
+
   <?php if (!empty($page['triptych_first']) || !empty($page['triptych_middle']) || !empty($page['triptych_last'])): ?>
     <!--.triptych-->
     <section class="l-triptych row">
@@ -173,6 +189,7 @@
     </section>
     <!--/.triptych -->
   <?php endif; ?>
+
 
   <?php if (!empty($page['footer_firstcolumn']) || !empty($page['footer_secondcolumn']) || !empty($page['footer_thirdcolumn']) || !empty($page['footer_fourthcolumn'])): ?>
     <!--.footer-columns -->
@@ -201,6 +218,7 @@
     <!--/.footer-columns-->
   <?php endif; ?>
 
+
   <!--.l-footer-->
   <div class="footer-wrapper">
   <footer class="l-footer panel row" role="contentinfo">
@@ -221,3 +239,11 @@
   <?php if ($messages && $zurb_foundation_messages_modal): print $messages; endif; ?>
 </div>
 <!--/.page -->
+
+<div id="js-placeholders">
+  <div data-alert id="notificaciones" class="alert-box success radius">
+    <p class="msj"></p>
+    <a href="#" class="close">&times;</a>
+  </div>
+  <div id="throbber"></div>
+</div>
