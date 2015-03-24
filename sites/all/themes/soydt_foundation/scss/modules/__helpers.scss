@@ -15,6 +15,18 @@
 // For IE 6/7 only: Include this rule to trigger hasLayout and contain floats.
 .cf { *zoom: 1; }
 
+//---------------------------------------
+// Effects
+//---------------------------------------
+.blurred {
+    $blurred-value: 8px;
+    -webkit-filter: blur($blurred-value);
+    -moz-filter: blur($blurred-value);
+    -ms-filter: blur($blurred-value);
+    -o-filter: blur($blurred-value);
+    filter: blur($blurred-value);
+}
+
 //---------------------------------------*
 // Helpers: Floats
 //---------------------------------------*
