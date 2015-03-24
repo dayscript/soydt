@@ -6292,6 +6292,13 @@ h2 {
 .cf {
   *zoom: 1; }
 
+.blurred {
+  -webkit-filter: blur(8px);
+  -moz-filter: blur(8px);
+  -ms-filter: blur(8px);
+  -o-filter: blur(8px);
+  filter: blur(8px); }
+
 .fleft {
   float: left; }
 
@@ -6613,79 +6620,134 @@ h2.block-title {
     .view-carrito .views-row .views-field-field-image {
       padding: 0; }
 
-#cancha {
+.block-alineaciones-estadio {
+  background: url('../images/backgrounds/estadio.jpg');
+  height: 834px;
+  overflow: hidden; }
+
+.alineaciones-modal {
+  padding: 30px; }
+
+.cancha {
+  background: url("../images/backgrounds/cancha-activa.png") center top no-repeat;
+  height: 550px;
   opacity: 0.6;
-  width: 1110px;
   position: relative;
-  height: 672px;
-  background: url("../images/backgrounds/cancha.png") no-repeat; }
-  #cancha.active {
+  width: 1110px; }
+  .cancha.active {
     opacity: 1; }
-    #cancha.active .player {
-      cursor: move; }
-  #cancha .place {
+  .cancha .droppable {
     position: absolute;
-    width: 90px;
+    width: 46px;
+    height: 50px;
     text-align: center; }
-  #cancha .drop-hover {
-    background: rgba(255, 255, 255, 0.2); }
-  #cancha .player {
-    top: 440px;
-    width: 90px;
+  .cancha .droppable.drop-hover {
+    background: rgba(255, 255, 255, 0.6);
+    padding: 8px;
+    -webkit-border-radius: 50%;
+    -moz-border-radius: 50%;
+    -ms-border-radius: 50%;
+    border-radius: 50%; }
+
+.cancha-alertas {
+  margin-top: 90px; }
+
+.cancha-filtros {
+  background: #fff;
+  padding: 10px; }
+
+.cancha-tribuna {
+  padding-top: 24px; }
+
+.cancha .futbolista {
+  cursor: move;
+  height: 56px;
+  margin: 10px;
+  padding: 0;
+  position: relative;
+  top: 440px;
+  width: 52px;
+  border: 1px solid blue; }
+  .cancha .futbolista .star {
+    background: url("../images/backgrounds/opciones-alineacion.png") no-repeat;
+    height: 20px;
+    background-size: 100px;
+    padding-left: 21px;
+    background-position: -4px -101px;
+    position: absolute;
+    margin-top: -16px; }
+  .cancha .futbolista .futbolista-acciones-wrapper {
+    position: absolute;
+    left: 0;
+    top: 0;
+    padding-left: 60px;
+    outline: 1px solid pink;
+    display: none;
+    z-index: 40; }
+  .cancha .futbolista .futbolista-acciones {
+    border: 1px solid red;
+    background: #d6d6d6;
+    background: rgba(255, 255, 255, 0.5);
+    border-radius: 5px;
+    height: 70px;
     padding: 0;
-    margin: 10px; }
-    #cancha .player .star {
-      background: url("../images/backgrounds/opciones-alineacion.png") no-repeat;
-      height: 20px;
-      background-size: 100px;
-      padding-left: 21px;
-      background-position: -4px -101px;
+    position: relative;
+    top: 0;
+    width: 30px;
+    text-align: left; }
+    .cancha .futbolista .futbolista-acciones:before {
+      border: 10px solid transparent;
+      border-right-color: rgba(255, 255, 255, 0.5);
+      content: ' ';
       position: absolute;
-      margin-top: -16px; }
-    #cancha .player .options {
-      background: #d6d6d6;
-      height: 20px;
-      position: relative;
-      display: inline-block;
+      height: 0;
+      width: 0;
+      z-index: 2;
+      top: 33%;
+      left: -20px; }
+    .cancha .futbolista .futbolista-acciones a {
+      color: #333;
+      background: url("../images/backgrounds/opciones-alineacion.png") no-repeat;
+      display: block;
+      height: 24px;
+      padding: 4px;
+      padding-left: 26px;
+      width: 100%; }
+      .cancha .futbolista .futbolista-acciones a.info {
+        background-position: 4px 2px; }
+      .cancha .futbolista .futbolista-acciones a.drop {
+        background-position: 4px -62px; }
+      .cancha .futbolista .futbolista-acciones a.sell {
+        background-position: 4px -20px; }
+  .cancha .futbolista:hover .futbolista-acciones-wrapper {
+    display: block; }
+  .cancha .futbolista.ui-draggable-dragging:hover .futbolista-acciones-wrapper {
+    display: none; }
+  .cancha .futbolista .image {
+    padding: 0; }
+  .cancha .futbolista .name_points {
+    padding: 0;
+    border: 2px solid #252525;
+    border-radius: 5px;
+    color: white;
+    background-image: -webkit-linear-gradient( #2d2d2d, #1d1d1b);
+    background-image: linear-gradient( #2d2d2d, #1d1d1b);
+    font-family: 'dinmittelschrift', sans-serif;
+    text-transform: uppercase;
+    font-size: 0.75rem; }
+    .cancha .futbolista .name_points .name {
       padding: 0;
-      border-radius: 5px; }
-      #cancha .player .options a {
-        background: url("../images/backgrounds/opciones-alineacion.png") no-repeat;
-        height: 20px;
-        padding-left: 21px;
-        background-position: -4px -101px;
-        display: inline-block; }
-        #cancha .player .options a.info {
-          background-position: -1px 1px; }
-        #cancha .player .options a.drop {
-          background-position: -1px -62px; }
-        #cancha .player .options a.sell {
-          background-position: -1px -20px; }
-    #cancha .player .image {
-      padding: 0; }
-    #cancha .player .name_points {
+      font-size: 0.7rem;
+      font-family: 'Open Sans';
+      padding-top: 1px; }
+      .cancha .futbolista .name_points .name a {
+        color: white; }
+        .cancha .futbolista .name_points .name a:hover {
+          text-decoration: underline; }
+    .cancha .futbolista .name_points .points {
+      color: #de6d26;
       padding: 0;
-      border: 2px solid #252525;
-      border-radius: 5px;
-      color: white;
-      background-image: -webkit-linear-gradient( #2d2d2d, #1d1d1b);
-      background-image: linear-gradient( #2d2d2d, #1d1d1b);
-      font-family: 'dinmittelschrift', sans-serif;
-      text-transform: uppercase;
-      font-size: 0.75rem; }
-      #cancha .player .name_points .name {
-        padding: 0;
-        font-size: 0.7rem;
-        font-family: 'Open Sans';
-        padding-top: 1px; }
-        #cancha .player .name_points .name a {
-          color: white; }
-          #cancha .player .name_points .name a:hover {
-            text-decoration: underline; }
-      #cancha .player .name_points .points {
-        color: #de6d26;
-        padding: 0;
-        background: #333; }
+      background: #333; }
 
 .puntajes .puntos_fecha {
   font-family: 'AdvDigital7', sans-serif;
