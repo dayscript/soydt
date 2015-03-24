@@ -1,28 +1,63 @@
-#cancha{
+.page-jugar-alineaciones .l-content-after {
+}
+
+.block-alineaciones-estadio {
+  background: url('../images/backgrounds/estadio.jpg');
+  height: 834px;
+  overflow: hidden;
+}
+
+.alineaciones-modal {
+  padding: $space * 2;
+}
+
+.cancha {
+  background: url("../images/backgrounds/cancha-activa.png") center top no-repeat;
+  height: 550px;
   opacity: 0.6;
+  position: relative;
+  width: 1110px;
+
   &.active{
     opacity: 1;
-    .player{
-      cursor: move;
-    }
   }
-  width: 1110px;
-  position: relative;
-  height: 672px;
-  background: url("../images/backgrounds/cancha.png") no-repeat;
-  .place{
+
+  .droppable {
     position: absolute;
-    width: 90px;
+    width: 46px;
+    height: 50px;
     text-align: center;
   }
-  .drop-hover{
-    background: rgba(255,255,255,0.2);
+
+  .droppable.drop-hover{
+    background: rgba(255,255,255,0.6);
+    padding: 8px;
+    @include border-radius(50%);
   }
-  .player{
-    top: 440px;
-    width: 90px;
-    padding: 0;
+}
+
+.cancha-alertas {
+  margin-top: 90px;
+}
+.cancha-filtros {
+  background: #fff;
+  padding: 10px;
+}
+.cancha-tribuna {
+  padding-top: 24px;
+}
+
+//============== Futbolista ==============
+.cancha .futbolista {
+    cursor: move;
+    height: 56px;
     margin: 10px;
+    padding: 0;
+    position: relative;
+    top: 440px;
+    width: 52px;
+    border: 1px solid blue;
+
     .star{
       background: url("../images/backgrounds/opciones-alineacion.png") no-repeat;
       height: 20px;
@@ -32,30 +67,60 @@
       position: absolute;
       margin-top: -16px;
     }
-    .options{
+    .futbolista-acciones-wrapper {
+      position: absolute;
+      left: 0;
+      top: 0;
+      padding-left: 60px;
+      outline: 1px solid pink;
+      display: none;
+      z-index: 40;
+    }
+
+    .futbolista-acciones {
+      border: 1px solid red;
       background: #d6d6d6;
-      height: 20px;
-      position: relative;
-      display: inline-block;
-      padding: 0;
+      background: rgba(255,255,255, .5);
       border-radius: 5px;
-      a{
+      height: 70px;
+      padding: 0;
+      position: relative;
+
+
+      top: 0;
+      width: 30px;
+      text-align: left;
+
+      &:before {
+        border: 10px solid transparent;
+        border-right-color: rgba(255,255,255, .5);
+        content: ' ';
+        position: absolute;
+        height: 0;
+        width: 0;
+        z-index: 2;
+        top: 33%;
+        left: -20px;
+      }
+
+      a {
+        color: #333;
         background: url("../images/backgrounds/opciones-alineacion.png") no-repeat;
-        height: 20px;
-        padding-left: 21px;
-        background-position: -4px -101px;
-        display: inline-block;
-        &.info{
-          background-position: -1px 1px;
-        }
-        &.drop{
-          background-position: -1px -62px;
-        }
-        &.sell{
-          background-position: -1px -20px;
-        }
+        display: block;
+        height: 24px;
+        padding: 4px;
+        padding-left: 26px;
+        width: 100%;
+
+        &.info { background-position: 4px 2px; }
+        &.drop { background-position: 4px -62px; }
+        &.sell{ background-position: 4px -20px; }
       }
     }
+
+    &:hover .futbolista-acciones-wrapper { display: block; }
+    &.ui-draggable-dragging:hover .futbolista-acciones-wrapper { display: none; }
+
     .image{
       padding: 0;
     }
@@ -87,7 +152,7 @@
       }
     }
   }
-}
+
 .puntajes{
   .puntos_fecha{
     font-family: $font-digital;
