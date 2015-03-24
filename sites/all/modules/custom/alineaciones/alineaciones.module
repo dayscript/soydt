@@ -31,7 +31,7 @@ function alineaciones_menu(){
   $items['jugar/formacion/%/%'] = array(
     'title' => 'Cambiar formacion',
     'description' => 'Cambia la formacion de una alineacion',
-    'page callback' => 'alineaciones_cambio_formacion',
+    'page callback' => 'alineaciones_cambio_formacion_cb',
     'page arguments' => array(2,3),
     'access callback' => 'user_is_logged_in',
     // 'access arguments' => array('access content'),
@@ -40,7 +40,7 @@ function alineaciones_menu(){
   $items['jugar/capitan/%/%'] = array(
     'title' => 'Cambiar capitan',
     'description' => 'Cambia el capitan de una alineacion',
-    'page callback' => 'alineaciones_cambio_capitan',
+    'page callback' => 'alineaciones_cambio_capitan_cb',
     'page arguments' => array(2,3),
     'access callback' => 'user_is_logged_in',
     // 'access arguments' => array('access content'),
@@ -49,7 +49,7 @@ function alineaciones_menu(){
   $items['jugar/alinear/%/%/%'] = array(
     'title' => 'Alinear jugador',
     'description' => 'Asigna una posicion a un jugador',
-    'page callback' => 'alineaciones_alinear_jugador',
+    'page callback' => 'alineaciones_alinear_jugador_cb',
     'page arguments' => array(2,3,4),
     'access callback' => 'user_is_logged_in',
     // 'access arguments' => array('access content'),
@@ -60,7 +60,7 @@ function alineaciones_menu(){
   $items['jugar/detallejugador/%'] = array(
     'title' => 'Detalle jugador',
     'description' => 'Muestra la ficha del jugador',
-    'page callback' => 'alineaciones_jugador_detalle',
+    'page callback' => 'alineaciones_jugador_detalle_cb',
     'page arguments' => array(2),
     'access callback' => 'user_is_logged_in',
     // 'access arguments' => array('access content'),
@@ -69,7 +69,7 @@ function alineaciones_menu(){
   $items['jugar/desalinear/%/%'] = array(
     'title' => 'Desalinear jugador',
     'description' => 'Desasigna una posicion a un jugador',
-    'page callback' => 'alineaciones_desalinear_jugador',
+    'page callback' => 'alineaciones_desalinear_jugador_cb',
     'page arguments' => array(2,),
     'access callback' => 'user_is_logged_in',
     // 'access arguments' => array('access content'),
