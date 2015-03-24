@@ -75,6 +75,11 @@ function alineaciones_menu(){
     // 'access arguments' => array('access content'),
     // 'delivery callback' => 'alineaciones_desalinear_jugador_ajax',
     );
+    $items['jugar/cancha'] = array(
+      'title' => 'Cancha',
+      'page callback' => '_cancha_block_cb',
+      'access callback' => 'user_is_logged_in',
+      );
 
   return $items;
 }

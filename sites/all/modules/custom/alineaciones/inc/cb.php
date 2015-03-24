@@ -177,5 +177,24 @@ function alineaciones_desalinear_jugador_cb ($alineacion_nid, $playerid, $sell =
 
 
 
+/**
+ *
+ */
+function _cancha_block_cb() {
+    // AJAX Loading of any Block
+    // -----
+    // Below is the simple way to do it,
+    // for one or 2 blocks it works.
+    // For anything more then that it would probably have a negative
+    // impact since it's doing a full bootstrap for each block.
+    // https://groups.drupal.org/node/24825
+
+    include_once './includes/bootstrap.inc';
+    drupal_bootstrap(DRUPAL_BOOTSTRAP_FULL);
+
+    $block = module_invoke('alineaciones', 'block_view', 'estadio');
+    print render($block['content']);
+}
+
 
 ?>
