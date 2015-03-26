@@ -155,6 +155,7 @@ h2.block-title{
       line-height: 20px;
       a {
         color: #51514F;
+        font-weight: 600;
         text-decoration: none;
       }
     }
@@ -162,9 +163,21 @@ h2.block-title{
       p{
         color: #51514F;
         font-size: 14px;
+        margin: 0;
       }
     }
   }
 }
 
-
+.sidebar {
+  .block{
+    &:first-child{
+      h2.block-title {
+        margin-top: 0;
+      }
+    }
+    h2.block-title {
+      margin-top: 25px;
+    }
+  }
+} 

@@ -6325,6 +6325,8 @@ input[type="text"], input[type="password"], input[type="date"], input[type="date
     padding: 8px 5px;
     text-transform: uppercase;
     width: 150px; }
+  #user-login-form .form-required {
+    display: none; }
   #user-login-form ul {
     display: block;
     margin: 0;
@@ -6407,6 +6409,7 @@ input[type="text"], input[type="password"], input[type="date"], input[type="date
 
 .view-noticias .views-row {
   margin-bottom: 14px !important;
+  overflow: hidden;
   padding-bottom: 26px !important; }
   .view-noticias .views-row .views-field-field-image {
     float: left;
@@ -6429,6 +6432,9 @@ input[type="text"], input[type="password"], input[type="date"], input[type="date
   .view-noticias .views-row .views-field-body {
     color: #51514F;
     font-size: 14px; }
+
+.equipo-ideal .views-row {
+  border: none !important; }
 
 .block-blockify-blockify-logo {
   margin-top: -40px;
@@ -6595,10 +6601,17 @@ h2.block-title {
     line-height: 20px; }
     .block-blog .views-row .views-field-title a {
       color: #51514F;
+      font-weight: 600;
       text-decoration: none; }
   .block-blog .views-row .views-field-body p {
     color: #51514F;
-    font-size: 14px; }
+    font-size: 14px;
+    margin: 0; }
+
+.sidebar .block:first-child h2.block-title {
+  margin-top: 0; }
+.sidebar .block h2.block-title {
+  margin-top: 25px; }
 
 .block-system-user-menu ul.menu li {
   list-style: none; }

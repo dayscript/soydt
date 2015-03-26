@@ -23,6 +23,9 @@
     text-transform: uppercase;
     width: 150px;
   }
+  .form-required{
+    display: none;
+  }
   ul{
     display: block;
     margin: 0;
@@ -145,6 +148,7 @@
 .view-noticias{
   .views-row{
     margin-bottom: 14px !important;
+    overflow: hidden;
     padding-bottom: 26px !important;
     .views-field-field-image {
       float: left;
@@ -175,4 +179,11 @@
     }
   }
   
+  
+}
+
+.equipo-ideal {
+  .views-row{
+    border: none !important;
+  }
 }
