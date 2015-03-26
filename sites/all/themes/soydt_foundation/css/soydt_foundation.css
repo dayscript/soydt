@@ -6344,7 +6344,7 @@ input[type="text"], input[type="password"], input[type="date"], input[type="date
           background: repeat scroll 0 0 #2C659A;
           color: #FFF;
           display: block;
-          font-size: 22px;
+          font-size: 21px;
           padding: 18px 9px;
           text-transform: uppercase;
           width: 274px;
@@ -6402,6 +6402,34 @@ input[type="text"], input[type="password"], input[type="date"], input[type="date
   margin: 0 !important;
   padding: 0 !important; }
 
+.block-views-noticias-block h2.block-title {
+  margin-bottom: 25px; }
+
+.view-noticias .views-row {
+  margin-bottom: 14px !important;
+  padding-bottom: 26px !important; }
+  .view-noticias .views-row .views-field-field-image {
+    float: left;
+    margin-right: 17px; }
+  .view-noticias .views-row .views-field-title {
+    text-transform: uppercase;
+    line-height: 20px; }
+    .view-noticias .views-row .views-field-title a {
+      color: #51514F;
+      font-weight: 600; }
+  .view-noticias .views-row .views-field-field-subtitulo {
+    font-size: 14px;
+    font-weight: 600;
+    color: #51514F; }
+  .view-noticias .views-row .views-field-changed {
+    color: #E28652;
+    font-style: italic;
+    margin-bottom: 10px;
+    font-size: 14px; }
+  .view-noticias .views-row .views-field-body {
+    color: #51514F;
+    font-size: 14px; }
+
 .block-blockify-blockify-logo {
   margin-top: -40px;
   padding: 0;
@@ -6448,8 +6476,7 @@ h2.block-title {
   font-weight: 500;
   color: #222;
   font-size: 1.8rem;
-  border-bottom: 1px solid #33629a;
-  height: 35px; }
+  border-bottom: 1px solid #33629a; }
 
 .block-block-1 {
   padding-top: 8px; }
