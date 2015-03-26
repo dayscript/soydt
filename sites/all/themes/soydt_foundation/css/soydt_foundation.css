@@ -6644,7 +6644,7 @@ h2.block-title {
 .cancha {
   background: url("../images/backgrounds/cancha-activa.png") center top no-repeat;
   height: 558px;
-  opacity: 0.6;
+  opacity: 0.5;
   position: relative;
   width: 1110px; }
   .cancha.active {
@@ -6673,13 +6673,15 @@ h2.block-title {
   margin-top: 70px;
   min-height: 88px; }
   .cancha-alertas .alert-box {
-    border: 1px solid rgba(255, 255, 255, 0.3); }
-  .cancha-alertas .error {
-    background: #d00; }
-  .cancha-alertas .success {
-    background: #bec660; }
-  .cancha-alertas .warning {
-    background: #f6de8b; }
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    color: #333; }
+    .cancha-alertas .alert-box.alert, .cancha-alertas .alert-box.error {
+      background: #d00;
+      color: #eee; }
+    .cancha-alertas .alert-box.success {
+      background: #bec660; }
+    .cancha-alertas .alert-box.warning {
+      background: #f6de8b; }
 
 .cancha-filtros {
   background: rgba(0, 0, 0, 0.6);
@@ -6812,7 +6814,9 @@ h2.block-title {
   display: table;
   padding-top: 20px; }
   .cancha-convenciones i {
-    margin-right: 10px; }
+    margin-right: 10px;
+    position: relative;
+    top: -3px; }
   .cancha-convenciones .drop i {
     background-position: 0 -150px; }
   .cancha-convenciones .info i {
@@ -6820,7 +6824,8 @@ h2.block-title {
   .cancha-convenciones .sell i {
     background-position: 0 -50px; }
   .cancha-convenciones .star i {
-    background-position: 0 -250px; }
+    background-position: 0 -250px;
+    top: 0; }
   .cancha-convenciones .put i {
     background-position: 0 -100px; }
   .cancha-convenciones li {

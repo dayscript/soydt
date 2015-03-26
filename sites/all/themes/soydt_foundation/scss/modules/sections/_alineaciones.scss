@@ -1,9 +1,8 @@
-//-----Local Variables------
+
+//============== Variables Locales ==============
 $alto_estadio: 834px;
 
-.page-jugar-alineaciones .l-content-after {
-}
-
+.page-jugar-alineaciones .l-content-after { }
 
 .block-alineaciones-estadio,
 .block-alineaciones-estadio-angular {
@@ -18,7 +17,7 @@ $alto_estadio: 834px;
 .cancha {
   background: url("../images/backgrounds/cancha-activa.png") center top no-repeat;
   height: 558px;
-  opacity: 0.6;
+  opacity: 0.5;
   position: relative;
   width: 1110px;
 
@@ -49,15 +48,28 @@ $alto_estadio: 834px;
   }
 }
 
+
+//============== Alertas ==============
 .cancha-alertas {
   margin-top: 70px;
   min-height: 88px;
 
-  .alert-box { border: 1px solid rgba(white, 0.3); }
-  .error { background: $alert_error; }
-  .success { background: $alert_success; }
-  .warning { background: $alert_warning; }
+  .alert-box {
+    border: 1px solid rgba(white, 0.3);
+    color: #333;
+
+    &.alert,
+    &.error {
+      background: $alert_error;
+      color: #eee;
+    }
+
+    &.success { background: $alert_success; }
+    &.warning { background: $alert_warning; }
+  }
 }
+
+//============== Filtros ==============
 .cancha-filtros {
   background: rgba(black, 0.6);
   padding: 15px 0;
@@ -70,6 +82,7 @@ $alto_estadio: 834px;
     font-size: em(14);
   }
 }
+
 .cancha-tribuna {
   padding-top: 24px;
 }
@@ -214,12 +227,16 @@ $alto_estadio: 834px;
   display: table;
   padding-top: 20px;
 
-  i { margin-right: 10px;}
+  i {
+    margin-right: 10px;
+    position: relative;
+    top: -3px;
+  }
 
   .drop i { background-position: 0 -150px; }
   .info i { background-position: 0 0; }
   .sell i { background-position: 0 -50px; }
-  .star i { background-position: 0 -250px; }
+  .star i { background-position: 0 -250px; top: 0; }
   .put i { background-position: 0 -100px; }
 
   li {

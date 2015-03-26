@@ -23,9 +23,7 @@ $equipo_usuario = $data["equipo"]->field_jugadores2[LANGUAGE_NONE];
 $formacion_usuario = $data["alineacion"]->field_formacion[LANGUAGE_NONE][0]['tid'];
 $puntos_usuario = $data['alineacion']->field_total[LANGUAGE_NONE][0]['value'];
 
-function es_torneo_activo() {
-  return $fecha_torneo == $fecha_activa;
-}
+$es_fecha_torneo_activo =  ( $fecha_torneo == $fecha_activa ) ? true : false;
 
 ?>
 <div id="estadio" class="estadio">
@@ -49,7 +47,7 @@ function es_torneo_activo() {
 
 
   <!-- ============== Filtros de Alineaciones ============== -->
-  <div id="filtros" class="medium-10 medium-offset-1 small-16 columns cancha-filtros <?php echo es_torneo_activo() ? "active" : "" ?>">
+  <div id="filtros" class="medium-10 medium-offset-1 small-16 columns cancha-filtros <?php echo $es_fecha_torneo_activo ? "active" : "" ?>">
     <form id="alineaciones-filtros" accept-charset="UTF-8">
 
       <div class="small-16 medium-4 columns">
@@ -75,7 +73,7 @@ function es_torneo_activo() {
       <div class="small-16 medium-4 columns">
         <!-- Select Formaciones -->
         <label for="formacion"><?php echo t('Formación') ?></label>
-        <select <?php echo ( es_torneo_activo() ) ? "" : "disabled" ?>
+        <select <?php echo ( $es_fecha_torneo_activo ) ? "" : "disabled" ?>
             name="formacion" id="formacion">
 
         <?php foreach ( $data["formaciones"] as $formacion) : ?>
@@ -98,7 +96,7 @@ function es_torneo_activo() {
       <div class="small-16 medium-8 columns end">
         <!-- Select: Capitanes -->
         <label for="capitan"><?php echo t('Capitán') ?></label>
-        <select <?php echo ( es_torneo_activo() ) ? "" : "disabled" ?>
+        <select <?php echo ( $es_fecha_torneo_activo ) ? "" : "disabled" ?>
             name="capitan" id="capitan">
 
           <option value="0"><?php echo t('Seleccione un capitán...') ?></option>
@@ -134,18 +132,18 @@ function es_torneo_activo() {
 <!-- ============== Alertas ============== -->
 <div class="row cancha-alertas text-center">
 
-  <?php if (es_torneo_activo()):?>
+  <?php if ($es_fecha_torneo_activo):?>
   <div id="notificacion" data-alert class="alert-box info radius medium-8 medium-centered small-16 columns">
       <strong>Nota: </strong>Recuerda que ya no es necesario guardar la alineación. <br> Cada cambio que realices queda grabado automáticamente.
       <a href="#" class="close">&times;</a>
   </div>
 
   <?php else :?>
-  <div id="notificacion" data-alert class="alert-box secondary radius medium-8 medium-centered small-16 columns">
+  <div id="notificacion" data-alert class="alert-box warning radius medium-8 medium-centered small-16 columns">
       <strong>Nota:</strong> Esta fecha se encuentra cerrada. No se pueden realizar cambios en la alineación.
       <a href="#" class="close">&times;</a>
   </div>
-  <?php endif?>
+  <?php endif; ?>
 
 </div>
 
@@ -153,7 +151,7 @@ function es_torneo_activo() {
 
 
   <!-- ============== Cancha ============== -->
-  <div id="cancha" class="cancha row <?php echo (es_torneo_activo()) ? "active" : "inactive" ?>">
+  <div id="cancha" class="cancha row <?php echo ($es_fecha_torneo_activo) ? "active" : "inactive" ?>">
     <?php
     //----- renderizar los contenedores de futbolistas ------
     for ( $i=1; $i<=11; $i++ ):
@@ -218,7 +216,7 @@ function es_torneo_activo() {
             <div class="ftb-acciones">
               <a id="info<?php echo $ftb_id; ?>" class="info sprite-juego"></a>
 
-          <?php if(es_torneo_activo()):?>
+          <?php if($es_fecha_torneo_activo):?>
               <a id="drop<?php echo $ftb_id; ?>" class="drop sprite-juego"></a>
               <a id="sell<?php echo $ftb_id; ?>"  class="sell sprite-juego"></a>
           <?php endif?>
@@ -263,7 +261,7 @@ function es_torneo_activo() {
           <div class="ftb-acciones-wrapper">
             <div class="ftb-acciones">
               <a id="info<?php echo $ftb_id; ?>" class="info sprite-juego"></a>
-            <?php if (es_torneo_activo()): ?>
+            <?php if ($es_fecha_torneo_activo): ?>
               <a id="put<?php echo $ftb_id; ?>" class="put sprite-juego"></a>
               <a id="sell<?php echo $ftb_id; ?>" class="sell sprite-juego"></a>
             <?php endif; ?>
@@ -282,9 +280,9 @@ function es_torneo_activo() {
   <ul class="convenciones small-16 columns">
     <li class="info"><i class="sprite-juego"></i>Información del jugador</li>
     <li class="sell"><i class="sprite-juego"></i>Vender</li>
-    <li class="star"><i class="sprite-juego"></i>Seleccionar como capitan</li>
+    <li class="star"><i class="sprite-juego"></i>Seleccionado como capitán</li>
     <li class="put"><i class="sprite-juego"></i>Alinear</li>
-    <li class="drop"><i class="sprite-juego"></i>Sacarde la titular</li>
+    <li class="drop"><i class="sprite-juego"></i>Sacar de la titular</li>
   </ul>
 
 </div>
