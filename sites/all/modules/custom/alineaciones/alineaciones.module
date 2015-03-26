@@ -31,7 +31,7 @@ function alineaciones_menu(){
   $items['jugar/formacion/%/%'] = array(
     'title' => 'Cambiar formacion',
     'description' => 'Cambia la formacion de una alineacion',
-    'page callback' => 'alineaciones_cambio_formacion_cb',
+    'page callback' => 'alineaciones_cambio_formacion',
     'page arguments' => array(2,3),
     'access callback' => 'user_is_logged_in',
     // 'access arguments' => array('access content'),
@@ -40,7 +40,7 @@ function alineaciones_menu(){
   $items['jugar/capitan/%/%'] = array(
     'title' => 'Cambiar capitan',
     'description' => 'Cambia el capitan de una alineacion',
-    'page callback' => 'alineaciones_cambio_capitan_cb',
+    'page callback' => 'alineaciones_cambio_capitan',
     'page arguments' => array(2,3),
     'access callback' => 'user_is_logged_in',
     // 'access arguments' => array('access content'),
@@ -49,28 +49,28 @@ function alineaciones_menu(){
   $items['jugar/alinear/%/%/%'] = array(
     'title' => 'Alinear jugador',
     'description' => 'Asigna una posicion a un jugador',
-    'page callback' => 'alineaciones_alinear_jugador_cb',
+    'page callback' => 'alineaciones_alinear_jugador',
     'page arguments' => array(2,3,4),
     'access callback' => 'user_is_logged_in',
     // 'access arguments' => array('access content'),
-    // 'delivery callback' => 'alineaciones_alinear_jugador_ajax',
+    'delivery callback' => 'alineaciones_alinear_jugador_ajax',
     );
 
   //-----Utilidades------
   $items['jugar/detallejugador/%'] = array(
     'title' => 'Detalle jugador',
     'description' => 'Muestra la ficha del jugador',
-    'page callback' => 'alineaciones_jugador_detalle_cb',
+    'page callback' => 'alineaciones_jugador_detalle',
     'page arguments' => array(2),
     'access callback' => 'user_is_logged_in',
     // 'access arguments' => array('access content'),
-    // 'delivery callback' => 'alineaciones_jugador_detalle_ajax',
+    'delivery callback' => 'alineaciones_jugador_detalle_ajax',
     );
   $items['jugar/desalinear/%/%'] = array(
     'title' => 'Desalinear jugador',
     'description' => 'Desasigna una posicion a un jugador',
-    'page callback' => 'alineaciones_desalinear_jugador_cb',
-    'page arguments' => array(2,),
+    'page callback' => 'alineaciones_desalinear_jugador',
+    'page arguments' => array(2,3),
     'access callback' => 'user_is_logged_in',
     // 'access arguments' => array('access content'),
     // 'delivery callback' => 'alineaciones_desalinear_jugador_ajax',
@@ -81,6 +81,13 @@ function alineaciones_menu(){
       'access callback' => 'user_is_logged_in',
       );
 
+    //-----Temp API------
+    $items['api/jugar/estadio/%'] = array(
+      'title' => 'Alineacion activa',
+      'page callback' => 'alineaciones_api_estadio_cb',
+      'access callback' => 'user_is_logged_in',
+      'page arguments' => array(3)
+      );
   return $items;
 }
 
@@ -92,8 +99,14 @@ function alineaciones_menu(){
 function alineaciones_block_info() {
   $blocks = array();
 
+  // Bloque para la integración con solo jQuery
   $blocks['estadio'] = array(
     'info' => t('Alineaciones - Cancha'),
+    );
+
+  // Bloque para la integración con AngularJS
+  $blocks['estadio-angular'] = array(
+    'info' => t('Alineaciones - Cancha (Angular) - Alpha Version'),
     );
 
   return $blocks;
@@ -107,9 +120,17 @@ function alineaciones_block_view($delta='') {
   $block = array();
 
   switch($delta) {
+
+    // Bloque para la integración con solo jQuery
     case 'estadio' :
     $variables = array();
     $block['content'] = theme('estadio', $variables);
+    break;
+
+    // Bloque para la integración con AngularJS
+    case 'estadio-angular' :
+    $variables = array();
+    $block['content'] = theme('estadio-angular', $variables);
     break;
   }
   return $block;
@@ -121,9 +142,18 @@ function alineaciones_block_view($delta='') {
 */
 function alineaciones_theme($existing, $type, $theme, $path){
   $hooks = array();
+
+  // Bloque para la integración con solo jQuery
   $hooks['estadio'] = array(
     'variables' => array(),
     'template' => 'templates/block--alineaciones',
+    'cache' => DRUPAL_NO_CACHE,
+    );
+
+  // Bloque para la integración con AngularJS
+  $hooks['estadio-angular'] = array(
+    'variables' => array(),
+    'template' => 'templates/block--angular-alineaciones',
     'cache' => DRUPAL_NO_CACHE,
     );
   return $hooks;

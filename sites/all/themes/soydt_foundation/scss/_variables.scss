@@ -1,4 +1,8 @@
-/*body { background: red !important;}*/
+//---------------------------------------
+// Bourbon
+//---------------------------------------
+$em-base: 16px;
+
 //---------------------------------------
 // Fonts
 //---------------------------------------
@@ -15,6 +19,12 @@ $blueline: #33629a;
 
 $orange: #de6d26;
 $orangetext: #e48a32;
+$orange_light: #fbad38;
+
+$alert_error: #d00;
+$alert_success:  #bec660;;
+$alert_warning: #f6de8b;
+
 
 $grayline: #999;
 $gray: #777;
