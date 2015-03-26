@@ -31,18 +31,25 @@ function es_torneo_activo() {
 <div id="estadio" class="estadio">
   <div class="row cancha-tribuna">
   <!-- ============== Puntajes ============== -->
-  <div class="puntajes medium-2 medium-offset-2 small-16 columns">
-      <div class="puntos_fecha small-centered columns text-center">
-          <?php
-          //-----Imprime los puntos actuales del usuario, de lo contrario imprime 0 ------
-          echo isset($puntos_usuario) ? $puntos_usuario : "0" ?>
-          <br /><small>puntos</small>
+  <div class="cancha-puntajes medium-2 medium-offset-1 small-8 columns">
+      <div class="puntos puntos-fecha small-centered columns text-center">
+          <div class="total">
+            <?php echo isset($puntos_usuario) ? $puntos_usuario : "0" ?>
+          </div>
+          <small>Pts fecha</small>
+      </div>
+  </div>
+  <div class="cancha-puntajes medium-2 small-8 columns">
+      <div class="puntos puntos-acumulado small-centered columns text-center">
+
+          <div class="total">000</div>
+          <small>Pts acumulado</small>
       </div>
   </div>
 
 
   <!-- ============== Filtros de Alineaciones ============== -->
-  <div id="filtros" class="medium-10 medium-offset-2 small-16 columns cancha-filtros <?php echo es_torneo_activo() ? "active" : "" ?>">
+  <div id="filtros" class="medium-10 medium-offset-1 small-16 columns cancha-filtros <?php echo es_torneo_activo() ? "active" : "" ?>">
     <form id="alineaciones-filtros" accept-charset="UTF-8">
 
       <div class="small-16 medium-4 columns">
@@ -270,6 +277,17 @@ function es_torneo_activo() {
     </div> <!-- suplentes -->
   </div> <!-- #cancha -->
 </div> <!-- #estadio -->
+
+<div class="cancha-convenciones row">
+  <ul class="convenciones">
+    <li class="info"><i class="sprite-juego"></i>Información del jugador</li>
+    <li class="sell"><i class="sprite-juego"></i>Vender</li>
+    <li class="star"><i class="sprite-juego"></i>Seleccionar como capitan</li>
+    <li class="put"><i class="sprite-juego"></i>Alinear</li>
+    <li class="drop"><i class="sprite-juego"></i>Sacarde la titular</li>
+  </ul>
+
+</div>
 
 <!-- Placeholders para mensajes emergentes -->
 <div id="alineaciones-popup" class="reveal-modal tiny" data-reveal data-options="close_on_background_click: false;" ></div>

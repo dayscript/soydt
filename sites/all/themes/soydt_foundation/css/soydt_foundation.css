@@ -6635,9 +6635,8 @@ h2.block-title {
       padding: 0; }
 
 .block-alineaciones-estadio, .block-alineaciones-estadio-angular {
-  background: url('../images/backgrounds/estadio.jpg');
-  height: 834px;
-  overflow: hidden; }
+  background: url('../images/backgrounds/estadio.jpg') center top no-repeat;
+  min-height: 834px; }
 
 .alineaciones-modal {
   padding: 30px; }
@@ -6683,8 +6682,17 @@ h2.block-title {
     background: #f6de8b; }
 
 .cancha-filtros {
-  background: #fff;
-  padding: 10px; }
+  background: rgba(0, 0, 0, 0.6);
+  padding: 15px 0;
+  -webkit-border-radius: 10px;
+  -moz-border-radius: 10px;
+  -ms-border-radius: 10px;
+  border-radius: 10px; }
+  .cancha-filtros label {
+    text-align: center;
+    text-transform: uppercase;
+    color: white;
+    font-size: 0.875em; }
 
 .cancha-tribuna {
   padding-top: 24px; }
@@ -6760,7 +6768,7 @@ h2.block-title {
     padding: 0 0 0 4px;
     position: relative;
     text-transform: uppercase;
-    width: 75%; }
+    width: 85%; }
     .cancha .futbolista .ftb-nombre-puntos .star {
       background-position: 0 -250px;
       position: absolute;
@@ -6799,18 +6807,49 @@ h2.block-title {
   .cancha .suplentes .ftb-equipo-imagen {
     width: 36px; }
 
-.puntajes .puntos_fecha {
-  font-family: 'AdvDigital7', sans-serif;
+.cancha-convenciones {
+  margin: 10px 0 0 0;
+  display: table;
+  padding-top: 20px; }
+  .cancha-convenciones i {
+    margin-right: 10px; }
+  .cancha-convenciones .drop i {
+    background-position: 0 -150px; }
+  .cancha-convenciones .info i {
+    background-position: 0 0; }
+  .cancha-convenciones .sell i {
+    background-position: 0 -50px; }
+  .cancha-convenciones .star i {
+    background-position: 0 -250px; }
+  .cancha-convenciones .put i {
+    background-position: 0 -100px; }
+  .cancha-convenciones li {
+    display: table-cell;
+    font-size: 0.6875em;
+    list-style: none;
+    padding-right: 30px;
+    vertical-align: top;
+    text-transform: uppercase; }
+
+.cancha-puntajes .puntos {
   color: white;
   background: #33629a;
-  font-size: 2rem;
   border: 5px solid white;
   height: 88px;
-  padding: 25px;
-  border-radius: 10px;
-  line-height: 1.4rem; }
-  .puntajes .puntos_fecha small {
-    font-size: 0.7rem; }
+  padding: 0;
+  border-radius: 10px; }
+  .cancha-puntajes .puntos small {
+    font-size: 0.7rem;
+    color: white;
+    text-transform: uppercase;
+    display: block;
+    position: relative;
+    top: -.2em; }
+  .cancha-puntajes .puntos .total {
+    font-family: 'AdvDigital7', sans-serif;
+    font-size: 2rem;
+    padding-top: 16px;
+    padding-left: 5px; }
 
 #alineaciones-popup, #alineaciones-popup2 {
   border: 6px solid #38538e;

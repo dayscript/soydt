@@ -7,9 +7,8 @@ $alto_estadio: 834px;
 
 .block-alineaciones-estadio,
 .block-alineaciones-estadio-angular {
-  background: url('../images/backgrounds/estadio.jpg');
-  height: $alto_estadio;
-  overflow: hidden;
+  background: url('../images/backgrounds/estadio.jpg') center top no-repeat;
+  min-height: $alto_estadio;
 }
 
 .alineaciones-modal {
@@ -60,8 +59,16 @@ $alto_estadio: 834px;
   .warning { background: $alert_warning; }
 }
 .cancha-filtros {
-  background: #fff;
-  padding: 10px;
+  background: rgba(black, 0.6);
+  padding: 15px 0;
+  @include border-radius(10px);
+
+  label {
+    text-align: center;
+    text-transform: uppercase;
+    color: white;
+    font-size: em(14);
+  }
 }
 .cancha-tribuna {
   padding-top: 24px;
@@ -151,7 +158,7 @@ $alto_estadio: 834px;
     padding: 0 0 0 4px;
     position: relative;
     text-transform: uppercase;
-    width: 75%;
+    width: 85%;
 
     //Estrella del capitán
     .star {
@@ -186,6 +193,8 @@ $alto_estadio: 834px;
   }
 } //Futbolista
 
+
+//-----Suplentes------
 .cancha .suplentes {
   position: absolute;
   bottom: 0;
@@ -200,22 +209,59 @@ $alto_estadio: 834px;
 
 }
 
-.puntajes {
-  .puntos_fecha{
-    font-family: $font-digital;
+.cancha-convenciones {
+  margin: 10px 0 0 0;
+  display: table;
+  padding-top: 20px;
+
+  i { margin-right: 10px;}
+
+  .drop i { background-position: 0 -150px; }
+  .info i { background-position: 0 0; }
+  .sell i { background-position: 0 -50px; }
+  .star i { background-position: 0 -250px; }
+  .put i { background-position: 0 -100px; }
+
+  li {
+    display: table-cell;
+    font-size: em(11);
+    list-style: none;
+    padding-right: 30px;
+    vertical-align: top;
+    text-transform: uppercase;
+
+  }
+}
+
+//-----Puntajes------
+.cancha-puntajes {
+  .puntos {
     color: white;
     background: $blueline;
-    font-size: 2rem;
     border: 5px solid white;
     height: 88px;
-    padding: 25px;
+    padding: 0;
     @include radius(10px);
-    line-height: 1.4rem;
-    small{
+
+    small {
       font-size: 0.7rem;
+      color: white;
+      text-transform: uppercase;
+      display: block;
+      position: relative;
+      top: -.2em;
+    }
+
+    .total {
+      font-family: $font-digital;
+      font-size: 2rem;
+      padding-top: 16px;
+      padding-left: 5px;
     }
   }
 }
+
+//-----PopUps------
 #alineaciones-popup,
 #alineaciones-popup2{
   border: 6px solid $blueline2;
