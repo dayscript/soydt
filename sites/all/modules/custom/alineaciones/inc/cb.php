@@ -84,31 +84,26 @@ function alineaciones_alinear_jugador ($alineacion_nid,$position, $playerid){
       $ali->{"field_jugador".$i}['und'][0]['target_id'] = 0;
     }
   }
-
   if(isset($ali->{"field_jugador".$position}['und']) && $ali->{"field_jugador".$position}['und'][0]['target_id'] >0){
-    $pl = node_load($ali->{"field_jugador".$position}['und'][0]['target_id']);
-    $player = node_load($playerid);
-    if($pl->field_posicion['und'][0]['tid'] == $player->field_posicion['und'][0]['tid'] && $prev){
-      $ali->{"field_jugador".$prev}['und'][0]['target_id'] = $pl->nid;
+      $pl = node_load($ali->{"field_jugador".$position}['und'][0]['target_id']);
+      $player = node_load($playerid);
+      if($pl->field_posicion['und'][0]['tid'] == $player->field_posicion['und'][0]['tid'] && $prev){
+        $ali->{"field_jugador".$prev}['und'][0]['target_id'] = $pl->nid;
+        $ali->{"field_jugador".$position}['und'][0]['target_id'] = $player->nid;
+        node_save($ali);
+        return "CAMBIO";
+      }
       $ali->{"field_jugador".$position}['und'][0]['target_id'] = $player->nid;
+      $ali->field_suplentes['und'][] = array('target_id'=>$pl->nid);
+      $ali = borrarSuplente($ali,$playerid);
       node_save($ali);
-      return "CAMBIO";
-    }
-    $ali->{"field_jugador".$position}['und'][0]['target_id'] = $player->nid;
-    $ali->field_suplentes['und'][] = array('target_id'=>$pl->nid);
-    node_save($ali);
-    return "REEMPLAZO";
+      return "REEMPLAZO";
   }
 
-  $ali->{"field_jugador".$position}['und'][0]['target_id'] = $playerid;
-  foreach ($ali->field_suplentes['und'] as $key => $supl) {
-    if ($supl['target_id'] == $playerid) {
-      $ali->field_suplentes['und'][$key]['target_id'] = 0;
-      unset($ali->field_suplentes['und'][$key]);
-    }
-  }
-  node_save($ali);
-  return "OK";
+    $ali->{"field_jugador".$position}['und'][0]['target_id'] = $playerid;
+    $ali = borrarSuplente($ali,$playerid);
+    node_save($ali);
+    return "OK";
 }
 
 
