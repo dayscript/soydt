@@ -181,10 +181,11 @@ function alineaciones_desalinear_jugador ($alineacion_nid, $playerid, $sell = fa
       && $ali->{"field_jugador".$i}['und'][0]['target_id'] == $playerid) {
       $ali->{"field_jugador".$i}['und'][0]['target_id'] = 0;
       if (!$sell) $ali->field_suplentes['und'][] = array('target_id'=>$playerid);
-      node_save($ali);
       $resultado = 'OK';
     }
   }
+    if($sell)borrarSuplente($ali,$playerid);
+    node_save($ali);
    // $resultado = "NO EXISTE";
   if (!$sell) {
     //-----Resultado------
@@ -199,8 +200,6 @@ function alineaciones_desalinear_jugador ($alineacion_nid, $playerid, $sell = fa
     }
     drupal_json_output($m);
   }
-
-
 }
 
 
