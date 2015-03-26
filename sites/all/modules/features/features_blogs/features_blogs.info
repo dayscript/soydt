@@ -1,0 +1,16 @@
+name = Features Blogs
+core = 7.x
+package = Features
+version = 7.x-1.0
+project = features_blogs
+dependencies[] = features
+dependencies[] = image
+dependencies[] = text
+dependencies[] = views
+features[ctools][] = views:views_default:3.0
+features[features_api][] = api:2
+features[field_base][] = field_profesion
+features[image][] = imagen_del_perfil_128x168
+features[views_view][] = bogs_view
+features_exclude[dependencies][ctools] = ctools
+project path = sites/all/modules/features

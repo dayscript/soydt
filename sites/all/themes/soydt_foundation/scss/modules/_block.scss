@@ -1,8 +1,9 @@
 h2.block-title{
-    font-weight: 700;
-    color: #222;
-    font-size: 1.8rem;
-    border-bottom: 1px solid $blueline;
+  font-weight: 500;
+  color: #222;
+  font-size: 1.8rem;
+  border-bottom: 1px solid $blueline;
+  height: 35px;
 }
 
 .block-block-1{
@@ -17,10 +18,7 @@ h2.block-title{
     color: $primary-color;
   }
 }
-.block-blockify-blockify-logo{
-  margin-top: -40px;
-  padding: 0;
-}
+
 .basket{
   background: url("../images/backgrounds/sprite.png") no-repeat 0px -72px;
   width: 40px;
@@ -112,3 +110,62 @@ h2.block-title{
     }
   }
 }
+
+.block-fboauth-login {
+  margin: 7px 0;
+  overflow: hidden;
+  .description {
+    float: left;
+    font-size: 10px;
+    width: 50%;
+  }
+  .facebook-action-connect {
+    float: left;
+    width: 50%;
+    display: block;
+    img { 
+      display: block;
+    }
+  }
+}
+
+.block-blog {
+  .views-row {
+    overflow: hidden;
+    .views-field {
+      line-height: 17px;
+    }
+    .views-field-picture{
+      float: right;
+      width: auto;
+      display: none;
+    }
+    .views-field-user-name,
+    .views-field-field-profesion{
+      color: #51514F;
+      font-size: 14px;
+    }
+    .views-field-field-profesion {
+      color: #E28652;
+      font-style: italic;
+      margin-bottom: 10px;
+    }
+    .views-field-title {
+      color: #51514F;
+      text-transform: uppercase;
+      line-height: 20px;
+      a {
+        color: #51514F;
+        text-decoration: none;
+      }
+    }
+    .views-field-body { 
+      p{
+        color: #51514F;
+        font-size: 14px;
+      }
+    }
+  }
+}
+
+

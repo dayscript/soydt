@@ -7,6 +7,19 @@
     margin: 0;
     font-size: 0.75rem;
   }
+  .l-header-region {
+    .header {
+      float: left !important;
+      padding-left: 25px;
+      width: auto;
+      &:first-child {
+        padding-left: 0;
+        width: auto;
+      }
+    }
+    
+  }
+  
 }
 .featured-wrapper{
   background: white;

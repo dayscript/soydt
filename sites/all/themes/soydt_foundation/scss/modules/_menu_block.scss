@@ -1,5 +1,6 @@
 .block-system-main-menu{
   padding: 10px 0 0 0;
+  max-width: 454px;
   ul.menu{
     margin: 0;
     li{
@@ -19,6 +20,9 @@
           color: $primary-color;
         }
       }
+    }
+    &.last {
+      padding-right: 0; 
     }
   }
 }

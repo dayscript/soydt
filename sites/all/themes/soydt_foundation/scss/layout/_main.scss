@@ -1,4 +1,137 @@
 // Non-modular or client styles for the .l-content region.
+.l-main {
+    margin-top: 59px;
+}
+
 #first-time{
   display: none;
+}
+
+#user-login-form {
+  height: 250px;
+  input[type="password"],
+  .form-item-pass{
+    margin-bottom: 0;
+  }
+  .form-submit{
+    background: repeat scroll 0 0 #000;
+    border-radius: 0;
+    display: block;
+    font-weight: 600;
+    margin: 0 auto;
+    padding: 8px 5px;
+    text-transform: uppercase;
+    width: 150px;
+  }
+  ul{
+    display: block;
+    margin: 0;
+    padding: 0;
+    position: relative;
+    height: 30px;
+    li {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      position: absolute;
+      &.first {
+        left: 0;
+        top: 78px;
+        width: 100%;
+        a {
+          background: repeat scroll 0 0 #2C659A;
+          color: #FFF;
+          display: block;
+          font-size: 22px;
+          padding: 18px 9px;
+          text-transform: uppercase;
+          width: 274px;
+          margin: 0 auto;
+        }
+      }
+      &.last {
+        top: 0;
+        left: 0;
+        a[href="/user/password"] {
+          color: #E28652;
+          font-size: 12px;
+          font-style: italic;
+        } 
+      }
+      
+    }
+  }
+    
+}
+
+.block-views-programacion-partidos-block{
+  h2.block-title{
+    background: none repeat scroll 0 0 #000;
+    border: none;
+    color: #FFFFFF;
+    margin: 0;
+    padding: 10px;
+    height: 48px;
+  }
+}
+
+.block-programacion {
+  background: none repeat scroll 0 0 #FFFFFF;
+  #edit-field-torneo-value-wrapper {
+    width: 95%;
+    padding: 0;
+    float: none;
+    margin: 10px auto;
+    label {
+      display: none;
+    }
+  }
+  .view-content {
+    thead{
+      tr{
+        background-color: #FFFFFF;
+        th{
+          color: #E28652;
+        }
+      }
+    }
+    tbody{
+      tr{
+        @include linear-gradient(top, #FFFFFF, #F0F0F0);
+        .views-field {
+          font-size: 13px;
+          text-align: center;
+          .logo-equipos {
+            overflow: hidden;
+            img {
+              float: left;
+            }
+          }
+          .nombre-equipos{
+            div {
+              font-size: 13px;
+              line-height: 13px;
+              margin-bottom: 4px;
+              text-align: left;
+            }
+          }
+        }
+        &:last-child{
+          border-bottom: 5px solid #000;
+        }
+      }
+    }
+  }
+  
+}
+
+.block-banner{
+  .view-content{
+    .views-row{
+      border: none !important;
+      margin: 0 !important;
+      padding: 0 !important;
+    }
+  }
+  
 }
