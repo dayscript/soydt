@@ -29,10 +29,10 @@ function alineaciones_cambio_formacion ($alineacion_nid, $formacion_tid){
       if(intval($pl->field_posicion['und'][0]['tid']) != intval($posiciones[$i]["position"])){
         alineaciones_desalinear_jugador($ali->nid, $pl->nid);
         //$ali->{"field_jugador" . $i}['und'][0]['target_id'] = 0;
-        $resultado = 'OK';
       }
     }
   }
+  $resultado = 'OK';
 
   //-----Resultado------
   $m = array();

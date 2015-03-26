@@ -241,9 +241,5 @@
 <!--/.page -->
 
 <div id="js-placeholders">
-  <div data-alert id="notificaciones" class="alert-box success radius">
-    <p class="msj"></p>
-    <a href="#" class="close">&times;</a>
-  </div>
   <div id="throbber"></div>
 </div>

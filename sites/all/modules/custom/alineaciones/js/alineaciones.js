@@ -13,34 +13,11 @@
       });
 
       $delegateTo = $('.l-content-after');
+
+      //-----Filtros de la Cancha------
       $delegateTo.on('change', '#filtros.active #formacion', function(){
-
         var url = '/jugar/formacion/' + $("#id_alineacion").val()  + '/' + this.value;
-        // debugger;
-        $.get(url, function(data){
-          console.log(data, url);
-          recargarDatos();
-        });
-      });
-
-      $('.reveal-modal').on('click', '.close-reveal-modal', function () {
-        $('#document-page').removeClass('blurred');
-      });
-
-      $delegateTo.on('click', 'a.drop', function(){
-          var url = '/jugar/desalinear/' + $("#id_alineacion").val() + '/' + this.id;
-          $.get(url, function (data) { console.log(data, url); recargarDatos(data); });
-      });
-
-      $delegateTo.on('click', 'a.sell', function(){
-          var url = '/carrito/sell' + '/' + this.id + '/' + $("#id_alineacion").val();
-          $.get(url, function (data) { console.log(data, url); recargarDatos(data); });
-      });
-
-      $delegateTo.on('click', 'a.info', function(){
-          var url = '/jugar/detallejugador/' + this.id;
-          jQuery('#alineaciones-popup').foundation('reveal', 'open', url);
-          $('#document-page').addClass('blurred');
+        $.get(url, function (data) { console.log(data, url); recargarDatos(data); });
       });
 
       $delegateTo.on('change', '.active #capitan', function(){
@@ -50,6 +27,29 @@
 
       $delegateTo.on('change', '#fecha', function(){
           window.location.href = "/jugar/alineaciones/" + this.value;
+      });
+
+      //-----Acciones sobre el futbolista------
+      $delegateTo.on('click', 'a.drop', function(){
+          var url = '/jugar/desalinear/' + $("#id_alineacion").val() + '/' + this.id;
+          $.get(url, function (data) { console.log(data, url); recargarDatos(data); });
+      });
+
+      $delegateTo.on('click', 'a.sell', function(){
+          var url = '/carrito/sell' + '/' + this.id + '/' + $("#id_alineacion").val();
+          jQuery('#alineaciones-popup').foundation('reveal', 'open', url);
+          // $.get(url, function (data) { console.log(data, url); recargarDatos(data); });
+      });
+
+      $delegateTo.on('click', 'a.info', function(){
+          var url = '/jugar/detallejugador/' + this.id;
+          jQuery('#alineaciones-popup').foundation('reveal', 'open', url);
+          $('#document-page').addClass('blurred');
+      });
+
+      //-----Desactivar el Desenfoque al cerrar la ventana emergente------
+      $('.reveal-modal').on('click', '.close-reveal-modal', function () {
+        $('#document-page').removeClass('blurred');
       });
 
     } // attach:
@@ -83,9 +83,8 @@
       if (asigned.length){
         var id = $('#place'+i + '.asigned .id').val();
         var ele = $('.ftb-'+id);
-        ele.animate({ top: place.position().top, left:place.position().left, margin:0, easing:'swing'}, 1000)
+        ele.animate({ top: place.position().top, left:place.position().left, margin:0, easing:'swing'}, 300)
            .css({position:'absolute'});
-        // place.fadeOut();
       }
     }
   } // alinearFormacion
