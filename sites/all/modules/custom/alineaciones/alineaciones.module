@@ -21,6 +21,7 @@ function alineaciones_menu(){
   $items['jugar/alineaciones/%'] = array(
     'title' => 'Alineaciones',
     // 'page callback' => 'theme',
+    'page arguments' => array(2),
     'page callback' => 'alineaciones_page_cb',
     'page arguments' => array('alineacion'),
     'access callback' => 'user_is_logged_in',

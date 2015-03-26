@@ -7,16 +7,15 @@
 /**
 * Pagina de alineaciones
 */
-function alineaciones_data($torneo_id){
-  $torneo_id = ($torneo_id) ? $torneo_id : 0;
+function alineaciones_data(){
   $data = array();
   $data["fecha"] = $_SESSION["fecha_activa"];
   $data["fechas"] = get_fechas();
-  if( $torneo_id && is_numeric($torneo_id) && $torneo_id > 0){
-    $fecha_ali = node_load($torneo_id);
-    $data["alineacion"] = get_alineacion($fecha_ali,$data["fechas"]);
+  if( arg(2) && is_numeric(arg(2)) && arg(2)>0){
+      $fecha_ali = node_load(arg(2));
+      $data["alineacion"] = get_alineacion($fecha_ali,$data["fechas"]);
   } else {
-    $data["alineacion"] = get_alineacion($data["fecha"],$data["fechas"]);
+      $data["alineacion"] = get_alineacion($data["fecha"],$data["fechas"]);
   }
   $data["equipo"] = carrito_get_equipo_usuario();
   $data["formaciones"] = get_formaciones();
@@ -24,11 +23,12 @@ function alineaciones_data($torneo_id){
   /* if(isset($equipo->field_jugadores2['und'])){
     $data["count"] = count($equipo->field_jugadores2['und']);
     foreach($equipo->field_jugadores2['und'] as $key=>$jugador){
-      $jug = node_load($jugador['target_id']);
-      $data["total"] += $jug->field_precio['und'][0]['value'];
+        $jug = node_load($jugador['target_id']);
+        $data["total"] += $jug->field_precio['und'][0]['value'];
     }
   }*/
-return $data;
+
+  return $data;
 }
 
 
