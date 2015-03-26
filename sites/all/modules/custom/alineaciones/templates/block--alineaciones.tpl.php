@@ -105,7 +105,6 @@ $es_fecha_torneo_activo =  ( $fecha_torneo == $fecha_activa ) ? true : false;
 
               $node_futbolista = node_load($futbolista['target_id']);
 
-              //-----Guardar el nodo del Capitan para utilizarlo despúes------
               if( isset( $capitan_usuario ) && $node_futbolista->nid == $capitan_usuario[0]['target_id']) {
                 $capitan_activo = true;
               }
@@ -116,7 +115,11 @@ $es_fecha_torneo_activo =  ( $fecha_torneo == $fecha_activa ) ? true : false;
               ?>
               <option <?php echo ($capitan_activo) ? "selected" :"" ?>
                   value="<?php echo $node_futbolista->nid?>">
-                  <?php echo $node_futbolista->title; ?>
+                  <?php
+                  print $node_futbolista->field_apellidos[LANGUAGE_NONE][0]['value']
+                        . ', '
+                        . $node_futbolista->field_nombres[LANGUAGE_NONE][0]['value'];
+                  ?>
               </option>
 
             <?php endforeach ?>
