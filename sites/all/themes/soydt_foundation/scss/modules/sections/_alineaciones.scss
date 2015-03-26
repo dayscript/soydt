@@ -1,121 +1,299 @@
-#cancha{
-  opacity: 0.6;
+
+//============== Variables Locales ==============
+$alto_estadio: 834px;
+
+.page-jugar-alineaciones .l-content-after { }
+
+.block-alineaciones-estadio,
+.block-alineaciones-estadio-angular {
+  background: url('../images/backgrounds/estadio.jpg') center top no-repeat;
+  min-height: $alto_estadio;
+}
+
+.alineaciones-modal {
+  padding: $space * 2;
+}
+
+.cancha {
+  background: url("../images/backgrounds/cancha-activa.png") center top no-repeat;
+  height: 558px;
+  opacity: 0.5;
+  position: relative;
+  width: 1110px;
+
   &.active{
     opacity: 1;
-    .player{
-      cursor: move;
-    }
   }
-  width: 1110px;
-  position: relative;
-  height: 672px;
-  background: url("../images/backgrounds/cancha.png") no-repeat;
-  .place{
+
+  .droppable {
     position: absolute;
-    width: 90px;
+    width: 44px;
+    height: 50px;
     text-align: center;
+    //Alineando el campo vacio con la camiseta de los jugadores
+    margin-left: 12px;
+    margin-top: -12px;
+    padding: 10px;
+
+    -webkit-box-sizing: content-box;
+    -moz-box-sizing: content-box;
+    box-sizing: content-box;
   }
-  .drop-hover{
-    background: rgba(255,255,255,0.2);
-  }
-  .player{
-    top: 440px;
-    width: 90px;
-    padding: 0;
-    margin: 10px;
-    .star{
-      background: url("../images/backgrounds/opciones-alineacion.png") no-repeat;
-      height: 20px;
-      background-size: 100px;
-      padding-left: 21px;
-      background-position: -4px -101px;
-      position: absolute;
-      margin-top: -16px;
-    }
-    .options{
-      background: #d6d6d6;
-      height: 20px;
-      position: relative;
-      display: inline-block;
-      padding: 0;
-      border-radius: 5px;
-      a{
-        background: url("../images/backgrounds/opciones-alineacion.png") no-repeat;
-        height: 20px;
-        padding-left: 21px;
-        background-position: -4px -101px;
-        display: inline-block;
-        &.info{
-          background-position: -1px 1px;
-        }
-        &.drop{
-          background-position: -1px -62px;
-        }
-        &.sell{
-          background-position: -1px -20px;
-        }
-      }
-    }
-    .image{
-      padding: 0;
-    }
-    .name_points{
-      padding: 0;
-      border: 2px solid #252525;
-      border-radius: 5px;
-      color: white;
-      @include background-image(linear-gradient(#2d2d2d, #1d1d1b));
-      font-family: $font-main;
-      text-transform: uppercase;
-      font-size: 0.75rem;
-      .name{
-        padding: 0;
-        font-size: 0.7rem;
-        font-family: 'Open Sans';
-        padding-top: 1px;
-        a{
-          color: white;
-          &:hover{
-            text-decoration: underline;
-          }
-        }
-      }
-      .points{
-        color: $orange;
-        padding: 0;
-        background: #333;
-      }
-    }
+
+  .droppable.drop-hover{
+    background: rgba(white, 0.6);
+    /*padding: 8px;*/
+    @include border-radius(50%);
+    z-index: 99;
   }
 }
-.puntajes{
-  .puntos_fecha{
-    font-family: $font-digital;
+
+
+//============== Alertas ==============
+.cancha-alertas {
+  margin-top: 70px;
+  min-height: 88px;
+
+  .alert-box {
+    border: 1px solid rgba(white, 0.3);
+    color: #333;
+
+    &.alert,
+    &.error {
+      background: $alert_error;
+      color: #eee;
+    }
+
+    &.success { background: $alert_success; }
+    &.warning { background: $alert_warning; }
+  }
+}
+
+//============== Filtros ==============
+.cancha-filtros {
+  background: rgba(black, 0.6);
+  padding: 15px 0;
+  @include border-radius(10px);
+
+  label {
+    text-align: center;
+    text-transform: uppercase;
+    color: white;
+    font-size: em(14);
+  }
+}
+
+.cancha-tribuna {
+  padding-top: 24px;
+}
+
+.sprite-juego {
+  background: url('../images/backgrounds/sprite-juego.png') 0 0 no-repeat;
+  color: transparent;
+  display: inline-block;
+  font-size: 0;
+  height: 22px;
+  width: 22px;
+}
+
+//============== Futbolista ==============
+.cancha .futbolista {
+  cursor: move;
+  min-height: 60px;
+  padding: 0;
+  width: auto;
+
+  &.alineados .futbolista { }
+  &.suplentes .futbolista { }
+
+  .ftb-acciones-wrapper {
+    position: absolute;
+    left: 0;
+    top: -12px;
+    padding-left: 72px;
+    display: none;
+    z-index: 40;
+  }
+
+  .ftb-acciones {
+    background: #d6d6d6;
+    background: rgba(255,255,255, .5);
+    border-radius: 5px;
+    height: 80px;
+    padding: 4px;
+    position: relative;
+
+    top: 0;
+    width: 30px;
+    text-align: left;
+
+    //-----El triangulo de la caja------
+    &:before {
+      border: 10px solid transparent;
+      border-right-color: rgba(255,255,255, .5);
+      content: ' ';
+      position: absolute;
+      height: 0;
+      width: 0;
+      z-index: 2;
+      top: 33%;
+      left: -20px;
+    }
+
+    a {
+      display: block;
+      margin-bottom: 3px;
+
+      &:hover { opacity: 0.6; }
+
+      &.info { background-position: 0 0; }
+      &.drop { background-position: 0 -150px; }
+      &.put { background-position: 0 -100px; }
+      &.sell{ background-position: 0 -50px; }
+    }
+  }
+
+  &:hover .ftb-acciones-wrapper { display: block; }
+  &.ui-draggable-dragging:hover .ftb-acciones-wrapper { display: none; }
+
+  .ftb-equipo-imagen {
+    padding: 0;
+    width: 50px;
+    margin-left: 18px;
+  }
+
+  .ftb-nombre-puntos {
+    @include background-image(linear-gradient(#444, #222));
+    border-radius: 5px;
+    border: 2px solid #222;
+    color: white;
+    font-family: $font-main;
+    padding: 0 0 0 4px;
+    position: relative;
+    text-transform: uppercase;
+    width: 85%;
+
+    //Estrella del capitán
+    .star {
+      background-position: 0 -250px;
+      position: absolute;
+      top: -14px;
+      left: -8px;
+    }
+  }
+
+  .ftb-name {
+    font-size: 0.65em;
+    font-family: 'Open Sans';
+    padding: 0;
+    line-height: 24px;
+    text-align: left;
+
+    a {
+      color: white;
+      &:hover { text-decoration: none; }
+    }
+  }
+
+  .ftb-puntos {
+    color: $orange_light;
+    line-height: 30px;
+    padding: 0;
+    background: #333;
+    position: absolute;
+    right: 0px;
+    height: 100%;
+  }
+} //Futbolista
+
+
+//-----Suplentes------
+.cancha .suplentes {
+  position: absolute;
+  bottom: 0;
+  background: url('../images/backgrounds/banca-activa.png') 0 0 no-repeat;
+  padding-left: 270px;
+  padding-top: 30px;
+  min-height: 150px;
+
+  .futbolista { width: 95px; }
+  .ftb-acciones-wrapper { top: -24px; }
+  .ftb-equipo-imagen { width: 36px; }
+
+}
+
+.cancha-convenciones {
+  margin-top: 10px;
+  display: table;
+  padding-top: 20px;
+
+  i {
+    margin-right: 10px;
+    position: relative;
+    top: -3px;
+  }
+
+  .drop i { background-position: 0 -150px; }
+  .info i { background-position: 0 0; }
+  .sell i { background-position: 0 -50px; }
+  .star i { background-position: 0 -250px; top: 0; }
+  .put i { background-position: 0 -100px; }
+
+  li {
+    display: table-cell;
+    font-size: em(11);
+    list-style: none;
+    padding-right: 30px;
+    vertical-align: top;
+    text-transform: uppercase;
+
+  }
+}
+
+//-----Puntajes------
+.cancha-puntajes {
+  .puntos {
     color: white;
     background: $blueline;
-    font-size: 2rem;
     border: 5px solid white;
     height: 88px;
-    padding: 25px;
+    padding: 0;
     @include radius(10px);
-    line-height: 1.4rem;
-    small{
+
+    small {
       font-size: 0.7rem;
+      color: white;
+      text-transform: uppercase;
+      display: block;
+      position: relative;
+      top: -.2em;
+    }
+
+    .total {
+      font-family: $font-digital;
+      font-size: 2rem;
+      padding-top: 16px;
+      padding-left: 5px;
     }
   }
 }
+
+//-----PopUps------
 #alineaciones-popup,
 #alineaciones-popup2{
   border: 6px solid $blueline2;
   min-height: 213px;
   padding: 0;
   max-width: 400px;
+  padding: 20px;
+
   &::before,
   &::after{
     content: "";
     width: 36px;
     height: 100%;
     position: absolute;
+    top: 0;
   }
   &::before{
     background: url("../images/backgrounds/popup-left.png") center center;

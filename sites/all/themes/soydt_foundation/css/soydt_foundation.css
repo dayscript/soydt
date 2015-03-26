@@ -6172,7 +6172,6 @@ table {
 td, th {
   padding: 0; }
 
-/*body { background: red !important;}*/
 .destacado {
   color: #712740;
   text-transform: uppercase; }
@@ -6238,14 +6237,20 @@ h2 {
       color: #5f6062;
       text-decoration: underline; }
 
-input[type="text"], input[type="password"], input[type="date"], input[type="datetime"], input[type="datetime-local"], input[type="month"], input[type="week"], input[type="email"], input[type="number"], input[type="search"], input[type="tel"], input[type="time"], input[type="url"], textarea, .form-text, .form-textarea {
-  border: none;
-  background: repeat scroll 0 0 #fff;
-  box-shadow: none;
-  border-radius: 6px; }
-
-span.form-required {
-  display: none; }
+pre {
+  background: #eee;
+  border: 1px solid #ddd;
+  padding: 10px;
+  page-break-inside: avoid;
+  white-space: pre-wrap;
+  /* css-3 */
+  white-space: -moz-pre-wrap;
+  /* Mozilla, since 1999 */
+  white-space: -pre-wrap;
+  /* Opera 4-6 */
+  white-space: -o-pre-wrap;
+  /* Opera 7 */
+  word-wrap: break-word; }
 
 @font-face {
   font-family: 'dinmittelschrift';
@@ -6282,123 +6287,14 @@ span.form-required {
   .l-header p {
     margin: 0;
     font-size: 0.75rem; }
-  .l-header .l-header-region .header {
-    float: left !important;
-    padding-left: 25px;
-    width: auto; }
-    .l-header .l-header-region .header:first-child {
-      padding-left: 0;
-      width: auto; }
 
 .featured-wrapper {
   background: white; }
   .featured-wrapper .l-featured {
     height: 125px; }
 
-.l-main {
-  margin-top: 59px; }
-
 #first-time {
   display: none; }
-
-#user-login-form {
-  height: 250px; }
-  #user-login-form input[type="password"], #user-login-form .form-item-pass {
-    margin-bottom: 0; }
-  #user-login-form .form-submit {
-    background: repeat scroll 0 0 #000;
-    border-radius: 0;
-    display: block;
-    font-weight: 600;
-    margin: 0 auto;
-    padding: 8px 5px;
-    text-transform: uppercase;
-    width: 150px; }
-  #user-login-form ul {
-    display: block;
-    margin: 0;
-    padding: 0;
-    position: relative;
-    height: 30px; }
-    #user-login-form ul li {
-      list-style: none;
-      margin: 0;
-      padding: 0;
-      position: absolute; }
-      #user-login-form ul li.first {
-        left: 0;
-        top: 78px;
-        width: 100%; }
-        #user-login-form ul li.first a {
-          background: repeat scroll 0 0 #2C659A;
-          color: #FFF;
-          display: block;
-          font-size: 22px;
-          padding: 18px 9px;
-          text-transform: uppercase;
-          width: 274px;
-          margin: 0 auto; }
-      #user-login-form ul li.last {
-        top: 0;
-        left: 0; }
-        #user-login-form ul li.last a[href="/user/password"] {
-          color: #E28652;
-          font-size: 12px;
-          font-style: italic; }
-
-.block-views-programacion-partidos-block h2.block-title {
-  background: none repeat scroll 0 0 #000;
-  border: none;
-  color: #FFFFFF;
-  margin: 0;
-  padding: 10px;
-  height: 48px; }
-
-.block-programacion {
-  background: none repeat scroll 0 0 #FFFFFF; }
-  .block-programacion #edit-field-torneo-value-wrapper {
-    width: 95%;
-    padding: 0;
-    float: none;
-    margin: 10px auto; }
-    .block-programacion #edit-field-torneo-value-wrapper label {
-      display: none; }
-  .block-programacion .view-content thead tr {
-    background-color: #FFFFFF; }
-    .block-programacion .view-content thead tr th {
-      color: #E28652; }
-  .block-programacion .view-content tbody tr {
-    background-color: #FFFFFF;
-    background-image: -webkit-linear-gradient(top, #FFFFFF, #F0F0F0);
-    background-image: linear-gradient(to bottom,#FFFFFF, #F0F0F0); }
-    .block-programacion .view-content tbody tr .views-field {
-      font-size: 13px;
-      text-align: center; }
-      .block-programacion .view-content tbody tr .views-field .logo-equipos {
-        overflow: hidden; }
-        .block-programacion .view-content tbody tr .views-field .logo-equipos img {
-          float: left; }
-      .block-programacion .view-content tbody tr .views-field .nombre-equipos div {
-        font-size: 13px;
-        line-height: 13px;
-        margin-bottom: 4px;
-        text-align: left; }
-    .block-programacion .view-content tbody tr:last-child {
-      border-bottom: 5px solid #000; }
-
-.block-banner .view-content .views-row {
-  border: none !important;
-  margin: 0 !important;
-  padding: 0 !important; }
-
-.block-blockify-blockify-logo {
-  margin-top: -40px;
-  padding: 0;
-  height: 184px;
-  width: 169px; }
-  .block-blockify-blockify-logo img {
-    height: 100%;
-    width: 100%; }
 
 .cf:before, .cf:after {
   content: " ";
@@ -6409,6 +6305,13 @@ span.form-required {
 
 .cf {
   *zoom: 1; }
+
+.blurred {
+  -webkit-filter: blur(8px);
+  -moz-filter: blur(8px);
+  -ms-filter: blur(8px);
+  -o-filter: blur(8px);
+  filter: blur(8px); }
 
 .fleft {
   float: left; }
@@ -6427,11 +6330,10 @@ span.form-required {
   text-align: center; }
 
 h2.block-title {
-  font-weight: 500;
+  font-weight: 700;
   color: #222;
   font-size: 1.8rem;
-  border-bottom: 1px solid #33629a;
-  height: 35px; }
+  border-bottom: 1px solid #33629a; }
 
 .block-block-1 {
   padding-top: 8px; }
@@ -6443,6 +6345,10 @@ h2.block-title {
   padding: 0; }
   .block-contador-contador small {
     color: #609fdf; }
+
+.block-blockify-blockify-logo {
+  margin-top: -40px;
+  padding: 0; }
 
 .basket {
   background: url("../images/backgrounds/sprite.png") no-repeat 0px -72px;
@@ -6515,56 +6421,15 @@ h2.block-title {
     .sharethis-wrapper .stButton .stArrow .stButton_gradient {
       height: 100%; }
 
-.block-fboauth-login {
-  margin: 7px 0;
-  overflow: hidden; }
-  .block-fboauth-login .description {
-    float: left;
-    font-size: 10px;
-    width: 50%; }
-  .block-fboauth-login .facebook-action-connect {
-    float: left;
-    width: 50%;
-    display: block; }
-    .block-fboauth-login .facebook-action-connect img {
-      display: block; }
-
-.block-blog .views-row {
-  overflow: hidden; }
-  .block-blog .views-row .views-field {
-    line-height: 17px; }
-  .block-blog .views-row .views-field-picture {
-    float: right;
-    width: auto;
-    display: none; }
-  .block-blog .views-row .views-field-user-name, .block-blog .views-row .views-field-field-profesion {
-    color: #51514F;
-    font-size: 14px; }
-  .block-blog .views-row .views-field-field-profesion {
-    color: #E28652;
-    font-style: italic;
-    margin-bottom: 10px; }
-  .block-blog .views-row .views-field-title {
-    color: #51514F;
-    text-transform: uppercase;
-    line-height: 20px; }
-    .block-blog .views-row .views-field-title a {
-      color: #51514F;
-      text-decoration: none; }
-  .block-blog .views-row .views-field-body p {
-    color: #51514F;
-    font-size: 14px; }
-
 .block-system-user-menu ul.menu li {
   list-style: none; }
 
 .block-fboauth .description {
-  font-size: 10px;
+  font-size: 0.85em;
   text-align: center; }
 
 .block-system-main-menu {
-  padding: 10px 0 0 0;
-  max-width: 454px; }
+  padding: 10px 0 0 0; }
   .block-system-main-menu ul.menu {
     margin: 0; }
     .block-system-main-menu ul.menu li {
@@ -6581,8 +6446,6 @@ h2.block-title {
         color: #5f6062; }
         .block-system-main-menu ul.menu li a:hover, .block-system-main-menu ul.menu li a.active {
           color: #609fdf; }
-    .block-system-main-menu ul.menu.last {
-      padding-right: 0; }
 
 .block-system-user-menu {
   padding-top: 10px; }
@@ -6771,103 +6634,240 @@ h2.block-title {
     .view-carrito .views-row .views-field-field-image {
       padding: 0; }
 
-#cancha {
-  opacity: 0.6;
-  width: 1110px;
-  position: relative;
-  height: 672px;
-  background: url("../images/backgrounds/cancha.png") no-repeat; }
-  #cancha.active {
-    opacity: 1; }
-    #cancha.active .player {
-      cursor: move; }
-  #cancha .place {
-    position: absolute;
-    width: 90px;
-    text-align: center; }
-  #cancha .drop-hover {
-    background: rgba(255, 255, 255, 0.2); }
-  #cancha .player {
-    top: 440px;
-    width: 90px;
-    padding: 0;
-    margin: 10px; }
-    #cancha .player .star {
-      background: url("../images/backgrounds/opciones-alineacion.png") no-repeat;
-      height: 20px;
-      background-size: 100px;
-      padding-left: 21px;
-      background-position: -4px -101px;
-      position: absolute;
-      margin-top: -16px; }
-    #cancha .player .options {
-      background: #d6d6d6;
-      height: 20px;
-      position: relative;
-      display: inline-block;
-      padding: 0;
-      border-radius: 5px; }
-      #cancha .player .options a {
-        background: url("../images/backgrounds/opciones-alineacion.png") no-repeat;
-        height: 20px;
-        padding-left: 21px;
-        background-position: -4px -101px;
-        display: inline-block; }
-        #cancha .player .options a.info {
-          background-position: -1px 1px; }
-        #cancha .player .options a.drop {
-          background-position: -1px -62px; }
-        #cancha .player .options a.sell {
-          background-position: -1px -20px; }
-    #cancha .player .image {
-      padding: 0; }
-    #cancha .player .name_points {
-      padding: 0;
-      border: 2px solid #252525;
-      border-radius: 5px;
-      color: white;
-      background-image: -webkit-linear-gradient( #2d2d2d, #1d1d1b);
-      background-image: linear-gradient( #2d2d2d, #1d1d1b);
-      font-family: 'dinmittelschrift', sans-serif;
-      text-transform: uppercase;
-      font-size: 0.75rem; }
-      #cancha .player .name_points .name {
-        padding: 0;
-        font-size: 0.7rem;
-        font-family: 'Open Sans';
-        padding-top: 1px; }
-        #cancha .player .name_points .name a {
-          color: white; }
-          #cancha .player .name_points .name a:hover {
-            text-decoration: underline; }
-      #cancha .player .name_points .points {
-        color: #de6d26;
-        padding: 0;
-        background: #333; }
+.block-alineaciones-estadio, .block-alineaciones-estadio-angular {
+  background: url('../images/backgrounds/estadio.jpg') center top no-repeat;
+  min-height: 834px; }
 
-.puntajes .puntos_fecha {
-  font-family: 'AdvDigital7', sans-serif;
+.alineaciones-modal {
+  padding: 30px; }
+
+.cancha {
+  background: url("../images/backgrounds/cancha-activa.png") center top no-repeat;
+  height: 558px;
+  opacity: 0.5;
+  position: relative;
+  width: 1110px; }
+  .cancha.active {
+    opacity: 1; }
+  .cancha .droppable {
+    position: absolute;
+    width: 44px;
+    height: 50px;
+    text-align: center;
+    margin-left: 12px;
+    margin-top: -12px;
+    padding: 10px;
+    -webkit-box-sizing: content-box;
+    -moz-box-sizing: content-box;
+    box-sizing: content-box; }
+  .cancha .droppable.drop-hover {
+    background: rgba(255, 255, 255, 0.6);
+    /*padding: 8px;*/
+    -webkit-border-radius: 50%;
+    -moz-border-radius: 50%;
+    -ms-border-radius: 50%;
+    border-radius: 50%;
+    z-index: 99; }
+
+.cancha-alertas {
+  margin-top: 70px;
+  min-height: 88px; }
+  .cancha-alertas .alert-box {
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    color: #333; }
+    .cancha-alertas .alert-box.alert, .cancha-alertas .alert-box.error {
+      background: #d00;
+      color: #eee; }
+    .cancha-alertas .alert-box.success {
+      background: #bec660; }
+    .cancha-alertas .alert-box.warning {
+      background: #f6de8b; }
+
+.cancha-filtros {
+  background: rgba(0, 0, 0, 0.6);
+  padding: 15px 0;
+  -webkit-border-radius: 10px;
+  -moz-border-radius: 10px;
+  -ms-border-radius: 10px;
+  border-radius: 10px; }
+  .cancha-filtros label {
+    text-align: center;
+    text-transform: uppercase;
+    color: white;
+    font-size: 0.875em; }
+
+.cancha-tribuna {
+  padding-top: 24px; }
+
+.sprite-juego {
+  background: url('../images/backgrounds/sprite-juego.png') 0 0 no-repeat;
+  color: transparent;
+  display: inline-block;
+  font-size: 0;
+  height: 22px;
+  width: 22px; }
+
+.cancha .futbolista {
+  cursor: move;
+  min-height: 60px;
+  padding: 0;
+  width: auto; }
+  .cancha .futbolista .ftb-acciones-wrapper {
+    position: absolute;
+    left: 0;
+    top: -12px;
+    padding-left: 72px;
+    display: none;
+    z-index: 40; }
+  .cancha .futbolista .ftb-acciones {
+    background: #d6d6d6;
+    background: rgba(255, 255, 255, 0.5);
+    border-radius: 5px;
+    height: 80px;
+    padding: 4px;
+    position: relative;
+    top: 0;
+    width: 30px;
+    text-align: left; }
+    .cancha .futbolista .ftb-acciones:before {
+      border: 10px solid transparent;
+      border-right-color: rgba(255, 255, 255, 0.5);
+      content: ' ';
+      position: absolute;
+      height: 0;
+      width: 0;
+      z-index: 2;
+      top: 33%;
+      left: -20px; }
+    .cancha .futbolista .ftb-acciones a {
+      display: block;
+      margin-bottom: 3px; }
+      .cancha .futbolista .ftb-acciones a:hover {
+        opacity: 0.6; }
+      .cancha .futbolista .ftb-acciones a.info {
+        background-position: 0 0; }
+      .cancha .futbolista .ftb-acciones a.drop {
+        background-position: 0 -150px; }
+      .cancha .futbolista .ftb-acciones a.put {
+        background-position: 0 -100px; }
+      .cancha .futbolista .ftb-acciones a.sell {
+        background-position: 0 -50px; }
+  .cancha .futbolista:hover .ftb-acciones-wrapper {
+    display: block; }
+  .cancha .futbolista.ui-draggable-dragging:hover .ftb-acciones-wrapper {
+    display: none; }
+  .cancha .futbolista .ftb-equipo-imagen {
+    padding: 0;
+    width: 50px;
+    margin-left: 18px; }
+  .cancha .futbolista .ftb-nombre-puntos {
+    background-image: -webkit-linear-gradient( #444, #222);
+    background-image: linear-gradient( #444, #222);
+    border-radius: 5px;
+    border: 2px solid #222;
+    color: white;
+    font-family: 'dinmittelschrift', sans-serif;
+    padding: 0 0 0 4px;
+    position: relative;
+    text-transform: uppercase;
+    width: 85%; }
+    .cancha .futbolista .ftb-nombre-puntos .star {
+      background-position: 0 -250px;
+      position: absolute;
+      top: -14px;
+      left: -8px; }
+  .cancha .futbolista .ftb-name {
+    font-size: 0.65em;
+    font-family: 'Open Sans';
+    padding: 0;
+    line-height: 24px;
+    text-align: left; }
+    .cancha .futbolista .ftb-name a {
+      color: white; }
+      .cancha .futbolista .ftb-name a:hover {
+        text-decoration: none; }
+  .cancha .futbolista .ftb-puntos {
+    color: #fbad38;
+    line-height: 30px;
+    padding: 0;
+    background: #333;
+    position: absolute;
+    right: 0px;
+    height: 100%; }
+
+.cancha .suplentes {
+  position: absolute;
+  bottom: 0;
+  background: url('../images/backgrounds/banca-activa.png') 0 0 no-repeat;
+  padding-left: 270px;
+  padding-top: 30px;
+  min-height: 150px; }
+  .cancha .suplentes .futbolista {
+    width: 95px; }
+  .cancha .suplentes .ftb-acciones-wrapper {
+    top: -24px; }
+  .cancha .suplentes .ftb-equipo-imagen {
+    width: 36px; }
+
+.cancha-convenciones {
+  margin-top: 10px;
+  display: table;
+  padding-top: 20px; }
+  .cancha-convenciones i {
+    margin-right: 10px;
+    position: relative;
+    top: -3px; }
+  .cancha-convenciones .drop i {
+    background-position: 0 -150px; }
+  .cancha-convenciones .info i {
+    background-position: 0 0; }
+  .cancha-convenciones .sell i {
+    background-position: 0 -50px; }
+  .cancha-convenciones .star i {
+    background-position: 0 -250px;
+    top: 0; }
+  .cancha-convenciones .put i {
+    background-position: 0 -100px; }
+  .cancha-convenciones li {
+    display: table-cell;
+    font-size: 0.6875em;
+    list-style: none;
+    padding-right: 30px;
+    vertical-align: top;
+    text-transform: uppercase; }
+
+.cancha-puntajes .puntos {
   color: white;
   background: #33629a;
-  font-size: 2rem;
   border: 5px solid white;
   height: 88px;
-  padding: 25px;
-  border-radius: 10px;
-  line-height: 1.4rem; }
-  .puntajes .puntos_fecha small {
-    font-size: 0.7rem; }
+  padding: 0;
+  border-radius: 10px; }
+  .cancha-puntajes .puntos small {
+    font-size: 0.7rem;
+    color: white;
+    text-transform: uppercase;
+    display: block;
+    position: relative;
+    top: -.2em; }
+  .cancha-puntajes .puntos .total {
+    font-family: 'AdvDigital7', sans-serif;
+    font-size: 2rem;
+    padding-top: 16px;
+    padding-left: 5px; }
 
 #alineaciones-popup, #alineaciones-popup2 {
   border: 6px solid #38538e;
   min-height: 213px;
   padding: 0;
-  max-width: 400px; }
+  max-width: 400px;
+  padding: 20px; }
   #alineaciones-popup::before, #alineaciones-popup::after, #alineaciones-popup2::before, #alineaciones-popup2::after {
     content: "";
     width: 36px;
     height: 100%;
-    position: absolute; }
+    position: absolute;
+    top: 0; }
   #alineaciones-popup::before, #alineaciones-popup2::before {
     background: url("../images/backgrounds/popup-left.png") center center;
     left: -42px; }

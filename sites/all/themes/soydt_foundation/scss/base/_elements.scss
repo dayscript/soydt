@@ -37,6 +37,19 @@ h2 {
     }
 }
 
+pre {
+    background: #eee;
+    border: 1px solid #ddd;
+    padding: 10px;
+    page-break-inside: avoid;
+    white-space: pre-wrap;       /* css-3 */
+    white-space: -moz-pre-wrap;  /* Mozilla, since 1999 */
+    white-space: -pre-wrap;      /* Opera 4-6 */
+    white-space: -o-pre-wrap;    /* Opera 7 */
+    word-wrap: break-word
+}
+
+
 input[type="text"],
 input[type="password"],
 input[type="date"],
@@ -53,16 +66,12 @@ input[type="url"],
 textarea,
 .form-text,
 .form-textarea {
+
   border: none;
   background: repeat scroll 0 0 #fff;
   box-shadow: none;
   border-radius: 6px; 
 }
-
-span.form-required {
-    display: none;
-}
-
 // Anchors
 //-----------------------------------------------------------------------------
 // a {}
