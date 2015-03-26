@@ -6858,8 +6858,7 @@ h2.block-title {
     border: 1px solid rgba(255, 255, 255, 0.3);
     color: #333; }
     .cancha-alertas .alert-box.alert, .cancha-alertas .alert-box.error {
-      background: #d00;
-      color: #eee; }
+      background: #DD6C6C; }
     .cancha-alertas .alert-box.success {
       background: #bec660; }
     .cancha-alertas .alert-box.warning {
@@ -6949,7 +6948,7 @@ h2.block-title {
     border: 2px solid #222;
     color: white;
     font-family: 'dinmittelschrift', sans-serif;
-    padding: 0 0 0 4px;
+    padding: 0;
     position: relative;
     text-transform: uppercase;
     width: 85%; }
@@ -6963,7 +6962,7 @@ h2.block-title {
     font-family: 'Open Sans';
     padding: 0;
     line-height: 24px;
-    text-align: left; }
+    text-align: center; }
     .cancha .futbolista .ftb-name a {
       color: white; }
       .cancha .futbolista .ftb-name a:hover {
@@ -7043,25 +7042,26 @@ h2.block-title {
   min-height: 213px;
   padding: 0;
   max-width: 400px;
-  padding: 20px; }
-  #alineaciones-popup::before, #alineaciones-popup::after, #alineaciones-popup2::before, #alineaciones-popup2::after {
+  padding: 16px; }
+  #alineaciones-popup:before, #alineaciones-popup:after, #alineaciones-popup2:before, #alineaciones-popup2:after {
     content: "";
     width: 36px;
     height: 100%;
     position: absolute;
     top: 0; }
-  #alineaciones-popup::before, #alineaciones-popup2::before {
-    background: url("../images/backgrounds/popup-left.png") center center;
+  #alineaciones-popup:before, #alineaciones-popup2:before {
+    background: url("../images/backgrounds/popup-left.png") center center no-repeat;
     left: -42px; }
-  #alineaciones-popup::after, #alineaciones-popup2::after {
-    background: url("../images/backgrounds/popup-right.png") center center;
+  #alineaciones-popup:after, #alineaciones-popup2:after {
+    background: url("../images/backgrounds/popup-right.png") center center no-repeat;
     right: -42px; }
   #alineaciones-popup .col1, #alineaciones-popup2 .col1 {
-    margin-top: 15px; }
+    margin-top: 10px;
+    padding: 0 12px 0 0; }
   #alineaciones-popup .col2, #alineaciones-popup2 .col2 {
     margin-top: 8px;
     padding-left: 0;
-    padding-right: 35px; }
+    padding-right: 20px; }
     #alineaciones-popup .col2 .title h2, #alineaciones-popup2 .col2 .title h2 {
       font-size: 1.2rem;
       margin-bottom: 0;

@@ -146,7 +146,7 @@ function alineaciones_jugador_detalle ($playerid){
   $points_html = views_embed_view('jugadores', 'block', $playerid);
   // dpm($points);
   $data["col1"] = array(
-    '#prefix' => '<div class="columns small-7 col1">',
+    '#prefix' => '<div class="columns small-6 col1">',
     '#suffix' => '</div>',
     'content' => array(
       $image,
@@ -155,7 +155,7 @@ function alineaciones_jugador_detalle ($playerid){
 
     );
   $data["col2"] = array(
-    '#prefix' => '<div class="columns small-9 col2">',
+    '#prefix' => '<div class="columns small-10 col2">',
     '#suffix' => '</div>',
     'content' => array(
       $title,

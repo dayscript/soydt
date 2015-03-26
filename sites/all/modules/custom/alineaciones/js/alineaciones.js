@@ -36,13 +36,12 @@
 
         $delegateTo.on('click', 'a.put', function(){
             var url = '/jugar/autoalinear/' + $("#id_alineacion").val() + '/' + this.id;
-            $.get(url, function (data) { console.log(data, url); recargarDatos(data); });
+            $.get(url, function (data) { /*console.log(data, url);*/ recargarDatos(data); });
         });
 
       $delegateTo.on('click', 'a.sell', function(){
           var url = '/carrito/sell' + '/' + this.id + '/' + $("#id_alineacion").val();
           jQuery('#alineaciones-popup').foundation('reveal', 'open', url);
-          // $.get(url, function (data) { /*console.log(data, url);*/ recargarDatos(data); });
       });
 
       $delegateTo.on('click', 'a.info', function(){

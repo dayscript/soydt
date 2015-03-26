@@ -251,7 +251,7 @@ $es_fecha_torneo_activo =  ( $fecha_torneo == $fecha_activa ) ? true : false;
         </div>
 
         <div class="ftb-nombre-puntos columns small-16">
-          <div class="columns small-12 ftb-name">
+          <div class="columns small-16 ftb-name">
             <a id="2info<?php echo $ftb_id; ?>" class="info"><?php echo $ftb_apellido; ?></a>
           </div>
           <!-- Los puntos no se deben mostrar para jugadores en la banca -->
