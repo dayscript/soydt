@@ -268,12 +268,15 @@ $alto_estadio: 834px;
   min-height: 213px;
   padding: 0;
   max-width: 400px;
+  padding: 20px;
+
   &::before,
   &::after{
     content: "";
     width: 36px;
     height: 100%;
     position: absolute;
+    top: 0;
   }
   &::before{
     background: url("../images/backgrounds/popup-left.png") center center;

@@ -190,20 +190,22 @@ function alineaciones_desalinear_jugador ($alineacion_nid, $playerid, $sell = fa
       $resultado = 'OK';
     }
   }
-  // $resulto = "NO EXISTE";
-
-  //-----Resultado------
-  $m = array();
-  if ($resultado == "OK") {
-    $m['status'] = 'success';
-    $m['text'] = 'Jugador desalineado correctamente. Ha sido enviado al banquillo.';
+   // $resultado = "NO EXISTE";
+  if (!$sell) {
+    //-----Resultado------
+    $m = array();
+    if ($resultado == "OK") {
+      $m['status'] = 'success';
+      $m['text'] = 'Jugador desalineado correctamente. Ha sido enviado al banquillo.';
+    }
+    else {
+      $m['status'] = 'error';
+      $m['text'] = 'Este jugador ya se encuentra en el banquillo de suplentes.';
+    }
+    drupal_json_output($m);
   }
-  else {
-    $m['status'] = 'error';
-    $m['text'] = 'Este jugador ya se encuentra en el banquillo de suplentes.';
-  }
 
-  drupal_json_output($m);
+
 }
 
 
