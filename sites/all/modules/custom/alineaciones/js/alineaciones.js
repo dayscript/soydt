@@ -9,7 +9,6 @@
       });
 
       $(document).ajaxStop(function () {
-
       });
 
       $delegateTo = $('.l-content-after');
@@ -34,6 +33,11 @@
           var url = '/jugar/desalinear/' + $("#id_alineacion").val() + '/' + this.id;
           $.get(url, function (data) { /*console.log(data, url);*/ recargarDatos(data); });
       });
+
+        $delegateTo.on('click', 'a.put', function(){
+            var url = '/jugar/autoalinear/' + $("#id_alineacion").val() + '/' + this.id;
+            $.get(url, function (data) { console.log(data, url); recargarDatos(data); });
+        });
 
       $delegateTo.on('click', 'a.sell', function(){
           var url = '/carrito/sell' + '/' + this.id + '/' + $("#id_alineacion").val();

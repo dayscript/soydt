@@ -202,8 +202,6 @@ function alineaciones_desalinear_jugador ($alineacion_nid, $playerid, $sell = fa
   }
 }
 
-
-
 /**
  *
  */
