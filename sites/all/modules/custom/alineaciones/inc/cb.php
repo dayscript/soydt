@@ -203,6 +203,40 @@ function alineaciones_desalinear_jugador ($alineacion_nid, $playerid, $sell = fa
 }
 
 /**
+ * Auto alinear jugador
+ */
+function alineaciones_autoalinear_jugador ($alineacion_nid, $playerid){
+    $playerid = str_replace("put","",$playerid);
+    $ali = node_load($alineacion_nid);
+    $player = node_load($playerid);
+
+    $formacion = taxonomy_term_load($ali->field_formacion['und'][0]['tid']);
+    $posiciones = get_posiciones($formacion->description);
+    $resultado = "";
+    for($i=1;$i<=11;$i++) {
+        if (!isset($ali->{"field_jugador" . $i}['und']) || $ali->{"field_jugador" . $i}['und'][0]['target_id'] == 0 ) {
+            if(intval($player->field_posicion['und'][0]['tid']) == intval($posiciones[$i]["position"])){
+                alineaciones_alinear_jugador($alineacion_nid,$i,$playerid);
+                $ali = node_load($alineacion_nid);
+                $ali = borrarSuplente($ali,$playerid);
+                node_save($ali);
+                $resultado = "OK";
+            }
+        }
+    }
+    //-----Resultado------
+    $m = array();
+    if ($resultado == "OK") {
+        $m['status'] = 'success';
+        $m['text'] = 'Jugador alineado en la primera posición disponible encontrada.';
+    } else {
+        $m['status'] = 'error';
+        $m['text'] = 'No se pudo alinear este jugador, es probable que no haya una posición en la cancha disponible para el.';
+    }
+    drupal_json_output($m);
+}
+
+/**
  *
  */
 function _cancha_block_cb() {

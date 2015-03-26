@@ -75,6 +75,13 @@ function alineaciones_menu(){
     // 'access arguments' => array('access content'),
     // 'delivery callback' => 'alineaciones_desalinear_jugador_ajax',
     );
+    $items['jugar/autoalinear/%/%'] = array(
+        'title' => 'Alinear jugador en una posicion disponible',
+        'description' => 'Asigna una posicion a un jugador',
+        'page callback' => 'alineaciones_autoalinear_jugador',
+        'page arguments' => array(2,3),
+        'access callback' => 'user_is_logged_in',
+    );
     $items['jugar/cancha'] = array(
       'title' => 'Cancha',
       'page callback' => '_cancha_block_cb',
