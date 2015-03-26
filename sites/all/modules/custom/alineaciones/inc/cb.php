@@ -17,7 +17,7 @@ function alineaciones_page_cb (){
 /**
 * Cambia la formacion
 */
-function alineaciones_cambio_formacion_cb ($alineacion_nid, $formacion_tid){
+function alineaciones_cambio_formacion ($alineacion_nid, $formacion_tid){
   $ali = node_load($alineacion_nid);
   $term = taxonomy_term_load($formacion_tid);
   $posiciones = get_posiciones($term->description);
@@ -29,18 +29,20 @@ function alineaciones_cambio_formacion_cb ($alineacion_nid, $formacion_tid){
       if(intval($pl->field_posicion['und'][0]['tid']) != intval($posiciones[$i]["position"])){
         alineaciones_desalinear_jugador($ali->nid, $pl->nid);
         //$ali->{"field_jugador" . $i}['und'][0]['target_id'] = 0;
+        $resultado = 'OK';
       }
     }
   }
-  $resultado = 'OK';
 
   //-----Resultado------
-  if($resultado == "OK") :
-    $m = array();
-  $m['status'] = 'ok';
-  $m['classes'] = 'success';
-  $m['text'] = 'Se cambió la formación para esta fecha.';
-  endif;
+  $m = array();
+  if ($resultado == "OK") {
+    $m['status'] = 'success';
+    $m['text'] = 'Se cambió la formación para esta fecha.';
+  } else {
+    $m['status'] = 'error';
+    $m['text'] = 'Ha ocurrido un error';
+  }
 
   drupal_json_output($m);
 }
@@ -49,18 +51,30 @@ function alineaciones_cambio_formacion_cb ($alineacion_nid, $formacion_tid){
 /**
 * Cambia el capitan
 */
-function alineaciones_cambio_capitan_cb ($alineacion_nid, $capitan_nid){
+function alineaciones_cambio_capitan ($alineacion_nid, $capitan_nid){
   $ali = node_load($alineacion_nid);
   $ali->field_capitan['und'][0]['target_id'] = $capitan_nid;
   node_save($ali);
-  return "OK";
+  $resultado = "OK";
+
+  //-----Resultado------
+  $m = array();
+  if ($resultado == "OK") {
+    $m['status'] = 'success';
+    $m['text'] = 'Se cambió el capitán para esta fecha.';
+  } else {
+    $m['status'] = 'error';
+    $m['text'] = 'Ha ocurrido un error.';
+  }
+
+  drupal_json_output($m);
 }
 
 
 /**
 * Alinear jugador
 */
-function alineaciones_alinear_jugador_cb ($alineacion_nid,$position, $playerid){
+function alineaciones_alinear_jugador ($alineacion_nid,$position, $playerid){
   $position = str_replace("place","",$position);
   $ali = node_load($alineacion_nid);
   $prev = 0;
@@ -85,6 +99,7 @@ function alineaciones_alinear_jugador_cb ($alineacion_nid,$position, $playerid){
     node_save($ali);
     return "REEMPLAZO";
   }
+
   $ali->{"field_jugador".$position}['und'][0]['target_id'] = $playerid;
   foreach ($ali->field_suplentes['und'] as $key => $supl) {
     if ($supl['target_id'] == $playerid) {
@@ -100,9 +115,9 @@ function alineaciones_alinear_jugador_cb ($alineacion_nid,$position, $playerid){
 /**
  * Detalle de jugador
  */
-function alineaciones_jugador_detalle_cb ($playerid){
+function alineaciones_jugador_detalle ($playerid){
   $data = array();
-  $playerid = str_replace("2info","",$playerid);
+  $playerid = str_replace("info","",$playerid);
   $playerid = str_replace("3info","",$playerid);
   $playerid = str_replace("info","",$playerid);
   $player = node_load($playerid);
@@ -122,7 +137,7 @@ function alineaciones_jugador_detalle_cb ($playerid){
     '#markup'=>'<a class="close-reveal-modal">&#215;</a>'
     );
   $image = array(
-    '#prefix' => '<div class="small-12 image">',
+    '#prefix' => '<div class="small-16 image">',
     '#theme' => 'image_style',
     '#path' => $player->field_image['und'][0]['uri'],
     '#style_name' => 'escalar_y_recortar_a_a127x170',
@@ -134,9 +149,9 @@ function alineaciones_jugador_detalle_cb ($playerid){
   $team['#prefix'] = '<div class="left team">';
   $team['#suffix'] = '</div>';
   $points_html = views_embed_view('jugadores', 'block', $playerid);
-  dpm($points);
+  // dpm($points);
   $data["col1"] = array(
-    '#prefix' => '<div class="columns small-5 col1">',
+    '#prefix' => '<div class="columns small-7 col1">',
     '#suffix' => '</div>',
     'content' => array(
       $image,
@@ -145,7 +160,7 @@ function alineaciones_jugador_detalle_cb ($playerid){
 
     );
   $data["col2"] = array(
-    '#prefix' => '<div class="columns small-7 col2">',
+    '#prefix' => '<div class="columns small-9 col2">',
     '#suffix' => '</div>',
     'content' => array(
       $title,
@@ -161,18 +176,34 @@ function alineaciones_jugador_detalle_cb ($playerid){
 /**
 * Desalinear jugador
 */
-function alineaciones_desalinear_jugador_cb ($alineacion_nid, $playerid, $sell = false){
+function alineaciones_desalinear_jugador ($alineacion_nid, $playerid, $sell = false){
   $playerid = str_replace("drop","",$playerid);
   $ali = node_load($alineacion_nid);
+
+
   for($i=1;$i<=11;$i++){
-    if(isset($ali->{"field_jugador".$i}['und']) && $ali->{"field_jugador".$i}['und'][0]['target_id']==$playerid) {
+    if (isset($ali->{"field_jugador".$i}['und'])
+      && $ali->{"field_jugador".$i}['und'][0]['target_id'] == $playerid) {
       $ali->{"field_jugador".$i}['und'][0]['target_id'] = 0;
-      if(!$sell)$ali->field_suplentes['und'][] = array('target_id'=>$playerid);
+      if (!$sell) $ali->field_suplentes['und'][] = array('target_id'=>$playerid);
       node_save($ali);
-      return "OK";
+      $resultado = 'OK';
     }
   }
-  return "NO EXISTE";
+  // $resulto = "NO EXISTE";
+
+  //-----Resultado------
+  $m = array();
+  if ($resultado == "OK") {
+    $m['status'] = 'success';
+    $m['text'] = 'Jugador desalineado correctamente. Ha sido enviado al banquillo.';
+  }
+  else {
+    $m['status'] = 'error';
+    $m['text'] = 'Este jugador ya se encuentra en el banquillo de suplentes.';
+  }
+
+  drupal_json_output($m);
 }
 
 

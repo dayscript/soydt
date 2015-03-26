@@ -6172,7 +6172,6 @@ table {
 td, th {
   padding: 0; }
 
-/*body { background: red !important;}*/
 .destacado {
   color: #712740;
   text-transform: uppercase; }
@@ -6237,6 +6236,21 @@ h2 {
     h2 a:hover {
       color: #5f6062;
       text-decoration: underline; }
+
+pre {
+  background: #eee;
+  border: 1px solid #ddd;
+  padding: 10px;
+  page-break-inside: avoid;
+  white-space: pre-wrap;
+  /* css-3 */
+  white-space: -moz-pre-wrap;
+  /* Mozilla, since 1999 */
+  white-space: -pre-wrap;
+  /* Opera 4-6 */
+  white-space: -o-pre-wrap;
+  /* Opera 7 */
+  word-wrap: break-word; }
 
 @font-face {
   font-family: 'dinmittelschrift';
@@ -6620,7 +6634,7 @@ h2.block-title {
     .view-carrito .views-row .views-field-field-image {
       padding: 0; }
 
-.block-alineaciones-estadio {
+.block-alineaciones-estadio, .block-alineaciones-estadio-angular {
   background: url('../images/backgrounds/estadio.jpg');
   height: 834px;
   overflow: hidden; }
@@ -6630,7 +6644,7 @@ h2.block-title {
 
 .cancha {
   background: url("../images/backgrounds/cancha-activa.png") center top no-repeat;
-  height: 550px;
+  height: 558px;
   opacity: 0.6;
   position: relative;
   width: 1110px; }
@@ -6638,19 +6652,35 @@ h2.block-title {
     opacity: 1; }
   .cancha .droppable {
     position: absolute;
-    width: 46px;
+    width: 44px;
     height: 50px;
-    text-align: center; }
+    text-align: center;
+    margin-left: 12px;
+    margin-top: -12px;
+    padding: 10px;
+    -webkit-box-sizing: content-box;
+    -moz-box-sizing: content-box;
+    box-sizing: content-box; }
   .cancha .droppable.drop-hover {
     background: rgba(255, 255, 255, 0.6);
-    padding: 8px;
+    /*padding: 8px;*/
     -webkit-border-radius: 50%;
     -moz-border-radius: 50%;
     -ms-border-radius: 50%;
-    border-radius: 50%; }
+    border-radius: 50%;
+    z-index: 99; }
 
 .cancha-alertas {
-  margin-top: 90px; }
+  margin-top: 70px;
+  min-height: 88px; }
+  .cancha-alertas .alert-box {
+    border: 1px solid rgba(255, 255, 255, 0.3); }
+  .cancha-alertas .error {
+    background: #d00; }
+  .cancha-alertas .success {
+    background: #bec660; }
+  .cancha-alertas .warning {
+    background: #f6de8b; }
 
 .cancha-filtros {
   background: #fff;
@@ -6659,43 +6689,37 @@ h2.block-title {
 .cancha-tribuna {
   padding-top: 24px; }
 
+.sprite-juego {
+  background: url('../images/backgrounds/sprite-juego.png') 0 0 no-repeat;
+  color: transparent;
+  display: inline-block;
+  font-size: 0;
+  height: 22px;
+  width: 22px; }
+
 .cancha .futbolista {
   cursor: move;
-  height: 56px;
-  margin: 10px;
+  min-height: 60px;
   padding: 0;
-  position: relative;
-  top: 440px;
-  width: 52px;
-  border: 1px solid blue; }
-  .cancha .futbolista .star {
-    background: url("../images/backgrounds/opciones-alineacion.png") no-repeat;
-    height: 20px;
-    background-size: 100px;
-    padding-left: 21px;
-    background-position: -4px -101px;
-    position: absolute;
-    margin-top: -16px; }
-  .cancha .futbolista .futbolista-acciones-wrapper {
+  width: auto; }
+  .cancha .futbolista .ftb-acciones-wrapper {
     position: absolute;
     left: 0;
-    top: 0;
-    padding-left: 60px;
-    outline: 1px solid pink;
+    top: -12px;
+    padding-left: 72px;
     display: none;
     z-index: 40; }
-  .cancha .futbolista .futbolista-acciones {
-    border: 1px solid red;
+  .cancha .futbolista .ftb-acciones {
     background: #d6d6d6;
     background: rgba(255, 255, 255, 0.5);
     border-radius: 5px;
-    height: 70px;
-    padding: 0;
+    height: 80px;
+    padding: 4px;
     position: relative;
     top: 0;
     width: 30px;
     text-align: left; }
-    .cancha .futbolista .futbolista-acciones:before {
+    .cancha .futbolista .ftb-acciones:before {
       border: 10px solid transparent;
       border-right-color: rgba(255, 255, 255, 0.5);
       content: ' ';
@@ -6705,49 +6729,75 @@ h2.block-title {
       z-index: 2;
       top: 33%;
       left: -20px; }
-    .cancha .futbolista .futbolista-acciones a {
-      color: #333;
-      background: url("../images/backgrounds/opciones-alineacion.png") no-repeat;
+    .cancha .futbolista .ftb-acciones a {
       display: block;
-      height: 24px;
-      padding: 4px;
-      padding-left: 26px;
-      width: 100%; }
-      .cancha .futbolista .futbolista-acciones a.info {
-        background-position: 4px 2px; }
-      .cancha .futbolista .futbolista-acciones a.drop {
-        background-position: 4px -62px; }
-      .cancha .futbolista .futbolista-acciones a.sell {
-        background-position: 4px -20px; }
-  .cancha .futbolista:hover .futbolista-acciones-wrapper {
+      margin-bottom: 3px; }
+      .cancha .futbolista .ftb-acciones a:hover {
+        opacity: 0.6; }
+      .cancha .futbolista .ftb-acciones a.info {
+        background-position: 0 0; }
+      .cancha .futbolista .ftb-acciones a.drop {
+        background-position: 0 -150px; }
+      .cancha .futbolista .ftb-acciones a.put {
+        background-position: 0 -100px; }
+      .cancha .futbolista .ftb-acciones a.sell {
+        background-position: 0 -50px; }
+  .cancha .futbolista:hover .ftb-acciones-wrapper {
     display: block; }
-  .cancha .futbolista.ui-draggable-dragging:hover .futbolista-acciones-wrapper {
+  .cancha .futbolista.ui-draggable-dragging:hover .ftb-acciones-wrapper {
     display: none; }
-  .cancha .futbolista .image {
-    padding: 0; }
-  .cancha .futbolista .name_points {
+  .cancha .futbolista .ftb-equipo-imagen {
     padding: 0;
-    border: 2px solid #252525;
+    width: 50px;
+    margin-left: 18px; }
+  .cancha .futbolista .ftb-nombre-puntos {
+    background-image: -webkit-linear-gradient( #444, #222);
+    background-image: linear-gradient( #444, #222);
     border-radius: 5px;
+    border: 2px solid #222;
     color: white;
-    background-image: -webkit-linear-gradient( #2d2d2d, #1d1d1b);
-    background-image: linear-gradient( #2d2d2d, #1d1d1b);
     font-family: 'dinmittelschrift', sans-serif;
+    padding: 0 0 0 4px;
+    position: relative;
     text-transform: uppercase;
-    font-size: 0.75rem; }
-    .cancha .futbolista .name_points .name {
-      padding: 0;
-      font-size: 0.7rem;
-      font-family: 'Open Sans';
-      padding-top: 1px; }
-      .cancha .futbolista .name_points .name a {
-        color: white; }
-        .cancha .futbolista .name_points .name a:hover {
-          text-decoration: underline; }
-    .cancha .futbolista .name_points .points {
-      color: #de6d26;
-      padding: 0;
-      background: #333; }
+    width: 75%; }
+    .cancha .futbolista .ftb-nombre-puntos .star {
+      background-position: 0 -250px;
+      position: absolute;
+      top: -8px;
+      left: -8px; }
+  .cancha .futbolista .ftb-name {
+    font-size: 0.65em;
+    font-family: 'Open Sans';
+    padding: 0;
+    line-height: 24px;
+    text-align: left; }
+    .cancha .futbolista .ftb-name a {
+      color: white; }
+      .cancha .futbolista .ftb-name a:hover {
+        text-decoration: none; }
+  .cancha .futbolista .ftb-puntos {
+    color: #fbad38;
+    line-height: 30px;
+    padding: 0;
+    background: #333;
+    position: absolute;
+    right: 0px;
+    height: 100%; }
+
+.cancha .suplentes {
+  position: absolute;
+  bottom: 0;
+  background: url('../images/backgrounds/banca-activa.png') 0 0 no-repeat;
+  padding-left: 270px;
+  padding-top: 30px;
+  min-height: 150px; }
+  .cancha .suplentes .futbolista {
+    width: 95px; }
+  .cancha .suplentes .ftb-acciones-wrapper {
+    top: -24px; }
+  .cancha .suplentes .ftb-equipo-imagen {
+    width: 36px; }
 
 .puntajes .puntos_fecha {
   font-family: 'AdvDigital7', sans-serif;
