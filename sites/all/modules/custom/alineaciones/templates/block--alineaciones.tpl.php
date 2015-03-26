@@ -279,7 +279,7 @@ function es_torneo_activo() {
 </div> <!-- #estadio -->
 
 <div class="cancha-convenciones row">
-  <ul class="convenciones">
+  <ul class="convenciones small-16 columns">
     <li class="info"><i class="sprite-juego"></i>Información del jugador</li>
     <li class="sell"><i class="sprite-juego"></i>Vender</li>
     <li class="star"><i class="sprite-juego"></i>Seleccionar como capitan</li>

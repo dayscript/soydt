@@ -6808,7 +6808,7 @@ h2.block-title {
     width: 36px; }
 
 .cancha-convenciones {
-  margin: 10px 0 0 0;
+  margin-top: 10px;
   display: table;
   padding-top: 20px; }
   .cancha-convenciones i {
@@ -6855,12 +6855,14 @@ h2.block-title {
   border: 6px solid #38538e;
   min-height: 213px;
   padding: 0;
-  max-width: 400px; }
+  max-width: 400px;
+  padding: 20px; }
   #alineaciones-popup::before, #alineaciones-popup::after, #alineaciones-popup2::before, #alineaciones-popup2::after {
     content: "";
     width: 36px;
     height: 100%;
-    position: absolute; }
+    position: absolute;
+    top: 0; }
   #alineaciones-popup::before, #alineaciones-popup2::before {
     background: url("../images/backgrounds/popup-left.png") center center;
     left: -42px; }
