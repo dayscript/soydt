@@ -6252,6 +6252,12 @@ pre {
   /* Opera 7 */
   word-wrap: break-word; }
 
+input[type="text"], input[type="password"], input[type="date"], input[type="datetime"], input[type="datetime-local"], input[type="month"], input[type="week"], input[type="email"], input[type="number"], input[type="search"], input[type="tel"], input[type="time"], input[type="url"], textarea, .form-text, .form-textarea {
+  border: none;
+  background: repeat scroll 0 0 #fff;
+  box-shadow: none;
+  border-radius: 6px; }
+
 @font-face {
   font-family: 'dinmittelschrift';
   src: url('../fonts/dinmittelschrift/dinmittelschriftstd.eot');
@@ -6287,14 +6293,123 @@ pre {
   .l-header p {
     margin: 0;
     font-size: 0.75rem; }
+  .l-header .l-header-region .header {
+    float: left !important;
+    padding-left: 25px;
+    width: auto; }
+    .l-header .l-header-region .header:first-child {
+      padding-left: 0;
+      width: auto; }
 
 .featured-wrapper {
   background: white; }
   .featured-wrapper .l-featured {
     height: 125px; }
 
+.l-main {
+  margin-top: 59px; }
+
 #first-time {
   display: none; }
+
+#user-login-form {
+  height: 250px; }
+  #user-login-form input[type="password"], #user-login-form .form-item-pass {
+    margin-bottom: 0; }
+  #user-login-form .form-submit {
+    background: repeat scroll 0 0 #000;
+    border-radius: 0;
+    display: block;
+    font-weight: 600;
+    margin: 0 auto;
+    padding: 8px 5px;
+    text-transform: uppercase;
+    width: 150px; }
+  #user-login-form ul {
+    display: block;
+    margin: 0;
+    padding: 0;
+    position: relative;
+    height: 30px; }
+    #user-login-form ul li {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      position: absolute; }
+      #user-login-form ul li.first {
+        left: 0;
+        top: 78px;
+        width: 100%; }
+        #user-login-form ul li.first a {
+          background: repeat scroll 0 0 #2C659A;
+          color: #FFF;
+          display: block;
+          font-size: 22px;
+          padding: 18px 9px;
+          text-transform: uppercase;
+          width: 274px;
+          margin: 0 auto; }
+      #user-login-form ul li.last {
+        top: 0;
+        left: 0; }
+        #user-login-form ul li.last a[href="/user/password"] {
+          color: #E28652;
+          font-size: 12px;
+          font-style: italic; }
+
+.block-views-programacion-partidos-block h2.block-title {
+  background: none repeat scroll 0 0 #000;
+  border: none;
+  color: #FFFFFF;
+  margin: 0;
+  padding: 10px;
+  height: 48px; }
+
+.block-programacion {
+  background: none repeat scroll 0 0 #FFFFFF; }
+  .block-programacion #edit-field-torneo-value-wrapper {
+    width: 95%;
+    padding: 0;
+    float: none;
+    margin: 10px auto; }
+    .block-programacion #edit-field-torneo-value-wrapper label {
+      display: none; }
+  .block-programacion .view-content thead tr {
+    background-color: #FFFFFF; }
+    .block-programacion .view-content thead tr th {
+      color: #E28652; }
+  .block-programacion .view-content tbody tr {
+    background-color: #FFFFFF;
+    background-image: -webkit-linear-gradient(top, #FFFFFF, #F0F0F0);
+    background-image: linear-gradient(to bottom,#FFFFFF, #F0F0F0); }
+    .block-programacion .view-content tbody tr .views-field {
+      font-size: 13px;
+      text-align: center; }
+      .block-programacion .view-content tbody tr .views-field .logo-equipos {
+        overflow: hidden; }
+        .block-programacion .view-content tbody tr .views-field .logo-equipos img {
+          float: left; }
+      .block-programacion .view-content tbody tr .views-field .nombre-equipos div {
+        font-size: 13px;
+        line-height: 13px;
+        margin-bottom: 4px;
+        text-align: left; }
+    .block-programacion .view-content tbody tr:last-child {
+      border-bottom: 5px solid #000; }
+
+.block-banner .view-content .views-row {
+  border: none !important;
+  margin: 0 !important;
+  padding: 0 !important; }
+
+.block-blockify-blockify-logo {
+  margin-top: -40px;
+  padding: 0;
+  height: 184px;
+  width: 169px; }
+  .block-blockify-blockify-logo img {
+    height: 100%;
+    width: 100%; }
 
 .cf:before, .cf:after {
   content: " ";
@@ -6330,10 +6445,11 @@ pre {
   text-align: center; }
 
 h2.block-title {
-  font-weight: 700;
+  font-weight: 500;
   color: #222;
   font-size: 1.8rem;
-  border-bottom: 1px solid #33629a; }
+  border-bottom: 1px solid #33629a;
+  height: 35px; }
 
 .block-block-1 {
   padding-top: 8px; }
@@ -6345,10 +6461,6 @@ h2.block-title {
   padding: 0; }
   .block-contador-contador small {
     color: #609fdf; }
-
-.block-blockify-blockify-logo {
-  margin-top: -40px;
-  padding: 0; }
 
 .basket {
   background: url("../images/backgrounds/sprite.png") no-repeat 0px -72px;
@@ -6421,15 +6533,56 @@ h2.block-title {
     .sharethis-wrapper .stButton .stArrow .stButton_gradient {
       height: 100%; }
 
+.block-fboauth-login {
+  margin: 7px 0;
+  overflow: hidden; }
+  .block-fboauth-login .description {
+    float: left;
+    font-size: 10px;
+    width: 50%; }
+  .block-fboauth-login .facebook-action-connect {
+    float: left;
+    width: 50%;
+    display: block; }
+    .block-fboauth-login .facebook-action-connect img {
+      display: block; }
+
+.block-blog .views-row {
+  overflow: hidden; }
+  .block-blog .views-row .views-field {
+    line-height: 17px; }
+  .block-blog .views-row .views-field-picture {
+    float: right;
+    width: auto;
+    display: none; }
+  .block-blog .views-row .views-field-user-name, .block-blog .views-row .views-field-field-profesion {
+    color: #51514F;
+    font-size: 14px; }
+  .block-blog .views-row .views-field-field-profesion {
+    color: #E28652;
+    font-style: italic;
+    margin-bottom: 10px; }
+  .block-blog .views-row .views-field-title {
+    color: #51514F;
+    text-transform: uppercase;
+    line-height: 20px; }
+    .block-blog .views-row .views-field-title a {
+      color: #51514F;
+      text-decoration: none; }
+  .block-blog .views-row .views-field-body p {
+    color: #51514F;
+    font-size: 14px; }
+
 .block-system-user-menu ul.menu li {
   list-style: none; }
 
 .block-fboauth .description {
-  font-size: 0.85em;
+  font-size: 10px;
   text-align: center; }
 
 .block-system-main-menu {
-  padding: 10px 0 0 0; }
+  padding: 10px 0 0 0;
+  max-width: 454px; }
   .block-system-main-menu ul.menu {
     margin: 0; }
     .block-system-main-menu ul.menu li {
@@ -6446,6 +6599,8 @@ h2.block-title {
         color: #5f6062; }
         .block-system-main-menu ul.menu li a:hover, .block-system-main-menu ul.menu li a.active {
           color: #609fdf; }
+    .block-system-main-menu ul.menu.last {
+      padding-right: 0; }
 
 .block-system-user-menu {
   padding-top: 10px; }
