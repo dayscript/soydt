@@ -6,9 +6,11 @@
       bindDraggable();
 
       $(document).ajaxStart(function () {
+          $("#throbber").fadeIn();
       });
 
       $(document).ajaxStop(function () {
+          $("#throbber").fadeOut();
       });
 
       $delegateTo = $('.l-content-after');
