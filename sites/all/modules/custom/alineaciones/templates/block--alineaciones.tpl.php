@@ -208,7 +208,7 @@ $es_fecha_torneo_activo =  ( $fecha_torneo == $fecha_activa ) ? true : false;
             <div class="columns small-12 ftb-name">
               <a class="info" id="3info<?php echo $ftb_id?>"><?php echo $ftb_apellido; ?></a>
             </div>
-            <div class="columns small-3 end text-center ftb-puntos">0</div>
+            <div class="columns small-4 end text-center ftb-puntos">0</div>
 
           <?php if (isset($capitan_usuario) && $ftb_id == $capitan_usuario[0]['target_id']):?>
             <div class="star sprite-juego"></div>
