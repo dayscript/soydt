@@ -50,6 +50,32 @@ pre {
 }
 
 
+// Form Input
+//-----------------------------------------------------------------------------
+@mixin formulario_apariencia_general() {
+  border: 1px solid $grayline;
+  background-color: #fff;
+  box-shadow: none;
+  @include border-radius(6px);
+}
+
+label {
+  font-size: em(12);
+  margin-bottom: 0.3em;
+  text-transform: uppercase;
+}
+
+fieldset {
+  padding: 0;
+  border: none;
+  legend {
+    background: none;
+    font-size: em(13);
+    font-weight: bold;
+    text-transform: uppercase;
+  }
+}
+
 input[type="text"],
 input[type="password"],
 input[type="date"],
@@ -66,12 +92,32 @@ input[type="url"],
 textarea,
 .form-text,
 .form-textarea {
-
-  border: none;
-  background: repeat scroll 0 0 #fff;
-  box-shadow: none;
-  border-radius: 6px; 
+  @include formulario_apariencia_general();
 }
+
+select,
+.form-select {
+  @include formulario_apariencia_general();
+  padding: 0 0.25em;
+  margin-bottom: 0.7em;
+  font-size: em(14);
+}
+
+.form-item .description {
+  font-size: em(12);
+  margin-top: -0.4em;
+  padding: 0.5em 0 0.5em 1em;
+  border-left: 3px solid lighten($grayline, 15%);
+}
+
+.form-type-radio {
+  label {
+    position: relative;
+    top: -8px;
+  }
+}
+
+
 // Anchors
 //-----------------------------------------------------------------------------
 // a {}
@@ -82,39 +128,5 @@ textarea,
 // a:active,
 // a:hover {}
 
-// Form Input
-//-----------------------------------------------------------------------------
-// input[type="text"],
-// input[type="password"],
-// input[type="date"],
-// input[type="datetime"],
-// input[type="datetime-local"],
-// input[type="month"],
-// input[type="week"],
-// input[type="email"],
-// input[type="number"],
-// input[type="search"],
-// input[type="tel"],
-// input[type="time"],
-// input[type="url"],
-// textarea {
-// }
 
-// input[type="text"],
-// input[type="password"],
-// input[type="date"],
-// input[type="datetime"],
-// input[type="datetime-local"],
-// input[type="month"],
-// input[type="week"],
-// input[type="email"],
-// input[type="number"],
-// input[type="search"],
-// input[type="tel"],
-// input[type="time"],
-// input[type="url"],
-// textarea {
 
-// }
-
-// select {}

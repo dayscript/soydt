@@ -29,3 +29,9 @@
 .item-list .pager li {
   padding: 0;
 }
+
+div.field-group-tabs-wrapper div.field-type-image fieldset,
+div.field-group-tabs-wrapper div.field-type-file fieldset,
+div.field-group-tabs-wrapper div.field-type-datetime fieldset {
+  padding-top: 0;
+}
