@@ -6172,6 +6172,18 @@ table {
 td, th {
   padding: 0; }
 
+#throbber {
+  border-radius: 50%;
+  width: 60px;
+  height: 60px;
+  position: fixed;
+  right: 100px;
+  bottom: 100px;
+  background: #eee url('/misc/throbber-active.gif') center center no-repeat;
+  -webkit-background-size: 50% 50%;
+  background-size: 50% 50%;
+  /*display: none;*/ }
+
 .destacado {
   color: #712740;
   text-transform: uppercase; }
