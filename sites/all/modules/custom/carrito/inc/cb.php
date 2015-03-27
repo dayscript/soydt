@@ -74,6 +74,8 @@ function carrito_checkout(){
             $jug = node_load($jugador['target_id']);
             $saldo -= $jug->field_precio['und'][0]['value'];
             $alineacion->field_suplentes['und'][] = $jugador;
+            autoalinear($alineacion,$jug);
+            $alineacion = node_load($alineacion->nid);
         }
     }
     node_save($alineacion);
