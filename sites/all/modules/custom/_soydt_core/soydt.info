@@ -1,0 +1,10 @@
+name = SoyDT Core
+description = Modulo Global para SoyDT
+package = Dayscript
+core = 7.x
+dependencies[] = email_registration
+;dependencies[] = views
+
+
+;files[] = includes/example.inc
+;configure = admin/config/content/example

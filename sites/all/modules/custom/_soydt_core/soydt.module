@@ -1,0 +1,26 @@
+<?php
+/**
+ * Drupal Hooks globales para SoyDT
+ */
+
+
+/**
+ * Hook email_registration
+ * Guarda como nombre de usuario el mismo texto del email.
+ */
+function soydt_email_registration_name($edit, $account) {
+  return $edit['mail'];
+}
+
+
+/*
+ * @ Hook user_presave
+ * Renombra el "UserName" Cuando el usuario es actualizado
+ * para que sea == al e-mail
+ * En caso que no sea la cuenta de Admin (uid != 1)
+ */
+/* function soydt_user_presave(&$edit, $account, $category) {
+  if($account->uid != 1)
+    $edit['name'] = $edit['mail'];
+}
+*/
