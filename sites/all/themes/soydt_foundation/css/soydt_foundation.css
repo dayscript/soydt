@@ -6457,13 +6457,13 @@ ul.button-group {
   ul.button-group li {
     margin: 3px;
     text-align: right;
-    display: block;
-    height: 30px; }
+    display: block; }
     ul.button-group li a.button {
       background: #38538e;
       border: none;
       padding: 5px;
-      width: 100px; }
+      width: 100px;
+      margin-bottom: 3px; }
 
 .block-blockify-blockify-logo {
   margin-top: -40px;
