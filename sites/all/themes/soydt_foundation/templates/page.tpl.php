@@ -241,5 +241,5 @@
 <!--/.page -->
 
 <div id="js-placeholders">
-  <div id="throbber"></div>
+  <div id="throbber"><i class="fa fa-spinner fa-pulse"></i></div>
 </div>

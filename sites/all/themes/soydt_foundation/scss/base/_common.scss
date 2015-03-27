@@ -3,15 +3,19 @@
 //-----Cargando...------
 #throbber {
   border-radius: 50%;
+  color: $blueline;
   width: 60px;
   height: 60px;
   position: fixed;
   right: 100px;
   bottom: 100px;
-  background: #eee url('/misc/throbber-active.gif') center center no-repeat;
-  -webkit-background-size: 50% 50%;
-  background-size: 50% 50%;
-  /*display: none;*/
+  background: #eee;
+  display: none;
+  font-size: 2rem;
+  text-align: center;
+  .fa-spinner{
+    margin: 13px 0 0 0px;
+  }
 }
 
 .destacado{
