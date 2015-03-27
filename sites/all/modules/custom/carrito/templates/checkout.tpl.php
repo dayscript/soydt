@@ -1,8 +1,8 @@
 <div id="checkout">
-    <div class="columns small-12 medium-6 text-right">
+    <div class="columns small-16 medium-8 text-right">
         <h6 class="subheader">Si esta seguro que desea comprar estos jugadores, haga click a continuación.</h6>
     </div>
-    <div class="columns small-12 medium-66">
+    <div class="columns small-16 medium-8">
         <div class="clearfix">
             <label class="left">Valor de la compra</label>
             <div class="text-blue right">$<?php echo number_format($data["total"],0,",",".")?></div>
