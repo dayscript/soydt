@@ -187,3 +187,19 @@
     border: none !important;
   }
 }
+ul.button-group{
+  position: absolute;
+  left: -110px;
+  li{
+    margin: 3px;
+    text-align: right;
+    display: block;
+    height: 30px;
+    a.button{
+      background: $blueline2;
+      border: none;
+      padding: 5px;
+      width: 100px;
+    }
+  }
+}
