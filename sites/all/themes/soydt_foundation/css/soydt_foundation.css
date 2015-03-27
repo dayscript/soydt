@@ -6232,6 +6232,9 @@ td, th {
 .item-list .pager li {
   padding: 0; }
 
+div.field-group-tabs-wrapper div.field-type-image fieldset, div.field-group-tabs-wrapper div.field-type-file fieldset, div.field-group-tabs-wrapper div.field-type-datetime fieldset {
+  padding-top: 0; }
+
 h1, h2, h3, h4, h5, h6 {
   font-family: 'dinmittelschrift', sans-serif; }
 
@@ -6267,11 +6270,50 @@ pre {
   /* Opera 7 */
   word-wrap: break-word; }
 
+label {
+  font-size: 0.75em;
+  margin-bottom: 0.3em;
+  text-transform: uppercase; }
+
+fieldset {
+  padding: 0;
+  border: none; }
+  fieldset legend {
+    background: none;
+    font-size: 0.8125em;
+    font-weight: bold;
+    text-transform: uppercase; }
+
 input[type="text"], input[type="password"], input[type="date"], input[type="datetime"], input[type="datetime-local"], input[type="month"], input[type="week"], input[type="email"], input[type="number"], input[type="search"], input[type="tel"], input[type="time"], input[type="url"], textarea, .form-text, .form-textarea {
-  border: none;
-  background: repeat scroll 0 0 #fff;
+  border: 1px solid #999;
+  background-color: #fff;
   box-shadow: none;
+  -webkit-border-radius: 6px;
+  -moz-border-radius: 6px;
+  -ms-border-radius: 6px;
   border-radius: 6px; }
+
+select, .form-select {
+  border: 1px solid #999;
+  background-color: #fff;
+  box-shadow: none;
+  -webkit-border-radius: 6px;
+  -moz-border-radius: 6px;
+  -ms-border-radius: 6px;
+  border-radius: 6px;
+  padding: 0 0.25em;
+  margin-bottom: 0.7em;
+  font-size: 0.875em; }
+
+.form-item .description {
+  font-size: 0.75em;
+  margin-top: -0.4em;
+  padding: 0.5em 0 0.5em 1em;
+  border-left: 3px solid #bfbfbf; }
+
+.form-type-radio label {
+  position: relative;
+  top: -8px; }
 
 @font-face {
   font-family: 'dinmittelschrift';
@@ -7311,6 +7353,63 @@ font-size: 70%;
 
 .node-equipo .block-views-fichar-jugadores-block-1 {
   margin-top: 20px; }
+
+/**
+ * Formulario de Registro de Drupal
+ */
+#user-register-form {
+  padding-bottom: 2em; }
+  #user-register-form .form-actions {
+    display: inline-block;
+    margin: 0 auto; }
+
+.field-group-htab {
+  background: none; }
+
+.group-registro {
+  /**
+     * Se utiliza alta especificidad en los selectores, para poder
+     * sobre-escribir todos los estilos predeterminados de drupal
+     */ }
+  .group-registro .form-select, .group-registro .form-type-textfield input {
+    width: 80%; }
+  .group-registro .field-name-field-equipo-favorito {
+    background: url('../images/backgrounds/escudo-equipo-vacio.png') 130px top no-repeat;
+    padding-top: 100px; }
+  .group-registro .field-name-field-acepto .form-item .description {
+    margin-left: 0; }
+  .group-registro .vertical-tabs {
+    border: none;
+    margin-top: 0; }
+    .group-registro .vertical-tabs fieldset.vertical-tabs-pane {
+      padding-right: 0; }
+    .group-registro .vertical-tabs ul.vertical-tabs-list {
+      margin-top: 1em;
+      padding-right: 1em; }
+      .group-registro .vertical-tabs ul.vertical-tabs-list li {
+        background: none;
+        border: none;
+        margin-bottom: 1px; }
+        .group-registro .vertical-tabs ul.vertical-tabs-list li a {
+          color: #777; }
+      .group-registro .vertical-tabs ul.vertical-tabs-list li:hover, .group-registro .vertical-tabs ul.vertical-tabs-list li.selected {
+        background: #33629a;
+        color: #fff; }
+        .group-registro .vertical-tabs ul.vertical-tabs-list li:hover a, .group-registro .vertical-tabs ul.vertical-tabs-list li:hover a:hover, .group-registro .vertical-tabs ul.vertical-tabs-list li.selected a, .group-registro .vertical-tabs ul.vertical-tabs-list li.selected a:hover {
+          outline: none;
+          text-decoration: none; }
+        .group-registro .vertical-tabs ul.vertical-tabs-list li:hover strong, .group-registro .vertical-tabs ul.vertical-tabs-list li.selected strong {
+          color: #fff;
+          text-decoration: none; }
+    .group-registro .vertical-tabs fieldset.form-wrapper {
+      border: none; }
+
+/*---------------------------------------*
+ * Media Queries para el formulario de registro
+ *---------------------------------------*/
+@media screen and (min-width: 768px) {
+  #user-register-form .form-submit {
+    margin-left: 255px; } }
 
 .node-jugador.view-mode-full .player-image img {
   border: 2px solid white; }

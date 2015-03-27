@@ -1,0 +1,100 @@
+/**
+ * Formulario de Registro de Drupal
+ */
+
+ #user-register-form {
+  padding-bottom: 2em;
+
+  .form-actions {
+    display: inline-block;
+    margin: 0 auto;
+  }
+ }
+
+.field-group-htab {
+  background: none;
+}
+
+
+.group-registro {
+    /**
+     * Se utiliza alta especificidad en los selectores, para poder
+     * sobre-escribir todos los estilos predeterminados de drupal
+     */
+
+  .form-select,
+  .form-type-textfield input {
+    width: 80%;
+  }
+
+  .field-name-field-equipo-favorito {
+    background: url('../images/backgrounds/escudo-equipo-vacio.png') 130px top no-repeat;
+    padding-top: 100px;
+  }
+
+  .field-name-field-acepto {
+    .form-item .description {
+      margin-left: 0;
+    }
+  }
+
+  .vertical-tabs {
+    border: none;
+    margin-top: 0;
+
+    fieldset.vertical-tabs-pane {
+      padding-right: 0;
+    }
+
+
+    ul.vertical-tabs-list {
+      margin-top: 1em;
+      padding-right: 1em;
+
+      li {
+        background: none;
+        border: none;
+        margin-bottom: 1px;
+
+        a {
+          color: $gray;
+        }
+      }
+
+      li:hover,
+      li.selected {
+        background: $blueline;
+        color: #fff;
+
+        a,
+        a:hover {
+          outline: none;
+          text-decoration: none;
+        }
+
+        strong {
+          color: #fff;
+          text-decoration: none;
+        }
+      }
+    } //Vertical-tabs-list
+
+    fieldset.form-wrapper {
+      border: none;
+    }
+  } //Vertical Tabs
+
+}
+
+
+/*---------------------------------------*
+ * Media Queries para el formulario de registro
+ *---------------------------------------*/
+@media screen and (min-width: 768px) {
+  #user-register-form {
+    .form-submit {
+      margin-left: 255px;
+    }
+  }
+
+}
