@@ -147,4 +147,21 @@ function borrarSuplente($alineacion,$playerid){
     return $alineacion;
 }
 
-?>
+function autoalinear($alineacion,$player){
+    $formacion = taxonomy_term_load($alineacion->field_formacion['und'][0]['tid']);
+    $posiciones = get_posiciones($formacion->description);
+    $resultado = "";
+    for($i=1;$i<=11;$i++) {
+        if (!isset($alineacion->{"field_jugador" . $i}['und']) || $alineacion->{"field_jugador" . $i}['und'][0]['target_id'] == 0 ) {
+            if(intval($player->field_posicion['und'][0]['tid']) == intval($posiciones[$i]["position"])){
+                alineaciones_alinear_jugador($alineacion->nid,$i,$player->nid);
+                $alineacion = node_load($alineacion->nid);
+                $alineacion = borrarSuplente($alineacion,$player->nid);
+                node_save($alineacion);
+                $resultado = "OK";
+            }
+        }
+    }
+    return $resultado;
+
+}

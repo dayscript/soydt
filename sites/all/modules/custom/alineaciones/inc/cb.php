@@ -19,18 +19,20 @@ function alineaciones_page_cb (){
 */
 function alineaciones_cambio_formacion ($alineacion_nid, $formacion_tid){
   $ali = node_load($alineacion_nid);
-  $term = taxonomy_term_load($formacion_tid);
-  $posiciones = get_posiciones($term->description);
   $ali->field_formacion['und'][0]['tid'] = $formacion_tid;
   node_save($ali);
+  $players = array();
   for($i=1;$i<=11;$i++) {
     if (isset($ali->{"field_jugador" . $i}['und']) && $ali->{"field_jugador" . $i}['und'][0]['target_id'] >0) {
       $pl = node_load($ali->{"field_jugador" . $i}['und'][0]['target_id']);
-      if(intval($pl->field_posicion['und'][0]['tid']) != intval($posiciones[$i]["position"])){
-        alineaciones_desalinear_jugador($ali->nid, $pl->nid);
-        //$ali->{"field_jugador" . $i}['und'][0]['target_id'] = 0;
-      }
+      $ali->{"field_jugador".$i}['und'][0]['target_id'] = 0;
+      $ali->field_suplentes['und'][] = array('target_id'=>$pl->nid);
+      $players[] = $pl;
     }
+  }
+  node_save($ali);
+  foreach($players as $player){
+      autoalinear($ali,$player);
   }
   $resultado = 'OK';
 
@@ -66,7 +68,6 @@ function alineaciones_cambio_capitan ($alineacion_nid, $capitan_nid){
     $m['status'] = 'error';
     $m['text'] = 'Ha ocurrido un error.';
   }
-
   drupal_json_output($m);
 }
 
@@ -209,21 +210,8 @@ function alineaciones_autoalinear_jugador ($alineacion_nid, $playerid){
     $playerid = str_replace("put","",$playerid);
     $ali = node_load($alineacion_nid);
     $player = node_load($playerid);
+    $resultado = autoalinear($ali,$player);
 
-    $formacion = taxonomy_term_load($ali->field_formacion['und'][0]['tid']);
-    $posiciones = get_posiciones($formacion->description);
-    $resultado = "";
-    for($i=1;$i<=11;$i++) {
-        if (!isset($ali->{"field_jugador" . $i}['und']) || $ali->{"field_jugador" . $i}['und'][0]['target_id'] == 0 ) {
-            if(intval($player->field_posicion['und'][0]['tid']) == intval($posiciones[$i]["position"])){
-                alineaciones_alinear_jugador($alineacion_nid,$i,$playerid);
-                $ali = node_load($alineacion_nid);
-                $ali = borrarSuplente($ali,$playerid);
-                node_save($ali);
-                $resultado = "OK";
-            }
-        }
-    }
     //-----Resultado------
     $m = array();
     if ($resultado == "OK") {
@@ -254,6 +242,3 @@ function _cancha_block_cb() {
     $block = module_invoke('alineaciones', 'block_view', 'estadio');
     print render($block['content']);
 }
-
-
-?>
