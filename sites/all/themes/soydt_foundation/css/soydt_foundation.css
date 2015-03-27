@@ -6562,8 +6562,10 @@ h2.block-title {
     height: 35px;
     background: url("../images/buttons/checkout.png");
     background-size: 100% 100%;
-    margin: 0 46px;
+    margin: 0 27%;
     padding-top: 7px; }
+    .carrito .checkout a, .block-equipo .checkout a {
+      color: white; }
 
 .block-carrito-equipo2 .carrito .data1, .block-carrito-equipo2 .carrito .data2, .block-carrito-carrito2 .carrito .data1, .block-carrito-carrito2 .carrito .data2 {
   /*      width: 49%;
@@ -7329,7 +7331,7 @@ font-size: 70%;
     margin-right: 10px; }
   .node-jugador.view-mode-full .field-name-agregar-carrito .agregar .text {
     padding-top: 10px;
-    font-size: 1.4rem; }
+    font-size: 1.3rem; }
   .node-jugador.view-mode-full .field-name-agregar-carrito .agregar small {
     display: block; }
 
