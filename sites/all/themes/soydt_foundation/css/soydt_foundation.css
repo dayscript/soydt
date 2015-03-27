@@ -6322,7 +6322,7 @@ input[type="text"], input[type="password"], input[type="date"], input[type="date
     height: 125px; }
 
 .l-main {
-  margin-top: 59px; }
+  margin-top: 15px; }
 
 #first-time {
   display: none; }
@@ -6668,37 +6668,39 @@ h2.block-title {
       .block-system-user-menu ul.menu li a {
         color: orange; }
 
-.block-menu-menu-jugar ul.menu li {
-  display: inline-block;
-  list-style: none;
-  position: relative;
-  margin: 0 25px; }
-  .block-menu-menu-jugar ul.menu li a {
-    text-transform: uppercase;
-    font-size: 1.2rem;
-    font-family: 'dinmittelschrift', sans-serif;
-    padding: 10px 15px 7px;
-    border-bottom: none;
+.block-menu-menu-jugar {
+  margin-top: 15px; }
+  .block-menu-menu-jugar ul.menu li {
     display: inline-block;
-    color: #5f6062; }
-    .block-menu-menu-jugar ul.menu li a:hover {
-      color: #609fdf; }
-    .block-menu-menu-jugar ul.menu li a.active, .block-menu-menu-jugar ul.menu li a.active-trail {
-      color: white;
-      background: #33629a; }
-      .block-menu-menu-jugar ul.menu li a.active::before, .block-menu-menu-jugar ul.menu li a.active::after, .block-menu-menu-jugar ul.menu li a.active-trail::before, .block-menu-menu-jugar ul.menu li a.active-trail::after {
-        display: inline-block;
-        height: 35px;
-        content: "";
-        top: 9px;
-        width: 28px;
-        position: absolute;
-        background: url(../images/backgrounds/sprite.png) no-repeat 0px -274px;
-        left: -25px; }
-      .block-menu-menu-jugar ul.menu li a.active::after, .block-menu-menu-jugar ul.menu li a.active-trail::after {
-        left: initial;
-        right: -28px;
-        background-position: -55px -274px; }
+    list-style: none;
+    position: relative;
+    margin: 0 25px; }
+    .block-menu-menu-jugar ul.menu li a {
+      text-transform: uppercase;
+      font-size: 1.2rem;
+      font-family: 'dinmittelschrift', sans-serif;
+      padding: 10px 15px 7px;
+      border-bottom: none;
+      display: inline-block;
+      color: #5f6062; }
+      .block-menu-menu-jugar ul.menu li a:hover {
+        color: #609fdf; }
+      .block-menu-menu-jugar ul.menu li a.active, .block-menu-menu-jugar ul.menu li a.active-trail {
+        color: white;
+        background: #33629a; }
+        .block-menu-menu-jugar ul.menu li a.active::before, .block-menu-menu-jugar ul.menu li a.active::after, .block-menu-menu-jugar ul.menu li a.active-trail::before, .block-menu-menu-jugar ul.menu li a.active-trail::after {
+          display: inline-block;
+          height: 35px;
+          content: "";
+          top: 9px;
+          width: 28px;
+          position: absolute;
+          background: url(../images/backgrounds/sprite.png) no-repeat 0px -274px;
+          left: -25px; }
+        .block-menu-menu-jugar ul.menu li a.active::after, .block-menu-menu-jugar ul.menu li a.active-trail::after {
+          left: initial;
+          right: -28px;
+          background-position: -55px -274px; }
 
 .top-bar-section ul#secondary-menu li {
   background-color: #666; }
