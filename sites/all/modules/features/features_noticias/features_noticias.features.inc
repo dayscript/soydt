@@ -29,16 +29,7 @@ function features_noticias_image_default_styles() {
   // Exported image style: equipo_ideal_753x451.
   $styles['equipo_ideal_753x451'] = array(
     'label' => 'Equipo Ideal (753x451)',
-    'effects' => array(
-      18 => array(
-        'name' => 'image_scale_and_crop',
-        'data' => array(
-          'width' => 753,
-          'height' => 451,
-        ),
-        'weight' => 1,
-      ),
-    ),
+    'effects' => array(),
   );
 
   return $styles;
