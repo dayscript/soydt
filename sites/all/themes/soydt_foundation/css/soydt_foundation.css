@@ -6507,6 +6507,25 @@ ul.button-group {
       width: 100px;
       margin-bottom: 3px; }
 
+/*#soydt-my-league-form {
+  overflow: hidden;
+  .form-item{
+    float: left;
+    margin: 5px 20px 0 0;
+    overflow: hidden;
+    width: 248px;
+    &.form-item-league-password-confirm {
+      width: 546px;
+    }
+    .password-strength,
+    .password-confirm{
+      display: none;
+    }
+    &.form-item-league-comments{
+      width: 519px;
+    }
+  }
+}*/
 .block-blockify-blockify-logo {
   margin-top: -40px;
   padding: 0;

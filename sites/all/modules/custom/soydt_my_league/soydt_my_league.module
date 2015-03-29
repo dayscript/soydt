@@ -1,0 +1,178 @@
+<?php
+
+  function soydt_my_league_init(){
+    
+    if ( drupal_get_path_alias('node/'.arg(1)) == 'mi-liga' ) {
+      drupal_add_library( 'system', 'drupal.ajax' );
+    }
+    
+  }
+
+  function soydt_my_league_menu() {
+    
+    $items = array();
+    
+    $items['league/subscribe/%/%'] = array(
+        'access arguments' => array( 'access content' ),
+        'page arguments'   => array( 2, 3 ),
+        'page callback'    => 'soydt_my_league_subscribe',
+        'title'            => t('Exportar video'),
+        'type'             => MENU_CALLBACK,
+    );
+    
+    $items['league/unsubscribe/%/%'] = array(
+        'access arguments' => array( 'access content' ),
+        'page arguments'   => array( 2, 3 ),
+        'page callback'    => 'soydt_my_league_unsubscribe',
+        'title'            => t('Exportar video'),
+        'type'             => MENU_CALLBACK,
+    );
+    
+    return $items;
+    
+  }
+
+  function soydt_my_league_block_info(){
+    
+    $blocks = array();
+
+    $blocks['league_form'] = array(
+        'info'  => t('formulario de liga'),
+        'cache' => DRUPAL_NO_CACHE,
+    );
+
+    return $blocks;
+      
+  }
+  
+  
+  function soydt_my_league_block_view($delta = ''){
+    
+    global $user;
+
+    $block = array();
+
+    if ( $delta == 'league_form' ) {
+      $block['subject'] = '';
+      $block['content'] = drupal_render( drupal_get_form('soydt_my_league_form', $user->uid) );
+    }
+
+    return $block;
+      
+  }
+  
+  
+  function soydt_my_league_form( $form, &$form_state, $uId ) {
+    
+    $form['league_type'] = array(
+        '#default_value' => 'publica',
+        '#options'       => array(
+            'privada' => t('Privada'),
+            'publica' => t('Publica')
+        ),
+        '#required'      => TRUE,
+        '#type'          => 'select',
+        '#title'         => t( 'Tipo de liga' ),
+    );
+    
+    $form['league_name'] = array(
+        '#maxlength' => 255,
+        '#required'  => TRUE,
+        '#size'      => 30,
+        '#title'     => t('Nombre de liga'),
+        '#type'      => 'textfield',
+    );
+    
+    $form['league_password_confirm'] = array(
+        '#maxlength' => 255,
+        '#size'      => 30,
+        '#title'     => t('Repetir clave'),
+        '#type'      => 'password_confirm',
+    );
+    
+    $form['league_comments'] = array(
+        '#title' => t('Comentarios'),
+        '#type'  => 'textarea',
+    );
+    
+    $form['league_create'] = array(
+        '#type'  => 'submit',
+        '#value' => t('Crear liga')
+    );
+    
+    $form['league_uid'] = array(
+        '#type'  => 'hidden',
+        '#value' => $uId
+    );
+    
+    return $form;
+    
+  }
+  
+  
+  function soydt_my_league_form_submit( $form, &$form_state ){
+    
+    $values = $form_state['values'];
+    $league = entity_create( 'node', array('type' => 'mis_ligas') );
+    
+    $league->uid   = $values['league_uid'];
+    $leagueWrapper = entity_metadata_wrapper( 'node', $league );
+    
+    $leagueWrapper->title                = $values['league_name'];
+    $leagueWrapper->field_password       = md5( $values['league_password_confirm'] );
+    $leagueWrapper->body                 = array( 'value' => $values['league_comments'] );
+    $leagueWrapper->field_league_members = array( array('target_id' => $values['league_uid']) );
+    
+    $leagueWrapper->save();
+    
+  }
+
+  
+  function soydt_my_league_subscribe( $league, $uid ){
+    
+    $commands = array();
+    
+    $leagueWrapper = entity_metadata_wrapper( 'node', $uid );
+    $members       = $leagueWrapper->field_league_members->values();
+    $members[]     = array( 'target_id' => $uid );
+    
+    $leagueWrapper->field_league_members = $newMembers;
+    $leagueWrapper->save();
+    
+    ajax_deliver( array('#type' => 'ajax', '#commands' => $commands) );
+    
+  }
+  
+  
+  function soydt_my_league_unsubscribe( $league, $uid ) {
+    
+    $commands     = array();
+    $newsMembers  = array();
+    
+    $leagueWrapper = entity_metadata_wrapper( 'node', $uid );
+    $members       = $leagueWrapper->field_league_members->values();
+    
+    for ( $i=0; $i<count($members); $i++ ) {
+      
+      if ( $members[$i]->uid != $uid ) {
+        $newsMembers[] = array( 'target_id' => $members[$i]->uid );
+      }
+      
+    }
+    
+    $leagueWrapper->field_league_members = $newMembers;
+    $leagueWrapper->save();
+    
+    ajax_deliver( array('#type' => 'ajax', '#commands' => $commands) );
+    
+  }
+  
+  
+  function soydt_my_league_views_api(){
+    
+    return array(
+        'api'  => 3,
+        'path' => drupal_get_path( 'module', 'soydt_my_league' )
+    );
+    
+  }

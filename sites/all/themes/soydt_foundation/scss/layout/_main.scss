@@ -178,8 +178,6 @@
       font-size: 14px;
     }
   }
-  
-  
 }
 
 .equipo-ideal {
@@ -203,3 +201,23 @@ ul.button-group{
     }
   }
 }
+
+/*#soydt-my-league-form {
+  overflow: hidden;
+  .form-item{
+    float: left;
+    margin: 5px 20px 0 0;
+    overflow: hidden;
+    width: 248px;
+    &.form-item-league-password-confirm {
+      width: 546px;
+    }
+    .password-strength,
+    .password-confirm{
+      display: none;
+    }
+    &.form-item-league-comments{
+      width: 519px;
+    }
+  }
+}*/
