@@ -38,8 +38,8 @@
       });
 
       $delegateTo.on('change', '.active #capitan', function(){
-        var url = '/jugar/capitan/'+ $("#id_alineacion").val() + '/' + this.value;
         //-----Recargar la página al cambiar de capitan------
+        var url = '/jugar/capitan/'+ $("#id_alineacion").val() + '/' + this.value;
         $.get(url).then(function(data){
           window.location.reload();
         });
@@ -47,7 +47,7 @@
 
       $delegateTo.on('change', '#fecha', function(){
         //-----Redirigir la página al cambiar de fecha------
-        window.location.href = "/jugar/m-alineaciones/" + this.value + '#estadio'
+        window.location.href = "/jugar/m-alineaciones/" + this.value;
       });
 
 
