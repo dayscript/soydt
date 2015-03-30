@@ -18,12 +18,12 @@
       //-----Filtros de la Cancha------
       $delegateTo.on('change', '#filtros.active #formacion', function(){
         var url = '/jugar/formacion/' + $("#id_alineacion").val()  + '/' + this.value;
-        $.get(url, function (data) { /*console.log(data, url);*/ recargarDatos(data); });
+        $.get(url).then(function(data){ recargarDatos(data); });
       });
 
       $delegateTo.on('change', '.active #capitan', function(){
         var url = '/jugar/capitan/'+ $("#id_alineacion").val() + '/' + this.value;
-        $.get(url, function (data) { /*console.log(data, url);*/ recargarDatos(data); });
+        $.get(url).then(function(data){ recargarDatos(data); });
       });
 
       $delegateTo.on('change', '#fecha', function(){
@@ -33,17 +33,17 @@
       //-----Acciones sobre el futbolista------
       $delegateTo.on('click', 'a.drop', function(){
           var url = '/jugar/desalinear/' + $("#id_alineacion").val() + '/' + this.id;
-          $.get(url, function (data) { /*console.log(data, url);*/ recargarDatos(data); });
+          $.get(url).then(function(data){ recargarDatos(data); });
       });
 
-        $delegateTo.on('click', 'a.put', function(){
-            var url = '/jugar/autoalinear/' + $("#id_alineacion").val() + '/' + this.id;
-            $.get(url, function (data) { /*console.log(data, url);*/ recargarDatos(data); });
-        });
+      $delegateTo.on('click', 'a.put', function(){
+          var url = '/jugar/autoalinear/' + $("#id_alineacion").val() + '/' + this.id;
+          $.get(url).then(function(data){ recargarDatos(data); });
+      });
 
       $delegateTo.on('click', 'a.sell', function(){
           var url = '/carrito/sell' + '/' + this.id + '/' + $("#id_alineacion").val();
-          $.get(url, function (data) { /*console.log(data, url);*/ recargarDatos(data); });
+          $.get(url).then(function(data){ recargarDatos(data); });
       });
 
       $delegateTo.on('click', 'a.info', function(){
@@ -75,7 +75,7 @@
             $(this).animate({opacity:0});
 
             var url = '/jugar/alinear/'+ $("#id_alineacion").val() + '/' + this.id + '/' + ui.draggable[0].id;
-            $.get(url, function (data) { /*console.log(data, url);*/ recargarDatos(data); });
+            $.get(url).then(function(data){ recargarDatos(data); });
           },
 
           out: function(event, ui){
