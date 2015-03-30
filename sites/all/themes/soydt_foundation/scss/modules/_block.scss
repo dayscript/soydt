@@ -5,12 +5,14 @@ h2.block-title{
   border-bottom: 1px solid $blueline;
 }
 
-.block-block-1{
+.block-block-1 {
   padding-top: 8px;
 }
-.block-block-4{
+
+.block-block-4 {
   padding-top: 30px;
 }
+
 .block-contador-contador{
   padding: 0;
   small{
@@ -18,156 +20,15 @@ h2.block-title{
   }
 }
 
-.basket{
-  background: url("../images/backgrounds/sprite.png") no-repeat 0px -72px;
-  width: 40px;
-  height: 42px;
-}
-
-.carrito,
-.block-equipo{
-  position: relative;
-  @include background-image(linear-gradient(#eea320, #eea320 43%, #b37b18 54%, #eea320));
-  border-radius: 3px;
-  color: white;
-  padding: 10px 5px 25px;
-  text-align: center;
-  margin-bottom: 20px;
-  .total{
-    font-family: $font-digital;
-    background: #000000;
-    border-radius: 3px;
-    line-height: 3.4rem;
-    height: 43px;
-    font-size: 1.2rem;
-  }
-  .count{
-    text-transform: uppercase;
-    font-weight: bold;
-    font-family: $font-main;
-    font-size: 1.4rem;
-    padding-top: 10px;
-  }
-  .checkout{
-    position: absolute;
-    bottom: -15px;
-    display: block;
-    color: white;
-    text-transform: uppercase;
-    font-family: $font-main;
-    width: 140px;
-    height: 35px;
-    background: url("../images/buttons/checkout.png");
-    background-size: 100% 100%;
-    margin: 0 27%;
-    padding-top: 7px;
-    a{color: white;}
-  }
-}
-.block-carrito-equipo2,
-.block-carrito-carrito2{
-  .carrito{
-    .data1,.data2{
-/*      width: 49%;
-      display: inline-block;
-*/      vertical-align: top;
-    }
-    .checkout{
-      //left: 240px;
-    }
-  }
-  .checkout{
-    left: 62px;
-  }
-}
-.block-equipo {
-  @include background-image(linear-gradient(#20a3ee, #20a3ee 43%, #187bb3 54%, #20a3ee));
-}
 .reveal-modal-bg{
   z-index: 800;
   position: fixed;
   background: rgba(0, 0, 0, 0.7);
 }
 
-.block-carrito{
-  //clear: both;
-}
 .block-md-slider{
   padding: 0px;
   margin-bottom: 20px;
-}
-.sharethis-wrapper{
-  margin-bottom: 10px;
-  .stButton{
-    .stMainServices{
-      height: 23px;
-    }
-    .stArrow{
-      height: 23px;
-      .stButton_gradient{
-        height: 100%;
-      }
-    }
-  }
-}
-
-.block-fboauth-login {
-  margin: 7px 0;
-  overflow: hidden;
-  .description {
-    float: left;
-    font-size: 10px;
-    width: 50%;
-  }
-  .facebook-action-connect {
-    float: left;
-    width: 50%;
-    display: block;
-    img { 
-      display: block;
-    }
-  }
-}
-
-.block-blog {
-  .views-row {
-    overflow: hidden;
-    .views-field {
-      line-height: 17px;
-    }
-    .views-field-picture{
-      float: right;
-      width: auto;
-      display: none;
-    }
-    .views-field-user-name,
-    .views-field-field-profesion{
-      color: #51514F;
-      font-size: 14px;
-    }
-    .views-field-field-profesion {
-      color: #E28652;
-      font-style: italic;
-      margin-bottom: 10px;
-    }
-    .views-field-title {
-      color: #51514F;
-      text-transform: uppercase;
-      line-height: 20px;
-      a {
-        color: #51514F;
-        font-weight: 600;
-        text-decoration: none;
-      }
-    }
-    .views-field-body { 
-      p{
-        color: #51514F;
-        font-size: 14px;
-        margin: 0;
-      }
-    }
-  }
 }
 
 .sidebar {
@@ -181,4 +42,4 @@ h2.block-title{
       margin-top: 25px;
     }
   }
-} 
+}

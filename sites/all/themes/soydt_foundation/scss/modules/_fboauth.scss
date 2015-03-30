@@ -11,3 +11,21 @@
     text-align: center;
   }
 }
+
+.block-fboauth-login {
+  margin: 7px 0;
+  overflow: hidden;
+  .description {
+    float: left;
+    font-size: 10px;
+    width: 50%;
+  }
+  .facebook-action-connect {
+    float: left;
+    width: 50%;
+    display: block;
+    img {
+      display: block;
+    }
+  }
+}

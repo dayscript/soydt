@@ -1,3 +1,44 @@
 .bloggerimage{
   margin: 0 20px 10px 0;
 }
+
+.block-blog {
+  .views-row {
+    overflow: hidden;
+    .views-field {
+      line-height: 17px;
+    }
+    .views-field-picture{
+      float: right;
+      width: auto;
+      display: none;
+    }
+    .views-field-user-name,
+    .views-field-field-profesion{
+      color: #51514F;
+      font-size: 14px;
+    }
+    .views-field-field-profesion {
+      color: #E28652;
+      font-style: italic;
+      margin-bottom: 10px;
+    }
+    .views-field-title {
+      color: #51514F;
+      text-transform: uppercase;
+      line-height: 20px;
+      a {
+        color: #51514F;
+        font-weight: 600;
+        text-decoration: none;
+      }
+    }
+    .views-field-body {
+      p{
+        color: #51514F;
+        font-size: 14px;
+        margin: 0;
+      }
+    }
+  }
+}
