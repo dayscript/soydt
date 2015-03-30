@@ -1,3 +1,10 @@
+.featured-wrapper{
+  background: white;
+  .l-featured{
+    height: 125px;
+  }
+}
+
 .block-blockify-blockify-logo{
   margin-top: -40px;
   padding: 0;
@@ -5,7 +12,7 @@
   width: 169px;
   img {
     height: 100%;
-    width: 100%;  
+    width: 100%;
   }
 }
 
