@@ -6187,6 +6187,18 @@ td, th {
   #throbber .fa-spinner {
     margin: 13px 0 0 0px; }
 
+.alert-box .close, .alert-box .close-alert {
+  font-size: 1.375rem;
+  padding: 9px 6px 4px;
+  line-height: 0;
+  position: absolute;
+  top: 50%;
+  margin-top: -0.6875rem;
+  right: 0.25rem;
+  color: #333333;
+  opacity: 0.3;
+  background: inherit; }
+
 .destacado {
   color: #712740;
   text-transform: uppercase; }
@@ -6365,6 +6377,8 @@ select, .form-select {
 .l-main {
   margin-top: 50px;
   padding-bottom: 50px; }
+  .page-jugar-m-alineaciones .l-main, .page-jugar-alineaciones .l-main {
+    padding-bottom: 0; }
 
 #first-time {
   display: none; }
@@ -6865,15 +6879,15 @@ h2.block-title {
 .alineaciones-modal {
   padding: 30px; }
 
-.cancha {
+.estadio .cancha {
   background: url("../images/backgrounds/cancha-activa.png") center top no-repeat;
   height: 558px;
   opacity: 0.5;
   position: relative;
   width: 1110px; }
-  .cancha.active {
+  .estadio .cancha.active {
     opacity: 1; }
-  .cancha .droppable {
+  .estadio .cancha .droppable {
     position: absolute;
     width: 44px;
     height: 50px;
@@ -6884,7 +6898,7 @@ h2.block-title {
     -webkit-box-sizing: content-box;
     -moz-box-sizing: content-box;
     box-sizing: content-box; }
-  .cancha .droppable.drop-hover {
+  .estadio .cancha .droppable.drop-hover {
     background: rgba(255, 255, 255, 0.6);
     /*padding: 8px;*/
     -webkit-border-radius: 50%;
@@ -7036,6 +7050,8 @@ h2.block-title {
   margin-top: 10px;
   display: table;
   padding-top: 20px; }
+  .cancha-convenciones ul {
+    margin: 0; }
   .cancha-convenciones i {
     margin-right: 10px;
     position: relative;
@@ -7122,6 +7138,69 @@ h2.block-title {
   #alineaciones-popup .close-reveal-modal, #alineaciones-popup2 .close-reveal-modal {
     top: -2px;
     right: 10px; }
+
+.estadio-mobile {
+  margin: 0 0.3em; }
+  .estadio-mobile .cancha-alertas.mobile {
+    position: fixed;
+    bottom: 0;
+    margin: 0 0.5em;
+    z-index: 40; }
+    .estadio-mobile .cancha-alertas.mobile .alert-box {
+      font-size: 0.65em;
+      margin-bottom: 0; }
+  .estadio-mobile .cancha-filtros {
+    margin-top: 1em; }
+  .estadio-mobile .cancha-titulo {
+    margin: 2em 0 0; }
+  .estadio-mobile .cancha-tribuna {
+    padding-top: 0; }
+  .estadio-mobile .futbolista {
+    padding: 0.5em 0;
+    margin: 0 0 0 0.3em;
+    border-bottom: 1px solid #ccc;
+    line-height: 55px; }
+  .estadio-mobile .ftb-acciones {
+    overflow: hidden;
+    height: 50px;
+    padding-top: 20px; }
+    .estadio-mobile .ftb-acciones a {
+      margin-left: 8px;
+      height: 50px;
+      display: block;
+      float: left;
+      transform: scale(1.2);
+      -webkit-transform: scale(1.2); }
+      .estadio-mobile .ftb-acciones a:hover, .estadio-mobile .ftb-acciones a:active {
+        opacity: 0.6; }
+      .estadio-mobile .ftb-acciones a.info {
+        background-position: 0 0; }
+      .estadio-mobile .ftb-acciones a.drop {
+        background-position: 0 -150px; }
+      .estadio-mobile .ftb-acciones a.put {
+        background-position: 0 -100px; }
+      .estadio-mobile .ftb-acciones a.sell {
+        background-position: 0 -50px; }
+  .estadio-mobile .ftb-name a {
+    color: #333; }
+  .estadio-mobile .ftb-puntos {
+    color: #de6d26;
+    /*background: #333;*/ }
+  .estadio-mobile .suplentes .ftb-puntos {
+    display: none; }
+  .estadio-mobile .star {
+    background-position: 0 -250px;
+    position: absolute;
+    bottom: -4px;
+    left: -8px;
+    z-index: 10; }
+
+.cancha-convenciones.mobile {
+  display: block;
+  padding-bottom: 20px; }
+  .cancha-convenciones.mobile li {
+    display: block;
+    width: 100%; }
 
 .bloggerimage {
   margin: 0 20px 10px 0; }

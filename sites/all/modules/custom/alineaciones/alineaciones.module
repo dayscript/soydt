@@ -27,6 +27,15 @@ function alineaciones_menu(){
     'type' => MENU_CALLBACK,
     );
 
+  //-----Página de Alineaciones para móviles------
+  $items['jugar/m-alineaciones'] = array(
+    'title' => 'Alineaciones',
+    // 'page arguments' => array(2),
+    'page callback' => 'alineaciones_page_cb',
+    'access callback' => 'user_is_logged_in',
+    'type' => MENU_CALLBACK,
+    );
+
   //-----Filtros del formulario------
   $items['jugar/formacion/%/%'] = array(
     'title' => 'Cambiar formacion',
@@ -34,8 +43,6 @@ function alineaciones_menu(){
     'page callback' => 'alineaciones_cambio_formacion',
     'page arguments' => array(2,3),
     'access callback' => 'user_is_logged_in',
-    // 'access arguments' => array('access content'),
-    // 'delivery callback' => 'alineaciones_cambio_formacion_ajax',
     );
   $items['jugar/capitan/%/%'] = array(
     'title' => 'Cambiar capitan',
@@ -43,8 +50,6 @@ function alineaciones_menu(){
     'page callback' => 'alineaciones_cambio_capitan',
     'page arguments' => array(2,3),
     'access callback' => 'user_is_logged_in',
-    // 'access arguments' => array('access content'),
-    // 'delivery callback' => 'alineaciones_cambio_capitan_ajax',
     );
   $items['jugar/alinear/%/%/%'] = array(
     'title' => 'Alinear jugador',
@@ -52,7 +57,6 @@ function alineaciones_menu(){
     'page callback' => 'alineaciones_alinear_jugador',
     'page arguments' => array(2,3,4),
     'access callback' => 'user_is_logged_in',
-    // 'access arguments' => array('access content'),
     'delivery callback' => 'alineaciones_alinear_jugador_ajax',
     );
 
@@ -63,7 +67,6 @@ function alineaciones_menu(){
     'page callback' => 'alineaciones_jugador_detalle',
     'page arguments' => array(2),
     'access callback' => 'user_is_logged_in',
-    // 'access arguments' => array('access content'),
     'delivery callback' => 'alineaciones_jugador_detalle_ajax',
     );
   $items['jugar/desalinear/%/%'] = array(
@@ -72,8 +75,6 @@ function alineaciones_menu(){
     'page callback' => 'alineaciones_desalinear_jugador',
     'page arguments' => array(2,3),
     'access callback' => 'user_is_logged_in',
-    // 'access arguments' => array('access content'),
-    // 'delivery callback' => 'alineaciones_desalinear_jugador_ajax',
     );
     $items['jugar/autoalinear/%/%'] = array(
         'title' => 'Alinear jugador en una posicion disponible',
@@ -111,9 +112,14 @@ function alineaciones_block_info() {
     'info' => t('Alineaciones - Cancha'),
     );
 
+  // Bloque de Alineaciones para la versión móvil
+  $blocks['estadio-mobile'] = array(
+    'info' => t('Alineaciones - Cancha (Mobile)'),
+    );
+
   // Bloque para la integración con AngularJS
   $blocks['estadio-angular'] = array(
-    'info' => t('Alineaciones - Cancha (Angular) - Alpha Version'),
+    'info' => t('Alineaciones - Cancha (Angular) - Development Version'),
     );
 
   return $blocks;
@@ -132,6 +138,12 @@ function alineaciones_block_view($delta='') {
     case 'estadio' :
     $variables = array();
     $block['content'] = theme('estadio', $variables);
+    break;
+
+    // Bloque de Alineaciones para la versión móvil
+    case 'estadio-mobile' :
+    $variables = array();
+    $block['content'] = theme('estadio-mobile', $variables);
     break;
 
     // Bloque para la integración con AngularJS
@@ -154,6 +166,13 @@ function alineaciones_theme($existing, $type, $theme, $path){
   $hooks['estadio'] = array(
     'variables' => array(),
     'template' => 'templates/block--alineaciones',
+    'cache' => DRUPAL_NO_CACHE,
+    );
+
+  // Bloque de Alineaciones para la versión móvil
+  $hooks['estadio-mobile'] = array(
+    'variables' => array(),
+    'template' => 'templates/block--alineaciones-mobile',
     'cache' => DRUPAL_NO_CACHE,
     );
 
