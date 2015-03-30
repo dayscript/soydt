@@ -7271,7 +7271,7 @@ h2.block-title {
     .counter-block .counter .number.show {
       top: 0;
       z-index: 2;
-      line-height: 1em; }
+      line-height: 1.8em; }
     .counter-block .counter .number.hidden-down {
       top: 100%; }
     .counter-block .counter .number.hidden-up {
