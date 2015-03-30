@@ -86,7 +86,7 @@
     $form['league_password_confirm'] = array(
         '#maxlength' => 255,
         '#size'      => 30,
-        '#title'     => t('Repetir clave'),
+        '#title'     => t(''),
         '#type'      => 'password_confirm',
     );
     
