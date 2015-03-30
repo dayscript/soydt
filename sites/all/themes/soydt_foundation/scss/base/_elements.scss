@@ -110,6 +110,11 @@ select,
   border-left: 3px solid lighten($grayline, 15%);
 }
 
+.form-required {
+  float: left;
+  margin: 0 0.2em;
+}
+
 .form-type-radio {
   label {
     position: relative;
