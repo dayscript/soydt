@@ -2,6 +2,12 @@
 .l-main {
     margin-top: 50px;
     padding-bottom: 50px;
+
+    .page-jugar-m-alineaciones &,
+    .page-jugar-alineaciones & {
+      padding-bottom: 0;
+    }
+
 }
 
 #first-time{
