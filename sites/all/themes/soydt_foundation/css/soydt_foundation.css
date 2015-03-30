@@ -6507,25 +6507,30 @@ ul.button-group {
       width: 100px;
       margin-bottom: 3px; }
 
-/*#soydt-my-league-form {
-  overflow: hidden;
-  .form-item{
+#soydt-my-league-form {
+  overflow: hidden; }
+  #soydt-my-league-form .form-item {
+    width: 50%;
     float: left;
-    margin: 5px 20px 0 0;
-    overflow: hidden;
-    width: 248px;
-    &.form-item-league-password-confirm {
-      width: 546px;
-    }
-    .password-strength,
-    .password-confirm{
-      display: none;
-    }
-    &.form-item-league-comments{
-      width: 519px;
-    }
-  }
-}*/
+    padding-right: 15px; }
+    #soydt-my-league-form .form-item.form-type-password-confirm, #soydt-my-league-form .form-item.form-item-league-comments {
+      float: none;
+      width: 100%;
+      overflow: hidden; }
+  #soydt-my-league-form .password-indicator, #soydt-my-league-form .password-suggestions, #soydt-my-league-form .password-strength {
+    display: none !important; }
+  #soydt-my-league-form .confirm-parent .password-confirm:first-child {
+    display: none !important; }
+  #soydt-my-league-form .confirm-parent, #soydt-my-league-form .confirm-parent .password-parent {
+    clear: none; }
+  #soydt-my-league-form .form-submit {
+    width: auto;
+    margin: 0 auto;
+    display: block;
+    text-transform: uppercase;
+    color: #FFFFFF;
+    background: none repeat scroll 0 0 #007095; }
+
 .featured-wrapper {
   background: white; }
   .featured-wrapper .l-featured {

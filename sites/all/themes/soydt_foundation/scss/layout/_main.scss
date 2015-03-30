@@ -203,22 +203,41 @@ ul.button-group{
   }
 }
 
-/*#soydt-my-league-form {
+#soydt-my-league-form {
   overflow: hidden;
   .form-item{
+    width: 50%;
     float: left;
-    margin: 5px 20px 0 0;
-    overflow: hidden;
-    width: 248px;
-    &.form-item-league-password-confirm {
-      width: 546px;
-    }
-    .password-strength,
-    .password-confirm{
-      display: none;
-    }
+    padding-right: 15px;
+    &.form-type-password-confirm,
     &.form-item-league-comments{
-      width: 519px;
+      float:none;
+      width: 100%;
+      overflow: hidden;
     }
   }
-}*/
+  .password-indicator,
+  .password-suggestions,
+  .password-strength{
+    display: none !important;
+  }
+  .confirm-parent{
+    .password-confirm{
+      &:first-child{
+        display: none !important;
+      }
+    }
+    &,
+    .password-parent{
+      clear: none;
+    }
+  }
+  .form-submit{
+    width: auto;
+    margin: 0 auto;
+    display: block;
+    text-transform: uppercase;
+    color: #FFFFFF;
+    background: none repeat scroll 0 0 #007095;
+  }
+}
