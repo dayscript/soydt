@@ -22,7 +22,7 @@
       }
     }
     &.last {
-      padding-right: 0; 
+      padding-right: 0;
     }
   }
 }
@@ -34,8 +34,13 @@
     li{
       display: inline-block;
       list-style: none;
+      margin-left: 0.5em;
       a{
         color: orange;
+
+        &:hover {
+          color: #fff;
+        }
       }
     }
   }

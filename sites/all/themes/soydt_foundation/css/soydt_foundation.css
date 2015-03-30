@@ -6654,9 +6654,12 @@ h2.block-title {
     font-size: 0.75rem; }
     .block-system-user-menu ul.menu li {
       display: inline-block;
-      list-style: none; }
+      list-style: none;
+      margin-left: 0.5em; }
       .block-system-user-menu ul.menu li a {
         color: orange; }
+        .block-system-user-menu ul.menu li a:hover {
+          color: #fff; }
 
 .block-menu-menu-jugar {
   margin-top: 15px; }
