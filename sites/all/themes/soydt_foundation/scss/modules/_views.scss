@@ -7,15 +7,22 @@
     }
   }
   .more-link{
-    background: #000000;
+    background: #000;
     text-transform: uppercase;
     font-family: $font-main;
     float: right;
     margin-bottom: $space;
-    a{
+
+    &:hover {
+      opacity:0.6;
+    }
+
+    a {
       display: inline-block;
       color: white;
       padding: 13px 15px 10px 15px;
+
+
     }
   }
 }
