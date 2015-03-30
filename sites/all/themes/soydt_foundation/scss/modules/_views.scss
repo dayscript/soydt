@@ -14,7 +14,7 @@
     margin-bottom: $space;
 
     &:hover {
-      opacity:0.6;
+      @include opacity(0.6);
     }
 
     a {

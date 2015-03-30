@@ -6,5 +6,5 @@
             <div class="count"><?php echo $data['count']?> <small>Jugador(es)</small></div>
         </div>
     </div>
-    <a class="checkout" href="/jugar/alineaciones">Ver Equipo</a>
 </div>
+<div class="checkout"><a clasS="text-center" href="/jugar/alineaciones">Ver Equipo</a></div>

@@ -33,6 +33,13 @@
           background-size: $value;
 }
 
+@mixin opacity ($value) {
+  -ms-filter:'progid:DXImageTransform.Microsoft.Alpha(Opacity=#{$value*100})';
+  filter:progid:DXImageTransform.Microsoft.Alpha(Opacity=$value*100);
+  filter: alpha(opacity=$value*100);
+  opacity: $value;
+}
+
 
 //---------------------------------------
 // Foundation

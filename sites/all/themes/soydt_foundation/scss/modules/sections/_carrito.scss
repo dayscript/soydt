@@ -3,64 +3,87 @@
   background: url("../images/backgrounds/sprite.png") no-repeat 0px -72px;
   width: 40px;
   height: 42px;
+
+  &:hover {
+    @include opacity(0.6);
+  }
 }
 
-.carrito,
-.block-equipo{
+.block-equipo,
+.carrito  {
+  background: $blueline;
   position: relative;
-  @include background-image(linear-gradient(#eea320, #eea320 43%, #b37b18 54%, #eea320));
   border-radius: 3px;
   color: white;
   padding: 10px 5px 25px;
   text-align: center;
-  margin-bottom: 20px;
-  .total{
+
+  .total {
     font-family: $font-digital;
-    background: #000000;
+    background: #000;
     border-radius: 3px;
     line-height: 3.4rem;
-    height: 43px;
+    height: 42px;
     font-size: 1.2rem;
   }
-  .count{
+
+  .count {
     text-transform: uppercase;
     font-weight: bold;
     font-family: $font-main;
     font-size: 1.4rem;
     padding-top: 10px;
   }
-  .checkout{
-    position: absolute;
-    bottom: -15px;
-    display: block;
-    color: white;
-    text-transform: uppercase;
-    font-family: $font-main;
+}
+
+.block-carrito {
+  .checkout {
+    bottom: 18px;
+    margin: 0 auto;
+    position: relative;
     width: 140px;
-    height: 35px;
-    background: url("../images/buttons/checkout.png");
-    background-size: 100% 100%;
-    margin: 0 27%;
-    padding-top: 7px;
-    a{color: white;}
+
+    a {
+      background: url("../images/buttons/checkout.png");
+      background-size: 100% 100%;
+      bottom: -15px;
+      color: white;
+      display: block;
+      font-family: $font-main;
+      height: 35px;
+      line-height: 35px;
+      text-transform: uppercase;
+      width: 140px;
+    }
+    a:hover {
+      color: lighten($bluetext, 30%);
+    }
   }
 }
+
 .block-carrito-equipo2,
-.block-carrito-carrito2{
-  .carrito{
-    .data1,.data2{
-/*      width: 49%;
-      display: inline-block;
-*/      vertical-align: top;
+.block-carrito-carrito2 {
+  .carrito {
+    .data1,.data2 {
+      padding: 0 0.5em;
     }
-    .checkout{
-      //left: 240px;
-    }
-  }
-  .checkout{
-    left: 62px;
   }
 }
+
+// Mostrar a 2 Columnas el bloque de mi carrito
+// Cuando se encuentra en la región superior (l-help)
+.l-help  {
+  .data1,
+  .data2 {
+    width: 50%;
+    float: left;
+  }
+}
+
 .block-equipo {
   @include background-image(linear-gradient(#20a3ee, #20a3ee 43%, #187bb3 54%, #20a3ee));
+}
+
+.carrito {
+  @include background-image(linear-gradient(#eea320, #eea320 43%, #b37b18 54%, #eea320));
 }
