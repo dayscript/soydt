@@ -9,7 +9,6 @@
   }
   .l-header-region {
     .header {
-      float: left !important;
       padding-left: 25px;
       width: auto;
       &:first-child {
@@ -17,9 +16,9 @@
         width: auto;
       }
     }
-    
+
   }
-  
+
 }
 .featured-wrapper{
   background: white;
