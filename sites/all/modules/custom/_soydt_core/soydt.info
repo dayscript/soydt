@@ -2,8 +2,14 @@ name = SoyDT Core
 description = Modulo Global para SoyDT
 package = Dayscript
 core = 7.x
+
+; Contrib Modules Dependencies
 dependencies[] = email_registration
-;dependencies[] = views
+dependencies[] = views
+
+; Custom Modules Dependencies
+dependencies[] = carrito
+dependencies[] = fichajes
 
 
 ;files[] = includes/example.inc

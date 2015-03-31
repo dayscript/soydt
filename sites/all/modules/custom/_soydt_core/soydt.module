@@ -2,6 +2,34 @@
 /**
  * Drupal Hooks globales para SoyDT
  */
+foreach( glob(dirname(__FILE__) . '/inc/*.php') as $file )
+    require_once( $file );
+
+
+/**
+ * Enable Views api
+ */
+function soydt_views_api(){
+  return array(
+      'api'  => 3,
+      'path' => drupal_get_path( 'module', 'soydt' )
+  );
+}
+
+
+/**
+ * Implements hook_init
+ */
+function soydt_init() {
+  // Crear una variable global con los datos de juego soydt para el usuario
+  $equipo_usuario_nodes = carrito_get_equipo_usuario();
+  $carrito_compras_node = get_carrito_compras();
+
+  global $user_soydt;
+  $user_soydt = new StdClass();
+  $user_soydt->equipo_usuario = $equipo_usuario_nodes->field_jugadores2[LANGUAGE_NONE];
+  $user_soydt->carrito_compras = $carrito_compras_node->field_jugadores[LANGUAGE_NONE];
+}
 
 
 /**
@@ -24,3 +52,4 @@ function soydt_email_registration_name($edit, $account) {
     $edit['name'] = $edit['mail'];
 }
 */
+
