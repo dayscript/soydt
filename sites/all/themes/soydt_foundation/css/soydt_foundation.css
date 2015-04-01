@@ -7298,6 +7298,25 @@ h2.block-title {
   background-image: -webkit-linear-gradient( #eea320, #eea320 43%, #b37b18 54%, #eea320);
   background-image: linear-gradient( #eea320, #eea320 43%, #b37b18 54%, #eea320); }
 
+.view-id-fichar_jugadores .ftbl-acciones .sprite-juego {
+  height: 40px;
+  width: 40px; }
+.view-id-fichar_jugadores .ftbl-acciones a:hover {
+  -ms-filter: 'progid:DXImageTransform.Microsoft.Alpha(Opacity=50)';
+  filter: progid:DXImageTransform.Microsoft.Alpha Opacity=50;
+  filter: alpha(opacity=50);
+  opacity: 0.5; }
+.view-id-fichar_jugadores .ftbl-acciones.agregar-carrito .sprite-juego {
+  background-position: 0 -350px; }
+.view-id-fichar_jugadores .ftbl-acciones.en-el-carrito .sprite-juego {
+  background-position: 0 -300px;
+  -ms-filter: 'progid:DXImageTransform.Microsoft.Alpha(Opacity=10)';
+  filter: progid:DXImageTransform.Microsoft.Alpha Opacity=10;
+  filter: alpha(opacity=10);
+  opacity: 0.1; }
+.view-id-fichar_jugadores .ftbl-acciones.en-el-equipo .sprite-juego {
+  background-position: 0 -400px; }
+
 .cuenta-regresiva {
   text-align: center; }
   .cuenta-regresiva .tile-count {

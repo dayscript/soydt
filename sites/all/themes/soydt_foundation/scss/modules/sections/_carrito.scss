@@ -87,3 +87,29 @@
 .carrito {
   @include background-image(linear-gradient(#eea320, #eea320 43%, #b37b18 54%, #eea320));
 }
+
+
+//---------------------------------------
+// View Fichajes
+//---------------------------------------
+.view-id-fichar_jugadores {
+  .ftbl-acciones {
+
+    .sprite-juego {
+      height: 40px;
+      width: 40px;
+    }
+
+    a {
+      &:hover {
+        @include opacity(0.5);
+      }
+    }
+
+
+    &.agregar-carrito .sprite-juego { background-position: 0 -350px;}
+    &.en-el-carrito .sprite-juego { background-position: 0 -300px; @include opacity(0.1); }
+    &.en-el-equipo .sprite-juego { background-position: 0 -400px;}
+
+  }
+}
