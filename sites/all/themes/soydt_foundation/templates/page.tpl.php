@@ -242,4 +242,5 @@
 
 <div id="js-placeholders">
   <div id="throbber"><i class="fa fa-spinner fa-pulse"></i></div>
+  <div id="show-reveal" class="reveal-modal tiny" data-reveal data-options="close_on_background_click: false;" ></div>
 </div>
