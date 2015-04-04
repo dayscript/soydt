@@ -7156,10 +7156,10 @@ h2.block-title {
   .estadio-mobile .cancha-alertas.mobile {
     position: fixed;
     bottom: 0;
-    margin: 0 0.5em;
+    margin: 0;
     z-index: 40; }
     .estadio-mobile .cancha-alertas.mobile .alert-box {
-      font-size: 0.65em;
+      font-size: 0.7em;
       margin-bottom: 0; }
   .estadio-mobile .cancha-filtros {
     margin-top: 1em; }
@@ -7218,9 +7218,6 @@ h2.block-title {
 .cancha-convenciones.mobile {
   display: block;
   padding-bottom: 20px; }
-  .cancha-convenciones.mobile li {
-    display: block;
-    width: 100%; }
 
 .bloggerimage {
   margin: 0 20px 10px 0; }

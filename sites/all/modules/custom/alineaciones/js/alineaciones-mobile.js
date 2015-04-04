@@ -4,15 +4,12 @@
 
       //-----Posicionar el "throbber" en el centro de la ventana------
       var $throbber = $("#throbber");
-      var throbberWidth = $throbber.width();
-      var throbberHeight = $throbber.width();
       var win = window;
-      var winWidth = win.innerWidth;
-      var winHeight = win.innerHeight;
+      var idAlineacion = $("#id_alineacion").val();
 
       $throbber.css({
-        bottom: ( winHeight - throbberHeight  ) / 2,
-        right: ( winWidth - throbberWidth  ) / 2
+        bottom: ( win.innerHeight - $throbber.height() ) / 2,
+        right: ( win.innerWidth - $throbber.width() ) / 2
       });
 
       //-----Mostrar / Ocultar el throbber en los enventos ajax------
@@ -30,16 +27,13 @@
 
       //-----Filtros de la Cancha------
       $delegateTo.on('change', '#filtros.active #formacion', function(){
-        var _this = this;
-        var url = '/jugar/formacion/' + $("#id_alineacion").val()  + '/' + this.value;
-        $.get(url).then(function(data){
-          recargarDatos(_this, data);
-        });
+        var url = '/jugar/formacion/' + idAlineacion  + '/' + this.value;
+        guardarDatos(this, url);
       });
 
       $delegateTo.on('change', '.active #capitan', function(){
         //-----Recargar la página al cambiar de capitan------
-        var url = '/jugar/capitan/'+ $("#id_alineacion").val() + '/' + this.value;
+        var url = '/jugar/capitan/'+ idAlineacion + '/' + this.value;
         $.get(url).then(function(data){
           window.location.reload();
         });
@@ -53,27 +47,18 @@
 
       //-----Acciones sobre el futbolista------
       $delegateTo.on('click', 'a.drop', function(){
-          var _this = this;
-          var url = '/jugar/desalinear/' + $("#id_alineacion").val() + '/' + this.id;
-          $.get(url).then(function(data){
-            recargarDatos(_this, data);
-          });
+          var url = '/jugar/desalinear/' + idAlineacion + '/' + this.id;
+          guardarDatos(this, url);
       });
 
       $delegateTo.on('click', 'a.put', function(){
-          var _this = this;
-          var url = '/jugar/autoalinear/' + $("#id_alineacion").val() + '/' + this.id;
-          $.get(url).then(function(data){
-            recargarDatos(_this, data);
-          });
+          var url = '/jugar/autoalinear/' + idAlineacion + '/' + this.id;
+          guardarDatos(this, url);
       });
 
       $delegateTo.on('click', 'a.sell', function(){
-          var _this = this;
-          var url = '/carrito/sell' + '/' + this.id + '/' + $("#id_alineacion").val();
-          $.get(url).then(function(data){
-            recargarDatos(_this, data);
-          });
+          var url = '/carrito/sell' + '/' + this.id + '/' + idAlineacion;
+          guardarDatos(this, url);
       });
 
       $delegateTo.on('click', 'a.info', function(){
@@ -92,14 +77,17 @@
     } // attach:
   }; //-- end Drupal.behaviors
 
-
-
+  function guardarDatos(_this, url) {
+    $.get(url).then(function(response){
+      recargarDatos(_this, response);
+    });
+  }
 
   function recargarDatos(_this, response) {
     // Crear el <a> para cerrar la notificación
-    var a = document.createElement('a');
-        a.innerHTML = '&times;';
-        a.className = 'close-alert';
+    var close = document.createElement('a');
+        close.innerHTML = '&times;';
+        close.className = 'close-alert';
 
     // Mover el futbolista entre las listas de suplentes / alineados
     // Si se guardó correctamente
@@ -114,7 +102,7 @@
           $el.prependTo('#alineados').slideDown();
         }
 
-        // Si se hizo click en DROP Mover a la banca
+        // Si se hizo click en DROP -> Mover a la banca
         else if ($_this.hasClass('drop')) {
           var newId = $_this.attr('id').replace('drop','put');
           $_this.attr('id', newId).removeClass('drop').addClass('put');
@@ -128,7 +116,7 @@
                       .text(response.text)
                       .removeClass('success').removeClass('error')
                       .addClass(response.status)
-                      .append(a)
+                      .append(close)
                       .slideDown();
   }
 

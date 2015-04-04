@@ -361,11 +361,11 @@ $alto_estadio: 834px;
   .cancha-alertas.mobile {
     position: fixed;
     bottom: 0;
-    margin: 0 0.5em;
+    margin: 0;
     z-index: 40;
 
     .alert-box {
-      font-size: 0.65em;
+      font-size: 0.7em;
       margin-bottom: 0;
     }
   }
@@ -451,8 +451,7 @@ $alto_estadio: 834px;
   padding-bottom: 20px;
 
   li {
-    display: block;
-    width: 100%;
+
   }
 }
 

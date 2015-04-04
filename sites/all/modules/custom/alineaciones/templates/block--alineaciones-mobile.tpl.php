@@ -6,8 +6,6 @@ $module_path = drupal_get_path('module','alineaciones');
  * Dependencias
  */
 drupal_add_js($module_path . '/js/alineaciones-mobile.js');
-// drupal_add_library('system', 'ui.draggable');
-// drupal_add_library('system', 'ui.droppable');
 
 // Datos de la alineacion actual
 $data = alineaciones_data();
@@ -29,7 +27,7 @@ $es_fecha_torneo_activo =  ( $fecha_torneo == $fecha_activa ) ? true : false;
 <div id="estadio" class="estadio-mobile">
   <div class="row cancha-tribuna">
   <!-- ============== Puntajes ============== -->
-  <div class="cancha-puntajes medium-2 medium-offset-1 small-8 columns">
+  <div class="cancha-puntajes large-3 medium-8 small-8 columns">
       <div class="puntos puntos-fecha small-centered columns text-center">
           <div class="total">
             <?php echo isset($puntos_usuario) ? $puntos_usuario : "0" ?>
@@ -37,7 +35,7 @@ $es_fecha_torneo_activo =  ( $fecha_torneo == $fecha_activa ) ? true : false;
           <small>Pts fecha</small>
       </div>
   </div>
-  <div class="cancha-puntajes medium-2 small-8 columns">
+  <div class="cancha-puntajes large-3 medium-8 small-8 columns">
       <div class="puntos puntos-acumulado small-centered columns text-center">
 
           <div class="total">000</div>
@@ -47,10 +45,10 @@ $es_fecha_torneo_activo =  ( $fecha_torneo == $fecha_activa ) ? true : false;
 
 
   <!-- ============== Filtros de Alineaciones ============== -->
-  <div id="filtros" class="medium-10 medium-offset-1 small-16 columns cancha-filtros <?php echo $es_fecha_torneo_activo ? "active" : "" ?>">
+  <div id="filtros" class="large-10 medium-16 small-16 columns cancha-filtros <?php echo $es_fecha_torneo_activo ? "active" : "" ?>">
     <form id="alineaciones-filtros" accept-charset="UTF-8">
 
-      <div class="small-16 medium-4 columns">
+      <div class="small-16 large-5 columns">
         <!-- Select Fechas -->
         <label for="fecha"><?php echo t('Fecha del torneo') ?></label>
         <select name="fecha" id="fecha">
@@ -70,7 +68,7 @@ $es_fecha_torneo_activo =  ( $fecha_torneo == $fecha_activa ) ? true : false;
       </div>
 
 
-      <div class="small-16 medium-4 columns">
+      <div class="small-16 large-4 columns">
         <!-- Select Formaciones -->
         <label for="formacion"><?php echo t('Formación') ?></label>
         <select <?php echo ( $es_fecha_torneo_activo ) ? "" : "disabled" ?>
@@ -93,7 +91,7 @@ $es_fecha_torneo_activo =  ( $fecha_torneo == $fecha_activa ) ? true : false;
       </div>
 
 
-      <div class="small-16 medium-8 columns end">
+      <div class="small-16 large-7 columns end">
         <!-- Select: Capitanes -->
         <label for="capitan"><?php echo t('Capitán') ?></label>
         <select <?php echo ( $es_fecha_torneo_activo ) ? "" : "disabled" ?>
@@ -133,10 +131,10 @@ $es_fecha_torneo_activo =  ( $fecha_torneo == $fecha_activa ) ? true : false;
 
 
 <!-- ============== Alertas ============== -->
-<div class="row cancha-alertas mobile text-center">
+<div class="row cancha-alertas mobile text-center small-centered">
 
   <?php if ($es_fecha_torneo_activo):?>
-  <div id="notificacion" data-alert class="alert-box info radius small-15 columns">
+  <div id="notificacion" data-alert class="alert-box info radius small-15 small-centered columns">
       <strong>Nota: </strong>Recuerda que ya no es necesario guardar la alineación. Cada cambio que realices queda grabado automáticamente.
       <a class="close-alert">&times;</a>
   </div>
@@ -172,21 +170,21 @@ $es_fecha_torneo_activo =  ( $fecha_torneo == $fecha_activa ) ? true : false;
         <div id="<?php echo $ftb_id?>"
              class="futbolista ftb-<?php echo $ftb_id; ?> ftb-posicion-<?php echo $ftb_posicion; ?> row small-collapse" >
 
-          <div class="ftb-equipo-imagen columns small-2">
+          <div class="ftb-equipo-imagen columns medium-2 small-2">
             <img src="<?php echo $theme_path; ?>/images/futbolistas/<?php echo $ftb_equipo; ?>.png">
             <?php if (isset($capitan_usuario) && $ftb_id == $capitan_usuario[0]['target_id']):?>
               <div class="star sprite-juego"></div>
             <?php endif?>
           </div>
 
-          <div class="ftb-nombre-puntos columns small-7">
+          <div class="ftb-nombre-puntos columns medium-12 small-7">
             <div class="columns small-12 ftb-name">
               <a class="info" id="3info<?php echo $ftb_id?>"><?php echo $ftb_apellido; ?></a>
             </div>
             <div class="columns small-2 text-center ftb-puntos">0</div>
           </div>
 
-          <div class="ftb-acciones-wrapper columns small-5">
+          <div class="ftb-acciones-wrapper columns medium-2 small-5">
             <div class="ftb-acciones">
               <a id="info<?php echo $ftb_id; ?>" class="info sprite-juego"></a>
 
@@ -218,21 +216,21 @@ $es_fecha_torneo_activo =  ( $fecha_torneo == $fecha_activa ) ? true : false;
 
       <div id="<?php echo $ftb_id; ?>"
            class="futbolista ftb-<?php echo $ftb_id; ?> ftb-posicion-<?php echo $ftb_posicion; ?> row small-collapse" >
-        <div class="ftb-equipo-imagen columns small-2">
+        <div class="ftb-equipo-imagen columns medium-2 small-2">
           <img src="<?php echo $theme_path; ?>/images/futbolistas/<?php echo $ftb_equipo; ?>.png">
           <?php if (isset($capitan_usuario) && $ftb_id == $capitan_usuario[0]['target_id']):?>
             <div class="star sprite-juego"></div>
           <?php endif?>
         </div>
 
-        <div class="ftb-nombre-puntos columns small-7">
+        <div class="ftb-nombre-puntos columns medium-12 small-7">
           <div class="columns small-12 ftb-name">
             <a id="2info<?php echo $ftb_id; ?>" class="info"><?php echo $ftb_apellido; ?></a>
           </div>
           <div class="columns small-2 text-center ftb-puntos">0</div>
         </div>
 
-          <div class="ftb-acciones-wrapper columns small-5">
+          <div class="ftb-acciones-wrapper columns medium-2 small-5">
             <div class="ftb-acciones">
               <a id="info<?php echo $ftb_id; ?>" class="info sprite-juego"></a>
             <?php if ($es_fecha_torneo_activo): ?>
@@ -250,13 +248,23 @@ $es_fecha_torneo_activo =  ( $fecha_torneo == $fecha_activa ) ? true : false;
   </div> <!-- #cancha -->
 </div> <!-- #estadio -->
 
-<div class="cancha-convenciones mobile row">
-  <ul class="convenciones columns small-16">
-    <li class="info"><i class="sprite-juego"></i>Información del jugador</li>
-    <li class="sell"><i class="sprite-juego"></i>Vender</li>
-    <li class="star"><i class="sprite-juego"></i>Seleccionado como capitán</li>
-    <li class="put"><i class="sprite-juego"></i>Alinear</li>
-    <li class="drop"><i class="sprite-juego"></i>Sacar de la titular</li>
+<div class="cancha-convenciones mobile row cf">
+  <ul class="convenciones columns">
+    <li class="info small-16 medium-8 columns">
+      <i class="sprite-juego"></i>Información del jugador
+    </li>
+    <li class="sell small-16 medium-8 columns">
+      <i class="sprite-juego"></i>Vender
+    </li>
+    <li class="star small-16 medium-8 columns">
+      <i class="sprite-juego"></i>Seleccionado como capitán
+    </li>
+    <li class="put small-16 medium-8 columns">
+      <i class="sprite-juego"></i>Alinear
+    </li>
+    <li class="drop small-16 medium-8 columns">
+      <i class="sprite-juego"></i>Sacar de la titular
+    </li>
   </ul>
 
 </div>
