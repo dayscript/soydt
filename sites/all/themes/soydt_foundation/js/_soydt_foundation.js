@@ -1,9 +1,9 @@
 (function ($, Drupal) {
-
   Drupal.behaviors.soydt_foundation = {
     attach: function(context, settings) {
-      // Get your Yeti started.
-    }
-  };
 
+
+
+    } // End Attach
+  }; // End Behaviors
 })(jQuery, Drupal);

@@ -2,11 +2,19 @@
 foreach( glob(dirname(__FILE__) . '/inc/*.php') as $file )
     require_once( $file );
 
+
+/**
+ * Implements hook_init()
+ */
+function carrito_init() {
+    drupal_add_js( drupal_get_path('module', 'carrito') . '/js/carrito.js' , 'file' );
+}
+
+
 /**
  * Implements hook_menu().
  */
-function carrito_menu()
-{
+function carrito_menu() {
     $items = array();
     $items['carrito/add/%'] = array(
         'title' => 'Agregar jugador al carrito',
