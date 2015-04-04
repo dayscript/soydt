@@ -1,109 +1,197 @@
 (function($) {
-  Drupal.behaviors.theme_name = {
+  Drupal.behaviors.alineaciones = {
     attach: function(context){
 
-      alinearFormacion();
-      bindDraggable();
+      var alineaciones = {};
 
-      $(document).ajaxStart(function () {
+      alineaciones.init = function() {
+        this.alinearFormacion();
+        this.bindDraggable();
+        this.bindDroppable();
+        this.bindEvents();
+      }
+
+      //---------------------------------------
+      // Alinear Formacion
+      // Anima desde la banca, hasta la cancha, los jugadores que ya tienen una posición asignada
+      //---------------------------------------
+      alineaciones.alinearFormacion = function () {
+        var $asigned = $('#cancha').find('.droppable.asigned');
+
+        if ($asigned.length) {
+          $asigned.each(alinearFutbolista);
+        }
+
+        function alinearFutbolista (index, el){
+          var $el = $(el);
+          var id = $el.find('.id').val();
+          //$('#'+id) = Es igual al futbolista con id="id"
+          $('#'+id).animate({
+              top: $el.position().top,
+              left: $el.position().left,
+              margin:0, easing:'swing'}, 300)
+            .css({position:'absolute'});
+        }
+      }
+
+
+      //---------------------------------------
+      // Bind Ajax
+      //---------------------------------------
+      alineaciones.bindAjaxLoads = function () {
+        $(document).ajaxStart(function () {
           $("#throbber").fadeIn();
-      });
-
-      $(document).ajaxStop(function () {
-          $("#throbber").fadeOut();
-      });
-
-      $delegateTo = $('.l-content-after');
-
-      //-----Filtros de la Cancha------
-      $delegateTo.on('change', '#filtros.active #formacion', function(){
-        var url = '/jugar/formacion/' + $("#id_alineacion").val()  + '/' + this.value;
-        $.get(url).then(function(data){ recargarDatos(data); });
-      });
-
-      $delegateTo.on('change', '.active #capitan', function(){
-        var url = '/jugar/capitan/'+ $("#id_alineacion").val() + '/' + this.value;
-        $.get(url).then(function(data){ recargarDatos(data); });
-      });
-
-      $delegateTo.on('change', '#fecha', function(){
-          window.location.href = "/jugar/alineaciones/" + this.value;
-      });
-
-      //-----Acciones sobre el futbolista------
-      $delegateTo.on('click', 'a.drop', function(){
-          var url = '/jugar/desalinear/' + $("#id_alineacion").val() + '/' + this.id;
-          $.get(url).then(function(data){ recargarDatos(data); });
-      });
-
-      $delegateTo.on('click', 'a.put', function(){
-          var url = '/jugar/autoalinear/' + $("#id_alineacion").val() + '/' + this.id;
-          $.get(url).then(function(data){ recargarDatos(data); });
-      });
-
-      $delegateTo.on('click', 'a.sell', function(){
-          var url = '/carrito/sell' + '/' + this.id + '/' + $("#id_alineacion").val();
-          $.get(url).then(function(data){ recargarDatos(data); });
-      });
-
-      $delegateTo.on('click', 'a.info', function(){
-          var url = '/jugar/detallejugador/' + this.id;
-          jQuery('#alineaciones-popup').foundation('reveal', 'open', url);
-          $('#document-page').addClass('blurred');
-      });
-
-      //-----Desactivar el Desenfoque al cerrar la ventana emergente------
-      $('.reveal-modal').on('click', '.close-reveal-modal', function () {
-        $('#document-page').removeClass('blurred');
-      });
-
-    } // attach:
-  }; //-- end Drupal.behaviors
-
-  function alinearFormacion() {
-    for(var i=1; i<=11; i++){
-        var place = $('#place'+i);
-        var asigned = $('#place'+ i + '.asigned');
-        var position = $('#cancha.active #place'+i+' .position').val();
-        place.droppable({
-          accept:"#cancha.active .ftb-posicion-" + position,
-          activeClass: "drop-hover",
-          hoverClass:"drop-hover",
-          tolerance: "intersect",
-
-          drop: function(event, ui) {
-            $(this).animate({opacity:0});
-
-            var url = '/jugar/alinear/'+ $("#id_alineacion").val() + '/' + this.id + '/' + ui.draggable[0].id;
-            $.get(url).then(function(data){ recargarDatos(data); });
-          },
-
-          out: function(event, ui){
-            $(this).animate({opacity:1});
-          }
         });
 
-      /* Anima desde la banca, hasta la cancha, los jugadores que ya tienen
-         una posición asignada */
-      if (asigned.length){
-        var id = $('#place'+i + '.asigned .id').val();
-        var ele = $('.ftb-'+id);
-        ele.animate({ top: place.position().top, left:place.position().left, margin:0, easing:'swing'}, 300)
-           .css({position:'absolute'});
+        $(document).ajaxStop(function () {
+          $("#throbber").fadeOut();
+        });
       }
-    }
-  } // alinearFormacion
 
-  function bindDraggable() {
-    $('#cancha.active .futbolista').draggable({snap:".droppable", snapMode: "inner", snapTolerance: 5, revert:'invalid'});
-  }
 
-  function recargarDatos(response) {
-    $('.block-alineaciones-estadio').load('/jugar/cancha', function () {
-      $('#notificacion').hide().text(response.text).addClass(response.status).slideDown();
-      alinearFormacion();
-      bindDraggable();
-    });
-  }
+      //---------------------------------------
+      // Bind Draggable
+      //---------------------------------------
+      alineaciones.bindDraggable = function() {
+        $('#cancha.active').find('.futbolista').draggable({
+          snap:".droppable",
+          snapMode: "inner",
+          snapTolerance: 5,
+          revert:'invalid'
+        });
+      }
 
+
+      //---------------------------------------
+      // Bind Droppable
+      //---------------------------------------
+      alineaciones.bindDroppable = function () {
+        var _this = this;
+        var $place = $('#cancha').find('.droppable');
+        var idAlineacion = $("#id_alineacion").val();
+
+        $place.each(setDroppable);
+
+        function setDroppable (index, el) {
+          var $el =  $(el);
+          var position = $el.find('.position').val();
+          $el.droppable({
+            accept:"#cancha.active .ftb-posicion-" + position,
+            activeClass: "drop-hover",
+            hoverClass:"drop-hover",
+            tolerance: "intersect",
+
+            drop: function(event, ui) {
+              $(this).animate({opacity:0});
+              var url = '/jugar/alinear/' + idAlineacion + '/' + this.id + '/' + ui.draggable[0].id;
+              _this.guardar(url);
+            },
+
+            out: function(event, ui){
+              $(this).animate({opacity:1});
+            }
+          });
+        }
+      }
+
+
+      //---------------------------------------
+      // Bind Events
+      //---------------------------------------
+      alineaciones.bindEvents = function () {
+
+        var _this = this;
+        var $delegateTo = $('.l-content-after');
+        var $documentPage = $('#document-page');
+        var idAlineacion = $("#id_alineacion").val();
+
+        //-----Filtros de la Cancha------
+        $delegateTo.on('change', '#fecha', function(){
+          window.location.href = "/jugar/alineaciones/" + this.value;
+        });
+
+        $delegateTo.on('change', '#filtros.active #formacion', function(){
+          var url = '/jugar/formacion/' + idAlineacion  + '/' + this.value;
+          _this.guardar(url);
+        });
+
+        $delegateTo.on('change', '.active #capitan', function(){
+          var url = '/jugar/capitan/'+ idAlineacion + '/' + this.value;
+          _this.guardar(url);
+        });
+
+        //-----Acciones sobre el futbolista------
+        $delegateTo.on('click', 'a.drop', function(){
+          var url = '/jugar/desalinear/' + idAlineacion + '/' + this.id;
+          _this.guardar(url);
+        });
+
+        $delegateTo.on('click', 'a.put', function(){
+          var url = '/jugar/autoalinear/' + idAlineacion + '/' + this.id;
+          _this.guardar(url);
+        });
+
+        $delegateTo.on('click', 'a.sell', function(){
+          var url = '/carrito/sell' + '/' + this.id + '/' + idAlineacion;
+          _this.guardar(url);
+        });
+
+        $delegateTo.on('click', 'a.info', function(){
+          var url = '/jugar/detallejugador/' + this.id;
+          jQuery('#alineaciones-popup').foundation('reveal', 'open', url);
+          $documentPage.addClass('blurred');
+        });
+
+        //-----Desactivar el Desenfoque al cerrar la ventana emergente------
+        $(document).on('close.fndtn.reveal', '[data-reveal]', function () {
+          $documentPage.removeClass('blurred');
+        });
+      }
+
+      //---------------------------------------
+      // CleanEvents
+      // Avoiding Detached DOM Elements
+      //---------------------------------------
+      alineaciones.cleanEvents = function () {
+        $('.fade-me').fadeOut(300, function () {
+          $('.l-content-after').off()
+          $('.droppable').remove();
+          $('#alineados').empty();
+          $('#suplentes').empty();
+          $('.cancha-tribuna').empty();
+          $('.cancha-alertas').empty();
+          $('.reveal-modal').empty();
+        });
+      }
+
+
+      //---------------------------------------
+      // Guardar Datos
+      //---------------------------------------
+      alineaciones.guardar = function (url) {
+        var _this = this;
+        _this.cleanEvents();
+        $.get(url).then(function(response){ _this.recargarDatos(response); });
+      }
+
+      //---------------------------------------
+      // Recargar Datos
+      //---------------------------------------
+      alineaciones.recargarDatos = function (response) {
+        var _this = this;
+        $('.block-alineaciones-estadio').load('/jugar/cancha', function () {
+          _this.init();
+          //-----Actualizar Notificacion------
+          $('#notificacion').hide()
+              .text(response.text)
+              .addClass(response.status)
+              .slideDown();
+        });
+      }
+
+
+      alineaciones.init();
+      alineaciones.bindAjaxLoads();
+    } // attach:
+  }; //-- end Drupal.behaviors
 })(jQuery);

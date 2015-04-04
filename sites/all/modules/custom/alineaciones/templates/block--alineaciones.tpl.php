@@ -29,7 +29,7 @@ $es_fecha_torneo_activo =  ( $fecha_torneo == $fecha_activa ) ? true : false;
 <div id="estadio" class="estadio">
   <div class="row cancha-tribuna">
   <!-- ============== Puntajes ============== -->
-  <div class="cancha-puntajes medium-2 medium-offset-1 small-8 columns">
+  <div class="cancha-puntajes fade-me medium-2 medium-offset-1 small-8 columns">
       <div class="puntos puntos-fecha small-centered columns text-center">
           <div class="total">
             <?php echo isset($puntos_usuario) ? $puntos_usuario : "0" ?>
@@ -37,7 +37,7 @@ $es_fecha_torneo_activo =  ( $fecha_torneo == $fecha_activa ) ? true : false;
           <small>Pts fecha</small>
       </div>
   </div>
-  <div class="cancha-puntajes medium-2 small-8 columns">
+  <div class="cancha-puntajes fade-me medium-2 small-8 columns">
       <div class="puntos puntos-acumulado small-centered columns text-center">
 
           <div class="total">000</div>
@@ -47,7 +47,7 @@ $es_fecha_torneo_activo =  ( $fecha_torneo == $fecha_activa ) ? true : false;
 
 
   <!-- ============== Filtros de Alineaciones ============== -->
-  <div id="filtros" class="medium-10 medium-offset-1 small-16 columns cancha-filtros <?php echo $es_fecha_torneo_activo ? "active" : "" ?>">
+  <div id="filtros" class="medium-10 medium-offset-1 small-16 columns cancha-filtros fade-me <?php echo $es_fecha_torneo_activo ? "active" : "" ?>">
     <form id="alineaciones-filtros" accept-charset="UTF-8">
 
       <div class="small-16 medium-4 columns">
@@ -136,13 +136,13 @@ $es_fecha_torneo_activo =  ( $fecha_torneo == $fecha_activa ) ? true : false;
 <div class="row cancha-alertas text-center">
 
   <?php if ($es_fecha_torneo_activo):?>
-  <div id="notificacion" data-alert class="alert-box info radius medium-8 medium-centered small-16 columns">
+  <div id="notificacion" data-alert class="alert-box info radius medium-8 medium-centered small-16 columns fade-me">
       <strong>Nota: </strong>Recuerda que ya no es necesario guardar la alineación. <br> Cada cambio que realices queda grabado automáticamente.
       <a href="#" class="close">&times;</a>
   </div>
 
   <?php else :?>
-  <div id="notificacion" data-alert class="alert-box warning radius medium-8 medium-centered small-16 columns">
+  <div id="notificacion" data-alert class="alert-box warning radius medium-8 medium-centered small-16 columns fade-me">
       <strong>Nota:</strong> Esta fecha se encuentra cerrada. No se pueden realizar cambios en la alineación.
       <a href="#" class="close">&times;</a>
   </div>
@@ -168,7 +168,7 @@ $es_fecha_torneo_activo =  ( $fecha_torneo == $fecha_activa ) ? true : false;
       ?>
 
       <div id="place<?php echo $i?>"
-          class="droppable place_position<?php echo $positions[$i]["position"]?> <?php echo $asigned?>"
+          class="droppable fade-me place_position<?php echo $positions[$i]["position"]?> <?php echo $asigned?>"
           style="top: <?php echo 55+($positions[$i]["y"]-1)*28?>px;left: <?php echo 230+($positions[$i]["x"]-1)*65?>px;">
 
         <input value="<?php echo $positions[$i]["position"]?>"
@@ -183,7 +183,7 @@ $es_fecha_torneo_activo =  ( $fecha_torneo == $fecha_activa ) ? true : false;
     <?php endfor; ?>
 
 
-    <div id="alineados" class="futbolistas alineados">
+    <div id="alineados" class="futbolistas alineados fade-me">
     <?php for($i=1;$i<=11;$i++):?>
       <?php if( isset($data["alineacion"]->{"field_jugador" . $i}[LANGUAGE_NONE])
               && $data["alineacion"]->{"field_jugador" . $i}[LANGUAGE_NONE][0]['target_id'] >0):
@@ -245,7 +245,7 @@ $es_fecha_torneo_activo =  ( $fecha_torneo == $fecha_activa ) ? true : false;
       ?>
 
       <div id="<?php echo $ftb_id; ?>"
-           class="futbolista ftb-<?php echo $ftb_id; ?> ftb-posicion-<?php echo $ftb_posicion; ?> end columns text-center" >
+           class="futbolista ftb-<?php echo $ftb_id; ?> ftb-posicion-<?php echo $ftb_posicion; ?> end columns text-center fade-me" >
         <div class="ftb-equipo-imagen small-16 columns">
           <img src="<?php echo $theme_path; ?>/images/futbolistas/<?php echo $ftb_equipo; ?>.png">
         </div>
