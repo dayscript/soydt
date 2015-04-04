@@ -369,11 +369,22 @@ $alto_estadio: 834px;
   }
 
   .cancha-titulo {
-    margin: 2em 0 0;
+    color: #FFF;
+    margin: 0;
+    padding: .4em 0;
+
+    &.en-la-titular {
+      border-top: 2px solid #1C4D00;
+      background: url('../images/backgrounds/pattern-pasto.jpg') center top repeat-x;
+    }
+    &.en-la-banca {
+      background: url('../images/backgrounds/pattern-pista.jpg') center top repeat-x;
+    }
   }
 
   .cancha-tribuna {
-    padding-top: 0;
+    background: url('../images/backgrounds/estadio-mobile.jpg') center top repeat-x;
+    padding: 1em 0 3em;
   }
 
   .futbolista {

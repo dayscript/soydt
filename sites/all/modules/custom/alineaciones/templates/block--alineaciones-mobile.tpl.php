@@ -154,7 +154,7 @@ $es_fecha_torneo_activo =  ( $fecha_torneo == $fecha_activa ) ? true : false;
 
   <!-- ============== Cancha ============== -->
   <div id="cancha-mobile" class="cancha-mobile row <?php echo ($es_fecha_torneo_activo) ? "active" : "inactive" ?>">
-    <h2 class="text-center cancha-titulo">En la Titular</h2>
+    <h2 class="text-center cancha-titulo en-la-titular">En la Titular</h2>
     <div id="alineados" class="futbolistas alineados">
     <?php for($i=1;$i<=11;$i++):?>
       <?php if( isset($data["alineacion"]->{"field_jugador" . $i}[LANGUAGE_NONE])
@@ -201,7 +201,7 @@ $es_fecha_torneo_activo =  ( $fecha_torneo == $fecha_activa ) ? true : false;
     <?php endfor; ?>
     </div> <!-- #alineados -->
 
-    <h2 class="text-center cancha-titulo">En la Banca</h2>
+    <h2 class="text-center cancha-titulo en-la-banca">En la Banca</h2>
     <div id="suplentes" class="futbolistas suplentes">
       <?php
       //TODO:
