@@ -6199,6 +6199,14 @@ td, th {
   opacity: 0.3;
   background: inherit; }
 
+.btn-blue {
+  display: inline-block;
+  background: #2e6399;
+  color: #fff;
+  padding: 4px 8px; }
+  .btn-blue:hover {
+    color: #86b0da; }
+
 .destacado {
   color: #712740;
   text-transform: uppercase; }
@@ -6874,13 +6882,14 @@ h2.block-title {
 
 .block-alineaciones-estadio, .block-alineaciones-estadio-angular {
   background: url('../images/backgrounds/estadio.jpg') center top no-repeat;
-  min-height: 834px; }
+  min-height: 834px;
+  padding-bottom: 20px; }
 
 .alineaciones-modal {
   padding: 30px; }
 
 .estadio .cancha {
-  background: url("../images/backgrounds/cancha-activa.png") center top no-repeat;
+  background: url("../images/backgrounds/cancha-activa.png") center top no-repeat, url("../images/backgrounds/cancha-activa-sombra.png") center top no-repeat;
   height: 558px;
   opacity: 0.5;
   position: relative;
@@ -6934,7 +6943,8 @@ h2.block-title {
     font-size: 0.875em; }
 
 .cancha-tribuna {
-  padding-top: 24px; }
+  padding-top: 24px;
+  min-height: 114px; }
 
 .sprite-juego {
   background: url('../images/backgrounds/sprite-juego.png') 0 0 no-repeat;
@@ -6949,6 +6959,8 @@ h2.block-title {
   min-height: 60px;
   padding: 0;
   width: auto; }
+  .cancha .futbolista:not(.ui-draggable-dragging) {
+    top: 90%; }
   .cancha .futbolista .ftb-acciones-wrapper {
     position: absolute;
     left: 0;
@@ -7015,7 +7027,7 @@ h2.block-title {
       left: -8px; }
   .cancha .futbolista .ftb-name {
     font-size: 0.65em;
-    font-family: 'Open Sans';
+    font-family: 'Open Sans', sans-serif;
     padding: 0;
     line-height: 24px;
     text-align: center; }
@@ -7152,9 +7164,17 @@ h2.block-title {
   .estadio-mobile .cancha-filtros {
     margin-top: 1em; }
   .estadio-mobile .cancha-titulo {
-    margin: 2em 0 0; }
+    color: #FFF;
+    margin: 0;
+    padding: .4em 0; }
+    .estadio-mobile .cancha-titulo.en-la-titular {
+      border-top: 2px solid #1C4D00;
+      background: url('../images/backgrounds/pattern-pasto.jpg') center top repeat-x; }
+    .estadio-mobile .cancha-titulo.en-la-banca {
+      background: url('../images/backgrounds/pattern-pista.jpg') center top repeat-x; }
   .estadio-mobile .cancha-tribuna {
-    padding-top: 0; }
+    background: url('../images/backgrounds/estadio-mobile.jpg') center top repeat-x;
+    padding: 1em 0 3em; }
   .estadio-mobile .futbolista {
     padding: 0.5em 0;
     margin: 0 0 0 0.3em;
@@ -7297,6 +7317,44 @@ h2.block-title {
 .carrito {
   background-image: -webkit-linear-gradient( #eea320, #eea320 43%, #b37b18 54%, #eea320);
   background-image: linear-gradient( #eea320, #eea320 43%, #b37b18 54%, #eea320); }
+
+.block-views-carrito-carrito-resumen {
+  background: #D6D6D4;
+  bottom: 0;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.6);
+  padding: 0;
+  position: fixed;
+  right: 50px;
+  width: 270px;
+  z-index: 10; }
+  .block-views-carrito-carrito-resumen .block-title {
+    background: #33629a;
+    color: #fff;
+    cursor: pointer;
+    font-size: 1.25em;
+    margin: 0;
+    padding: 6px 0 2px;
+    position: relative;
+    text-align: center; }
+    .block-views-carrito-carrito-resumen .block-title:after {
+      color: #fff;
+      content: '\f068';
+      position: absolute;
+      right: 10px;
+      font-family: 'FontAwesome';
+      font-size: 14px; }
+  .block-views-carrito-carrito-resumen.collapsed .block-title:after {
+    content: '\f067'; }
+  .block-views-carrito-carrito-resumen .view {
+    margin-bottom: 0;
+    padding: 10px; }
+  .block-views-carrito-carrito-resumen .view-content .views-row {
+    margin-bottom: 4px;
+    padding-bottom: 4px; }
+    .block-views-carrito-carrito-resumen .view-content .views-row:last-child {
+      border-bottom: none;
+      margin: 0;
+      padding: 0; }
 
 .view-id-fichar_jugadores .ftbl-acciones .sprite-juego {
   height: 40px;
