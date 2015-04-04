@@ -1,0 +1,7 @@
+<?php
+/**
+ * @file
+ * Code for the Feature Carrito feature.
+ */
+
+include_once 'feature_carrito.features.inc';
