@@ -7,7 +7,9 @@
       // expandir / contraer
       //---------------------------------------
       if ($('.block-views-carrito-carrito-resumen').length !== 0) {
-        var $blockCarrito = $('.block-views-carrito-carrito-resumen');
+        var $blockCarrito = $('.block-views-carrito-carrito-resumen')
+              .not('.ajax-processed').addClass('ajax-processed');
+
         $blockCarrito.find('h2.block-title').on('click', function () {
           $blockCarrito.toggleClass('collapsed')
             .find('.view').slideToggle(300);
