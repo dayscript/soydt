@@ -32,6 +32,17 @@
   background: inherit;
 }
 
+.btn-blue {
+  display: inline-block;
+  background: $bluetext;
+  color: #fff;
+  padding: 4px 8px;
+
+  &:hover {
+    color: lighten($bluetext,30%);
+  }
+}
+
 .destacado{
   color: $highlight-color;
   text-transform: uppercase;

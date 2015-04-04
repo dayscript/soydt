@@ -88,6 +88,59 @@
   @include background-image(linear-gradient(#eea320, #eea320 43%, #b37b18 54%, #eea320));
 }
 
+//---------------------------------------
+// View Carrito: Resumen;
+//---------------------------------------
+.block-views-carrito-carrito-resumen {
+  background: #D6D6D4;
+  bottom: 0;
+  box-shadow: 0 0 10px rgba(#000, 0.6);
+  padding: 0;
+  position: fixed;
+  right: 50px;
+  width: 270px;
+  z-index: 10;
+
+  .block-title {
+    background: $blueline;
+    color: #fff;
+    cursor: pointer;
+    font-size: em(20);
+    margin: 0;
+    padding: 6px 0 2px;
+    position: relative;
+    text-align: center;
+
+    &:after {
+      color: #fff;
+      content: '\f068';
+      position: absolute;
+      right: 10px;
+      font-family: 'FontAwesome';
+      font-size: 14px;
+    }
+  }
+
+  &.collapsed .block-title:after {
+    content: '\f067';
+    }
+
+  .view {
+    margin-bottom: 0;
+    padding: 10px;
+  }
+  .view-content .views-row {
+    margin-bottom: 4px;
+    padding-bottom: 4px;
+
+    &:last-child {
+      border-bottom: none;
+      margin: 0;
+      padding: 0;
+    }
+  }
+}
+
 
 //---------------------------------------
 // View Fichajes
@@ -113,3 +166,5 @@
 
   }
 }
+
+
