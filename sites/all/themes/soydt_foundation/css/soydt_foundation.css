@@ -6806,7 +6806,8 @@ h2.block-title {
   .view-fichar-jugadores .view-content .views-row .views-field-field-image {
     float: left;
     margin-right: 10px;
-    border: 2px solid white; }
+    border: 2px solid white;
+    background: white; }
   .view-fichar-jugadores .view-content .views-row .views-field-title {
     font-family: 'dinmittelschrift', sans-serif;
     line-height: 1.2rem;
