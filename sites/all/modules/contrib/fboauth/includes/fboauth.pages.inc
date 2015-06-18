@@ -60,11 +60,13 @@ function fboauth_settings_form($form, &$form_state) {
     '#type' => 'radios',
     '#title' => t('User name import'),
     '#options' => array(
-      'username' => t('Facebook username (i.e. johnsmith)'),
       'name' => t('Real name (i.e. John Smith)'),
+      'id' => t('Profile ID (i.e. 10152608721639101)'),
     ),
-    '#description' => t('Select the Facebook value used to set the user\'s name when connecting with Facebook.'),
-    '#default_value' => variable_get('fboauth_user_username', 'username'),
+    '#description' => t('Select the Facebook value used to set the user\'s name when connecting with Facebook. <strong>Warning:</strong> choosing "Profile ID" will result in all the usernames created with Facebook being numeric ones. You may want to implement !hook_username_alter to hide this fact.', array(
+      '!hook_username_alter' => l('hook_username_alter', 'https://api.drupal.org/api/function/hook_username_alter'),
+    )),
+    '#default_value' => variable_get('fboauth_user_username', 'name'),
   );
 
   // If Profile module exists, allow mapping of individual properties.
@@ -99,7 +101,7 @@ function fboauth_settings_form($form, &$form_state) {
     '#type' => 'checkboxes',
     '#options' => $property_options,
     '#default_value' => variable_get('fboauth_user_properties', array()),
-    '#description' => t('The following properties are always available: id, name, first_name, last_name, gender, locale, link, username, third_party_id, timezone, updated_time, and verified.'),
+    '#description' => t('The following properties are always available: id, name, first_name, last_name, gender, locale, link, timezone, updated_time, and verified.'),
   );
 
   $connections = fboauth_user_connections();

@@ -80,7 +80,14 @@ function fboauth_action_invoke($action_name, $app_id, $access_token) {
 function fboauth_action_connect($app_id, $access_token) {
   global $user;
 
+  // Save access_token in session for future use.
+  $_SESSION['fboauth']['access_token'] = $access_token;
+
   $fbuser = fboauth_graph_query('me', $access_token);
+  // Use fake email if user email not available.
+  if (empty($fbuser->email)) {
+    $fbuser->email = $fbuser->id . '@facebook.com';
+  };
  
   $uid = fboauth_uid_load($fbuser->id);
   // If the user isn't logged in.
@@ -217,10 +224,10 @@ function fboauth_action_deauth($app_id, $access_token) {
   global $user;
 
   // Deauthorize our application from Facebook.
-  $result = fboauth_method_invoke('auth.revokeAuthorization', $access_token);
+  $result = fboauth_graph_query('me/permissions', $access_token, array(), 'DELETE');
 
   // If successful, also remove the uid-fbid pairing.
-  if (!is_array($result) && $result) {
+  if (isset($result->success) && $result->success) {
     $fbid = fboauth_fbid_load($user->uid);
     fboauth_save($user->uid, NULL);
 
@@ -241,21 +248,25 @@ function fboauth_action_deauth($app_id, $access_token) {
 function fboauth_create_user($fbuser, $options = array()) {
   // Set default options.
   $defaults = array(
-    'username' => variable_get('fboauth_user_username', 'username'),
+    'username' => variable_get('fboauth_user_username', 'name'),
     'picture'  => (variable_get('user_pictures', 0) && variable_get('fboauth_user_picture', 'picture')) ? 'picture' : '',
     'status'   => variable_get('user_register', 1) == 1 ? 1 : 0,
   );
   $options += $defaults;
 
-  // Use their Facebook user name (if defined), otherwise their real name.
+  // Depending on settings use profile id or real name for drupal username.
+  switch ($options['username']) {
+    case 'name':
+      $username = $fbuser->name;
+      break;
+
+    case 'id':
+      $username = $fbuser->id;
+      break;
+  }
+
   // If an account already exists with that name, increment until the namespace
   // is available.
-  if ($options['username'] === 'username' && !empty($fbuser->username)) {
-    $username = $fbuser->username;
-  }
-  else {
-    $username = $fbuser->name;
-  }
   $query = "SELECT uid FROM {users} WHERE name = :name";
   $uid = db_query($query, array(':name' => $username))->fetchField();
   $i = 0;
@@ -267,16 +278,11 @@ function fboauth_create_user($fbuser, $options = array()) {
     $username = $username . $i;
   }
 
-  // get the facebook e-mail address in case the main e-mail address isn't available from facebook.
-  // this still will fail if the Facebook user hasn't set a Facebook username, since per 
-  // https://www.drupal.org/node/2149661#comment-9623017 #6  the fbid with @facebook.com isn't a valid email.
-  $facebook_mail = isset($fbuser->username) ? $fbuser->username . '@facebook.com' : '';
-
   // Initialize basic properties that are unlikely to need changing.
   $edit = array(
     'name' => $username,
-    'mail' => !empty($fbuser->email) ? $fbuser->email : $facebook_mail,
-    'init' => !empty($fbuser->email) ? $fbuser->email : $facebook_mail,
+    'mail' => $fbuser->email,
+    'init' => $fbuser->email,
     // If user_register is "1", then no approval required.
     'status' => $options['status'],
     'timezone' => variable_get('date_default_timezone'),
@@ -323,7 +329,7 @@ function fboauth_create_user($fbuser, $options = array()) {
   if ($account->uid && $options['picture'] === 'picture') {
     $picture_directory = file_default_scheme() . '://' . variable_get('user_picture_path', 'pictures');
     if (file_prepare_directory($picture_directory, FILE_CREATE_DIRECTORY)) {
-      $picture_result = drupal_http_request('https://graph.facebook.com/v2.2/' . $fbuser->id . '/picture?type=large');
+      $picture_result = drupal_http_request('https://graph.facebook.com/v2.3/' . $fbuser->id . '/picture?type=large');
       $picture_path = file_stream_wrapper_uri_normalize($picture_directory . '/picture-' . $account->uid . '-' . REQUEST_TIME . '.jpg');
       $picture_file = file_save_data($picture_result->data, $picture_path, FILE_EXISTS_REPLACE);
 
@@ -364,6 +370,9 @@ function fboauth_create_user($fbuser, $options = array()) {
  */
 function fboauth_login_user($account) {
   global $user;
+  if (module_exists('boost')) {
+    boost_set_cookie($account->uid);
+  }
 
   if ($account->status) {
     $form_state['uid'] = $account->uid;
@@ -425,7 +434,7 @@ function fboauth_access_token($code, $action_name, $app_id = NULL, $app_secret =
     'redirect_uri' => fboauth_action_url('fboauth/' . $action_name, array('absolute' => TRUE, 'query' => !empty($_GET['destination']) ? array('destination' => $_GET['destination']) : array())),
     'code' => $code,
   );
-  $token_url = url('https://graph.facebook.com/v2.2/oauth/access_token', array('absolute' => TRUE, 'query' => $query));
+  $token_url = url('https://graph.facebook.com/v2.3/oauth/access_token', array('absolute' => TRUE, 'query' => $query));
   $authentication_result = drupal_http_request($token_url);
 
   if ($authentication_result->code != 200) {
@@ -438,14 +447,7 @@ function fboauth_access_token($code, $action_name, $app_id = NULL, $app_secret =
       array('@url' => $token_url, '@error' => $error, '@return' => $data));
   }
   else {
-    // The result from Facebook comes back in a query-string-like format,
-    // key1=value1&key2=value2. Parse into an array.
-    $authentication_strings = explode('&', $authentication_result->data);
-    $authentication_values = array();
-    foreach ($authentication_strings as $authentication_string) {
-      list($authentication_key, $authentication_value) = explode('=', $authentication_string);
-      $authentication_values[$authentication_key] = $authentication_value;
-    }
+    $authentication_values = drupal_json_decode($authentication_result->data);
   }
 
   return isset($authentication_values['access_token']) ? $authentication_values['access_token'] : NULL;
@@ -469,17 +471,14 @@ function fboauth_user_permissions($access_requested = NULL) {
   $permissions = array();
   $permission_names = array(
     'user_about_me' => t('About yourself description'),
-    'user_activities' => t('Your activities'),
     'user_birthday' => t('Your birthday'),
     'user_education_history' => t('Your education history'),
     'user_events' => t("Events you're attending"),
+    'user_friends' => t('Access your friends'),
     'user_groups' => t('Your groups'),
     'user_hometown' => t('Your hometown'),
-    'user_interests' => t('Your interests'),
     'user_likes' => t('Your likes'),
     'user_location' => t('Your location'),
-    'user_notes' => t('Your notes'),
-    'user_online_presence' => t('Your online/offline status'),
     'user_photo_video_tags' => t("Photos and videos you've been tagged in"),
     'user_photos' => t("Photos you've uploaded"),
     'user_relationships' => t('Access to your family and personal relationships and relationship status'),
@@ -490,14 +489,11 @@ function fboauth_user_permissions($access_requested = NULL) {
     'user_website' => t('Your website URL'),
     'user_work_history' => t('Your work history'),
     'email' => t('Your e-mail'),
-    'read_friendlists' => t('Access your lists of friends'),
+    'read_custom_friendlists' => t('Access your lists of friends'),
     'read_insights' => t('Access your Facebook insights data'),
     'read_mailbox' => t('Access your Facebook inbox'),
-    'read_requests' => t('Access your friend requests'),
     'read_stream' => t('Access your new feed'),
-    'xmpp_login' => t('Log you into Facebook chat'),
     'ads_management' => t('Manage your ads'),
-    'user_checkins' => t('Access check-in information'),
   );
 
   $properties = fboauth_user_properties();
@@ -529,9 +525,8 @@ function fboauth_user_permissions($access_requested = NULL) {
  * and a human-readable name for the property.
  *
  * Note that access to a user's id, name, first_name, last_name, gender, locale,
- * link, username, third_party_id, timezone, updated_time, and verified
- * properties are always available if the user grants generic access to your
- * application.
+ * link, timezone, updated_time, and verified properties are always available
+ * if the user grants generic access to your application.
  *
  * @param bool $include_common
  *   Optionally include all common properties in this list.
@@ -612,6 +607,10 @@ function fboauth_user_properties($include_common = FALSE) {
       'permission' => 'user_work_history',
       'label' => t('Work history'),
     ),
+    'picture' => array(
+      'label' => t('Profile picture'),
+      'field_types' => array('image'),
+    ),
   );
 
   // Common properties. Always defined so that modules may alter if needed.
@@ -641,12 +640,6 @@ function fboauth_user_properties($include_common = FALSE) {
     'link' => array(
       'label' => t('Facebook profile link'),
       'field_types' => array('text', 'link_field'),
-    ),
-    'username' => array(
-      'label' => t('Username'),
-    ),
-    'third_party_id' => array(
-      'label' => t('3rd-party ID'),
     ),
     'timezone' => array(
       'label' => t('Timezone'),
@@ -683,8 +676,8 @@ function fboauth_user_properties($include_common = FALSE) {
  * returned array of connections provides the name of each required permission
  * and a human-readable name for the connection.
  *
- * Note that access to the "picture" and "friends" connections are always
- * allowed if the user grants generic access to your application.
+ * Note that access to the "picture" connection are included by default with
+ * the public_profile permission, which is always required.
  *
  * @see fboauth_user_properties()
  * @see http://developers.facebook.com/docs/reference/api/user/
@@ -695,10 +688,6 @@ function fboauth_user_connections() {
     'accounts' => array(
       'permission' => 'manage_pages',
       'label' => t('Account pages'),
-    ),
-    'activities' => array(
-      'permission' => 'user_activities',
-      'label' => t('Activities'),
     ),
     'apprequests' => array(
       'label' => t('App requests'),
@@ -712,10 +701,6 @@ function fboauth_user_connections() {
       'permission' => 'user_likes',
       'label' => t('Books liked'),
     ),
-    'checkins' => array(
-      'permission' => 'user_checkins',
-      'label' => t('Check-ins'),
-    ),
     'events' => array(
       'permission' => 'user_events',
       'label' => t('Events'),
@@ -725,8 +710,12 @@ function fboauth_user_connections() {
       'label' => t("User's wall"),
     ),
     'friendlists' => array(
-      'permission' => 'read_friendlists',
+      'permission' => 'read_custom_friendlists',
       'label' => t('Lists of friends'),
+    ),
+    'friends' => array(
+      'permission' => 'user_friends',
+      'label' => t('Friends'),
     ),
     'home' => array(
       'permission' => 'read_stream',
@@ -735,10 +724,6 @@ function fboauth_user_connections() {
     'inbox' => array(
       'permission' => 'read_mailbox',
       'label' => t('Inbox threads'),
-    ),
-    'interests' => array(
-      'permission' => 'user_interests',
-      'label' => t('Interests'),
     ),
     'likes' => array(
       'permission' => 'user_likes',
@@ -756,10 +741,6 @@ function fboauth_user_connections() {
       'permission' => 'user_likes',
       'label' => t('Music liked'),
     ),
-    'notes' => array(
-      'permission' => 'read_stream',
-      'label' => t('Notes'),
-    ),
     'outbox' => array(
       'permission' => 'read_mailbox',
       'label' => t('Outbox'),
@@ -769,7 +750,7 @@ function fboauth_user_connections() {
       'label' => t('Photos'),
     ),
     'posts' => array(
-      'permission' => 'read_stream',
+      'permission' => 'user_posts',
       'label' => t('Posts'),
     ),
     'statuses' => array(
@@ -779,6 +760,10 @@ function fboauth_user_connections() {
     'tagged' => array(
       'permission' => 'read_stream',
       'label' => t('Tagged in photos, videos, and posts'),
+    ),
+    'tagged_places' => array(
+      'permission' => 'user_tagged_places',
+      'label' => t('List of tagged places for this person'),
     ),
     'television' => array(
       'permission' => 'user_likes',
@@ -824,7 +809,7 @@ function fboauth_graph_query($id, $access_token = NULL, $parameters = array(), $
   }
 
   if ($method == 'GET' || $method == 'DELETE') {
-    $graph_url = url('https://graph.facebook.com/v2.2/' . $id,
+    $graph_url = url('https://graph.facebook.com/v2.3/' . $id,
       array(
         'absolute' => TRUE,
         'query'    => $parameters));
@@ -835,7 +820,7 @@ function fboauth_graph_query($id, $access_token = NULL, $parameters = array(), $
         'method'  => $method));
   }
   elseif ($method == 'POST') {
-    $graph_url = 'https://graph.facebook.com/v2.2/' . $id;
+    $graph_url = 'https://graph.facebook.com/v2.3/' . $id;
     $post_data = http_build_query($parameters, '', '&');
     $graph_result = drupal_http_request(
       $graph_url,
@@ -854,7 +839,7 @@ function fboauth_graph_query($id, $access_token = NULL, $parameters = array(), $
   }
 
   // If the response contains a redirect (such as to an image), return the
-  // redirect as the data. i.e. https://graph.facebook.com/v2.2/19292868552/picture.
+  // redirect as the data. i.e. https://graph.facebook.com/v2.3/19292868552/picture.
   if (isset($graph_result->redirect_url)) {
     $data = array(
       'data' => $graph_result->data,
@@ -867,28 +852,6 @@ function fboauth_graph_query($id, $access_token = NULL, $parameters = array(), $
   }
 
   return $data;
-}
-
-/**
- * Execute a legacy REST API method through Facebook.
- *
- * @see http://developers.facebook.com/docs/reference/rest/
- */
-function fboauth_method_invoke($method, $access_token, $parameters = array()) {
-  // Provide the default App ID for all requests if not specified.
-  if (!isset($parameters['app_id'])) {
-    $parameters['app_id'] = variable_get('fboauth_id', '');
-  }
-
-  $parameters['access_token'] = $access_token;
-
-  // Keep all results in JSON for simplicity.
-  $parameters['format'] = 'json';
-
-  // Perform the REST query.
-  $query_string = drupal_http_build_query($parameters);
-  $result = drupal_http_request('https://api.facebook.com/v2.2/method/' . $method . '?' . $query_string);
-  return json_decode($result->data);
 }
 
 /**

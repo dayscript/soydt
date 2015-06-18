@@ -119,6 +119,10 @@ function fboauth_field_convert_info() {
       'label' => t('Date'),
       'callback' => 'fboauth_field_convert_date',
     ),
+    'image' => array(
+      'label' => t('Image'),
+      'callback' => 'fboauth_field_convert_image',
+    ),
   );
   drupal_alter('fboauth_field_convert_info', $convert_info);
   return $convert_info;
@@ -291,4 +295,31 @@ function fboauth_field_convert_date($facebook_property_name, $fbuser, $field, $i
     }
   }
   return $value;
+}
+
+/**
+ * Facebook data conversion function.
+ */
+function fboauth_field_convert_image($facebook_property_name, $fbuser, $field, $instance) {
+  $file = NULL;
+
+  switch ($facebook_property_name) {
+    case 'picture':
+      // 1000px width should be enough.
+      $image_url = fboauth_graph_query($fbuser->id . '/picture', NULL, array('width' => 1000));
+      if (isset($image_url['redirect_url'])) {
+        if ($image = file_get_contents($image_url['redirect_url'])) {
+          $destination = file_field_widget_uri($field, $instance) . "/$fbuser->id.jpg";
+          $file = file_save_data($image, $destination, FILE_EXISTS_REPLACE);
+
+          if (is_object($file)) {
+            $file->status = 1;
+            $file = (array)file_save($file);
+          }
+        }
+      }
+      break;
+  }
+
+  return $file;
 }
