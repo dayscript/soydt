@@ -18,8 +18,10 @@ $fecha_activa = $_SESSION['fecha_activa']->nid;
 
 // Datos guardados por el usuario
 $alineacion_usuario = $data["alineacion"]->nid;
-$capitan_usuario = $data["alineacion"]->field_capitan[LANGUAGE_NONE];
-$equipo_usuario = $data["equipo"]->field_jugadores2[LANGUAGE_NONE];
+if(isset($data["alineacion"]->field_capitan[LANGUAGE_NONE]))
+    $capitan_usuario = $data["alineacion"]->field_capitan[LANGUAGE_NONE];
+if(isset($data["equipo"]->field_jugadores2[LANGUAGE_NONE]))
+    $equipo_usuario = $data["equipo"]->field_jugadores2[LANGUAGE_NONE];
 $formacion_usuario = $data["alineacion"]->field_formacion[LANGUAGE_NONE][0]['tid'];
 $puntos_usuario = $data['alineacion']->field_total[LANGUAGE_NONE][0]['value'];
 
