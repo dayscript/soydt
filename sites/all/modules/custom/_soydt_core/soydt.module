@@ -15,7 +15,7 @@ function soydt_views_api(){
       'path' => drupal_get_path( 'module', 'soydt' )
   );
 }
-
+// K5cuyGFpMCDM7867
 
 /**
  * Implements hook_init

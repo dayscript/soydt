@@ -138,10 +138,12 @@ function get_posiciones($text){
  * Elimina un jugador si se encuentra en la lista de suplentes
  */
 function borrarSuplente($alineacion,$playerid){
-    foreach ($alineacion->field_suplentes['und'] as $key => $supl) {
-        if ($supl['target_id'] == $playerid) {
-            $alineacion->field_suplentes['und'][$key]['target_id'] = 0;
-            unset($alineacion->field_suplentes['und'][$key]);
+    if(isset($alineacion->field_suplentes['und']) && is_array($alineacion->field_suplentes['und'])){
+        foreach ($alineacion->field_suplentes['und'] as $key => $supl) {
+            if ($supl['target_id'] == $playerid) {
+                $alineacion->field_suplentes['und'][$key]['target_id'] = 0;
+                unset($alineacion->field_suplentes['und'][$key]);
+            }
         }
     }
     return $alineacion;
