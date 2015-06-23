@@ -42,7 +42,7 @@ else
  * Guarda como nombre de usuario el mismo texto del email.
  */
 function soydt_email_registration_name($edit, $account) {
-  return $edit['mail'];
+  return null;
 }
 
 
