@@ -4,7 +4,7 @@ package = Dayscript
 core = 7.x
 
 ; Contrib Modules Dependencies
-dependencies[] = email_registration
+;dependencies[] = email_registration
 dependencies[] = views
 
 ; Custom Modules Dependencies

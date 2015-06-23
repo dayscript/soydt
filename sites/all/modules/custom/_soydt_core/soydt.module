@@ -41,9 +41,9 @@ else
  * Hook email_registration
  * Guarda como nombre de usuario el mismo texto del email.
  */
-function soydt_email_registration_name($edit, $account) {
-  return null;
-}
+//function soydt_email_registration_name($edit, $account) {
+//  return null;
+//}
 
 
 /*
