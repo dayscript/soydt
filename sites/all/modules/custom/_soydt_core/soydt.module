@@ -52,9 +52,9 @@ else
  * para que sea == al e-mail
  * En caso que no sea la cuenta de Admin (uid != 1)
  */
-/* function soydt_user_presave(&$edit, $account, $category) {
+ function soydt_user_presave(&$edit, $account, $category) {
   if($account->uid != 1)
     $edit['name'] = $edit['mail'];
 }
-*/
+
 
