@@ -41,9 +41,9 @@ else
  * Hook email_registration
  * Guarda como nombre de usuario el mismo texto del email.
  */
-//function soydt_email_registration_name($edit, $account) {
-//  return null;
-//}
+function soydt_email_registration_name($edit, $account) {
+  return $edit['mail'];
+}
 
 
 /*
@@ -52,9 +52,9 @@ else
  * para que sea == al e-mail
  * En caso que no sea la cuenta de Admin (uid != 1)
  */
- function soydt_user_presave(&$edit, $account, $category) {
+/* function soydt_user_presave(&$edit, $account, $category) {
   if($account->uid != 1)
     $edit['name'] = $edit['mail'];
 }
-
+*/
 
