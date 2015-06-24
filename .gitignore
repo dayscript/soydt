@@ -5,5 +5,4 @@ sites/*/settings*.php
 sites/*/files
 sites/*/private
 .idea
-robots.txt
 private
