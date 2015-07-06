@@ -93,6 +93,29 @@ function depurar_data(){
 
     }
 
+    $result = $query->entityCondition( 'entity_type', 'node' )
+        ->entityCondition( 'bundle', 'alineacion' )
+        ->propertyCondition( 'status', 1 )
+        ->execute();
+    if ( isset( $result[ 'node' ] ) ){
+        $nids = array_keys( $result[ 'node' ] );
+        $alineaciones = entity_load( 'node', $nids );
+        foreach ( $alineaciones as $ali ){
+            for($i=1;$i<=11;$i++){
+                if (isset($ali->{"field_jugador".$i}['und'])) {
+                    if($player = node_load($ali->{"field_jugador".$i}['und'][0])){
+                        ;
+                    } else {
+                        $ali->{"field_jugador".$i}['und'][0]['target_id'] = 0;
+                        $us = user_load($ali->uid);
+                        $data[$us->uid] = $us->mail;
+                        //node_save($ali);
+                    }
+                }
+            }
+        }
+
+    }
     return $data;
 }
 
