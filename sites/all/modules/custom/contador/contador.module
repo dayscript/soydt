@@ -104,14 +104,14 @@ function depurar_data(){
             //$data[] = $ali;
             for($i=1;$i<=11;$i++){
                 if ( isset($ali->{"field_jugador".$i}['und']) ) {
-            //        if($player = node_load($ali->{"field_jugador".$i}['und'][0])){
+                    if($player = node_load($ali->{"field_jugador".$i}['und'][0]['target_id'])){
             //            ;
-            //        } else {
-            //            //$ali->{"field_jugador".$i}['und'][0]['target_id'] = 0;
-            //            //$us = user_load($ali->uid);
-            //            //$data[$us->uid] = $us->mail;
+                    } else {
+                        $ali->{"field_jugador".$i}['und'][0]['target_id'] = 0;
+                        $us = user_load($ali->uid);
+                        $data[$us->uid] = $us->mail;
             //            //node_save($ali);
-            //        }
+                    }
                 }
             }
         }
