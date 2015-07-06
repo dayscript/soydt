@@ -68,9 +68,9 @@ function depurar_data(){
             if(isset($equipo->field_jugadores2['und'])){
                 $data[$equipo->nid] = array();
                 foreach($equipo->field_jugadores2['und'] as $key=>$jugador){
-                    //$data[$equipo->nid][] = $jugador;
-                    $player = node_load($jugador);
-                    $data[$equipo->nid][$jugador] = $player;
+                    $data[$equipo->nid][] = $jugador;
+                    //$player = node_load($jugador);
+                    //$data[$equipo->nid][$jugador] = $player;
                 }
             }
 
