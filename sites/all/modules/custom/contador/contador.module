@@ -68,6 +68,7 @@ function depurar_data(){
             if(isset($equipo->field_jugadores2['und'])){
                 $data[$equipo->nid] = array();
                 $players = 0;
+                $players2 = 0;
                 foreach($equipo->field_jugadores2['und'] as $key=>$jugador){
                     if($player = node_load($jugador['target_id'])){
                         //$data[$equipo->nid][] = $jugador['target_id'];
@@ -76,9 +77,10 @@ function depurar_data(){
                     } else {
                         $data[$equipo->nid][$jugador] = "Error";
                     }
+                    $players2++;
                 }
                 if(count($equipo->field_jugadores2['und']) != $players){
-                    $data[$equipo->nid]["Conteo"] = count($equipo->field_jugadores2['und']) . " - " . $players;
+                    $data[$equipo->nid]["Conteo"] = count($equipo->field_jugadores2['und']) . " - " . $players . " - " . $players2;
                 }
             }
 
