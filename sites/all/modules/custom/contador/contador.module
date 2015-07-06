@@ -88,7 +88,8 @@ function depurar_data(){
 
                 if(isset($us->field_saldo['und'][0]['value'])){
                     $saldo = $us->field_saldo['und'][0]['value'];
-                    if($total+$saldo != 500000000){
+                    if($total+$saldo > 500000000){
+                        $data[$equipo->uid]["mail"] = $us->mail;
                         $data[$equipo->uid]["equipo"] = $total;
                         $data[$equipo->uid]["saldo"] = $saldo;
                         $data[$equipo->uid]["total"] = number_format($saldo+$total,0,",",".");
