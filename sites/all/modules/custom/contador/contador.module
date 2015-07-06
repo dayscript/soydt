@@ -107,8 +107,8 @@ function depurar_data(){
                         ;
                     } else {
                         $ali->{"field_jugador".$i}['und'][0]['target_id'] = 0;
-                        $us = user_load($ali->uid);
-                        $data[$us->uid] = $us->mail;
+                        //$us = user_load($ali->uid);
+                        //$data[$us->uid] = $us->mail;
                         //node_save($ali);
                     }
                 }
