@@ -89,12 +89,12 @@ function depurar_data(){
                 if(isset($us->field_saldo['und'][0]['value'])){
                     $saldo = $us->field_saldo['und'][0]['value'];
                     if($total > 500000000){
-                        //$data[] = $us->mail;
-                        $data[$equipo->uid]["mail"] = $us->mail;
-                        $data[$equipo->uid]["name"] = $us->name;
-                        $data[$equipo->uid]["equipo"] = $total;
-                        $data[$equipo->uid]["saldo"] = $saldo;
-                        $data[$equipo->uid]["total"] = number_format($saldo+$total,0,",",".");
+                        $data[] = $us->mail;
+                        //$data[$equipo->uid]["mail"] = $us->mail;
+                        //$data[$equipo->uid]["name"] = $us->name;
+                        //$data[$equipo->uid]["equipo"] = $total;
+                        //$data[$equipo->uid]["saldo"] = $saldo;
+                        //$data[$equipo->uid]["total"] = number_format($saldo+$total,0,",",".");
                     }
                 }
 
