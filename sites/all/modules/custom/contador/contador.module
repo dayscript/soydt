@@ -105,14 +105,20 @@ function depurar_data(){
                             $nids = array_keys( $result[ 'node' ] );
                             node_delete_multiple($nids);
                         }
-
-
                         $data[] = $us->mail;
                         //$data[$equipo->uid]["mail"] = $us->mail;
                         //$data[$equipo->uid]["name"] = $us->name;
                         //$data[$equipo->uid]["equipo"] = $total;
                         //$data[$equipo->uid]["saldo"] = $saldo;
                         //$data[$equipo->uid]["total"] = number_format($saldo+$total,0,",",".");
+                    } else if($total+$saldo > 500000000){
+                        //$us->field_saldo['und'][0]['value'] = 500000000-$total;
+                        //user_save($us);
+                        $data[$equipo->uid]["mail"] = $us->mail;
+                        $data[$equipo->uid]["name"] = $us->name;
+                        $data[$equipo->uid]["equipo"] = $total;
+                        $data[$equipo->uid]["saldo"] = $saldo;
+                        $data[$equipo->uid]["total"] = number_format($saldo+$total,0,",",".");
                     }
                 }
             }
