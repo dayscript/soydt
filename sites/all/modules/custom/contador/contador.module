@@ -56,6 +56,21 @@ function contador_block_view( $delta = '' )
 
 function depurar_data(){
     $data = array();
+    $query = new EntityFieldQuery();
+    $result = $query->entityCondition( 'entity_type', 'node' )
+        ->entityCondition( 'bundle', 'equipo_de_usuario' )
+        ->propertyCondition( 'status', 1 )
+        ->execute();
+    if ( isset( $result[ 'node' ] ) ){
+        $nids = array_keys( $result[ 'node' ] );
+        $equipos = entity_load( 'node', $nids );
+        foreach ( $equipos as $equipo ){
+            echo count($equipo->field_jugadores2);
+            echo "<br>";
+        }
+
+    }
+
     return $data;
 }
 
