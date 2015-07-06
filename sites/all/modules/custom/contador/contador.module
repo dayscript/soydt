@@ -75,7 +75,7 @@ function depurar_data(){
                         $players++;
                     } else {
                         $us = user_load($equipo->uid);
-                        $data[] = $us;
+                        $data[$us->uid] = $us->mail;
                         //$data[$equipo->uid][$jugador['target_id']] = "Jugador No existe";
                         $players2++;
                     }
