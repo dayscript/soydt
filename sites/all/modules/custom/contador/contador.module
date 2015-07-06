@@ -65,7 +65,13 @@ function depurar_data(){
         $nids = array_keys( $result[ 'node' ] );
         $equipos = entity_load( 'node', $nids );
         foreach ( $equipos as $equipo ){
-            $data[] = count($equipo->field_jugadores2);
+            if(isset($equipo->field_jugadores2['und'])){
+                $data[$equipo->nid] = array();
+                foreach($equipo->field_jugadores2['und'] as $key=>$jugador){
+                    $data[$equipo->nid][] = $jugador->nid;
+                }
+            }
+
         }
 
     }
