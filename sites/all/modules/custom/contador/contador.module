@@ -68,9 +68,13 @@ function depurar_data(){
             if(isset($equipo->field_jugadores2['und'])){
                 $data[$equipo->nid] = array();
                 foreach($equipo->field_jugadores2['und'] as $key=>$jugador){
-                    $data[$equipo->nid][] = $jugador['target_id'];
-                    //$player = node_load($jugador);
-                    //$data[$equipo->nid][$jugador] = $player;
+                    if($player = node_load($jugador['target_id'])){
+                        //$data[$equipo->nid][] = $jugador['target_id'];
+                        //$data[$equipo->nid][$jugador] = $player;
+                    } else {
+                        $data[$equipo->nid][$jugador] = "Error";
+                    }
+
                 }
             }
 
