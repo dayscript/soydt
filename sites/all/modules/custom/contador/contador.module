@@ -65,8 +65,7 @@ function depurar_data(){
         $nids = array_keys( $result[ 'node' ] );
         $equipos = entity_load( 'node', $nids );
         foreach ( $equipos as $equipo ){
-            echo count($equipo->field_jugadores2);
-            echo "<br>";
+            $data[] = count($equipo->field_jugadores2);
         }
 
     }
