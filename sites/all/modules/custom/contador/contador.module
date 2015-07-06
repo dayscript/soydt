@@ -85,9 +85,16 @@ function depurar_data(){
                         node_save($equipo);
                     }
                 }
-                $data[$equipo->uid]["total"] = $total;
-                if(isset($us->field_saldo['und'][0]['value']))
-                    $data[$equipo->uid]["saldo"] = $us->field_saldo['und'][0]['value'];
+
+                if(isset($us->field_saldo['und'][0]['value'])){
+                    $saldo = $us->field_saldo['und'][0]['value'];
+                } else{
+                    $saldo = 500000000;
+                }
+                if($total+$saldo != 500000000){
+                    $data[$equipo->uid]["total"] = $total;
+                    $data[$equipo->uid]["saldo"] = $saldo;
+                }
 
                 if(count($equipo->field_jugadores2['und']) != $players){
                     //$data[$equipo->nid]["Conteo"] = count($equipo->field_jugadores2['und']) . " - " . $players . " - " . $players2;
