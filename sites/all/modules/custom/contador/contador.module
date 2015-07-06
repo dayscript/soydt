@@ -106,19 +106,26 @@ function depurar_data(){
                             node_delete_multiple($nids);
                         }
                         $data[] = $us->mail;
-                        //$data[$equipo->uid]["mail"] = $us->mail;
-                        //$data[$equipo->uid]["name"] = $us->name;
-                        //$data[$equipo->uid]["equipo"] = $total;
-                        //$data[$equipo->uid]["saldo"] = $saldo;
-                        //$data[$equipo->uid]["total"] = number_format($saldo+$total,0,",",".");
+                        $data[$equipo->uid]["mail"] = $us->mail;
+                        $data[$equipo->uid]["name"] = $us->name;
+                        $data[$equipo->uid]["equipo"] = $total;
+                        $data[$equipo->uid]["saldo"] = $saldo;
+                        $data[$equipo->uid]["total"] = number_format($saldo+$total,0,",",".");
                     } else if($total+$saldo > 500000000){
                         $us->field_saldo['und'][0]['value'] = 500000000-$total;
                         user_save($us);
-                        //$data[$equipo->uid]["mail"] = $us->mail;
-                        //$data[$equipo->uid]["name"] = $us->name;
-                        //$data[$equipo->uid]["equipo"] = $total;
-                        //$data[$equipo->uid]["saldo"] = $saldo;
-                        //$data[$equipo->uid]["total"] = number_format($saldo+$total,0,",",".");
+                        $data[$equipo->uid]["mail"] = $us->mail;
+                        $data[$equipo->uid]["name"] = $us->name;
+                        $data[$equipo->uid]["equipo"] = $total;
+                        $data[$equipo->uid]["saldo"] = $saldo;
+                        $data[$equipo->uid]["total"] = number_format($saldo+$total,0,",",".");
+                    } else if($total+$saldo != 500000000){
+                        $data[$equipo->uid]["mail"] = $us->mail;
+                        $data[$equipo->uid]["name"] = $us->name;
+                        $data[$equipo->uid]["equipo"] = $total;
+                        $data[$equipo->uid]["saldo"] = $saldo;
+                        $data[$equipo->uid]["total"] = number_format($saldo+$total,0,",",".");
+
                     }
                 }
             }
@@ -134,6 +141,15 @@ function depurar_data(){
         $alineaciones = entity_load( 'node', $nids );
         foreach ( $alineaciones as $ali ){
             //$data[] = $ali;
+            foreach($ali->field_suplentes['und'] as $key=>$supl){
+                if($player = node_load($supl['target_id'])){
+                } else {
+                    $ali->field_suplentes['und'][$key]['target_id'] = 0;
+                    unset($ali->field_suplentes['und'][$key]);
+                    node_save($ali);
+                }
+
+            }
             for($i=1;$i<=11;$i++){
                 if ( isset($ali->{"field_jugador".$i}['und'])
                     && isset($ali->{"field_jugador".$i}['und'][0]['target_id'])
@@ -147,6 +163,19 @@ function depurar_data(){
                         //$data[$us->uid] = $us->mail;
                         node_save($ali);
                     }
+                }
+            }
+            if ( isset($ali->field_capitan['und'])
+                && isset($ali->field_capitan['und'][0]['target_id'])
+                && $ali->field_capitan['und'][0]['target_id'] > 0
+            ) {
+                if($player = node_load($ali->field_capitan['und'][0]['target_id'])){
+                    //            ;
+                } else {
+                    $ali->field_capitan['und'][0]['target_id'] = 0;
+                    $us = user_load($ali->uid);
+                    //$data[$us->uid] = $us->mail;
+                    node_save($ali);
                 }
             }
         }
