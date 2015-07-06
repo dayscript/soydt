@@ -2,74 +2,101 @@
 /**
  * Implements hook_theme().
  */
-function contador_theme($existing, $type, $theme, $path) {
-  $hooks = array();
-  $hooks['contador'] = array(
-    'variables' => array('data' => array()),
-    'template' => "templates/contador"
-  );
-  return $hooks;
+function contador_theme( $existing, $type, $theme, $path )
+{
+    $hooks = array();
+    $hooks[ 'contador' ] = array(
+        'variables' => array( 'data' => array() ),
+        'template'  => "templates/contador"
+    );
+
+    $hooks[ 'depurar' ] = array(
+        'variables' => array( 'data' => array() ),
+        'template'  => "templates/depurar"
+    );
+    return $hooks;
 }
 
 /**
  * Implements hook_block_info().
  */
-function contador_block_info() {
-  $blocks = array();
-  $blocks['contador'] = array(
-    'info' => t('Cuenta Regresiva Proxima Fecha'),
-    'cache' => DRUPAL_NO_CACHE,
-  );
+function contador_block_info()
+{
+    $blocks = array();
+    $blocks[ 'contador' ] = array(
+        'info'  => t( 'Cuenta Regresiva Proxima Fecha' ),
+        'cache' => DRUPAL_NO_CACHE,
+    );
+    $blocks[ 'depurar_equipos' ] = array(
+        'info'  => t( 'Depurador de equipos y alineaciones' ),
+        'cache' => DRUPAL_NO_CACHE,
+    );
 
-  return $blocks;
+    return $blocks;
 }
 
 /**
  * Implements hook_block_view().
  */
-function contador_block_view($delta = '') {
-  $block = array();
-  switch ($delta) {
-    case 'contador':
-      $block['content'] = theme('contador', array('data' => contador_data()));
-      break;
-  }
-  return $block;
+function contador_block_view( $delta = '' )
+{
+    $block = array();
+    switch ( $delta )
+    {
+        case 'contador':
+            $block[ 'content' ] = theme( 'contador', array( 'data' => contador_data() ) );
+            break;
+        case 'depurar_equipos':
+            $block[ 'content' ] = theme( 'depurar', array( 'data' => depurar_data() ) );
+            break;
+    }
+
+    return $block;
 }
 
+function depurar_data(){
+    $data = array();
+    return $data;
+}
 
 /**
  * @return timestamp
  */
-function contador_data(){
-  $data = array();
-  $data["date"] = date("Y-m-d H:i:s",time()+60*60);
-  $data["name"] = "Sin Fecha";
-  $query = new EntityFieldQuery();
-  $result = $query->entityCondition('entity_type', 'node')
-      ->entityCondition('bundle', 'fecha_del_torneo')
-      ->propertyCondition('status', 1)
-      ->fieldOrderBy('field_inicio', 'value', 'ASC')
-      ->execute();
-  if (isset($result['node'])) {
-    $nids = array_keys($result['node']);
-    $fechas = entity_load('node', $nids);
-    $now = date("Y-m-d H:i:s");
-    foreach($fechas as $fecha){
-      if($fecha->field_inicio['und'][0]['value'] > $now){
-        $data["date"] = $fecha->field_inicio['und'][0]['value'];
-        $data["name"] = $fecha->title;
-        $fecha->field_fecha_abierta['und'][0]['value'] = 1;
-        node_save($fecha);
-        $_SESSION['fecha_activa'] = $fecha;
-        break;
-      } else{
-        $fecha->field_fecha_abierta['und'][0]['value'] = 0;
-        node_save($fecha);
-      }
+function contador_data()
+{
+    $data = array();
+    $data[ "date" ] = date( "Y-m-d H:i:s", time() + 60 * 60 );
+    $data[ "name" ] = "Sin Fecha";
+    $query = new EntityFieldQuery();
+    $result = $query->entityCondition( 'entity_type', 'node' )
+        ->entityCondition( 'bundle', 'fecha_del_torneo' )
+        ->propertyCondition( 'status', 1 )
+        ->fieldOrderBy( 'field_inicio', 'value', 'ASC' )
+        ->execute();
+    if ( isset( $result[ 'node' ] ) )
+    {
+        $nids = array_keys( $result[ 'node' ] );
+        $fechas = entity_load( 'node', $nids );
+        $now = date( "Y-m-d H:i:s" );
+        foreach ( $fechas as $fecha )
+        {
+            if ( $fecha->field_inicio[ 'und' ][ 0 ][ 'value' ] > $now )
+            {
+                $data[ "date" ] = $fecha->field_inicio[ 'und' ][ 0 ][ 'value' ];
+                $data[ "name" ] = $fecha->title;
+                $fecha->field_fecha_abierta[ 'und' ][ 0 ][ 'value' ] = 1;
+                node_save( $fecha );
+                $_SESSION[ 'fecha_activa' ] = $fecha;
+                break;
+            } else
+            {
+                $fecha->field_fecha_abierta[ 'und' ][ 0 ][ 'value' ] = 0;
+                node_save( $fecha );
+            }
+        }
     }
-  }
-  $path = drupal_get_path('module','contador');
-  drupal_add_js($path.'/js/jquery.mb-comingsoon.min.js');
-  return $data;
+    $path = drupal_get_path( 'module', 'contador' );
+    drupal_add_js( $path . '/js/jquery.mb-comingsoon.min.js' );
+
+    return $data;
 }
