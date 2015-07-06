@@ -75,9 +75,10 @@ function depurar_data(){
                         //$data[$equipo->nid][$jugador] = $player;
                         $players++;
                     } else {
-                        $data[$equipo->nid][$jugador] = "Error";
+                        //$data[$equipo->nid][$jugador] = "Error";
+                        $players2++;
                     }
-                    $players2++;
+
                 }
                 if(count($equipo->field_jugadores2['und']) != $players){
                     $data[$equipo->nid]["Conteo"] = count($equipo->field_jugadores2['und']) . " - " . $players . " - " . $players2;
