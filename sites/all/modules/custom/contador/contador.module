@@ -14,6 +14,7 @@ function contador_theme( $existing, $type, $theme, $path )
         'variables' => array( 'data' => array() ),
         'template'  => "templates/depurar"
     );
+
     return $hooks;
 }
 
@@ -54,85 +55,99 @@ function contador_block_view( $delta = '' )
     return $block;
 }
 
-function depurar_data(){
+function depurar_data()
+{
     $data = array();
     $query = new EntityFieldQuery();
     $result = $query->entityCondition( 'entity_type', 'node' )
         ->entityCondition( 'bundle', 'equipo_de_usuario' )
         ->propertyCondition( 'status', 1 )
         ->execute();
-    if ( isset( $result[ 'node' ] ) ){
+    if ( isset( $result[ 'node' ] ) )
+    {
         $nids = array_keys( $result[ 'node' ] );
         $equipos = entity_load( 'node', $nids );
-        foreach ( $equipos as $equipo ){
-            if(isset($equipo->field_jugadores2['und'])){
+        foreach ( $equipos as $equipo )
+        {
+            if ( isset( $equipo->field_jugadores2[ 'und' ] ) )
+            {
                 $players = 0;
                 $players2 = 0;
                 $total = 0;
-                $us = user_load($equipo->uid);
-                foreach($equipo->field_jugadores2['und'] as $key=>$jugador){
-                    if($player = node_load($jugador['target_id'])){
+                $us = user_load( $equipo->uid );
+                foreach ( $equipo->field_jugadores2[ 'und' ] as $key => $jugador )
+                {
+                    if ( $player = node_load( $jugador[ 'target_id' ] ) )
+                    {
                         //$data[$equipo->nid][] = $jugador['target_id'];
                         //$data[$equipo->nid][$jugador] = $player;
-                        $players++;
-                        $total += $player->field_precio['und'][0]['value'];
-                    } else {
-                        $data[$us->uid] = $us->mail;
+                        $players ++;
+                        $total += $player->field_precio[ 'und' ][ 0 ][ 'value' ];
+                    } else
+                    {
+                        $data[ $us->uid ] = $us->mail;
                         //$data[$equipo->uid][$jugador['target_id']] = "Jugador No existe";
-                        $players2++;
-                        $equipo->field_jugadores2['und'][$key]['target_id'] = 0;
-                        unset($equipo->field_jugadores2['und'][$key]);
-                        node_save($equipo);
+                        $players2 ++;
+                        $equipo->field_jugadores2[ 'und' ][ $key ][ 'target_id' ] = 0;
+                        unset( $equipo->field_jugadores2[ 'und' ][ $key ] );
+                        node_save( $equipo );
                     }
                 }
 
-                if(isset($us->field_saldo['und'][0]['value'])){
-                    $saldo = $us->field_saldo['und'][0]['value'];
-                    if($total > 500000000){
-                        foreach($equipo->field_jugadores2['und'] as $key=>$jugador){
-                            $equipo->field_jugadores2['und'][$key]['target_id'] = 0;
-                            unset($equipo->field_jugadores2['und'][$key]);
+                if ( isset( $us->field_saldo[ 'und' ][ 0 ][ 'value' ] ) )
+                {
+                    $saldo = $us->field_saldo[ 'und' ][ 0 ][ 'value' ];
+                    if ( $total > 500000000 )
+                    {
+                        foreach ( $equipo->field_jugadores2[ 'und' ] as $key => $jugador )
+                        {
+                            $equipo->field_jugadores2[ 'und' ][ $key ][ 'target_id' ] = 0;
+                            unset( $equipo->field_jugadores2[ 'und' ][ $key ] );
                         }
-                        node_save($equipo);
-                        $us->field_saldo['und'][0]['value'] = 500000000;
-                        user_save($us);
+                        node_save( $equipo );
+                        $us->field_saldo[ 'und' ][ 0 ][ 'value' ] = 500000000;
+                        user_save( $us );
                         $result = $query->entityCondition( 'entity_type', 'node' )
                             ->entityCondition( 'bundle', 'alineacion' )
                             ->propertyCondition( 'status', 1 )
-                            ->propertyCondition('uid',$us->uid,"=")
+                            ->propertyCondition( 'uid', $us->uid, "=" )
                             ->execute();
-                        if ( isset( $result[ 'node' ] ) ){
+                        if ( isset( $result[ 'node' ] ) )
+                        {
                             $nids = array_keys( $result[ 'node' ] );
-                            node_delete_multiple($nids);
+                            node_delete_multiple( $nids );
                         }
                         //$data[] = $us->mail;
-                        $data[$equipo->uid]["mail"] = $us->mail;
-                        $data[$equipo->uid]["name"] = $us->name;
-                        $data[$equipo->uid]["equipo"] = $total;
-                        $data[$equipo->uid]["saldo"] = $saldo;
-                        $data[$equipo->uid]["total"] = number_format($saldo+$total,0,",",".");
-                    } else if($total+$saldo > 500000000){
-                        $us->field_saldo['und'][0]['value'] = 500000000-$total;
-                        user_save($us);
-                        $data[$equipo->uid]["mail"] = $us->mail;
-                        $data[$equipo->uid]["name"] = $us->name;
-                        $data[$equipo->uid]["equipo"] = $total;
-                        $data[$equipo->uid]["saldo"] = $saldo;
-                        $data[$equipo->uid]["total"] = number_format($saldo+$total,0,",",".");
-                    } else if($total+$saldo < 500000000){
-                        $us->field_saldo['und'][0]['value'] = 500000000-$total;
-                        user_save($us);
-                        $data[$equipo->uid]["mail"] = $us->mail;
-                        $data[$equipo->uid]["name"] = $us->name;
-                        $data[$equipo->uid]["equipo"] = $total;
-                        $data[$equipo->uid]["saldo"] = $saldo;
-                        $data[$equipo->uid]["total"] = number_format($saldo+$total,0,",",".");
-                    } else if($total+$saldo != 500000000){
-                        $data[$equipo->uid]["mail"] = $us->mail;
-                        $data[$equipo->uid]["name"] = $us->name;
-                        $data[$equipo->uid]["equipo"] = $total;
-                        $data[$equipo->uid]["saldo"] = $saldo;
-                        $data[$equipo->uid]["total"] = number_format($saldo+$total,0,",",".");
+                        $data[ $equipo->uid ][ "mail" ] = $us->mail;
+                        $data[ $equipo->uid ][ "name" ] = $us->name;
+                        $data[ $equipo->uid ][ "equipo" ] = $total;
+                        $data[ $equipo->uid ][ "saldo" ] = $saldo;
+                        $data[ $equipo->uid ][ "total" ] = number_format( $saldo + $total, 0, ",", "." );
+                    } else if ( $total + $saldo > 500000000 )
+                    {
+                        $us->field_saldo[ 'und' ][ 0 ][ 'value' ] = 500000000 - $total;
+                        user_save( $us );
+                        $data[ $equipo->uid ][ "mail" ] = $us->mail;
+                        $data[ $equipo->uid ][ "name" ] = $us->name;
+                        $data[ $equipo->uid ][ "equipo" ] = $total;
+                        $data[ $equipo->uid ][ "saldo" ] = $saldo;
+                        $data[ $equipo->uid ][ "total" ] = number_format( $saldo + $total, 0, ",", "." );
+                    } else if ( $total + $saldo < 500000000 )
+                    {
+                        $us->field_saldo[ 'und' ][ 0 ][ 'value' ] = 500000000 - $total;
+                        user_save( $us );
+                        $data[ $equipo->uid ][ "mail" ] = $us->mail;
+                        $data[ $equipo->uid ][ "name" ] = $us->name;
+                        $data[ $equipo->uid ][ "equipo" ] = $total;
+                        $data[ $equipo->uid ][ "saldo" ] = $saldo;
+                        $data[ $equipo->uid ][ "total" ] = number_format( $saldo + $total, 0, ",", "." );
+                    } else if ( $total + $saldo != 500000000 )
+                    {
+                        $data[ $equipo->uid ][ "mail" ] = $us->mail;
+                        $data[ $equipo->uid ][ "name" ] = $us->name;
+                        $data[ $equipo->uid ][ "equipo" ] = $total;
+                        $data[ $equipo->uid ][ "saldo" ] = $saldo;
+                        $data[ $equipo->uid ][ "total" ] = number_format( $saldo + $total, 0, ",", "." );
                     }
                 }
             }
@@ -143,71 +158,122 @@ function depurar_data(){
         ->entityCondition( 'bundle', 'alineacion' )
         ->propertyCondition( 'status', 1 )
         ->execute();
-    if ( isset( $result[ 'node' ] ) ){
+    if ( isset( $result[ 'node' ] ) )
+    {
         $nids = array_keys( $result[ 'node' ] );
         $alineaciones = entity_load( 'node', $nids );
-        foreach ( $alineaciones as $ali ){
+        foreach ( $alineaciones as $ali )
+        {
             //$data[] = $ali;
             $jugadores = array();
-            for($i=1;$i<=11;$i++){
-                if ( isset($ali->{"field_jugador".$i}['und'])
-                    && isset($ali->{"field_jugador".$i}['und'][0]['target_id'])
-                    && $ali->{"field_jugador".$i}['und'][0]['target_id'] > 0
-                ) {
-                    if($player = node_load($ali->{"field_jugador".$i}['und'][0]['target_id'])){
-                        if(in_array($ali->{"field_jugador".$i}['und'][0]['target_id'],$jugadores)){
-                            $ali->{"field_jugador".$i}['und'][0]['target_id'] = 0;
-                            node_save($ali);
-                        } else {
-                            $jugadores[] = $ali->{"field_jugador".$i}['und'][0]['target_id'];
+            for ( $i = 1; $i <= 11; $i ++ )
+            {
+                if ( isset( $ali->{"field_jugador" . $i}[ 'und' ] )
+                    && isset( $ali->{"field_jugador" . $i}[ 'und' ][ 0 ][ 'target_id' ] )
+                    && $ali->{"field_jugador" . $i}[ 'und' ][ 0 ][ 'target_id' ] > 0
+                )
+                {
+                    if ( $player = node_load( $ali->{"field_jugador" . $i}[ 'und' ][ 0 ][ 'target_id' ] ) )
+                    {
+                        if ( in_array( $ali->{"field_jugador" . $i}[ 'und' ][ 0 ][ 'target_id' ], $jugadores ) )
+                        {
+                            $ali->{"field_jugador" . $i}[ 'und' ][ 0 ][ 'target_id' ] = 0;
+                            node_save( $ali );
+                        } else
+                        {
+                            $jugadores[ ] = $ali->{"field_jugador" . $i}[ 'und' ][ 0 ][ 'target_id' ];
                         }
 
-                    } else {
-                        $ali->{"field_jugador".$i}['und'][0]['target_id'] = 0;
-                        node_save($ali);
+                    } else
+                    {
+                        $ali->{"field_jugador" . $i}[ 'und' ][ 0 ][ 'target_id' ] = 0;
+                        node_save( $ali );
                     }
                 }
             }
-            foreach($ali->field_suplentes['und'] as $key=>$supl){
-                if($player = node_load($supl['target_id'])){
-                    if(in_array($supl['target_id'],$jugadores)){
-                        $ali->field_suplentes['und'][$key]['target_id'] = 0;
-                        unset($ali->field_suplentes['und'][$key]);
-                        node_save($ali);
-                    } else {
-                        $jugadores[] = $supl['target_id'];
+            foreach ( $ali->field_suplentes[ 'und' ] as $key => $supl )
+            {
+                if ( $player = node_load( $supl[ 'target_id' ] ) )
+                {
+                    if ( in_array( $supl[ 'target_id' ], $jugadores ) )
+                    {
+                        $ali->field_suplentes[ 'und' ][ $key ][ 'target_id' ] = 0;
+                        unset( $ali->field_suplentes[ 'und' ][ $key ] );
+                        node_save( $ali );
+                    } else
+                    {
+                        $jugadores[ ] = $supl[ 'target_id' ];
                     }
-                } else {
-                    $ali->field_suplentes['und'][$key]['target_id'] = 0;
-                    unset($ali->field_suplentes['und'][$key]);
-                    node_save($ali);
+                } else
+                {
+                    $ali->field_suplentes[ 'und' ][ $key ][ 'target_id' ] = 0;
+                    unset( $ali->field_suplentes[ 'und' ][ $key ] );
+                    node_save( $ali );
                 }
             }
-            if ( isset($ali->field_capitan['und'])
-                && isset($ali->field_capitan['und'][0]['target_id'])
-                && $ali->field_capitan['und'][0]['target_id'] > 0
-            ) {
-                if($player = node_load($ali->field_capitan['und'][0]['target_id'])){
+            if ( isset( $ali->field_capitan[ 'und' ] )
+                && isset( $ali->field_capitan[ 'und' ][ 0 ][ 'target_id' ] )
+                && $ali->field_capitan[ 'und' ][ 0 ][ 'target_id' ] > 0
+            )
+            {
+                if ( $player = node_load( $ali->field_capitan[ 'und' ][ 0 ][ 'target_id' ] ) )
+                {
                     //            ;
-                } else {
-                    $ali->field_capitan['und'][0]['target_id'] = 0;
-                    $us = user_load($ali->uid);
+                } else
+                {
+                    $ali->field_capitan[ 'und' ][ 0 ][ 'target_id' ] = 0;
+                    $us = user_load( $ali->uid );
                     //$data[$us->uid] = $us->mail;
-                    node_save($ali);
+                    node_save( $ali );
                 }
             }
         }
 
     }
+    actualizar_alineaciones();
     //depurar_alineacion(14817,13994);
     return $data;
 }
-function depurar_alineacion($alineacion_nid, $equipo_nid){
-    $alineacion = node_load($alineacion_nid);
-    $equipo = node_load($equipo_nid);
-    foreach($equipo->field_jugadores2['und'] as $key=>$player_id){
-        if($player = node_load($player_id['target_id'])){
-            autoalinear($alineacion,$player);
+
+function depurar_alineacion( $alineacion_nid, $equipo_nid )
+{
+    $alineacion = node_load( $alineacion_nid );
+    $equipo = node_load( $equipo_nid );
+    foreach ( $equipo->field_jugadores2[ 'und' ] as $key => $player_id )
+    {
+        if ( $player = node_load( $player_id[ 'target_id' ] ) )
+        {
+            autoalinear( $alineacion, $player );
+        }
+    }
+}
+
+function actualizar_alineaciones( $fecha1=10014, $fecha2 = 10015 )
+{
+    $query = new EntityFieldQuery();
+    $result = $query->entityCondition( 'entity_type', 'node' )
+        ->entityCondition( 'bundle', 'alineacion' )
+        ->propertyCondition( 'status', 1 )
+        ->fieldCondition( 'field_fecha_torneo', 'target_id', $fecha2, '=' )
+        ->execute();
+    if ( isset( $result[ 'node' ] ) ) {
+        $nids = array_keys( $result[ 'node' ] );
+        $alineaciones2 = entity_load( 'node', $nids );
+        foreach ( $alineaciones2 as $ali ){
+            $query2 = new EntityFieldQuery();
+            $result2 = $query2->entityCondition( 'entity_type', 'node' )
+                ->entityCondition( 'bundle', 'alineacion' )
+                ->propertyCondition( 'status', 1 )
+                ->propertyCondition('uid',$ali->uid,"=")
+                ->fieldCondition( 'field_fecha_torneo', 'target_id', $fecha1, '=' )
+                ->execute();
+            if ( isset( $result2[ 'node' ] ) ) {
+                $nids = array_keys( $result2[ 'node' ] );
+                node_delete($nids[0]);
+                $ali->title = str_replace("Fecha 2","Fecha 1", $ali->title);
+                $ali->field_fecha_torneo['und'][0]['target_id'] = $fecha1;
+                node_save($ali);
+            }
         }
     }
 }
