@@ -199,7 +199,7 @@ function depurar_data(){
         }
 
     }
-    depurar_alineacion(14817,13994);
+    //depurar_alineacion(14817,13994);
     return $data;
 }
 function depurar_alineacion($alineacion_nid, $equipo_nid){

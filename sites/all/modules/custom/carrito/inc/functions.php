@@ -132,7 +132,7 @@ function get_carrito_compras(){
 function get_saldo(){
     global $user;
     $us = user_load($user->uid);
-    if (!isset($us->field_saldo['und']) || $us->field_saldo['und'][0]['value'] <= 0) {
+    if (!isset($us->field_saldo['und']) || $us->field_saldo['und'][0]['value'] < 0) {
         $us->field_saldo['und'][0]['value'] = 500000000;
         user_save($us);
     }

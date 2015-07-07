@@ -64,6 +64,8 @@ function get_alineacion($fecha, $fechas){
           $node->field_fecha_torneo['und'][0]['target_id'] = $fecha->nid;
           $node = node_submit($node);
           node_save($node);
+            $equipo = carrito_get_equipo_usuario();
+            depurar_alineacion($node->nid,$equipo->nid);
         } else {
           $node = get_alineacion($fechas[$keys[$i-1]],$fechas);
           unset($node->nid);
