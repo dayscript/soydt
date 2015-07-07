@@ -21,6 +21,7 @@ function alineaciones_data()
     {
         $data[ "alineacion" ] = get_alineacion( $data[ "fecha" ], $data[ "fechas" ] );
         depurar_alineacion( $data[ "alineacion" ]->nid, $data[ "equipo" ]->nid );
+        $data[ "alineacion" ] = get_alineacion( $data[ "fecha" ], $data[ "fechas" ] );
     }
 
     $data[ "formaciones" ] = get_formaciones();
