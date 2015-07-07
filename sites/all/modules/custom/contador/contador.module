@@ -133,7 +133,6 @@ function depurar_data(){
                         $data[$equipo->uid]["equipo"] = $total;
                         $data[$equipo->uid]["saldo"] = $saldo;
                         $data[$equipo->uid]["total"] = number_format($saldo+$total,0,",",".");
-
                     }
                 }
             }
@@ -149,28 +148,39 @@ function depurar_data(){
         $alineaciones = entity_load( 'node', $nids );
         foreach ( $alineaciones as $ali ){
             //$data[] = $ali;
-            foreach($ali->field_suplentes['und'] as $key=>$supl){
-                if($player = node_load($supl['target_id'])){
-                } else {
-                    $ali->field_suplentes['und'][$key]['target_id'] = 0;
-                    unset($ali->field_suplentes['und'][$key]);
-                    node_save($ali);
-                }
-
-            }
+            $jugadores = array();
             for($i=1;$i<=11;$i++){
                 if ( isset($ali->{"field_jugador".$i}['und'])
                     && isset($ali->{"field_jugador".$i}['und'][0]['target_id'])
                     && $ali->{"field_jugador".$i}['und'][0]['target_id'] > 0
                 ) {
                     if($player = node_load($ali->{"field_jugador".$i}['und'][0]['target_id'])){
-            //            ;
+                        if(in_array($ali->{"field_jugador".$i}['und'][0]['target_id'],$jugadores)){
+                            $ali->{"field_jugador".$i}['und'][0]['target_id'] = 0;
+                            node_save($ali);
+                        } else {
+                            $jugadores[] = $ali->{"field_jugador".$i}['und'][0]['target_id'];
+                        }
+
                     } else {
                         $ali->{"field_jugador".$i}['und'][0]['target_id'] = 0;
-                        $us = user_load($ali->uid);
-                        //$data[$us->uid] = $us->mail;
                         node_save($ali);
                     }
+                }
+            }
+            foreach($ali->field_suplentes['und'] as $key=>$supl){
+                if($player = node_load($supl['target_id'])){
+                    if(in_array($supl['target_id'],$jugadores)){
+                        $ali->field_suplentes['und'][$key]['target_id'] = 0;
+                        unset($ali->field_suplentes['und'][$key]);
+                        node_save($ali);
+                    } else {
+                        $jugadores[] = $supl['target_id'];
+                    }
+                } else {
+                    $ali->field_suplentes['und'][$key]['target_id'] = 0;
+                    unset($ali->field_suplentes['und'][$key]);
+                    node_save($ali);
                 }
             }
             if ( isset($ali->field_capitan['und'])
