@@ -105,7 +105,7 @@ function depurar_data(){
                             $nids = array_keys( $result[ 'node' ] );
                             node_delete_multiple($nids);
                         }
-                        $data[] = $us->mail;
+                        //$data[] = $us->mail;
                         $data[$equipo->uid]["mail"] = $us->mail;
                         $data[$equipo->uid]["name"] = $us->name;
                         $data[$equipo->uid]["equipo"] = $total;
@@ -199,7 +199,17 @@ function depurar_data(){
         }
 
     }
+    depurar_alineacion(14817,13994);
     return $data;
+}
+function depurar_alineacion($alineacion_nid, $equipo_nid){
+    $alineacion = node_load($alineacion_nid);
+    $equipo = node_load($equipo_nid);
+    foreach($equipo->field_jugadores2['und'] as $key=>$player_id){
+        if($player = node_load($player_id['target_id'])){
+            autoalinear($alineacion,$player);
+        }
+    }
 }
 
 /**
