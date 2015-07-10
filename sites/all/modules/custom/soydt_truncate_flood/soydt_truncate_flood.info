@@ -1,0 +1,4 @@
+name = SoyDT Truncate
+description = Modulo SoyDT Truncate table flood
+package = Dayscript
+core = 7.x

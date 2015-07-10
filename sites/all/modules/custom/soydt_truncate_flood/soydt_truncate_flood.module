@@ -1,0 +1,21 @@
+<?php
+
+  function soydt_truncate_flood_cronapi($op, $job = NULL){
+    
+    $items['soydt_truncate_table_flood_cron'] = array(
+      'description' => 'Truncate all register table flood',
+      'rule' => '0 */1 * * *', // Every 2 hours
+      'callback' => 'soydt_truncate_flood_callback',
+      'arguments' => array()
+      
+    );
+    
+    
+  }
+  
+  
+  function soydt_truncate_flood_callback(){
+    
+    $result = db_truncate( 'flood' )->execute();
+    
+  }
