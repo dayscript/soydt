@@ -166,10 +166,8 @@
     ajax_deliver( array('#type' => 'ajax', '#commands' => $commands) );
     
   }
-  
-  
+
   function soydt_my_league_views_api(){
-    
     return array(
         'api'  => 3,
         'path' => drupal_get_path( 'module', 'soydt_my_league' )
