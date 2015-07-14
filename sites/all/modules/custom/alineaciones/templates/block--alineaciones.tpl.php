@@ -191,12 +191,16 @@ $es_fecha_torneo_activo =  ( $fecha_torneo == $fecha_activa ) ? true : false;
               && $data["alineacion"]->{"field_jugador" . $i}[LANGUAGE_NONE][0]['target_id'] >0):
 
         $futbolista = $data["alineacion"]->{"field_jugador" . $i}[LANGUAGE_NONE][0];
+        $ftb_puntos = puntos_jugador_fecha($futbolista['target_id'],$fecha_torneo);
 
         $node_futbolista = node_load($futbolista['target_id']);
         $ftb_id = $node_futbolista->nid;
         $ftb_posicion = $node_futbolista->field_posicion[LANGUAGE_NONE][0]['tid'];
         $ftb_equipo = $node_futbolista->field_equipo[LANGUAGE_NONE][0]['target_id'];
         $ftb_apellido = explode(" ", $node_futbolista->field_apellidos[LANGUAGE_NONE][0]['value'])[0];
+            if (isset($capitan_usuario) && $ftb_id == $capitan_usuario[0]['target_id']){
+                $ftb_puntos *= 2;
+            }
         ?>
 
         <div id="<?php echo $ftb_id?>"
@@ -210,7 +214,7 @@ $es_fecha_torneo_activo =  ( $fecha_torneo == $fecha_activa ) ? true : false;
             <div class="columns small-12 ftb-name">
               <a class="info" id="3info<?php echo $ftb_id?>"><?php echo $ftb_apellido; ?></a>
             </div>
-            <div class="columns small-4 end text-center ftb-puntos">0</div>
+            <div class="columns small-4 end text-center ftb-puntos"><?php echo $ftb_puntos?></div>
 
           <?php if (isset($capitan_usuario) && $ftb_id == $capitan_usuario[0]['target_id']):?>
             <div class="star sprite-juego"></div>

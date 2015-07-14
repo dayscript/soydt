@@ -110,24 +110,7 @@ function actualizar_puntajes()
                         {
                             if ( !isset( $puntajes[ $player->nid ] ) )
                             {
-                                $query2 = new EntityFieldQuery();
-                                $result2 = $query2->entityCondition( 'entity_type', 'node' )
-                                    ->entityCondition( 'bundle', 'puntaje_jugador' )
-                                    ->propertyCondition( 'status', 1 )
-                                    ->fieldCondition( 'field_jugador', 'target_id', $player->nid, '=' )
-                                    ->fieldCondition( 'field_fecha_torneo', 'target_id', $fecha_nid, '=' )
-                                    ->execute();
-                                if ( isset( $result2[ 'node' ] ) )
-                                {
-                                    $puntajes[$player->nid] = 0;
-                                    $nids2 = array_keys( $result2[ 'node' ] );
-                                    $player_points = entity_load( 'node', $nids2 );
-                                    foreach ( $player_points as $pp ) {
-                                        $puntajes[$player->nid] = $pp->field_total[ 'und' ][ 0 ][ 'value' ];
-                                    }
-                                } else {
-                                    $puntajes[$player->nid] = 0;
-                                }
+                                $puntajes[$player->nid] = puntos_jugador_fecha($player->nid,$fecha_nid);
                             }
                             if ( $player->nid == $capitan ){
                                 $total += $puntajes[$player->nid]*2;
@@ -146,4 +129,27 @@ function actualizar_puntajes()
         }
     }
     return $data;
+}
+
+function puntos_jugador_fecha($player,$fecha){
+    $puntos = 0;
+    $query2 = new EntityFieldQuery();
+    $result2 = $query2->entityCondition( 'entity_type', 'node' )
+        ->entityCondition( 'bundle', 'puntaje_jugador' )
+        ->propertyCondition( 'status', 1 )
+        ->fieldCondition( 'field_jugador', 'target_id', $player, '=' )
+        ->fieldCondition( 'field_fecha_torneo', 'target_id', $fecha, '=' )
+        ->execute();
+    //echo $player . " " . $fecha . "<br>";
+    if ( isset( $result2[ 'node' ] ) )
+    {
+        $nids2 = array_keys( $result2[ 'node' ] );
+        $player_points = entity_load( 'node', $nids2 );
+        foreach ( $player_points as $pp ) {
+            $puntos = $pp->field_total[ 'und' ][ 0 ][ 'value' ];
+        }
+    } else {
+        $puntos = 0;
+    }
+    return $puntos;
 }
