@@ -77,6 +77,7 @@ function depurar_data()
         $equipos = entity_load( 'node', $nids );
         foreach ( $equipos as $equipo )
         {
+            if($equipo->uid == 0)continue;
             $us = user_load( $equipo->uid );
             $saldo = $us->field_saldo[ 'und' ][ 0 ][ 'value' ];
             if ( isset( $equipo->field_jugadores2[ 'und' ] ) )
