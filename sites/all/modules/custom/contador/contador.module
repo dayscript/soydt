@@ -57,26 +57,33 @@ function contador_block_view( $delta = '' )
 
 function depurar_data()
 {
-    $process = false;
+    if(isset($_GET['start']))$start=$_GET['start'];
+    else $start = 0;
+    if(isset($_GET['limit']))$limit=$_GET['limit'];
+    else $limit = 10;
+    if(isset($_GET['process']))$process=true;
+    else $process = false;
     $data = array();
     $query = new EntityFieldQuery();
     $result = $query->entityCondition( 'entity_type', 'node' )
         ->entityCondition( 'bundle', 'equipo_de_usuario' )
         ->propertyCondition( 'status', 1 )
-        ->range(0, 1)
+        ->range($start, $limit)
         ->execute();
     if ( isset( $result[ 'node' ] ) )
     {
         $nids = array_keys( $result[ 'node' ] );
+
         $equipos = entity_load( 'node', $nids );
         foreach ( $equipos as $equipo )
         {
+            $us = user_load( $equipo->uid );
+            $saldo = $us->field_saldo[ 'und' ][ 0 ][ 'value' ];
             if ( isset( $equipo->field_jugadores2[ 'und' ] ) )
             {
                 $players = 0;
                 $players2 = 0;
                 $total = 0;
-                $us = user_load( $equipo->uid );
                 foreach ( $equipo->field_jugadores2[ 'und' ] as $key => $jugador )
                 {
                     if ( $player = node_load( $jugador[ 'target_id' ] ) )
@@ -98,7 +105,6 @@ function depurar_data()
 
                 if ( isset( $us->field_saldo[ 'und' ][ 0 ][ 'value' ] ) )
                 {
-                    $saldo = $us->field_saldo[ 'und' ][ 0 ][ 'value' ];
                     if ( $total > 500000000 )
                     {
                         foreach ( $equipo->field_jugadores2[ 'und' ] as $key => $jugador )
@@ -148,6 +154,14 @@ function depurar_data()
                         $data["Usuario " . $us->uid][] = "Saldo+equipo diferente a 500, no hace nada";
                     }
                 }
+            } else {
+                if($saldo != 500000000){
+                    $data["Usuario " . $us->uid][] = "No equipo, saldo diferente a 500, ajustar";
+                    $us->field_saldo[ 'und' ][ 0 ][ 'value' ] = 500000000;
+                    if($process){
+                        user_save( $us );
+                    }
+                }
             }
         }
     }
@@ -155,7 +169,7 @@ function depurar_data()
     $result = $query->entityCondition( 'entity_type', 'node' )
         ->entityCondition( 'bundle', 'alineacion' )
         ->propertyCondition( 'status', 1 )
-        ->range(0, 100)
+        ->range($start, $limit)
         ->execute();
     if ( isset( $result[ 'node' ] ) )
     {
