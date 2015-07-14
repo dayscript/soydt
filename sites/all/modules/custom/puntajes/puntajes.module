@@ -116,7 +116,6 @@ function actualizar_puntajes()
                                     ->propertyCondition( 'status', 1 )
                                     ->fieldCondition( 'field_jugador', 'target_id', $player->nid, '=' )
                                     ->fieldCondition( 'field_fecha_torneo', 'target_id', $fecha_nid, '=' )
-                                    ->range( $start, $limit )
                                     ->execute();
                                 if ( isset( $result2[ 'node' ] ) )
                                 {
