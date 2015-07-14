@@ -160,7 +160,7 @@ function carrito_get_equipo_usuario(){
         node_save($node);
         $us = user_load($user->uid);
         $us->field_saldo['und'][0]['value'] = 500000000;
-        user_save($us);
+        if($user->uid >0)user_save($us);
     }
     return $node;
 }
