@@ -127,6 +127,11 @@ function alineaciones_jugador_detalle ($playerid){
     '#suffix' => '</div>',
     '#markup'=> taxonomy_term_load($player->field_posicion['und'][0]['tid'])->name
     );
+  $price = array(
+      '#prefix' => '<div class="price text-blue">',
+      '#suffix' => '</div>',
+      '#markup'=> '$'.number_format($player->field_precio['und'][0]['value'],0,",",".")
+  );
   $close = array(
     '#prefix' => '<div class="small-1 right">',
     '#suffix' => '</div>',
@@ -161,6 +166,7 @@ function alineaciones_jugador_detalle ($playerid){
     'content' => array(
       $title,
       $position,
+      $price,
       array('#markup'=>$points_html)
       )
     );
