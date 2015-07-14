@@ -79,8 +79,6 @@ function depurar_data()
                 {
                     if ( $player = node_load( $jugador[ 'target_id' ] ) )
                     {
-                        //$data[$equipo->nid][] = $jugador['target_id'];
-                        //$data[$equipo->nid][$jugador] = $player;
                         $players ++;
                         $total += $player->field_precio[ 'und' ][ 0 ][ 'value' ];
                     } else
