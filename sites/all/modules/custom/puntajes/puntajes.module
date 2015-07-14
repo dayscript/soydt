@@ -1,8 +1,150 @@
 <?php
+/**
+ * Implements hook_theme().
+ */
+function puntajes_theme( $existing, $type, $theme, $path )
+{
+    $hooks = array();
+
+    $hooks[ 'actualizar_puntajes' ] = array(
+        'variables' => array( 'data' => array() ),
+        'template'  => "templates/puntajes"
+    );
+
+    return $hooks;
+}
+
+/**
+ * Implements hook_block_info().
+ */
+function puntajes_block_info()
+{
+    $blocks = array();
+    $blocks[ 'actualizar_puntajes' ] = array(
+        'info'  => t( 'Actualizar puntajes de usuarios' ),
+        'cache' => DRUPAL_NO_CACHE,
+    );
+
+    return $blocks;
+}
+
+/**
+ * Implements hook_block_view().
+ */
+function puntajes_block_view( $delta = '' )
+{
+    $block = array();
+    switch ( $delta )
+    {
+        case 'actualizar_puntajes':
+            $block[ 'content' ] = theme( 'actualizar_puntajes', array( 'data' => actualizar_puntajes() ) );
+            break;
+    }
+
+    return $block;
+}
+
 /*
  Sincroniza los datos de eventos puntuables entre el dayscore y la tabla local para una fecha determinada.
 */
-function obtener_eventos($fecha){
+function obtener_eventos( $fecha )
+{
     return 'Eventos sincronizados.';
 }
 
+function actualizar_puntajes()
+{
+    $puntajes = array();
+    if ( isset( $_GET[ 'fecha' ] ) ) $fecha_nid = $_GET[ 'fecha' ];
+    else $fecha_nid = 10014;// Fecha 1
+    if ( isset( $_GET[ 'start' ] ) ) $start = $_GET[ 'start' ];
+    else $start = 0;
+    if ( isset( $_GET[ 'limit' ] ) ) $limit = $_GET[ 'limit' ];
+    else $limit = 10;
+    if ( isset( $_GET[ 'process' ] ) ) $process = true;
+    else $process = false;
+    $data = array();
+    $query = new EntityFieldQuery();
+    $result = $query->entityCondition( 'entity_type', 'node' )
+        ->entityCondition( 'bundle', 'alineacion' )
+        ->propertyCondition( 'status', 1 )
+        ->fieldCondition( 'field_fecha_torneo', 'target_id', $fecha_nid, '=' )
+        ->range( $start, $limit )
+        ->execute();
+    if ( isset( $result[ 'node' ] ) )
+    {
+        $nids = array_keys( $result[ 'node' ] );
+        $alineaciones = entity_load( 'node', $nids );
+        foreach ( $alineaciones as $ali )
+        {
+            $total = 0;
+            if ( isset( $ali->field_capitan[ 'und' ] )
+                && isset( $ali->field_capitan[ 'und' ][ 0 ][ 'target_id' ] )
+                && $ali->field_capitan[ 'und' ][ 0 ][ 'target_id' ] > 0
+            )
+            {
+                $capitan = $ali->field_capitan[ 'und' ][ 0 ][ 'target_id' ];
+            } else
+            {
+                $capitan = 0;
+            }
+            $jugadores = array();
+            for ( $i = 1; $i <= 11; $i ++ )
+            {
+                if ( isset( $ali->{"field_jugador" . $i}[ 'und' ] )
+                    && isset( $ali->{"field_jugador" . $i}[ 'und' ][ 0 ][ 'target_id' ] )
+                    && $ali->{"field_jugador" . $i}[ 'und' ][ 0 ][ 'target_id' ] > 0
+                )
+                {
+                    if ( $player = node_load( $ali->{"field_jugador" . $i}[ 'und' ][ 0 ][ 'target_id' ] ) )
+                    {
+                        if ( in_array( $ali->{"field_jugador" . $i}[ 'und' ][ 0 ][ 'target_id' ], $jugadores ) )
+                        {
+                            $data[ "Alineacion " . $ali->nid ][] = "Jugador " . $i . " repetido: " . $ali->{"field_jugador" . $i}[ 'und' ][ 0 ][ 'target_id' ];
+                            $ali->{"field_jugador" . $i}[ 'und' ][ 0 ][ 'target_id' ] = 0;
+                            if ( $process )
+                            {
+                                node_save( $ali );
+                            }
+                        } else
+                        {
+                            if ( !isset( $puntajes[ $player->nid ] ) )
+                            {
+                                $query2 = new EntityFieldQuery();
+                                $result2 = $query2->entityCondition( 'entity_type', 'node' )
+                                    ->entityCondition( 'bundle', 'puntaje_jugador' )
+                                    ->propertyCondition( 'status', 1 )
+                                    ->fieldCondition( 'field_jugador', 'target_id', $player->nid, '=' )
+                                    ->fieldCondition( 'field_fecha_torneo', 'target_id', $fecha_nid, '=' )
+                                    ->range( $start, $limit )
+                                    ->execute();
+                                if ( isset( $result2[ 'node' ] ) )
+                                {
+                                    $puntajes[$player->nid] = 0;
+                                    $nids2 = array_keys( $result2[ 'node' ] );
+                                    $player_points = entity_load( 'node', $nids2 );
+                                    foreach ( $player_points as $pp ) {
+                                        $puntajes[$player->nid] = $pp->field_total[ 'und' ][ 0 ][ 'value' ];
+                                    }
+                                } else {
+                                    $puntajes[$player->nid] = 0;
+                                }
+                            }
+                            if ( $player->nid == $capitan ){
+                                $total += $puntajes[$player->nid]*2;
+                            } else {
+                                $total += $puntajes[$player->nid];
+                            }
+                        }
+                    }
+                }
+            }
+            $data[ $ali->nid ] =  $total;
+            if($process){
+                $ali->field_total['und'][0]['value'] = $total;
+                node_save($ali);
+            }
+        }
+    }
+    return $data;
+}
