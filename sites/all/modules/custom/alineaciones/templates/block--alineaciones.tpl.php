@@ -34,7 +34,7 @@ $es_fecha_torneo_activo =  ( $fecha_torneo == $fecha_activa ) ? true : false;
   <div class="cancha-puntajes fade-me medium-2 medium-offset-1 small-8 columns">
       <div class="puntos puntos-fecha small-centered columns text-center">
           <div class="total">
-            <?php echo isset($puntos_usuario) ? $puntos_usuario : "0" ?>
+            <?php echo (isset($puntos_usuario) && !$es_fecha_torneo_activo) ? $puntos_usuario : "0" ?>
           </div>
           <small>Pts fecha</small>
       </div>
