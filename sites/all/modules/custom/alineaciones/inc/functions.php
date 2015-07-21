@@ -84,6 +84,7 @@ function get_alineacion( $fecha, $fechas )
                     unset( $node->nid );
                     unset( $node->vid );
                     unset( $node->path );
+                    $node->field_total[ 'und' ][ 0 ][ 'value' ] = 0;
                     $node->title = 'Alineación para: ' . $fecha->title . " - Usuario: " . $user->name;
                     $node->field_fecha_torneo[ 'und' ][ 0 ][ 'target_id' ] = $fecha->nid;
                     $node = node_submit( $node );
