@@ -56,7 +56,7 @@ function actualizar_puntajes()
 {
     $puntajes = array();
     if ( isset( $_GET[ 'fecha' ] ) ) $fecha_nid = $_GET[ 'fecha' ];
-    else $fecha_nid = 10014;// Fecha 1
+    else $fecha_nid = 10015;// Fecha 2
     if ( isset( $_GET[ 'start' ] ) ) $start = $_GET[ 'start' ];
     else $start = 0;
     if ( isset( $_GET[ 'limit' ] ) ) $limit = $_GET[ 'limit' ];
