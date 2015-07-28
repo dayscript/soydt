@@ -12,6 +12,11 @@ drupal_add_library('system', 'ui.droppable');
 // Datos de la alineacion actual
 $data = alineaciones_data();
 
+// Puntaje acumulado
+global $user;
+$usuario = user_load($user->uid);
+$puntos_total = isset($usuario->field_total['und'][0]['value'])?$usuario->field_total['und'][0]['value']:0;
+
 // Datos de la fecha Actual
 $fecha_torneo = $data["alineacion"]->field_fecha_torneo[LANGUAGE_NONE][0]['target_id'];
 $fecha_activa = $_SESSION['fecha_activa']->nid;
@@ -42,7 +47,9 @@ $es_fecha_torneo_activo =  ( $fecha_torneo == $fecha_activa ) ? true : false;
   <div class="cancha-puntajes fade-me medium-2 small-8 columns">
       <div class="puntos puntos-acumulado small-centered columns text-center">
 
-          <div class="total">000</div>
+          <div class="total">
+              <?php echo (isset($puntos_total) ) ? $puntos_total : "000" ?>
+          </div>
           <small>Pts acumulado</small>
       </div>
   </div>

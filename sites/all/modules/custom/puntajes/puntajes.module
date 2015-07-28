@@ -51,12 +51,54 @@ function obtener_eventos( $fecha )
 {
     return 'Eventos sincronizados.';
 }
+function actualizar_acumulado(){
+    $puntajes = array();
+    $fecha_nid = 10014;// Fecha 3 -Z Primera fecha puntuable para acumulado
+    if ( isset( $_GET[ 'filter1' ] ) ) $filter1 = $_GET[ 'filter1' ];
+    else $filter1 = 0;
+    if ( isset( $_GET[ 'filter2' ] ) ) $filter2 = $_GET[ 'filter2' ];
+    else $filter2 = 100;
+    $query = new EntityFieldQuery();
+    $result = $query->entityCondition( 'entity_type', 'node' )
+        ->entityCondition( 'bundle', 'alineacion' )
+        ->propertyCondition( 'status', 1 )
+        ->propertyCondition('uid', $filter1, '>=')
+        ->propertyCondition('uid', $filter2, '<=')
+        ->fieldCondition( 'field_fecha_torneo', 'target_id', $fecha_nid, '>=' )
+        ->execute();
+
+    if ( isset( $result[ 'node' ] ) )
+    {
+        $nids = array_keys( $result[ 'node' ] );
+        $alineaciones = entity_load( 'node', $nids );
+        foreach ( $alineaciones as $ali )
+        {
+            if(!isset($puntajes[$ali->uid]))$puntajes[$ali->uid]=0;
+            $puntajes[$ali->uid] += $ali->field_total['und'][0]['value'];
+        }
+    }
+    foreach($puntajes as $uid=>$total){
+        $us = user_load($uid);
+        if(!isset($us->field_total['und'][0]['value']) || $us->field_total['und'][0]['value'] != $total){
+            $us->field_total['und'][0]['value'] = $total;
+            user_save($us);
+            echo $us->name . ": " . $total . "<br>";
+        } else {
+            echo $us->name . " Puntaje ya calculado: " . $total . "<br>";
+        }
+    }
+}
 
 function actualizar_puntajes()
 {
+    if(isset($_GET['acumulado'])){
+        actualizar_acumulado();
+        exit;
+    }
+
     $puntajes = array();
     if ( isset( $_GET[ 'fecha' ] ) ) $fecha_nid = $_GET[ 'fecha' ];
-    else $fecha_nid = 10015;// Fecha 2
+    else $fecha_nid = 10016;// Fecha 3
     if ( isset( $_GET[ 'start' ] ) ) $start = $_GET[ 'start' ];
     else $start = 0;
     if ( isset( $_GET[ 'limit' ] ) ) $limit = $_GET[ 'limit' ];
