@@ -26,16 +26,16 @@ function soydt_init() {
 
   global $user_soydt;
   $user_soydt = new StdClass();
-    if(isset($equipo_usuario_nodes->field_jugadores2[LANGUAGE_NONE]))
-        $user_soydt->equipo_usuario = $equipo_usuario_nodes->field_jugadores2[LANGUAGE_NONE];
-    else
-        $user_soydt->equipo_usuario = array();
-if(isset($carrito_compras_node->field_jugadores[LANGUAGE_NONE]))
+  if(isset($equipo_usuario_nodes->field_jugadores2[LANGUAGE_NONE]))
+      $user_soydt->equipo_usuario = $equipo_usuario_nodes->field_jugadores2[LANGUAGE_NONE];
+  else
+    $user_soydt->equipo_usuario = array();
+  if(isset($carrito_compras_node->field_jugadores[LANGUAGE_NONE]))
     $user_soydt->carrito_compras = $carrito_compras_node->field_jugadores[LANGUAGE_NONE];
-else
+  else
     $user_soydt->carrito_compras = array();
 
-  _test_table_flood();
+_test_table_flood();
 
 }
 
