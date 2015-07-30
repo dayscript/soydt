@@ -34,6 +34,9 @@ if(isset($carrito_compras_node->field_jugadores[LANGUAGE_NONE]))
     $user_soydt->carrito_compras = $carrito_compras_node->field_jugadores[LANGUAGE_NONE];
 else
     $user_soydt->carrito_compras = array();
+
+  _test_table_flood();
+
 }
 
 
@@ -58,3 +61,17 @@ function soydt_email_registration_name($edit, $account) {
 }
 */
 
+
+
+function _test_table_flood(){
+  
+  $count = db_select('flood', 'fd')
+    ->fields('fd')
+    ->execute()
+    ->rowCount();
+  
+  if ($count > 100){
+    $result = db_truncate('flood')->execute();
+  }
+  
+}
