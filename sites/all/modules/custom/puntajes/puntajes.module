@@ -56,6 +56,7 @@ function obtener_eventos( $fecha )
  * Crea las alineaciones faltantes
  */
 function repasar_alineaciones(){
+    // http://www.soydt.co/premios?repasar&filter1=1000&filter2=1500
     $data[ "fecha" ] = $_SESSION[ "fecha_activa" ];
     $data[ "fechas" ] = get_fechas();
     if ( isset( $_GET[ 'filter1' ] ) ) $filter1 = $_GET[ 'filter1' ];
@@ -117,6 +118,7 @@ function actualizar_acumulado(){
 
 function actualizar_puntajes()
 {
+    // http://www.soydt.co/premios?fecha=10014&start=1500&limit=501&process
     if(isset($_GET['repasar'])){
         repasar_alineaciones();
         exit;
