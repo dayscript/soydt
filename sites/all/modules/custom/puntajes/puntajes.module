@@ -62,6 +62,7 @@ function repasar_alineaciones(){
     else $filter1 = 0;
     if ( isset( $_GET[ 'filter2' ] ) ) $filter2 = $_GET[ 'filter2' ];
     else $filter2 = 100;
+    $query = new EntityFieldQuery();
     $result = $query->entityCondition( 'entity_type', 'user' )
         ->propertyCondition('uid', $filter1, '>=')
         ->propertyCondition('uid', $filter2, '<=')
