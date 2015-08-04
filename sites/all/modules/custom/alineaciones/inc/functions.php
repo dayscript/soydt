@@ -40,15 +40,24 @@ function alineaciones_data()
 
 /**
  * @param $fecha
+ * @param $fechas
+ * @param int $uid
+ * @return bool|mixed|stdClass
+ * @throws Exception
  */
-function get_alineacion( $fecha, $fechas )
+function get_alineacion( $fecha, $fechas, $uid = 0 )
 {
     global $user;
+    if($uid){
+        $us = user_load($uid);
+    } else {
+        $us = $user;
+    }
     $query = new EntityFieldQuery();
     $result = $query->entityCondition( 'entity_type', 'node' )
         ->entityCondition( 'bundle', 'alineacion' )
         ->propertyCondition( 'status', 1 )
-        ->propertyCondition( 'uid', $user->uid, "=" )
+        ->propertyCondition( 'uid', $us->uid, "=" )
         ->fieldCondition( 'field_fecha_torneo', 'target_id', $fecha->nid, '=' )
         ->execute();
     if ( isset( $result[ 'node' ] ) )
@@ -65,27 +74,27 @@ function get_alineacion( $fecha, $fechas )
                 if ( $i == 0 )
                 {
                     $node = new stdClass();
-                    $node->title = 'Alineación para: ' . $fecha->title . " - Usuario: " . $user->name;
+                    $node->title = 'Alineación para: ' . $fecha->title . " - Usuario: " . $us->name;
                     $node->type = "alineacion";
                     node_object_prepare( $node );
                     $node->language = LANGUAGE_NONE;
-                    $node->uid = $user->uid;
+                    $node->uid = $us->uid;
                     $node->status = 1;
                     $node->promote = 0;
                     $node->comment = 0;
                     $node->field_fecha_torneo[ 'und' ][ 0 ][ 'target_id' ] = $fecha->nid;
                     $node = node_submit( $node );
                     node_save( $node );
-                    $equipo = carrito_get_equipo_usuario();
+                    $equipo = carrito_get_equipo_usuario($us->uid);
                     depurar_alineacion( $node->nid, $equipo->nid );
                 } else
                 {
-                    $node = get_alineacion( $fechas[ $keys[ $i - 1 ] ], $fechas );
+                    $node = get_alineacion( $fechas[ $keys[ $i - 1 ] ], $fechas, $us->uid );
                     unset( $node->nid );
                     unset( $node->vid );
                     unset( $node->path );
                     $node->field_total[ 'und' ][ 0 ][ 'value' ] = 0;
-                    $node->title = 'Alineación para: ' . $fecha->title . " - Usuario: " . $user->name;
+                    $node->title = 'Alineación para: ' . $fecha->title . " - Usuario: " . $us->name;
                     $node->field_fecha_torneo[ 'und' ][ 0 ][ 'target_id' ] = $fecha->nid;
                     $node = node_submit( $node );
                     node_save( $node );

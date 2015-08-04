@@ -132,35 +132,41 @@ function carrito_add_player($player){
 }
 
 /**
+ * @param int $uid
  * @return bool|mixed|stdClass
  * @throws Exception
  */
-function carrito_get_equipo_usuario(){
+function carrito_get_equipo_usuario( $uid = 0){
     global $user;
+    if($uid){
+        $us = user_load($uid);
+    } else {
+        $us = $user;
+    }
     $query = new EntityFieldQuery();
     $result = $query->entityCondition('entity_type', 'node')
         ->entityCondition('bundle', 'equipo_de_usuario')
         ->propertyCondition('status', 1)
-        ->propertyCondition('uid',$user->uid,"=")
+        ->propertyCondition('uid',$us->uid,"=")
         ->execute();
     if (isset($result['node'])) {
         $nids = array_keys($result['node']);
         $node = node_load($nids[0]);
     } else {
         $node = new stdClass();
-        $node->title = 'Equipo de ' . $user->name;
+        $node->title = 'Equipo de ' . $us->name;
         $node->type = "equipo_de_usuario";
         node_object_prepare($node);
         $node->language = LANGUAGE_NONE;
-        $node->uid = $user->uid;
+        $node->uid = $us->uid;
         $node->status = 1;
         $node->promote = 0;
         $node->comment = 0;
         $node = node_submit($node);
         node_save($node);
-        $us = user_load($user->uid);
-        $us->field_saldo['und'][0]['value'] = 500000000;
-        if($user->uid >0)user_save($us);
+        $us2 = user_load($us->uid);
+        $us2->field_saldo['und'][0]['value'] = 500000000;
+        if($us->uid > 0)user_save($us2);
     }
     return $node;
 }
