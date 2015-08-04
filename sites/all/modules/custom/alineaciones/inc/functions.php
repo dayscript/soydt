@@ -45,7 +45,7 @@ function alineaciones_data()
  * @return bool|mixed|stdClass
  * @throws Exception
  */
-function get_alineacion( $fecha, $fechas, $uid = 0 )
+function get_alineacion( $fecha, $fechas, $uid = 0, $verbose = false )
 {
     global $user;
     if($uid){
@@ -85,11 +85,13 @@ function get_alineacion( $fecha, $fechas, $uid = 0 )
                     $node->field_fecha_torneo[ 'und' ][ 0 ][ 'target_id' ] = $fecha->nid;
                     $node = node_submit( $node );
                     node_save( $node );
+                    if($verbose)echo $node->title . "<br>";
                     $equipo = carrito_get_equipo_usuario($us->uid);
                     depurar_alineacion( $node->nid, $equipo->nid );
                 } else
                 {
-                    $node = get_alineacion( $fechas[ $keys[ $i - 1 ] ], $fechas, $us->uid );
+
+                    $node = get_alineacion( $fechas[ $keys[ $i - 1 ] ], $fechas, $us->uid, $verbose );
                     unset( $node->nid );
                     unset( $node->vid );
                     unset( $node->path );
@@ -98,6 +100,7 @@ function get_alineacion( $fecha, $fechas, $uid = 0 )
                     $node->field_fecha_torneo[ 'und' ][ 0 ][ 'target_id' ] = $fecha->nid;
                     $node = node_submit( $node );
                     node_save( $node );
+                    if($verbose)echo $node->title . "<br>";
                 }
                 break;
             }

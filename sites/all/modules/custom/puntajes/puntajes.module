@@ -59,7 +59,7 @@ function repasar_alineaciones(){
     $data[ "fecha" ] = $_SESSION[ "fecha_activa" ];
     $data[ "fechas" ] = get_fechas();
     if ( isset( $_GET[ 'filter1' ] ) ) $filter1 = $_GET[ 'filter1' ];
-    else $filter1 = 0;
+    else $filter1 = 1;
     if ( isset( $_GET[ 'filter2' ] ) ) $filter2 = $_GET[ 'filter2' ];
     else $filter2 = 100;
     $query = new EntityFieldQuery();
@@ -72,7 +72,7 @@ function repasar_alineaciones(){
         $uids = array_keys( $result[ 'user' ] );
         foreach ( $uids as $uid ){
             echo $uid . "<br>";
-            //$data[ "alineacion" ] = get_alineacion( $data[ "fecha" ], $data[ "fechas" ],$uid );
+            $data[ "alineacion" ] = get_alineacion( $data[ "fecha" ], $data[ "fechas" ], $uid, true );
         }
     }
 }
