@@ -20,7 +20,7 @@ function carrito_delete_player($player){
                 array_splice($carrito->field_jugadores['und'],$key,1);
                 node_save($carrito);
                 $alineacion->field_fichajes['und'][0]['value']++;
-                if($alineacion->field_fichajes['und'][0]['value'] >3)
+                if($alineacion->field_fichajes['und'][0]['value'] > 3 && $fecha->nid > 10018)
                     $alineacion->field_fichajes['und'][0]['value'] = 3;
                 node_save($alineacion);
                 return "ELIMINADO";
@@ -108,7 +108,7 @@ function carrito_add_player($player){
     $fechas = get_fechas();
     $alineacion = get_alineacion( $fecha, $fechas );
     if(!isset($alineacion->field_fichajes['und']))$alineacion->field_fichajes['und'][0]['value'] = 3;
-    if( $alineacion->field_fichajes['und'][0]['value']==0 ){
+    if($fecha->nid > 10018 && $alineacion->field_fichajes['und'][0]['value']==0 ){
         return "LIMITE FICHAJES";
     }
     if(isset($carrito->field_jugadores['und'])){
