@@ -356,6 +356,8 @@ function contador_data()
                 $fecha->field_fecha_abierta[ 'und' ][ 0 ][ 'value' ] = 1;
                 node_save( $fecha );
                 $_SESSION[ 'fecha_activa' ] = $fecha;
+                $fechas = get_fechas();
+                $alineacion = get_alineacion( $fecha, $fechas );
                 break;
             } else
             {

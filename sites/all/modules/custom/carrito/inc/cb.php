@@ -11,11 +11,18 @@
  */
 function carrito_delete_player($player){
     $carrito = get_carrito_compras();
+    $fecha = $_SESSION[ 'fecha_activa' ];
+    $fechas = get_fechas();
+    $alineacion = get_alineacion( $fecha, $fechas );
     if(isset($carrito->field_jugadores['und'])){
         foreach($carrito->field_jugadores['und'] as $key=>$jugador){
             if($jugador['target_id'] == $player){
                 array_splice($carrito->field_jugadores['und'],$key,1);
                 node_save($carrito);
+                $alineacion->field_fichajes['und'][0]['value']++;
+                if($alineacion->field_fichajes['und'][0]['value'] >3)
+                    $alineacion->field_fichajes['und'][0]['value'] = 3;
+                node_save($alineacion);
                 return "ELIMINADO";
             }
         }
@@ -90,13 +97,20 @@ function carrito_checkout(){
 /**
  * Agrega un jugador
  * @param $player id de jugador a agregar
- * @return "YA EXISTE", "AGREGADO", "EQUIPO", "LIMITE JUGADORES", "PRESUPUESTO"
+ * @return "YA EXISTE", "AGREGADO", "EQUIPO", "LIMITE JUGADORES", "PRESUPUESTO", "LIMITE FICHAJES"
  */
 function carrito_add_player($player){
     $carrito = get_carrito_compras();
     $saldo = get_saldo();
     $equipo = carrito_get_equipo_usuario();
     $total = 0;
+    $fecha = $_SESSION[ 'fecha_activa' ];
+    $fechas = get_fechas();
+    $alineacion = get_alineacion( $fecha, $fechas );
+    if(!isset($alineacion->field_fichajes['und']))$alineacion->field_fichajes['und'][0]['value'] = 3;
+    if( $alineacion->field_fichajes['und'][0]['value']==0 ){
+        return "LIMITE FICHAJES";
+    }
     if(isset($carrito->field_jugadores['und'])){
         foreach($carrito->field_jugadores['und'] as $key=>$jugador){
             if($jugador['target_id'] == $player){
@@ -127,6 +141,8 @@ function carrito_add_player($player){
     } else {
         $carrito->field_jugadores['und'][0]['target_id'] = $player;
     }
+    $alineacion->field_fichajes['und'][0]['value']--;
+    node_save($alineacion);
     node_save($carrito);
     return "AGREGADO";
 }

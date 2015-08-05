@@ -90,11 +90,17 @@ function get_alineacion( $fecha, $fechas, $uid = 0, $verbose = false )
                     depurar_alineacion( $node->nid, $equipo->nid );
                 } else
                 {
-
                     $node = get_alineacion( $fechas[ $keys[ $i - 1 ] ], $fechas, $us->uid, $verbose );
                     unset( $node->nid );
                     unset( $node->vid );
                     unset( $node->path );
+
+                    if($_SESSION[ 'fecha_activa' ]->nid == $fecha->nid ){
+                        if($fecha->nid > 10018)
+                            $node->field_fichajes['und'][0]['value'] = 3;
+                        else
+                            $node->field_fichajes['und'][0]['value'] = 300;
+                    }
                     $node->field_total[ 'und' ][ 0 ][ 'value' ] = 0;
                     $node->title = 'Alineación para: ' . $fecha->title . " - Usuario: " . $us->name;
                     $node->field_fecha_torneo[ 'und' ][ 0 ][ 'target_id' ] = $fecha->nid;
