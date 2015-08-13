@@ -20,8 +20,8 @@ function carrito_delete_player($player){
                 array_splice($carrito->field_jugadores['und'],$key,1);
                 node_save($carrito);
                 $alineacion->field_fichajes['und'][0]['value']++;
-                if($alineacion->field_fichajes['und'][0]['value'] > 3 && $fecha->nid > 10018)
-                    $alineacion->field_fichajes['und'][0]['value'] = 3;
+                //if($alineacion->field_fichajes['und'][0]['value'] > 3 && $fecha->nid > 10018)
+                //    $alineacion->field_fichajes['und'][0]['value'] = 3;
                 node_save($alineacion);
                 return "ELIMINADO";
             }

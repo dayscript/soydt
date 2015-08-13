@@ -82,6 +82,7 @@ function get_alineacion( $fecha, $fechas, $uid = 0, $verbose = false )
                     $node->status = 1;
                     $node->promote = 0;
                     $node->comment = 0;
+                    $node->field_fichajes['und'][0]['value'] = 15;
                     $node->field_fecha_torneo[ 'und' ][ 0 ][ 'target_id' ] = $fecha->nid;
                     $node = node_submit( $node );
                     node_save( $node );
@@ -96,10 +97,10 @@ function get_alineacion( $fecha, $fechas, $uid = 0, $verbose = false )
                     unset( $node->path );
 
                     if($_SESSION[ 'fecha_activa' ]->nid == $fecha->nid ){
-                        if($fecha->nid > 10018)
+                        if($fecha->nid > 10018 && $node->field_fichajes['und'][0]['value'] != 15)
                             $node->field_fichajes['und'][0]['value'] = 3;
-                        else
-                            $node->field_fichajes['und'][0]['value'] = 300;
+                        //else
+                        //    $node->field_fichajes['und'][0]['value'] = 300;
                     }
                     $node->field_total[ 'und' ][ 0 ][ 'value' ] = 0;
                     $node->title = 'Alineación para: ' . $fecha->title . " - Usuario: " . $us->name;

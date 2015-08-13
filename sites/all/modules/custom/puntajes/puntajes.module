@@ -79,6 +79,7 @@ function repasar_alineaciones(){
 }
 
 function actualizar_acumulado(){
+    // http://www.soydt.co/premios?acumulado&filter1=0&filter2=1000
     $puntajes = array();
     $fecha_nid = 10016;// Fecha 3 - Primera fecha puntuable para acumulado
     if ( isset( $_GET[ 'filter1' ] ) ) $filter1 = $_GET[ 'filter1' ];
@@ -131,7 +132,7 @@ function actualizar_puntajes()
 
     $puntajes = array();
     if ( isset( $_GET[ 'fecha' ] ) ) $fecha_nid = $_GET[ 'fecha' ];
-    else $fecha_nid = 10017;// Fecha 4
+    else $fecha_nid = 10018;// Fecha 5
     if ( isset( $_GET[ 'start' ] ) ) $start = $_GET[ 'start' ];
     else $start = 0;
     if ( isset( $_GET[ 'limit' ] ) ) $limit = $_GET[ 'limit' ];
