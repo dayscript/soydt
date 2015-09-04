@@ -2954,13 +2954,13 @@ h2.block-title { font-weight: 500; color: #222; font-size: 1.8rem; border-bottom
 
 .winer-block .views-row .views-field-title h3.views-label-title { color: #AB682A; font-size: 17px; font-weight: bold; text-transform: uppercase; text-align: center; margin: 0; padding: 8px 0 3px; }
 
+.winer-block .views-row .views-field-title span { color: #FFF; }
+
+.winer-block .views-row .views-field-title span.field-content a { color: #FFF; display: block; text-align: center; text-transform: uppercase; font-size: 18px; font-weight: bold; }
+
+.winer-block .views-row .views-field-title span.field-value { color: #AB682A; font-size: 26px; font-weight: bold; }
+
 .winer-block .views-row .views-field-field-total { float: left; width: 19%; margin-left: 28%; margin-right: 3%; }
-
-.winer-block .views-row .views-field-field-total span { color: #FFF; }
-
-.winer-block .views-row .views-field-field-total span.field-content a { color: #FFF; display: block; text-align: center; text-transform: uppercase; font-size: 18px; font-weight: bold; }
-
-.winer-block .views-row .views-field-field-total span.field-value { color: #AB682A; font-size: 26px; font-weight: bold; }
 
 .winer-block .views-row .views-field-field-link { border-left: 1px solid #fff; float: left; padding: 9px 0 2px 3%; width: 47%; }
 

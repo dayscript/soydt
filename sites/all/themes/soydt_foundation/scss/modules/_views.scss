@@ -213,12 +213,6 @@
         margin: 0;
         padding: 8px 0 3px;
       }
-    }
-    .views-field-field-total{
-      float: left;
-      width: 19%;
-      margin-left: 28%; 
-      margin-right: 3%;
       span{
         color: #FFF;
         &.field-content{
@@ -237,6 +231,13 @@
           font-weight: bold;
         }
       }
+    }
+    .views-field-field-total{
+      float: left;
+      width: 19%;
+      margin-left: 28%; 
+      margin-right: 3%;
+      
     }
     .views-field-field-link{
       border-left: 1px solid #fff; 
