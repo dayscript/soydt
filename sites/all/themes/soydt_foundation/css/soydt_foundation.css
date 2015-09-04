@@ -2956,9 +2956,9 @@ h2.block-title { font-weight: 500; color: #222; font-size: 1.8rem; border-bottom
 
 .winer-block .views-row .views-field-title span { color: #FFF; }
 
-.winer-block .views-row .views-field-title span.field-content a { color: #FFF; display: block; text-align: center; text-transform: uppercase; font-size: 18px; font-weight: bold; }
+.winer-block .views-row .views-field-title span.field-content { color: #FFF; display: block; text-align: center; text-transform: uppercase; font-size: 18px; font-weight: bold; }
 
-.winer-block .views-row .views-field-field-total { float: left; width: 19%; margin-left: 28%; margin-right: 3%; }
+.winer-block .views-row .views-field-field-total { float: left; width: 22%; margin-left: 28%; margin-right: 3%; }
 
 .winer-block .views-row .views-field-field-total span { color: #FFF; }
 
