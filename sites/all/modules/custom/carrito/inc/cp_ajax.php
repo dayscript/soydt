@@ -59,8 +59,16 @@ function carrito_add_player_ajax($page_callback_result) {
                     <a href="#" onclick="document.location.reload();" class="button alert columns tiny">Continuar</a>
                 </div>
                 <a onclick="document.location.reload();" class="close-reveal-modal">&#215;</a>';
+    else if($page_callback_result=="LIMITE FICHAJES")
+        $html = '<p>No puede agregar mas jugadores. Recuerda que hay un límite de fichajes por fecha.</p>
+                <div>
+                    <a href="/jugar/alineaciones" class="button columns tiny">Ver mi equipo</a>
+                    <a href="/jugar/carrito" class="button columns tiny">Ver carrito de compras</a>
+                    <a href="#" onclick="document.location.reload();" class="button alert columns tiny">Continuar</a>
+                </div>
+                <a onclick="document.location.reload();" class="close-reveal-modal">&#215;</a>';
     else if($page_callback_result=="PRESUPUESTO")
-        $html = '<p>No tiene dimero suficiente para agregar este jugador a su carrito de compras. </p>
+        $html = '<p>No tiene dinero suficiente para agregar este jugador a su carrito de compras. </p>
                 <div>
                     <a href="/jugar/alineaciones" class="button columns tiny">Ver mi equipo</a>
                     <a href="/jugar/carrito" class="button columns tiny">Ver carrito de compras</a>
