@@ -225,11 +225,6 @@
             font-weight: bold;
           }
         }
-        &.field-value{
-          color: #AB682A; 
-          font-size: 26px;
-          font-weight: bold;
-        }
       }
     }
     .views-field-field-total{
@@ -237,6 +232,14 @@
       width: 19%;
       margin-left: 28%; 
       margin-right: 3%;
+      span{
+        color: #FFF;
+        &.field-value{
+          color: #AB682A; 
+          font-size: 26px;
+          font-weight: bold;
+        }
+      }
       
     }
     .views-field-field-link{
