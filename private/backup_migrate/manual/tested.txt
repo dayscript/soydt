@@ -1,0 +1,1 @@
+La presencia de este archivo indica que este directorio ha sido probado como seguro para utilizarse como destino para el módulo Backup and Migrate. Si cambia los permisos de este directorio o cambia la configuración del servidor web, por favor borre este archivo para que el directorio pueda ser comprobado nuevamente.
