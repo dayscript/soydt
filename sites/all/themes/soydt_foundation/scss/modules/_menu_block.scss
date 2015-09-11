@@ -68,6 +68,7 @@
         &.active-trail{
           color: white;
           background: $blueline;
+          border-radius: 5px;
           &::before,
           &::after{
             display: inline-block;
@@ -76,7 +77,7 @@
             top: 9px;
             width: 28px;
             position: absolute;
-            background: url(../images/backgrounds/sprite.png) no-repeat 0px -274px;
+            /*background: url(../images/backgrounds/sprite.png) no-repeat 0px -274px;*/
             left: -25px;
           }
           &::after{

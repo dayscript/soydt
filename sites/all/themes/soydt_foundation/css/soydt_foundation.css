@@ -2852,9 +2852,9 @@ h2.block-title { font-weight: 500; color: #222; font-size: 1.8rem; border-bottom
 
 .block-menu-menu-jugar ul.menu li a:hover { color: #609fdf; }
 
-.block-menu-menu-jugar ul.menu li a.active, .block-menu-menu-jugar ul.menu li a.active-trail { color: white; background: #33629a; }
+.block-menu-menu-jugar ul.menu li a.active, .block-menu-menu-jugar ul.menu li a.active-trail { color: white; background: #33629a; border-radius: 5px; }
 
-.block-menu-menu-jugar ul.menu li a.active::before, .block-menu-menu-jugar ul.menu li a.active::after, .block-menu-menu-jugar ul.menu li a.active-trail::before, .block-menu-menu-jugar ul.menu li a.active-trail::after { display: inline-block; height: 35px; content: ""; top: 9px; width: 28px; position: absolute; background: url(../images/backgrounds/sprite.png) no-repeat 0px -274px; left: -25px; }
+.block-menu-menu-jugar ul.menu li a.active::before, .block-menu-menu-jugar ul.menu li a.active::after, .block-menu-menu-jugar ul.menu li a.active-trail::before, .block-menu-menu-jugar ul.menu li a.active-trail::after { display: inline-block; height: 35px; content: ""; top: 9px; width: 28px; position: absolute; /*background: url(../images/backgrounds/sprite.png) no-repeat 0px -274px;*/ left: -25px; }
 
 .block-menu-menu-jugar ul.menu li a.active::after, .block-menu-menu-jugar ul.menu li a.active-trail::after { left: initial; right: -28px; background-position: -55px -274px; }
 
