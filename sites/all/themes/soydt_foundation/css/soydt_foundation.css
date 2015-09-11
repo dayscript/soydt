@@ -2608,7 +2608,7 @@ td, th { padding: 0; }
 
 .destacado { color: #712740; text-transform: uppercase; }
 
-.text-orange { color: #de6d26; font-style: italic; font-size: 0.85rem; font-weight: 400; }
+.text-orange { color: #de6d26; font-style: italic; font-size: 0.85rem; font-weight: 400; margin-top: 15px; }
 
 .text-blue { font-family: "dinmittelschrift", sans-serif; color: #2e6399; font-size: 1rem; font-weight: 800; text-transform: uppercase; }
 
