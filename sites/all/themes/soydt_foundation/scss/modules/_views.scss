@@ -230,7 +230,6 @@
       width: 22%;
       margin-left: 28%; 
       margin-right: 3%;
-      color: #ff7800;
       span{
         color: #FFF;
         &.field-value{
@@ -239,7 +238,9 @@
           font-weight: bold;
         }
       }
-      
+      .views-align-right{
+      color: #609fdf;
+      }  
     }
     .views-field-field-link{
       border-left: 1px solid #fff; 
