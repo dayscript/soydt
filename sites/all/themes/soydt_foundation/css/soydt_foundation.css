@@ -2878,7 +2878,7 @@ h2.block-title { font-weight: 500; color: #222; font-size: 1.8rem; border-bottom
 
 .views-exposed-form label { font-weight: normal; color: #aaa; font-size: 0.8rem; }
 
-.views-exposed-form button.form-submit { margin-top: 21px !important; padding: 10px 15px; background: #33629a; text-transform: uppercase; font-size: 0.8rem; }
+.views-exposed-form button.form-submit { margin-top: 21px !important; padding: 10px 15px; background: #33629a; text-transform: uppercase; font-size: 0.8rem; color: #fff; }
 
 .views-exposed-form #edit-bef-sort-options { background: #777; position: relative; text-transform: uppercase; height: 37px; display: inline-block; margin-top: 19px; min-width: 120px; }
 
