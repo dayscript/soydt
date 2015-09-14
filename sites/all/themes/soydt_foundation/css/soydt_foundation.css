@@ -2602,7 +2602,7 @@ td, th { padding: 0; }
 
 .alert-box .close, .alert-box .close-alert { font-size: 1.375rem; padding: 9px 6px 4px; line-height: 0; position: absolute; top: 50%; margin-top: -0.6875rem; right: 0.25rem; color: #333333; opacity: 0.3; background: inherit; }
 
-.btn-blue { display: inline-block; background: #2e6399; color: #fff; padding: 4px 8px; }
+.btn-blue { display: inline-block; background: #2e6399; color: #fff; padding: 4px 8px; margin-top: 10px; text-transform: uppercase; }
 
 .btn-blue:hover { color: #86b0da; }
 
