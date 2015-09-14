@@ -2974,6 +2974,8 @@ h2.block-title { font-weight: 500; color: #222; font-size: 1.8rem; border-bottom
 
 .view-resultados .views-field-field-nombres { text-transform: uppercase; font-size: 0.8em; }
 
+.view-resultados .views-align-right { color: #ff0000; }
+
 .block-alineaciones-estadio, .block-alineaciones-estadio-angular { background: url("../images/backgrounds/estadio.jpg") center top no-repeat; min-height: 834px; padding-bottom: 20px; }
 
 .alineaciones-modal { padding: 30px; }
@@ -3198,7 +3200,9 @@ h2.block-title { font-weight: 500; color: #222; font-size: 1.8rem; border-bottom
 
 .block-views-carrito-carrito-resumen .view-content .views-row:last-child { border-bottom: none; margin: 0; padding: 0; }
 
-button.alert, .button.alert { background-color: #f04124; border-color: #cf2a0e; color: #FFFFFF; border-radius: 6px; }
+button.alert, .button.alert { background-color: #990000; border-color: #cf2a0e; color: #FFFFFF; border-radius: 7px; text-transform: uppercase; font-size: 10px; }
+
+button.success, .button.success { background-color: #339900; border-color: #368a55; color: #FFFFFF; border-radius: 7px; margin-top: 20px; text-transform: uppercase; }
 
 .view-id-fichar_jugadores .ftbl-acciones .sprite-juego { height: 40px; width: 40px; }
 
