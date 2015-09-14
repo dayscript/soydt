@@ -3198,6 +3198,8 @@ h2.block-title { font-weight: 500; color: #222; font-size: 1.8rem; border-bottom
 
 .block-views-carrito-carrito-resumen .view-content .views-row:last-child { border-bottom: none; margin: 0; padding: 0; }
 
+button.alert, .button.alert { background-color: #f04124; border-color: #cf2a0e; color: #FFFFFF; border-radius: 6px; }
+
 .view-id-fichar_jugadores .ftbl-acciones .sprite-juego { height: 40px; width: 40px; }
 
 .view-id-fichar_jugadores .ftbl-acciones a:hover { -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=50)"; filter: progid:DXImageTransform.Microsoft.Alpha Opacity=50; filter: alpha(opacity=50); opacity: 0.5; }
