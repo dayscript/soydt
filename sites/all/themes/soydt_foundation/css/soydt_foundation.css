@@ -3190,7 +3190,7 @@ h2.block-title { font-weight: 500; color: #222; font-size: 1.8rem; border-bottom
 
 .block-views-carrito-carrito-resumen { background: #D6D6D4; bottom: 0; box-shadow: 0 0 10px rgba(0, 0, 0, 0.6); padding: 0; position: fixed; right: 50px; width: 270px; z-index: 10; }
 
-.block-views-carrito-carrito-resumen .block-title { background: #33629a; color: #fff; cursor: pointer; font-size: 13px; margin: 0; padding: 6px 0 2px; position: relative; text-align: center; }
+.block-views-carrito-carrito-resumen .block-title { background: #33629a; color: #fff; cursor: pointer; font-size: 18px; margin: 0; padding: 6px 0 2px; position: relative; text-align: center; }
 
 .block-views-carrito-carrito-resumen .block-title:after { color: #fff; content: '\f068'; position: absolute; right: 10px; font-family: 'FontAwesome'; font-size: 14px; }
 
