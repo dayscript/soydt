@@ -2974,7 +2974,7 @@ h2.block-title { font-weight: 500; color: #222; font-size: 1.8rem; border-bottom
 
 .view-resultados .views-field-field-nombres { text-transform: uppercase; font-size: 0.8em; }
 
-.view-resultados .views-align-right { color: #ff0000; }
+.view-resultados .views-align-right { color: #609fdf; font-weight: bolder; }
 
 .block-alineaciones-estadio, .block-alineaciones-estadio-angular { background: url("../images/backgrounds/estadio.jpg") center top no-repeat; min-height: 834px; padding-bottom: 20px; }
 
