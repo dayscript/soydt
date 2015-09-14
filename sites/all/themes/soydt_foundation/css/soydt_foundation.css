@@ -2876,6 +2876,8 @@ h2.block-title { font-weight: 500; color: #222; font-size: 1.8rem; border-bottom
 
 .view .more-link a { display: inline-block; color: white; padding: 13px 15px 10px 15px; }
 
+.views-exposed-form { border-bottom: 1px solid #33629a; margin-bottom: 23px; }
+
 .views-exposed-form label { font-weight: normal; color: #aaa; font-size: 0.8rem; }
 
 .views-exposed-form button.form-submit { margin-top: 21px !important; padding: 10px 15px; background: #33629a; text-transform: uppercase; font-size: 0.8rem; color: #fff; border-radius: 7px; }
