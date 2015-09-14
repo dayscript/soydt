@@ -2606,7 +2606,7 @@ td, th { padding: 0; }
 
 .btn-blue:hover { color: #86b0da; }
 
-.destacado { color: #712740; text-transform: uppercase; }
+.destacado { color: #33629a; text-transform: uppercase; }
 
 .text-orange { color: #de6d26; font-style: italic; font-size: 0.85rem; font-weight: 400; margin-top: 15px; }
 
@@ -3423,6 +3423,6 @@ font-size: 70%;
 
 .node-article.view-mode-full .image img { width: 100%; }
 
-.node-page .body.field strong { color: #712740; text-transform: uppercase; }
+.node-page .body.field strong { color: #33629a; text-transform: uppercase; }
 
 /*# sourceMappingURL=soydt_foundation.css.map */
