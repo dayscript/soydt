@@ -2972,6 +2972,8 @@ h2.block-title { font-weight: 500; color: #222; font-size: 1.8rem; border-bottom
 
 .winer-block .view-footer .mesage-legal { display: block; width: 100%; color: #fff; font-size: 10px; text-align: center; }
 
+.views-exposed-widgets { margin-bottom: 1.5em; }
+
 .view-resultados .views-field-field-nombres { text-transform: uppercase; font-size: 0.8em; }
 
 .view-resultados .views-align-right { color: #609fdf; font-weight: bolder; }
@@ -3226,7 +3228,7 @@ button.success, .button.success { background-color: #339900; border-color: #368a
 
 .counter-group:after { clear: both; }
 
-.counter-block { float: left; margin-right: 5px; background: url("../images/backgrounds/counter.png"); width: 72px; height: 67px; }
+.counter-block { float: left; margin-right: 5px; background: url("../images/backgrounds/counter.png"); width: 79px; height: 67px; }
 
 .counter-block .counter { position: relative; height: 42px; margin-left: .5em; margin-right: .5em; margin-top: .3em; overflow: hidden; }
 
