@@ -2902,7 +2902,7 @@ h2.block-title { font-weight: 500; color: #222; font-size: 1.8rem; border-bottom
 
 .view-fichar-jugadores .view-content .views-row .views-field-field-equipo .field-name-title h5 a:hover { text-decoration: underline; }
 
-.view-fichar-jugadores .view-content .views-row .views-field-field-image { float: left; margin-right: 10px; border: 2px solid white; background: white; }
+.view-fichar-jugadores .view-content .views-row .views-field-field-image { float: left; margin-right: 10px; border: 6px solid white; background: white; }
 
 .view-fichar-jugadores .view-content .views-row .views-field-title { font-family: "dinmittelschrift", sans-serif; line-height: 1.2rem; margin-top: 3px; }
 
