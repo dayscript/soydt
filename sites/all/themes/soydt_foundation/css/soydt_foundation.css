@@ -2716,13 +2716,13 @@ select, .form-select { border: 1px solid #999; background-color: #fff; box-shado
 
 .block-programacion .view-content tbody tr { background-color: #FFFFFF; background-image: -webkit-linear-gradient(top, #FFFFFF, #F0F0F0); background-image: linear-gradient(to bottom,#FFFFFF, #F0F0F0, , , , , , , , ); }
 
-.block-programacion .view-content tbody tr .views-field { font-size: 13px; text-align: center; }
+.block-programacion .view-content tbody tr .views-field { font-size: 11px; line-height: 13px; text-align: center; }
 
 .block-programacion .view-content tbody tr .views-field .logo-equipos { overflow: hidden; }
 
 .block-programacion .view-content tbody tr .views-field .logo-equipos img { float: left; }
 
-.block-programacion .view-content tbody tr .views-field .nombre-equipos div { font-size: 13px; line-height: 13px; margin-bottom: 4px; text-align: left; }
+.block-programacion .view-content tbody tr .views-field .nombre-equipos div { font-size: 11px; line-height: 13px; margin-bottom: 4px; text-align: left; }
 
 .block-programacion .view-content tbody tr:last-child { border-bottom: 5px solid #000; }
 
@@ -2940,7 +2940,7 @@ h2.block-title { font-weight: 500; color: #222; font-size: 1.8rem; border-bottom
 
 .view-carrito .views-row { padding: 0; }
 
-.view-carrito .views-row .views-field-title { font-family: "dinmittelschrift", sans-serif; text-transform: uppercase; }
+.view-carrito .views-row .views-field-title { font-family: "dinmittelschrift", sans-serif; font-size: 11px; text-transform: uppercase; }
 
 .view-carrito .views-row .views-field-title a { color: #5f6062; }
 

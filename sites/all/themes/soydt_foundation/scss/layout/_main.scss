@@ -109,7 +109,8 @@
       tr{
         @include linear-gradient(top, #FFFFFF, #F0F0F0);
         .views-field {
-          font-size: 13px;
+          font-size: 11px;
+          line-height: 13px;
           text-align: center;
           .logo-equipos {
             overflow: hidden;
@@ -119,7 +120,7 @@
           }
           .nombre-equipos{
             div {
-              font-size: 13px;
+              font-size: 11px;
               line-height: 13px;
               margin-bottom: 4px;
               text-align: left;
