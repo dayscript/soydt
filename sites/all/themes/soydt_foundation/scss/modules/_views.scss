@@ -297,9 +297,14 @@
   .views-field {
     border-bottom: 1px solid #999;
     padding: 15px 0;
-    .group-left {
-    width: 7%;
-    float: left;
+      .group-left {
+      width: 7%;
+      float: left;
+      margin-right: 24px;
+        .image {
+        background-color: #fff;
+        border: 3px solid #fff;
+        }
   }
 }
   }
