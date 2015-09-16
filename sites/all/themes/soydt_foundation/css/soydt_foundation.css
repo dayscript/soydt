@@ -2999,6 +2999,8 @@ h2.block-title { font-weight: 500; color: #222; font-size: 1.8rem; border-bottom
 
 .view-alineacion-usuario .views-row.views-row-1 .views-field .group-left .image { background-color: #fff; border: 3px solid #fff; }
 
+.view-alineacion-usuario .views-row.views-row-1 .views-field .field-content { color: #E28652; font-style: italic; margin-bottom: 10px; font-size: 14px; list-style: none; margin-left: -16px; }
+
 .view-alineacion-usuario .views-row.views-row-1 .views-field .group-middle li { color: #E28652; font-style: italic; margin-bottom: 10px; font-size: 14px; list-style: none; margin-left: -16px; }
 
 .block-alineaciones-estadio, .block-alineaciones-estadio-angular { background: url("../images/backgrounds/estadio.jpg") center top no-repeat; min-height: 834px; padding-bottom: 20px; }
