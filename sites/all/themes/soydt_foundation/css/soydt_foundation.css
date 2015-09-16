@@ -2982,6 +2982,9 @@ h2.block-title { font-weight: 500; color: #222; font-size: 1.8rem; border-bottom
 
 .view-resultados .views-align-right { color: #609fdf; font-weight: bolder; }
 
+/* Alineaciones de usuarios - Mi cuenta*/
+.view-alineacion-usuario .views-row.views-row-1 span { display: block; }
+
 .block-alineaciones-estadio, .block-alineaciones-estadio-angular { background: url("../images/backgrounds/estadio.jpg") center top no-repeat; min-height: 834px; padding-bottom: 20px; }
 
 .alineaciones-modal { padding: 30px; }
