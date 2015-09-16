@@ -2989,7 +2989,9 @@ h2.block-title { font-weight: 500; color: #222; font-size: 1.8rem; border-bottom
 .view-resultados .views-align-right { color: #609fdf; font-weight: bolder; }
 
 /* Alineaciones de usuarios - Mi cuenta*/
-.user-profile h3 { color: #336699; font-size: 14px; text-transform: uppercase; }
+.user-profile h3 { color: #336699; font-size: 16px; text-transform: uppercase; }
+
+.user-profile dl dt { margin-bottom: 0.3rem; float: left; margin-right: 10px; font-weight: normal; }
 
 .view-alineacion-usuario .views-row.views-row-1 span { display: block; text-transform: uppercase; font-family: "dinmittelschrift"; color: #336699; }
 
