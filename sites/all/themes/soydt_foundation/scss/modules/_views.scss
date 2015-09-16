@@ -293,6 +293,11 @@
   .views-row.views-row-1{
     span {
     display: block;
+    .views-label {
+    text-transform: uppercase;
+    font-family: "dinmittelschrift";
+    color: #336699;
+    }
     }
   .views-field {
     border-bottom: 1px solid #999;
