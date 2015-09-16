@@ -37,6 +37,22 @@ h2 {
     }
 }
 
+h3 {
+    color: $secondary-color;
+    font-size: 1rem;
+    letter-spacing: -0.5px;
+    text-transform: uppercase;
+
+    a {
+        color: $secondary-color;
+        &:hover{
+            color: $secondary-color;
+            text-decoration: underline;
+        }
+
+    }
+}
+
 pre {
     background: #eee;
     border: 1px solid #ddd;

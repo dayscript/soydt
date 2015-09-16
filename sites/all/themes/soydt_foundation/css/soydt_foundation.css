@@ -2638,6 +2638,12 @@ h2 a { color: #5f6062; }
 
 h2 a:hover { color: #5f6062; text-decoration: underline; }
 
+h3 { color: #5f6062; font-size: 1rem; letter-spacing: -0.5px; text-transform: uppercase; }
+
+h3 a { color: #5f6062; }
+
+h3 a:hover { color: #5f6062; text-decoration: underline; }
+
 pre { background: #eee; border: 1px solid #ddd; padding: 10px; page-break-inside: avoid; white-space: pre-wrap; /* css-3 */ white-space: -moz-pre-wrap; /* Mozilla, since 1999 */ white-space: -pre-wrap; /* Opera 4-6 */ white-space: -o-pre-wrap; /* Opera 7 */ word-wrap: break-word; }
 
 label { font-size: 0.75em; margin-bottom: 0.3em; text-transform: uppercase; }
