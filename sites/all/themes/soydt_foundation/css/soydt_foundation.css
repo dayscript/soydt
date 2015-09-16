@@ -2987,6 +2987,8 @@ h2.block-title { font-weight: 500; color: #222; font-size: 1.8rem; border-bottom
 
 .view-alineacion-usuario .views-row.views-row-1 .views-field { border-bottom: 1px solid #999; padding: 15px 0; }
 
+.view-alineacion-usuario .views-row.views-row-1 .views-field .group-left { width: 7%; float: left; }
+
 .block-alineaciones-estadio, .block-alineaciones-estadio-angular { background: url("../images/backgrounds/estadio.jpg") center top no-repeat; min-height: 834px; padding-bottom: 20px; }
 
 .alineaciones-modal { padding: 30px; }
