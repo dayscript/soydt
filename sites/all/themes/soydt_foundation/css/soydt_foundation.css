@@ -3420,7 +3420,7 @@ font-size: 70%;
 
 .node-type-jugador .view-jugadores .view-content { padding: 15px; background: white; }
 
-.view-jugadores table { background: none; font-family: "dinmittelschrift", sans-serif; border: none; margin: 0; }
+.view-jugadores table { background: none; font-family: "dinmittelschrift", sans-serif; border: none; width: 200px; margin: 0; }
 
 .view-jugadores table thead { background: none; }
 
