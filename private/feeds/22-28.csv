@@ -1,0 +1,46 @@
+title,torneo,fecha,local,local_es,visitante,visitante_es,canal1,canal2
+Copa Sudamericana Deportes Tolima (COL) vs. sportivo Luqueño (PAR),copa_sudamericana,2015-09-22 23:30,Deportes Tolima (COL),tolima,sportivo Luqueño (PAR),sportivo_luqueño_(par),604,1604
+Copa Sudamericana River Plate (ARG) vs. LDU Quito (ECU),copa_sudamericana,2015-09-23 22:00,River Plate (ARG),river_plate_(arg),LDU Quito (ECU),ldu_quito,604,1604
+Copa Sudamericana Independiente (ARG) vs. Olimpia (PAR),copa_sudamericana,2015-09-24 00:00,Independiente (ARG),independiente,Olimpia (PAR),olimpia,604,1604
+Copa Sudamericana Lanus (ARG) vs. Defensor (URU),copa_sudamericana,2015-09-25 00:00,Lanus (ARG),lanus,Defensor (URU),defensor,604,1604
+Copa Águila Junior vs. Medellín,copa_aguila,2015-09-24 01:00,Junior,junior,Medellín,medellin,633,1633
+Premier League Tottenham vs. Manchester City,premier_league,2015-09-26 11:30,Tottenham,tottenham,Manchester City,manchester_city,625,1625
+Premier League Leicester City vs. Arsenal,premier_league,2015-09-26 13:45,Leicester City,leicester_city,Arsenal,arsenal,625,1625
+Premier League Stoke City vs. Bournemouth,premier_league,2015-09-26 14:00,Stoke City,stoke_city,Bournemouth,bournemouth,612,1612
+Premier League Manchester United vs. Sunderland,premier_league,2015-09-26 14:00,Manchester United,manchester_united,Sunderland,sunderland,613,1613
+Premier League Liverpool vs. Aston Villa,premier_league,2015-09-26 14:00,Liverpool,liverpool,Aston Villa,aston_villa,614,1614
+Premier League Southampton vs. Swansea,premier_league,2015-09-26 14:00,Southampton,southampton,Swansea,swansea,615,1615
+Premier League West Ham vs. Norwich,premier_league,2015-09-26 14:00,West Ham,west_ham,Norwich,norwich,616,1616
+Premier League Newcastle vs. Chelsea,premier_league,2015-09-26 16:30,Newcastle,newcastle,Chelsea,chelsea,613,1613
+Premier League Watford vs. Crystal Palace,premier_league,2015-09-27 15:00,Watford,watford,Crystal Palace,crystal_palace,613,1613
+Premier League Albion vs. Everton,premier_league,2015-09-28 19:00,Albion,albion,Everton,everton,613,1613
+Liga BBVA Valencia vs. Granada,liga_bbva,2015-09-25 18:30,Valencia,valencia,Granada,granada,621,1621
+Liga BBVA Barcelona vs. Las Palmas,liga_bbva,2015-09-26 14:00,Barcelona,barcelona,Las Palmas,las_palmas,610,1610
+Liga BBVA Real Madrid vs. Málaga,liga_bbva,2015-09-26 16:00,Real Madrid,real_madrid,Málaga,malaga,625,1625
+Liga BBVA Villarreal vs. Atlético de Madrid,liga_bbva,2015-09-26 18:15,Villarreal,villarreal,Atlético de Madrid,atlético_de_madrid,625,1625
+Liga BBVA Sevilla vs. Rayo Vallecano,liga_bbva,2015-09-26 18:30,Sevilla,sevilla,Rayo Vallecano,rayo_vallecano,610,1610
+Liga BBVA Eibar vs. Celta de Vigo,liga_bbva,2015-09-26 20:00,Eibar,eibar,Celta de Vigo,celta_de_vigo,612,1612
+Liga BBVA Sporting Gijón vs. Betis,liga_bbva,2015-09-27 10:00,Sporting Gijón,sporting_gijon,Betis,betis,610,1610
+Liga BBVA Deportivo La Coruña vs. Espanyol,liga_bbva,2015-09-27 13:45,Deportivo La Coruña,deportivo_la_coruña,Espanyol,espanyol,625,1625
+Liga BBVA Getafe vs. Levante,liga_bbva,2015-09-27 16:00,Getafe,getafe,Levante,levante,625,1625
+Liga BBVA Real Sociedad vs. Athletic Bilbao,liga_bbva,2015-09-27 18:15,Real Sociedad,real_sociedad,Athletic Bilbao,athletic_bilbao,626,1626
+Ligue I Francia Nantes vs. PSG,ligue_l,2015-09-26 15:30,Nantes,nantes,PSG,psg,618,1618
+Ligue I Francia Bordeaux vs. Lyon,ligue_l,2015-09-26 18:00,Bordeaux,bordeaux,Lyon,lyon,612,1612
+Ligue I Francia Guingamp vs. Monaco FC,ligue_l,2015-09-27 14:45,Guingamp,guingamp,Monaco FC,monaco_fc,621,1621
+Liga de Portugal Moreirense vs. Porto,portugal,2015-09-25 19:30,Moreirense,moreirense,Porto,porto,612,1612
+Bundesliga Werder Bremen vs. Bayer Leverkusen,bundesliga,2015-09-26 13:15,Werder Bremen,werder_bremen,Bayer Leverkusen,bayer_leverkusen,621,1621
+Bundesliga Mainz 05 vs. Bayer Munich,bundesliga,2015-09-26 13:30,Mainz 05,mainz_05,Bayer Munich,bayer_munich,604,1604
+Bundesliga Borussia Dortmund vs. Darmstadt 98,bundesliga,2015-09-27 15:45,Borussia Dortmund,borussia_dortmund,Darmstadt 98,darmstadt_98,626,1626
+Serie A Italia Napoli vs. Juventus,serie_a,2015-09-26 18:15,Napoli,napoli,Juventus,juventus,621,1621
+Serie A Italia Genoa vs. Milan,serie_a,2015-09-27 10:30,Genoa,genoa,Milan,milan,625,1625
+Serie A Italia Inter vs. Fiorentina,serie_a,2015-09-27 18:30,Inter,inter,Fiorentina,fiorentina,604,1604
+Liga Águila Equidad vs. Alianza Petrolera,liga_aguila,2015-09-26 01:00,Equidad,equidad,Alianza Petrolera,alianza_petrolera,633,1633
+Liga Águila Once Caldas vs. Envigado,liga_aguila,2015-09-26 19:00,Once Caldas,once_caldas,Envigado,envigado,633,1633
+Liga Águila Cortuluá vs. Cali,liga_aguila,2015-09-26 21:00,Cortuluá,cortulua,Cali,cali,633,1633
+Liga Águila Cúcuta vs. Uniautónoma,liga_aguila,2015-09-26 23:00,Cúcuta,cucuta,Uniautónoma,uniautonoma,633,1633
+Liga Águila Tolima vs. Santa Fe,liga_aguila,2015-09-27 01:00,Tolima,tolima,Santa Fe,santa_fe,633,1633
+Liga Águila Millonarios vs. Huila,liga_aguila,2015-09-27 19:00,Millonarios,millonarios,Huila,huila,633,1633
+Liga Águila Jaguáres vs. Águilas Doradas,liga_aguila,2015-09-27 21:00,Jaguáres,jaguares,Águilas Doradas,aguilas_doradas,633,1633
+Liga Águila Nacional vs. Boyacá Chicó,liga_aguila,2015-09-27 22:00,Nacional,nacional,Boyacá Chicó,boyaca_chico,130,1130
+Liga Águila Junior vs. Pasto,liga_aguila,2015-09-27 23:00,Junior,junior,Pasto,pasto,633,1633
+Liga Águila Patriotas vs. Medellín,liga_aguila,2015-09-28 01:00,Patriotas,patriotas,Medellín,medellin,633,1633
