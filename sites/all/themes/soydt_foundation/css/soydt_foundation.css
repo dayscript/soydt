@@ -2776,7 +2776,7 @@ ul.button-group li a.button { background: #38538e; border: none; padding: 5px; w
 
 .featured-wrapper .l-featured { height: 125px; }
 
-.block-blockify-blockify-logo { margin-top: -40px; padding: 0; height: 184px; width: 169px; }
+.block-blockify-blockify-logo { margin-top: -40px; padding: 0; height: 165px; /* 184 */ width: 152px; /* 169 */ }
 
 .block-blockify-blockify-logo img { height: 100%; width: 100%; }
 
@@ -3067,7 +3067,7 @@ h2.block-title { font-weight: 500; color: #222; font-size: 1.8rem; border-bottom
 
 .cancha .futbolista .ftb-equipo-imagen { padding: 0; width: 50px; margin-left: 18px; }
 
-.cancha .futbolista .ftb-nombre-puntos { background-image: -webkit-linear-gradient(#444, #222); background-image: linear-gradient(#444, #222); border-radius: 5px; border: 2px solid #222; color: white; font-family: "dinmittelschrift", sans-serif; padding: 0; position: relative; text-transform: uppercase; width: 85%; }
+.cancha .futbolista .ftb-nombre-puntos { background-image: -webkit-linear-gradient( #444, #222); background-image: linear-gradient( #444, #222); border-radius: 5px; border: 2px solid #222; color: white; font-family: "dinmittelschrift", sans-serif; padding: 0; position: relative; text-transform: uppercase; width: 85%; }
 
 .cancha .futbolista .ftb-nombre-puntos .star { background-position: 0 -250px; position: absolute; top: -14px; left: -8px; }
 
@@ -3215,9 +3215,9 @@ h2.block-title { font-weight: 500; color: #222; font-size: 1.8rem; border-bottom
 
 .l-help .data1, .l-help .data2 { width: 50%; float: left; }
 
-.block-equipo { background-image: -webkit-linear-gradient(#20a3ee, #20a3ee 43%, #187bb3 54%, #20a3ee); background-image: linear-gradient(#20a3ee, #20a3ee 43%, #187bb3 54%, #20a3ee); }
+.block-equipo { background-image: -webkit-linear-gradient( #20a3ee, #20a3ee 43%, #187bb3 54%, #20a3ee); background-image: linear-gradient( #20a3ee, #20a3ee 43%, #187bb3 54%, #20a3ee); }
 
-.carrito { background-image: -webkit-linear-gradient(#eea320, #eea320 43%, #b37b18 54%, #eea320); background-image: linear-gradient(#eea320, #eea320 43%, #b37b18 54%, #eea320); }
+.carrito { background-image: -webkit-linear-gradient( #eea320, #eea320 43%, #b37b18 54%, #eea320); background-image: linear-gradient( #eea320, #eea320 43%, #b37b18 54%, #eea320); }
 
 .block-views-carrito-carrito-resumen { background: #D6D6D4; bottom: 0; box-shadow: 0 0 10px rgba(0, 0, 0, 0.6); padding: 0; position: fixed; right: 50px; width: 270px; z-index: 10; }
 
@@ -3261,7 +3261,7 @@ button.success, .button.success { background-color: #339900; border-color: #368a
 
 .counter-block { float: left; margin-right: 5px; background: url("../images/backgrounds/counter.png"); width: 79px; height: 67px; }
 
-.counter-block .counter { position: relative; height: 42px; margin-left: .5em; margin-right: .5em; margin-top: .3em; overflow: hidden; }
+.counter-block .counter { position: relative; height: 50px; margin-left: .5em; margin-right: .5em; /*margin-top: .3em;*/ overflow: hidden; }
 
 .counter-block .counter .number { padding: 5%; width: auto; height: auto; color: #FFF; position: absolute; font-size: 28px; line-height: 48px; top: -10000px; font-family: "AdvDigital7", sans-serif; }
 
@@ -3406,9 +3406,9 @@ font-size: 70%;
 
 .node-jugador.view-mode-full .player-image img { border: 2px solid white; }
 
-.node-jugador.view-mode-full .field-name-agregar-carrito .agregar { background-image: -webkit-linear-gradient(#eea320, #eea320 43%, #b37b18 54%, #eea320); background-image: linear-gradient(#eea320, #eea320 43%, #b37b18 54%, #eea320); font-family: "dinmittelschrift", sans-serif; border-radius: 10px; padding: 10px; text-transform: uppercase; }
+.node-jugador.view-mode-full .field-name-agregar-carrito .agregar { background-image: -webkit-linear-gradient( #eea320, #eea320 43%, #b37b18 54%, #eea320); background-image: linear-gradient( #eea320, #eea320 43%, #b37b18 54%, #eea320); font-family: "dinmittelschrift", sans-serif; border-radius: 10px; padding: 10px; text-transform: uppercase; }
 
-.node-jugador.view-mode-full .field-name-agregar-carrito .agregar.disabled { background-image: -webkit-linear-gradient(#999, #333 43%, #666 54%, #999); background-image: linear-gradient(#999, #333 43%, #666 54%, #999); }
+.node-jugador.view-mode-full .field-name-agregar-carrito .agregar.disabled { background-image: -webkit-linear-gradient( #999, #333 43%, #666 54%, #999); background-image: linear-gradient( #999, #333 43%, #666 54%, #999); }
 
 .node-jugador.view-mode-full .field-name-agregar-carrito .agregar a { color: white; }
 
