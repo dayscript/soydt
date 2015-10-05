@@ -43,3 +43,381 @@ h2.block-title{
     }
   }
 }
+
+
+/* Estilos del bloque de ingreso de usuarios */
+.block-user-login {
+  width: 56.25%;
+  background-color: #004A76;
+  color: #fff;
+  float: left;
+  .block-title {
+    border-bottom: none;
+    font-size: 18px;
+  }
+  .block-title {
+    width: 19%;
+    float: left;
+    color: #fff;
+    margin: 30px 5px 0 20px;
+  }
+  .form-item-name, .form-item-pass, .form-submit {
+    float: left;
+    width: 25%;
+  }
+  .form-item-name, .form-item-pass {
+    margin-right: 5px;
+  }
+  .form-text {
+    height: 30px;
+    margin-top: 9px;
+  }
+}
+
+#user-login-form {
+  height: 90px;
+  input[type="password"],
+  .form-item-pass{
+    margin-bottom: 0;
+  }
+  .form-submit{
+    background: repeat scroll 0 0 #FF8A01;
+    padding: 6px 0;
+    text-transform: uppercase;
+    width: 140px;
+    margin-top: -5px;
+    border-radius: 6px;
+  }
+  .form-required{
+    display: none;
+  }
+  ul{
+    display: block;
+    margin: 0;
+    padding: 0;
+    position: relative;
+    height: 30px;
+    li {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      position: absolute;
+      &.first {
+        position: absolute;
+        left: 770px;
+        top: 26px;
+        width: 100%;
+        a {
+          background: repeat scroll 0 0 #FF8A01;
+          color: #FFF;
+          padding: 7px 9px;
+          text-transform: uppercase;
+          width: 274px;
+          border-radius: 6px;
+        }
+      }
+      &.last {
+        top: 55px; /*0*/
+        left: 303px; /* 0 */
+        a[href="/user/password"] {
+          color: #fff;
+          font-size: 12px;
+          font-style: italic;
+        }
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 1024px) {
+  .block-user-login {
+    float: none;
+    width: 100%;
+  }
+  #user-login-form {
+    ul{
+      li {
+        &.first {
+          left: 200px;
+          top: 116px;
+        }
+        &.last {
+          left: 466px;
+        }
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 960px) {
+  #user-login-form {
+    ul{
+      li {
+        &.last {
+          left: 438px;
+        }
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 800px) {
+  #user-login-form {
+    ul{
+      li {
+        &.first {
+          left: 170px;
+        }
+        &.last {
+          left: 367px;
+        }
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 768px) {
+  #user-login-form {
+    ul{
+      li {
+        &.first {
+          left: 165px;
+        }
+        &.last {
+          left: 354px;
+        }
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 736px) {
+  #user-login-form {
+    ul{
+      li {
+        &.first {
+          left: 158px;
+        }
+        &.last {
+          left: 340px;
+        }
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 659px) {
+  #user-login-form {
+    ul{
+      li {
+        &.last {
+          left: 308px;
+        }
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 640px) {
+  #user-login-form {
+    ul{
+      li {
+        &.last {
+          left: 297px;
+        }
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 627px) {
+  .block-user-login {
+    .block-title {
+      width: 20%;
+    }
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .block-user-login {
+    .block-title {
+      width: 21%;
+      margin: 30px 5px 0 10px;
+    }
+    .form-item-name, .form-item-pass {
+      margin-right: 3px;
+    }
+  }
+  #user-login-form {
+    ul{
+      li {
+        &.last {
+          left: 279px;
+        }
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 568px) {
+  .block-user-login {
+    .block-title {
+      width: 22%;
+      margin: 30px 0 0 5px;
+    }
+    .form-item-name, .form-item-pass {
+      margin-right: 3px;
+    }
+  }
+  #user-login-form {
+    ul{
+      li {
+        &.last {
+          left: 261px;
+        }
+      }
+    }
+    .form-submit{
+      width: 135px;
+    }
+  }
+}
+
+@media screen and (max-width: 533px) {
+  .block-user-login {
+    .block-title {
+      width: 23%;
+      margin: 30px 0 0 3px;
+    }
+    .form-item-name, .form-item-pass {
+      margin-right: 2px;
+    }
+  }
+  #user-login-form {
+    ul{
+      li {
+        &.last {
+          left: 247px;
+        }
+      }
+    }
+    .form-submit{
+      width: 128px;
+    }
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .block-user-login {
+    .block-title {
+      width: 100%;
+      margin: 5px 0 0 5px;
+      text-align: center;
+    }
+    .form-item {
+      margin: 0 2px 0 5px;
+      width: 48%;
+    }
+  }
+  #user-login-form {
+    height: 130px;
+    ul{
+      li {
+        &.first {
+          left: 70px;
+          top: 165px;
+        }
+        &.last {
+          top: 78px;
+          left: 227px;
+        }
+      }
+    }
+    .form-submit{
+      margin-top: 10px;
+      right: 131px;
+    }
+  }
+}
+
+@media screen and (max-width: 414px) {
+  #user-login-form {
+    ul{
+      li {
+        &.first {
+          left: 30px;
+        }
+        &.last {
+          left: 195px;
+        }
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 384px) {
+  #user-login-form {
+    ul{
+      li {
+        &.first {
+          left: 20px;
+        }
+        &.last {
+          left: 182px;
+        }
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 375px) {
+  .block-user-login {
+    .form-item {
+      width: 47%;
+    }
+  }
+  #user-login-form {
+    ul{
+      li {
+        &.first {
+          left: 15px;
+        }
+        &.last {
+          left: 174px;
+        }
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 360px) {
+  #user-login-form {
+    ul{
+      li {
+        &.first {
+          top: 158px;
+          left: 62px;
+        }
+        &.last {
+          top: 68px;
+        }
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 320px) {
+  #user-login-form {
+    ul{
+      li {
+        &.first {
+          top: 158px;
+          left: 50px;
+        }
+        &.last {
+          left: 147px;
+        }
+      }
+    }
+  }
+}

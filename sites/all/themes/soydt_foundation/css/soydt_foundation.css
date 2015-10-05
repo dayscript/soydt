@@ -2688,26 +2688,6 @@ select, .form-select { border: 1px solid #999; background-color: #fff; box-shado
 
 #first-time { display: none; }
 
-#user-login-form { height: 250px; }
-
-#user-login-form input[type="password"], #user-login-form .form-item-pass { margin-bottom: 0; }
-
-#user-login-form .form-submit { background: repeat scroll 0 0 #000; border-radius: 0; display: block; font-weight: 600; margin: 0 auto; padding: 8px 5px; text-transform: uppercase; width: 150px; }
-
-#user-login-form .form-required { display: none; }
-
-#user-login-form ul { display: block; margin: 0; padding: 0; position: relative; height: 30px; }
-
-#user-login-form ul li { list-style: none; margin: 0; padding: 0; position: absolute; }
-
-#user-login-form ul li.first { left: 0; top: 78px; width: 100%; }
-
-#user-login-form ul li.first a { background: repeat scroll 0 0 #2C659A; color: #FFF; display: block; font-size: 21px; padding: 18px 9px; text-transform: uppercase; width: 274px; margin: 0 auto; }
-
-#user-login-form ul li.last { top: 0; left: 0; }
-
-#user-login-form ul li.last a[href="/user/password"] { color: #E28652; font-size: 12px; font-style: italic; }
-
 .block-views-programacion-partidos-block h2.block-title { background: none repeat scroll 0 0 #000; border: none; color: #FFFFFF; margin: 0; padding: 10px; height: 48px; }
 
 .block-programacion { background: none repeat scroll 0 0 #FFFFFF; }
@@ -2816,17 +2796,152 @@ h2.block-title { font-weight: 500; color: #222; font-size: 1.8rem; border-bottom
 
 .sidebar .block h2.block-title { margin-top: 25px; }
 
+/* Estilos del bloque de ingreso de usuarios */
+.block-user-login { width: 56.25%; background-color: #004A76; color: #fff; float: left; }
+
+.block-user-login .block-title { border-bottom: none; font-size: 18px; }
+
+.block-user-login .block-title { width: 19%; float: left; color: #fff; margin: 30px 5px 0 20px; }
+
+.block-user-login .form-item-name, .block-user-login .form-item-pass, .block-user-login .form-submit { float: left; width: 25%; }
+
+.block-user-login .form-item-name, .block-user-login .form-item-pass { margin-right: 5px; }
+
+.block-user-login .form-text { height: 30px; margin-top: 9px; }
+
+#user-login-form { height: 90px; }
+
+#user-login-form input[type="password"], #user-login-form .form-item-pass { margin-bottom: 0; }
+
+#user-login-form .form-submit { background: repeat scroll 0 0 #FF8A01; padding: 6px 0; text-transform: uppercase; width: 140px; margin-top: -5px; border-radius: 6px; }
+
+#user-login-form .form-required { display: none; }
+
+#user-login-form ul { display: block; margin: 0; padding: 0; position: relative; height: 30px; }
+
+#user-login-form ul li { list-style: none; margin: 0; padding: 0; position: absolute; }
+
+#user-login-form ul li.first { position: absolute; left: 770px; top: 26px; width: 100%; }
+
+#user-login-form ul li.first a { background: repeat scroll 0 0 #FF8A01; color: #FFF; padding: 7px 9px; text-transform: uppercase; width: 274px; border-radius: 6px; }
+
+#user-login-form ul li.last { top: 55px; /*0*/ left: 303px; /* 0 */ }
+
+#user-login-form ul li.last a[href="/user/password"] { color: #fff; font-size: 12px; font-style: italic; }
+
+@media screen and (max-width: 1024px) { .block-user-login { float: none; width: 100%; }
+  #user-login-form ul li.first { left: 200px; top: 116px; }
+  #user-login-form ul li.last { left: 466px; } }
+
+@media screen and (max-width: 960px) { #user-login-form ul li.last { left: 438px; } }
+
+@media screen and (max-width: 800px) { #user-login-form ul li.first { left: 170px; }
+  #user-login-form ul li.last { left: 367px; } }
+
+@media screen and (max-width: 768px) { #user-login-form ul li.first { left: 165px; }
+  #user-login-form ul li.last { left: 354px; } }
+
+@media screen and (max-width: 736px) { #user-login-form ul li.first { left: 158px; }
+  #user-login-form ul li.last { left: 340px; } }
+
+@media screen and (max-width: 659px) { #user-login-form ul li.last { left: 308px; } }
+
+@media screen and (max-width: 640px) { #user-login-form ul li.last { left: 297px; } }
+
+@media screen and (max-width: 627px) { .block-user-login .block-title { width: 20%; } }
+
+@media screen and (max-width: 600px) { .block-user-login .block-title { width: 21%; margin: 30px 5px 0 10px; }
+  .block-user-login .form-item-name, .block-user-login .form-item-pass { margin-right: 3px; }
+  #user-login-form ul li.last { left: 279px; } }
+
+@media screen and (max-width: 568px) { .block-user-login .block-title { width: 22%; margin: 30px 0 0 5px; }
+  .block-user-login .form-item-name, .block-user-login .form-item-pass { margin-right: 3px; }
+  #user-login-form ul li.last { left: 261px; }
+  #user-login-form .form-submit { width: 135px; } }
+
+@media screen and (max-width: 533px) { .block-user-login .block-title { width: 23%; margin: 30px 0 0 3px; }
+  .block-user-login .form-item-name, .block-user-login .form-item-pass { margin-right: 2px; }
+  #user-login-form ul li.last { left: 247px; }
+  #user-login-form .form-submit { width: 128px; } }
+
+@media screen and (max-width: 480px) { .block-user-login .block-title { width: 100%; margin: 5px 0 0 5px; text-align: center; }
+  .block-user-login .form-item { margin: 0 2px 0 5px; width: 48%; }
+  #user-login-form { height: 130px; }
+  #user-login-form ul li.first { left: 70px; top: 165px; }
+  #user-login-form ul li.last { top: 78px; left: 227px; }
+  #user-login-form .form-submit { margin-top: 10px; right: 131px; } }
+
+@media screen and (max-width: 414px) { #user-login-form ul li.first { left: 30px; }
+  #user-login-form ul li.last { left: 195px; } }
+
+@media screen and (max-width: 384px) { #user-login-form ul li.first { left: 20px; }
+  #user-login-form ul li.last { left: 182px; } }
+
+@media screen and (max-width: 375px) { .block-user-login .form-item { width: 47%; }
+  #user-login-form ul li.first { left: 15px; }
+  #user-login-form ul li.last { left: 174px; } }
+
+@media screen and (max-width: 360px) { #user-login-form ul li.first { top: 158px; left: 62px; }
+  #user-login-form ul li.last { top: 68px; } }
+
+@media screen and (max-width: 320px) { #user-login-form ul li.first { top: 158px; left: 50px; }
+  #user-login-form ul li.last { left: 147px; } }
+
 .block-system-user-menu ul.menu li { list-style: none; }
 
 .block-fboauth .description { font-size: 10px; text-align: center; }
 
-.block-fboauth-login { margin: 7px 0; overflow: hidden; }
+.block-fboauth-login { width: 43.75%; background-color: #004A76; color: #fff; float: left; margin: 0; height: 90px; border-left: 1px solid #fff; overflow: hidden; }
 
-.block-fboauth-login .description { float: left; font-size: 10px; width: 50%; }
+.block-fboauth-login .block-title { color: #fff; border-bottom: 0px; font-size: 18px; float: left; margin-top: 28px; margin-left: 5px; }
 
-.block-fboauth-login .facebook-action-connect { float: left; width: 50%; display: block; }
+.block-fboauth-login .description { position: absolute; margin-top: 60px; margin-left: 6px; width: 41%; text-align: right; font-size: 12px; font-style: italic; }
 
-.block-fboauth-login .facebook-action-connect img { display: block; }
+.block-fboauth-login .facebook-action-connect { float: right; width: 110px; margin-top: 23px; margin-right: 10px; }
+
+@media screen and (max-width: 1024px) { .block-fboauth-login { float: none; width: 100%; border-left: 0px; }
+  .block-fboauth-login .description { width: 54%; }
+  .block-fboauth-login .facebook-action-connect { float: left; margin-left: 275px; } }
+
+@media screen and (max-width: 960px) { .block-fboauth-login .description { width: 57%; } }
+
+@media screen and (max-width: 800px) { .block-fboauth-login .description { width: 65%; }
+  .block-fboauth-login .facebook-action-connect { margin-left: 240px; } }
+
+@media screen and (max-width: 768px) { .block-fboauth-login .description { width: 67%; }
+  .block-fboauth-login .facebook-action-connect { margin-left: 235px; } }
+
+@media screen and (max-width: 736px) { .block-fboauth-login .description { width: 69%; } }
+
+@media screen and (max-width: 659px) { .block-fboauth-login .description { width: 77%; } }
+
+@media screen and (max-width: 640px) { .block-fboauth-login .description { width: 79%; } }
+
+@media screen and (max-width: 627px) { .block-fboauth-login .description { width: 81%; } }
+
+@media screen and (max-width: 600px) { .block-fboauth-login .description { width: 85%; } }
+
+@media screen and (max-width: 568px) { .block-fboauth-login .description { width: 90%; } }
+
+@media screen and (max-width: 480px) { .block-fboauth-login .block-title { float: none; margin: 0; }
+  .block-fboauth-login .description { width: 92.5%; margin-top: 42px; text-align: center; }
+  .block-fboauth-login .facebook-action-connect { margin-left: 280px; margin-top: 7px; } }
+
+@media screen and (max-width: 414px) { .block-fboauth-login .description { width: 91%; }
+  .block-fboauth-login .facebook-action-connect { margin-left: 242px; margin-top: 7px; } }
+
+@media screen and (max-width: 384px) { .block-fboauth-login .description { width: 91%; font-size: 11px; }
+  .block-fboauth-login .facebook-action-connect { margin-left: 230px; } }
+
+@media screen and (max-width: 375px) { .block-fboauth-login .description { width: 90%; }
+  .block-fboauth-login .facebook-action-connect { margin-left: 225px; } }
+
+@media screen and (max-width: 360px) { .block-fboauth-login { height: 130px; }
+  .block-fboauth-login .description { width: 89%; top: 182px; }
+  .block-fboauth-login .facebook-action-connect { margin-top: 37px; margin-left: 114px; } }
+
+@media screen and (max-width: 320px) { .block-fboauth-login .description { font-size: 10px; }
+  .block-fboauth-login .facebook-action-connect { margin-left: 95px; } }
 
 .block-system-main-menu { padding: 10px 0 0 0; max-width: 454px; }
 
