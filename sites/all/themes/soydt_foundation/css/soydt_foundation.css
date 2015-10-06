@@ -3089,6 +3089,8 @@ h2.block-title { font-weight: 500; color: #222; font-size: 1.8rem; border-bottom
 
 .view-carrito .views-row .views-field-field-image { padding: 0; }
 
+.views-table cols-4 { display: block; }
+
 .winer-block { background: none repeat scroll 0 0 #000; padding: 8px; margin: 6px 0 16px; }
 
 .winer-block .views-row { overflow: hidden; border: none !important; padding: 0 !important; }
