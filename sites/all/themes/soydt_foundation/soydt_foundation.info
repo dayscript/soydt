@@ -61,6 +61,7 @@ scripts[] = js/dist/app.min.js
 
 regions[header]              = Header
 regions[help]                = Help
+regions[content_pre]         = Content Pre
 regions[highlighted]         = Highlighted
 regions[featured]            = Featured
 regions[content]             = Content

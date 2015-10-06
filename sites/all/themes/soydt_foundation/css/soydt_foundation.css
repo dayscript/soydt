@@ -2801,7 +2801,7 @@ h2.block-title { font-weight: 500; color: #222; font-size: 1.8rem; border-bottom
 
 .block-user-login .block-title { border-bottom: none; font-size: 18px; }
 
-.block-user-login .block-title { width: 19%; float: left; color: #fff; margin: 30px 5px 0 20px; }
+.block-user-login .block-title { width: 21%; float: left; color: #fff; margin: 30px 5px 0 16px; }
 
 .block-user-login .form-item-name, .block-user-login .form-item-pass, .block-user-login .form-submit { float: left; width: 25%; }
 
@@ -2828,6 +2828,26 @@ h2.block-title { font-weight: 500; color: #222; font-size: 1.8rem; border-bottom
 #user-login-form ul li.last { top: 55px; /*0*/ left: 303px; /* 0 */ }
 
 #user-login-form ul li.last a[href="/user/password"] { color: #fff; font-size: 12px; font-style: italic; }
+
+.l-content-pre { background-color: #006500; background-image: url("../images/backgrounds/bg-pasos-soydt.png"); color: #fff; padding: 20px; }
+
+.l-content-pre h2.block-title { color: #fff; border-bottom: 0px; text-align: center; }
+
+.bloque-pasos .block-pasos .block-paso .block-paso-numero, .bloque-pasos .block-pasos .block-paso block-paso-text { float: left; }
+
+.bloque-pasos .block-pasos .block-paso .block-paso-numero { width: 20%; font-size: 130px; padding: 0; margin-top: -40px; color: #FFC129; }
+
+.bloque-pasos .block-pasos .block-paso .block-paso-text { width: 79.8%; margin-left: 30%; }
+
+.bloque-pasos .block-pasos .block-paso .block-paso-text h2 { color: #fff; font-size: 23px; }
+
+.bloque-pasos .block-pasos .block-paso .block-paso-text .block-paso-texto { font-size: 14px; }
+
+.bloque-pasos .block-pasos .block-paso .block-paso-text .block-paso-texo:first-letter { text-transform: capitalize; }
+
+.bloque-pasos .enlaces { text-align: center; text-transform: uppercase; }
+
+.bloque-pasos .enlaces a { color: white; background-color: #FF8A01; width: 120px; padding: 5px 50px; border-radius: 6px; }
 
 @media screen and (max-width: 1024px) { .block-user-login { float: none; width: 100%; }
   #user-login-form ul li.first { left: 200px; top: 116px; }
