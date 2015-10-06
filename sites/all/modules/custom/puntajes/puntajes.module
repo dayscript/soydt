@@ -99,9 +99,9 @@ function actualizar_acumulado(){
     {
         $nids = array_keys( $result[ 'node' ] );
         $alineaciones = entity_load( 'node', $nids );
+        
         foreach ( $alineaciones as $ali )
-        {
-            if(!isset($puntajes[$ali->uid]))$puntajes[$ali->uid]=0;
+        {   if(!isset($puntajes[$ali->uid]))$puntajes[$ali->uid]=0;
             $puntajes[$ali->uid] += $ali->field_total['und'][0]['value'];
         }
     }
@@ -133,7 +133,11 @@ function actualizar_puntajes()
     $puntajes = array();
     if ( isset( $_GET[ 'fecha' ] ) ) $fecha_nid = $_GET[ 'fecha' ];
     else $fecha_nid = 10018;// Fecha 5
-    if ( isset( $_GET[ 'start' ] ) ) $start = $_GET[ 'start' ];
+    if ( isset( $_GET[ 'filter1' ] ) ) $filter1 = $_GET[ 'filter1' ];
+    else $filter1 = 1;
+    if ( isset( $_GET[ 'filter2' ] ) ) $filter2 = $_GET[ 'filter2' ];
+    else $filter2 = 100000;
+        if ( isset( $_GET[ 'start' ] ) ) $start = $_GET[ 'start' ];
     else $start = 0;
     if ( isset( $_GET[ 'limit' ] ) ) $limit = $_GET[ 'limit' ];
     else $limit = 10;
@@ -144,6 +148,8 @@ function actualizar_puntajes()
     $result = $query->entityCondition( 'entity_type', 'node' )
         ->entityCondition( 'bundle', 'alineacion' )
         ->propertyCondition( 'status', 1 )
+        ->propertyCondition('uid', $filter1, '>=')
+        ->propertyCondition('uid', $filter2, '<=')
         ->fieldCondition( 'field_fecha_torneo', 'target_id', $fecha_nid, '=' )
         ->range( $start, $limit )
         ->execute();
