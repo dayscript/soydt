@@ -2801,7 +2801,7 @@ h2.block-title { font-weight: 500; color: #222; font-size: 1.8rem; border-bottom
 
 .block-user-login .block-title { border-bottom: none; font-size: 18px; }
 
-.block-user-login .block-title { width: 19%; float: left; color: #fff; margin: 30px 5px 0 20px; }
+.block-user-login .block-title { width: 21%; float: left; color: #fff; margin: 30px 5px 0 16px; }
 
 .block-user-login .form-item-name, .block-user-login .form-item-pass, .block-user-login .form-submit { float: left; width: 25%; }
 
