@@ -280,6 +280,11 @@ table {
 }
 
 .view-resultados{
+  .view-content{
+    .views-table{
+      display: block;
+    }
+  }
   .views-field-field-nombres{
     text-transform: uppercase;
     font-size: 0.8em;
