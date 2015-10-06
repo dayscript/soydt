@@ -3123,8 +3123,6 @@ table { display: block; }
 
 .view-resultados .view-content .views-table { display: block; }
 
-.view-resultados .view-content .views-table { display: block; }
-
 .view-resultados .views-field-field-nombres { text-transform: uppercase; font-size: 0.8em; }
 
 .view-resultados td.views-field.views-field-view-user.btn-cancha { width: 42px; }
@@ -3149,6 +3147,8 @@ table { display: block; }
 .view-alineacion-usuario .views-row.views-row-1 .views-field .field-content { color: #E28652; margin-bottom: 10px; font-size: 18px; }
 
 .view-alineacion-usuario .views-row.views-row-1 .views-field .group-middle li { color: #E28652; font-style: italic; margin-bottom: 10px; font-size: 14px; list-style: none; margin-left: -16px; text-transform: capitalize; }
+
+.view-resultados .view-content .views-table { display: block; }
 
 .block-alineaciones-estadio, .block-alineaciones-estadio-angular { background: url("../images/backgrounds/estadio.jpg") center top no-repeat; min-height: 834px; padding-bottom: 20px; }
 
