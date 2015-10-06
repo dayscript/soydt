@@ -3121,6 +3121,8 @@ table { display: block; }
 
 .views-exposed-widgets .views-widget { width: 176px; }
 
+.view-resultados .view-content .views-table { display: block; }
+
 .view-resultados .views-field-field-nombres { text-transform: uppercase; font-size: 0.8em; }
 
 .view-resultados td.views-field.views-field-view-user.btn-cancha { width: 42px; }
