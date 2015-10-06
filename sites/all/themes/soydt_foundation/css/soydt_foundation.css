@@ -3148,8 +3148,6 @@ table { display: block; }
 
 .view-alineacion-usuario .views-row.views-row-1 .views-field .group-middle li { color: #E28652; font-style: italic; margin-bottom: 10px; font-size: 14px; list-style: none; margin-left: -16px; text-transform: capitalize; }
 
-.view-resultados .view-content .views-table { display: block; }
-
 .block-alineaciones-estadio, .block-alineaciones-estadio-angular { background: url("../images/backgrounds/estadio.jpg") center top no-repeat; min-height: 834px; padding-bottom: 20px; }
 
 .alineaciones-modal { padding: 30px; }
