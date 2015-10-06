@@ -2756,7 +2756,7 @@ ul.button-group li a.button { background: #38538e; border: none; padding: 5px; w
 
 .featured-wrapper .l-featured { height: 125px; }
 
-.block-blockify-blockify-logo { margin-top: -40px; padding: 0; height: 165px; /* 184 */ width: 152px; /* 169 */ }
+.block-blockify-blockify-logo { margin-top: -40px; padding: 0; height: 166px; /* 184 */ width: 152px; /* 169 */ }
 
 .block-blockify-blockify-logo img { height: 90%; width: 90%; }
 
@@ -2839,9 +2839,9 @@ h2.block-title { font-weight: 500; color: #222; font-size: 1.8rem; border-bottom
 
 .bloque-pasos .block-pasos .block-paso .block-paso-text { width: 79.8%; margin-left: 30%; }
 
-.bloque-pasos .block-pasos .block-paso .block-paso-text h2 { color: #fff; font-size: 23px; }
+.bloque-pasos .block-pasos .block-paso .block-paso-text h2 { color: #fff; font-size: 22px; }
 
-.bloque-pasos .block-pasos .block-paso .block-paso-text .block-paso-texto { font-size: 14px; }
+.bloque-pasos .block-pasos .block-paso .block-paso-text .block-paso-texto { font-size: 12px; }
 
 .bloque-pasos .block-pasos .block-paso .block-paso-text .block-paso-texo:first-letter { text-transform: capitalize; }
 
