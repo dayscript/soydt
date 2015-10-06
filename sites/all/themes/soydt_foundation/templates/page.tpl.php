@@ -111,6 +111,13 @@
     <!--/.l-help -->
   <?php endif; ?>
 
+  <!-- l-content-pre -->
+  <?php if (!empty($page['content_pre'])): ?>
+    <section class="l-content-pre">
+      <?php print render($page['content_pre']); ?>
+    </section>
+  <?php endif; ?>
+
 
   <main role="main" class="row l-main">
     <div class="<?php print $main_grid; ?> main columns">

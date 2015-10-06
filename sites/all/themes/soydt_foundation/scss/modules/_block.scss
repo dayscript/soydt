@@ -129,6 +129,60 @@ h2.block-title{
   }
 }
 
+.l-content-pre {
+  background-color: #006500;
+  background-image: url("../images/backgrounds/bg-pasos-soydt.png");
+  color: #fff;
+  padding: 20px;
+  h2.block-title {
+    color: #fff;
+    border-bottom: 0px;
+    text-align: center;
+  }
+}
+
+.bloque-pasos {
+  .block-pasos {
+    .block-paso {
+      .block-paso-numero, block-paso-text {
+        float: left;
+      }
+      .block-paso-numero {
+        width: 20%;
+        font-size: 130px;
+        padding: 0;
+        margin-top: -40px;
+        color: #FFC129;
+      }
+      .block-paso-text {
+        width: 79.8%;
+        margin-left: 30%;
+        h2 {
+          color: #fff;
+          font-size: 23px;
+        }
+        .block-paso-texto {
+          font-size: 14px;
+        }
+        .block-paso-texo:first-letter {
+          text-transform: capitalize;
+        }
+      }
+    }
+  }
+  .enlaces {
+    text-align: center;
+    text-transform: uppercase;
+    a {
+      color: white;
+      background-color: #FF8A01;
+      width: 120px;
+      padding: 5px 50px;
+      border-radius: 6px;
+    }
+  }
+}
+
 @media screen and (max-width: 1024px) {
   .block-user-login {
     float: none;
