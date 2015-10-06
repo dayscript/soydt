@@ -1,0 +1,758 @@
+{
+	"auto_complete":
+	{
+		"selected_items":
+		[
+			[
+				"mar",
+				"margin-left"
+			],
+			[
+				"marg",
+				"margin"
+			],
+			[
+				"min",
+				"min-width"
+			],
+			[
+				"wi",
+				"width"
+			],
+			[
+				"border-r",
+				"border-radius"
+			],
+			[
+				"border",
+				"border-left"
+			],
+			[
+				"bor",
+				"border-bottom"
+			],
+			[
+				"margi",
+				"margin"
+			],
+			[
+				"bac",
+				"background-color"
+			],
+			[
+				"font",
+				"font-size"
+			],
+			[
+				"margin",
+				"margin-left"
+			],
+			[
+				"dat",
+				"date"
+			],
+			[
+				"mat",
+				"matchId"
+			],
+			[
+				"unse",
+				"unset"
+			],
+			[
+				"lo",
+				"log"
+			],
+			[
+				"tea",
+				"teamid"
+			],
+			[
+				"da",
+				"dat"
+			],
+			[
+				"print",
+				"print_r"
+			],
+			[
+				"ent",
+				"entityMatch"
+			],
+			[
+				"sb",
+				"sBlocksAverage"
+			],
+			[
+				"ss",
+				"sStealsAverage"
+			],
+			[
+				"sre",
+				"sReboundsDefensivePercentage"
+			],
+			[
+				"sas",
+				"sAssists"
+			],
+			[
+				"sass",
+				"sAssistsAverage"
+			],
+			[
+				"spo",
+				"sPointsAverage"
+			],
+			[
+				"te",
+				"teamId"
+			],
+			[
+				"_load_pla",
+				"_load_player_stat"
+			],
+			[
+				"play",
+				"player_stats"
+			],
+			[
+				"enti",
+				"entityPlayerStats"
+			],
+			[
+				"entit",
+				"entity_id"
+			],
+			[
+				"va",
+				"var_dump"
+			],
+			[
+				"Mat",
+				"matchid"
+			],
+			[
+				"pla",
+				"player_stats"
+			],
+			[
+				"pr",
+				"print"
+			],
+			[
+				"team",
+				"team1"
+			],
+			[
+				"fie",
+				"field_team_id_2"
+			],
+			[
+				"data",
+				"data"
+			],
+			[
+				"ob_en",
+				"ob_end_flush"
+			],
+			[
+				"ma",
+				"matchWrapper"
+			],
+			[
+				"ur",
+				"urlActual"
+			],
+			[
+				"U",
+				"url"
+			],
+			[
+				"clas",
+				"classes"
+			]
+		]
+	},
+	"buffers":
+	[
+		{
+			"file": "sites/all/themes/soydt_foundation/scss/soydt_foundation.scss",
+			"settings":
+			{
+				"buffer_size": 3456,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "sites/all/themes/soydt_foundation/scss/modules/_block.scss",
+			"settings":
+			{
+				"buffer_size": 6287,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "sites/all/themes/soydt_foundation/scss/modules/_fboauth.scss",
+			"settings":
+			{
+				"buffer_size": 3490,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "sites/all/themes/soydt_foundation/scss/layout/_main.scss",
+			"settings":
+			{
+				"buffer_size": 3380,
+				"line_ending": "Windows"
+			}
+		}
+	],
+	"build_system": "",
+	"build_system_choices":
+	[
+	],
+	"build_varint": "",
+	"command_palette":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"console":
+	{
+		"height": 0.0,
+		"history":
+		[
+		]
+	},
+	"distraction_free":
+	{
+		"menu_visible": true,
+		"show_minimap": false,
+		"show_open_files": false,
+		"show_tabs": false,
+		"side_bar_visible": false,
+		"status_bar_visible": false
+	},
+	"expanded_folders":
+	[
+		"/C/xampp/htdocs/soydt",
+		"/C/xampp/htdocs/soydt/sites",
+		"/C/xampp/htdocs/soydt/sites/all",
+		"/C/xampp/htdocs/soydt/sites/all/themes",
+		"/C/xampp/htdocs/soydt/sites/all/themes/soydt_foundation",
+		"/C/xampp/htdocs/soydt/sites/all/themes/soydt_foundation/scss",
+		"/C/xampp/htdocs/soydt/sites/all/themes/soydt_foundation/scss/base",
+		"/C/xampp/htdocs/soydt/sites/all/themes/soydt_foundation/scss/layout",
+		"/C/xampp/htdocs/soydt/sites/all/themes/soydt_foundation/scss/modules",
+		"/C/xampp/htdocs/soydt/sites/all/themes/soydt_foundation/scss/modules/sections",
+		"/C/xampp/htdocs/soydt/sites/all/themes/soydt_foundation/scss/states"
+	],
+	"file_history":
+	[
+		"/C/xampp/htdocs/soydt/sites/all/themes/soydt_foundation/templates/page.tpl.php",
+		"/C/xampp/htdocs/soydt/sites/all/themes/soydt_foundation/theme-settings.php",
+		"/C/Users/Usuario/AppData/Local/Temp/scp04049/var/www/soydt/sites/all/themes/zurb_foundation/theme-settings.php",
+		"/C/xampp/htdocs/soydt/sites/all/themes/zurb_foundation/layouts/foundation_1col/foundation-1col.tpl.php",
+		"/C/xampp/htdocs/soydt/sites/all/themes/zurb_foundation/templates/block.tpl.php",
+		"/C/xampp/htdocs/soydt/sites/all/themes/soydt_foundation/template.php",
+		"/C/xampp/htdocs/ligadirectv/sites/all/modules/custom/module_ldtv/module_ldtv.module",
+		"/C/xampp/htdocs/ligadirectv/sites/all/modules/features/features_ligadtv/features_ligadtv.info",
+		"/C/xampp/htdocs/ligadirectv/sites/all/modules/features/features_ligadtv/features_ligadtv.module",
+		"/C/xampp/htdocs/ligadirectv/sites/all/modules/custom/ligadtv/ligadtv.module",
+		"/C/xampp/htdocs/ligadirectv/sites/all/modules/features/liga_direct_tv/liga_direct_tv.module",
+		"/C/xampp/htdocs/ligadirectv/sites/all/modules/features/liga_direct_tv/liga_direct_tv.features.field_instance.inc",
+		"/C/xampp/htdocs/ligadirectv/sites/all/modules/features/liga_direct_tv/liga_direct_tv.features.inc",
+		"/C/xampp/htdocs/ligadirectv/sites/all/modules/custom/ligadtv/theme/positions.tpl.php",
+		"/C/xampp/htdocs/ligadirectv/sites/all/modules/custom/ligadtv/theme/calendar_team.tpl.php",
+		"/C/xampp/htdocs/ligadirectv/sites/all/modules/custom/ligadtv/ligadtv.info",
+		"/C/xampp/htdocs/ligadirectv/sites/all/themes/ligadirectv_foundation/templates/node--team.tpl.php",
+		"/C/Users/Usuario/Desktop/hosts",
+		"/C/xampp/apache/conf/extra/httpd-vhosts.conf",
+		"/C/xampp/htdocs/soydt/sites/all/themes/soydt_foundation/scss/layout/_featured.scss",
+		"/C/xampp/htdocs/soydt/sites/all/themes/soydt_foundation/scss/modules/sections/_contador.scss",
+		"/C/xampp/htdocs/soydt/sites/all/themes/soydt_foundation/scss/_variables.scss",
+		"/C/xampp/htdocs/soydt/sites/all/themes/soydt_foundation/scss/base/_common.scss",
+		"/C/xampp/htdocs/ligadirectv/sites/all/modules/custom/module_ldtv/url_api.txt",
+		"/C/xampp/htdocs/soydt/sites/all/themes/soydt_foundation/scss/soydt_foundation.scss",
+		"/C/xampp/htdocs/soydt/sites/all/themes/soydt_foundation/soydt_foundation.info",
+		"/C/xampp/htdocs/soydt/sites/default/settings.php",
+		"/C/Users/Usuario/AppData/Local/Temp/scp42372/home/forge/ligadirectv.com.co/sites/all/modules/custom/module_ldtv/jsons/stats_player_match/match135193.json",
+		"/C/Users/Usuario/AppData/Local/Temp/scp39113/home/forge/ligadirectv.com.co/sites/all/modules/custom/module_ldtv/jsons/stats_player_match/match135192.json",
+		"/C/Users/Usuario/AppData/Local/Temp/scp42018/home/forge/ligadirectv.com.co/sites/all/modules/custom/module_ldtv/jsons/stats_player_match/match135194.json",
+		"/C/Users/Usuario/AppData/Local/Temp/scp42675/home/forge/ligadirectv.com.co/sites/all/modules/custom/module_ldtv/jsons/stats_player_match/match135195.json",
+		"/C/Users/Usuario/AppData/Local/Temp/scp42310/home/forge/ligadirectv.com.co/sites/all/modules/custom/module_ldtv/jsons/stats_player_match/match135196.json",
+		"/C/Users/Usuario/AppData/Local/Temp/scp42921/home/forge/ligadirectv.com.co/sites/all/modules/custom/module_ldtv/jsons/stats_player_match/match135197.json",
+		"/C/Users/Usuario/AppData/Local/Temp/scp42505/home/forge/ligadirectv.com.co/sites/all/modules/custom/module_ldtv/jsons/stats_player_match/match135198.json",
+		"/C/Users/Usuario/AppData/Local/Temp/scp42134/home/forge/ligadirectv.com.co/sites/all/modules/custom/module_ldtv/jsons/stats_player_match/match135199.json",
+		"/C/Users/Usuario/AppData/Local/Temp/scp41102/home/forge/ligadirectv.com.co/sites/all/modules/custom/module_ldtv/jsons/stats_player_match/match135191.json",
+		"/C/Users/Usuario/AppData/Local/Temp/scp34475/home/forge/ligadirectv.com.co/sites/all/modules/custom/module_ldtv/jsons/team_league.json",
+		"/C/Users/Usuario/AppData/Local/Temp/scp48603/home/forge/ligadirectv.com.co/sites/all/modules/custom/module_ldtv/module_ldtv.module",
+		"/C/xampp/htdocs/ligadirectv/sites/all/modules/custom/module_ldtv/jsons/sPoints.json",
+		"/C/Users/Usuario/AppData/Local/Temp/scp37183/home/forge/ligadirectv.com.co/sites/all/modules/custom/module_ldtv.bak/module_ldtv.module",
+		"/C/Users/Usuario/AppData/Local/Temp/scp23255/home/forge/ligadirectv.com.co/sites/all/modules/custom/module_ldtv/module_ldtv.module",
+		"/C/Users/Usuario/AppData/Local/Temp/scp33526/var/www/winsports/sites/all/themes/at_winsports/scripts/ws-functions.js",
+		"/C/xampp/htdocs/ligadirectv/index.php",
+		"/C/xampp/htdocs/ligadirectv/includes/bootstrap.inc",
+		"/C/Users/Usuario/AppData/Local/Temp/scp08095/home/forge/ligadirectv.com.co/sites/all/modules/custom/module_ldtv/jsons/matchs.json",
+		"/C/Users/Usuario/AppData/Local/Temp/scp13313/home/forge/ligadirectv.com.co/sites/all/modules/custom/module_ldtv/module_ldtv.module",
+		"/C/xampp/htdocs/matchs.php",
+		"/C/xampp/htdocs/soydt/sites/all/modules/custom/puntajes/puntajes.module",
+		"/C/xampp/htdocs/soydt/sites/all/modules/custom/estadisticas/estadisticas.module",
+		"/C/xampp/htdocs/soydt/sites/all/modules/custom/dayscore/dayscore/templates/widgetgeneral.tpl.php",
+		"/C/xampp/htdocs/soydt/sites/all/modules/custom/dayscore/dayscore/dayscore.module",
+		"/C/xampp/htdocs/ligadirectv/sites/default/settings.php",
+		"/C/Users/Usuario/AppData/Local/Temp/scp37840/webpages/htdocs/blaa/boletin-cultural/sites/default/settings.php",
+		"/C/Users/Usuario/AppData/Local/Temp/scp55730/webpages/htdocs/blaa/boletin-cultural/sites/all/themes/boletin/css/boletin.css",
+		"/C/Users/Usuario/AppData/Local/Temp/Rar$DIa0.130/easyagai_agais.sql",
+		"/C/xampp/htdocs/ligadirectv/sites/all/modules/custom/module_ldtv/module_ldtv.info",
+		"/C/xampp/htdocs/ligadirectv/sites/all/modules/custom/module_ldtv/jsons/team_league.json",
+		"/C/Users/Usuario/AppData/Local/Temp/scp10487/home/forge/ligadirectv.com.co/sites/all/modules/custom/module_ldtv/module_ldtv.module",
+		"/C/Users/Usuario/AppData/Local/Temp/scp59032/var/www/winsports/sites/all/themes/at_winsports/scripts/ws-functions.js",
+		"/C/Users/Usuario/AppData/Local/Temp/scp36871/home/forge/ligadirectv.com.co/sites/all/modules/custom/module_ldtv/module_ldtv.info",
+		"/C/Users/Usuario/AppData/Local/Temp/scp36488/home/forge/ligadirectv.com.co/sites/all/modules/custom/module_ldtv/module_ldtv.module",
+		"/C/Users/Usuario/AppData/Local/Temp/scp24837/home/forge/ligadirectv.com.co/sites/all/modules/custom/module_ldtv/jsons/matchs.json",
+		"/C/Users/Usuario/AppData/Local/Temp/scp25070/home/forge/ligadirectv.com.co/sites/all/modules/custom/module_ldtv/module_ldtv.module",
+		"/C/Users/Usuario/AppData/Local/Temp/scp37002/home/forge/ligadirectv.com.co/sites/default/settings.php",
+		"/C/Users/Usuario/AppData/Local/Temp/scp09354/home/forge/ligadirectv.com.co/sites/all/modules/custom/module_ldtv/module_ldtv.module",
+		"/C/Users/Usuario/AppData/Local/Temp/scp53340/var/www/winsports/sites/all/themes/at_winsports/scripts/ws-functions.js",
+		"/C/Users/Usuario/AppData/Local/Temp/scp29841/var/www/winsports/sites/all/modules/dayscript_styles/dayscript_styles.info",
+		"/C/Users/Usuario/AppData/Local/Temp/scp29475/var/www/winsports/sites/all/modules/dayscript_styles/dayscript_styles.module",
+		"/C/Users/Usuario/AppData/Local/Temp/scp26475/var/www/winsports/sites/all/modules/redirect/redirect.admin.inc",
+		"/C/Users/Usuario/AppData/Local/Temp/scp26520/var/www/winsports/sites/all/modules/redirect/redirect.admin.js",
+		"/C/Users/Usuario/AppData/Local/Temp/scp26097/var/www/winsports/sites/all/modules/redirect/redirect.api.php",
+		"/C/Users/Usuario/AppData/Local/Temp/scp26956/var/www/winsports/sites/all/modules/redirect/redirect.controller.inc",
+		"/C/Users/Usuario/AppData/Local/Temp/scp26541/var/www/winsports/sites/all/modules/redirect/redirect.drush.inc",
+		"/C/Users/Usuario/AppData/Local/Temp/scp26135/var/www/winsports/sites/all/modules/redirect/redirect.generate.inc",
+		"/C/Users/Usuario/AppData/Local/Temp/scp26003/var/www/winsports/sites/all/modules/redirect/redirect.info",
+		"/C/Users/Usuario/AppData/Local/Temp/scp26596/var/www/winsports/sites/all/modules/redirect/redirect.install",
+		"/C/Users/Usuario/AppData/Local/Temp/scp26426/var/www/winsports/sites/all/modules/redirect/redirect.js",
+		"/C/Users/Usuario/AppData/Local/Temp/scp26014/var/www/winsports/sites/all/modules/redirect/redirect.module",
+		"/C/Users/Usuario/AppData/Local/Temp/scp26042/var/www/winsports/sites/all/modules/redirect/redirect.test",
+		"/C/Users/Usuario/AppData/Local/Temp/scp24386/var/www/winsports/sites/all/modules/pathauto/pathauto.admin.inc",
+		"/C/Users/Usuario/AppData/Local/Temp/scp24272/var/www/winsports/sites/all/modules/pathauto/pathauto.api.php",
+		"/C/Users/Usuario/AppData/Local/Temp/scp24825/var/www/winsports/sites/all/modules/pathauto/pathauto.inc",
+		"/C/Users/Usuario/AppData/Local/Temp/scp24842/var/www/winsports/sites/all/modules/pathauto/pathauto.info",
+		"/C/Users/Usuario/AppData/Local/Temp/scp24419/var/www/winsports/sites/all/modules/pathauto/pathauto.install",
+		"/C/Users/Usuario/AppData/Local/Temp/scp24260/var/www/winsports/sites/all/modules/pathauto/pathauto.js",
+		"/C/Users/Usuario/AppData/Local/Temp/scp24862/var/www/winsports/sites/all/modules/pathauto/pathauto.module",
+		"/C/Users/Usuario/AppData/Local/Temp/scp24863/var/www/winsports/sites/all/modules/pathauto/pathauto.pathauto.inc",
+		"/C/Users/Usuario/AppData/Local/Temp/scp24683/var/www/winsports/sites/all/modules/pathauto/pathauto.test",
+		"/C/Users/Usuario/AppData/Local/Temp/scp24700/var/www/winsports/sites/all/modules/pathauto/pathauto.tokens.inc",
+		"/C/Users/Usuario/AppData/Local/Temp/scp24298/var/www/winsports/sites/all/modules/pathauto/README.txt",
+		"/C/Users/Usuario/AppData/Local/Temp/scp23892/var/www/winsports/sites/all/modules/path_redirect_import/path_redirect_import.admin.inc",
+		"/C/Users/Usuario/AppData/Local/Temp/scp23616/var/www/winsports/sites/all/modules/path_redirect_import/path_redirect_import.drush.inc",
+		"/C/Users/Usuario/AppData/Local/Temp/scp24159/var/www/winsports/sites/all/modules/path_redirect_import/path_redirect_import.info",
+		"/C/Users/Usuario/AppData/Local/Temp/scp24744/var/www/winsports/sites/all/modules/path_redirect_import/path_redirect_import.module",
+		"/C/Users/Usuario/AppData/Local/Temp/scp21892/var/www/winsports/sites/all/modules/globalredirect/globalredirect.module",
+		"/C/Users/Usuario/AppData/Local/Temp/scp22412/var/www/winsports/sites/all/modules/globalredirect/globalredirect.admin.inc",
+		"/C/Users/Usuario/AppData/Local/Temp/scp22118/var/www/winsports/sites/all/modules/globalredirect/globalredirect.info",
+		"/C/Users/Usuario/AppData/Local/Temp/scp22672/var/www/winsports/sites/all/modules/globalredirect/globalredirect.install",
+		"/C/Users/Usuario/AppData/Local/Temp/scp22300/var/www/winsports/sites/all/modules/globalredirect/globalredirect.test",
+		"/C/Users/Usuario/AppData/Local/Temp/scp55940/var/www/winsports/sites/all/themes/at_winsports/scripts/media_queries.js",
+		"/C/Users/Usuario/AppData/Local/Temp/scp55619/var/www/winsports/sites/all/themes/at_winsports/scripts/stats-function.js",
+		"/C/Users/Usuario/AppData/Local/Temp/scp53477/var/www/winsports/sites/all/themes/at_winsports/scripts/custom.js",
+		"/C/Users/Usuario/AppData/Local/Temp/scp47169/var/www/winsports/sites/all/modules/mobile_switch/mobile_switch.api.php",
+		"/C/Users/Usuario/AppData/Local/Temp/scp47734/var/www/winsports/sites/all/modules/mobile_switch/mobile_switch.info",
+		"/C/Users/Usuario/AppData/Local/Temp/scp47387/var/www/winsports/sites/all/modules/mobile_switch/mobile_switch.install",
+		"/C/Users/Usuario/AppData/Local/Temp/scp47006/var/www/winsports/sites/all/modules/mobile_switch/mobile_switch.module",
+		"/C/windrush/vendor/drush/drush/examples/example.aliases.drushrc.php",
+		"/C/Users/Usuario/AppData/Local/Temp/scp41491/var/www/winsports/sites/all/modules/winsports/winsports_mobile_detect/winsports_mobile_detect.module",
+		"/C/windrush/vendor/bin/drush.php",
+		"/C/windrush/setenv.js",
+		"/C/windrush/vendor/drush/drush/drush.bat",
+		"/C/windrush/setenv.bat",
+		"/C/windrush/vendor/drush/drush/drush.php",
+		"/C/windrush/php/php.ini",
+		"/C/Users/Usuario/Downloads/drupal/redirect_mobile/redirect_mobile.info",
+		"/C/xampp/htdocs/soydt/sites/all/modules/redirect_mobile/redirect_mobile.info",
+		"/C/xampp/htdocs/soydt/sites/all/modules/redirect_mobile/redirect_mobile.install",
+		"/C/xampp/htdocs/soydt/sites/all/modules/redirect_mobile/redirect_mobile.module",
+		"/C/xampp/htdocs/soydt/sites/all/modules/redirect_mobile/redirect_mobile.admin.inc",
+		"/C/Users/Usuario/Downloads/drupal/redirect_mobile/README.txt",
+		"/C/Users/Usuario/Downloads/drupal/redirect_mobile/redirect_mobile.install",
+		"/C/Users/Usuario/Downloads/drupal/redirect_mobile/redirect_mobile.module",
+		"/C/Users/Usuario/Downloads/drupal/redirect_mobile/redirect_mobile.admin.inc",
+		"/C/xampp/htdocs/soydt/sites/all/modules/potx/potx.info",
+		"/C/xampp/htdocs/soydt/sites/all/modules/potx/potx.install",
+		"/C/xampp/htdocs/soydt/sites/all/modules/potx/potx.module",
+		"/C/xampp/htdocs/soydt/sites/all/modules/potx/potx.inc",
+		"/C/xampp/htdocs/soydt/sites/all/modules/potx/potx-cli.php"
+	],
+	"find":
+	{
+		"height": 36.0
+	},
+	"find_in_files":
+	{
+		"height": 90.0,
+		"where_history":
+		[
+			"C:\\xampp\\htdocs\\soydt\\sites\\all\\themes"
+		]
+	},
+	"find_state":
+	{
+		"case_sensitive": false,
+		"find_history":
+		[
+			"block-fboauth-login",
+			"user",
+			"block-user",
+			"user",
+			"days",
+			".block-blockify-blockify-logo img",
+			".block-blockify-blockify-logo",
+			"_get_team_league",
+			"_load_teams",
+			"_LOAD_TEAMS",
+			"_load_teams",
+			"_LOAD_PLAYER",
+			"_load_player",
+			"'];\n",
+			"_load_player",
+			"= $dat[$i][] = $datas",
+			"= $datas[$i]",
+			"module_ldtv_update_teams",
+			"_get_team_league",
+			"_get_standing_data",
+			"module_ldtv_update_teams",
+			"= $datas[$i][",
+			"str_replace(array('(', ')', \"'\", '\"', '´'), \"\", ",
+			"str_replace(array('(', ')', \"'\", '\"'), \"\", ",
+			"str_replace(array('(', ')'), \"\", ",
+			"$dat[$i] = ",
+			")",
+			"_get_leader_points",
+			"module_ldtv_update_players",
+			"exit(",
+			"_get_list_matchs",
+			"MODULE_LDTV_UPDATE_MATCHS",
+			"module_ldtv_update_matchs",
+			"MODULE_LDTV_UPDATE_MATCHS",
+			"module_ldtv_update_matchs",
+			"MODULE_LDTV_UPDATE_MATCHS",
+			"module_ldtv_update_matchs",
+			"MODULE_LDTV_UPDATE_MATCHS",
+			"module_ldtv_update_matchs",
+			"MODULE_LDTV_UPDATE_MATCHS",
+			"module_ldtv_update_matchs",
+			"MODULE_LDTV_UPDATE_MATCHS",
+			"module_ldtv_update_matchs",
+			"module_ldtv_update_players",
+			"exit(",
+			"exi",
+			"field_splusminuspoints",
+			"playerId",
+			"_load_player",
+			"player_stats",
+			"players_stats",
+			"echo",
+			"exit",
+			"();\n",
+			"_load_teams",
+			"match",
+			"_get_team_league",
+			"_load_player",
+			"_GET_LIST_MATCHS",
+			"_get_list_matchs",
+			"\"personId\": \"1975\",",
+			"\"personId\": \"1961\",",
+			"JAVIER",
+			"\"personId\": \"1944\",",
+			"_GET_LEADER_POINTS",
+			"_get_leader_points",
+			"_GET_LEADER_POINTS",
+			"_get_leader_points",
+			"_GET_LEADER_POINTS",
+			"_get_leader_points",
+			"entity_id",
+			"_load_player",
+			"_get_leader_points",
+			"']",
+			"'], ",
+			"'],",
+			"]->",
+			"'][",
+			"['",
+			"_get_list_matchs",
+			"$uri  = baseSp . '/v1/basketball/competitions/' . liga . '/matches?format=json&limit=600&ak=' . ak;",
+			"_get_list_matchs",
+			"module_ldtv_update_players",
+			"baseSp",
+			"_images_save",
+			"_load_player",
+			"_images_save",
+			"_load_player",
+			"_images_save",
+			"extension",
+			"t(",
+			"Guardar",
+			"t(",
+			"echo",
+			"t(",
+			"$override",
+			"code",
+			"match",
+			"Source",
+			"['pattern']",
+			"source_pattern",
+			"matchredirect",
+			"match_redirect_mobile",
+			"weight",
+			"$agent",
+			"match_redirect",
+			"30",
+			"time",
+			"variable_get",
+			"value",
+			"fecha ",
+			"field_fecha_torneo_target_id",
+			"fecha ",
+			"fecha 2",
+			"tablesStandingsWidgetSecundary"
+		],
+		"highlight": true,
+		"in_selection": false,
+		"preserve_case": false,
+		"regex": false,
+		"replace_history":
+		[
+			"= $datas",
+			"$datas[$i]",
+			"= $dat[$i][] = $datas[$i]",
+			"= $dat[$i][] = $datas[$i][",
+			"$dat[$i][] = = $datas[$i][",
+			"$dat[$i][] = str_replace(array('(', ')', \"'\", '\"', '´'), \"\", ",
+			"$dat[$i] = str_replace(array('(', ')', \"'\", '\"', '´'), \"\", ",
+			"str_replace(array('(', ')', \"'\", '\"', '´'), \"\", ",
+			"str_replace(array('(', ')', \"'\", '\"'), \"\", ",
+			"str_replace(array('(', ')'), \"\", ",
+			"addslashes(",
+			"",
+			"->",
+			"source",
+			"redirectmobile",
+			"redirect_mobile",
+			"match_redirect_mobile"
+		],
+		"reverse": false,
+		"show_context": true,
+		"use_buffer2": true,
+		"whole_word": false,
+		"wrap": true
+	},
+	"groups":
+	[
+		{
+			"selected": 2,
+			"sheets":
+			[
+				{
+					"buffer": 0,
+					"file": "sites/all/themes/soydt_foundation/scss/soydt_foundation.scss",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 3456,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								0,
+								0
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/CSS/CSS.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 1440.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 3,
+					"type": "text"
+				},
+				{
+					"buffer": 1,
+					"file": "sites/all/themes/soydt_foundation/scss/modules/_block.scss",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 6287,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								5984,
+								5984
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/CSS/CSS.tmLanguage",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 7716.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 1,
+					"type": "text"
+				},
+				{
+					"buffer": 2,
+					"file": "sites/all/themes/soydt_foundation/scss/modules/_fboauth.scss",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 3490,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								3453,
+								3453
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/CSS/CSS.tmLanguage",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 3609.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 0,
+					"type": "text"
+				},
+				{
+					"buffer": 3,
+					"file": "sites/all/themes/soydt_foundation/scss/layout/_main.scss",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 3380,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								251,
+								251
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/CSS/CSS.tmLanguage",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 1740.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 2,
+					"type": "text"
+				}
+			]
+		}
+	],
+	"incremental_find":
+	{
+		"height": 28.0
+	},
+	"input":
+	{
+		"height": 0.0
+	},
+	"layout":
+	{
+		"cells":
+		[
+			[
+				0,
+				0,
+				1,
+				1
+			]
+		],
+		"cols":
+		[
+			0.0,
+			1.0
+		],
+		"rows":
+		[
+			0.0,
+			1.0
+		]
+	},
+	"menu_visible": true,
+	"output.find_results":
+	{
+		"height": 0.0
+	},
+	"pinned_build_system": "",
+	"project": "soydt.sublime-project",
+	"replace":
+	{
+		"height": 52.0
+	},
+	"save_all_on_build": true,
+	"select_file":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"select_project":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"select_symbol":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"selected_group": 0,
+	"settings":
+	{
+	},
+	"show_minimap": true,
+	"show_open_files": false,
+	"show_tabs": true,
+	"side_bar_visible": true,
+	"side_bar_width": 305.0,
+	"status_bar_visible": true,
+	"template_settings":
+	{
+	}
+}
