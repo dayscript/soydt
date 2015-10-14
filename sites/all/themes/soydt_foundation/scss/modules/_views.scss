@@ -358,9 +358,14 @@ dl dt {
     }
   }
 }
-.view-los-hinchas{
+.view.view-los-hinchas.view-id-los_hinchas{
   .views-field-field-equipo-favorito {
     width: 100%;
+}
+.field-name-title{
+h2{
+      font-size: 1.0rem
+    }
 }
 }
 

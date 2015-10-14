@@ -3163,7 +3163,9 @@ table { display: block; }
 
 .view-alineacion-usuario .views-row.views-row-1 .views-field .group-middle li { color: #E28652; font-style: italic; margin-bottom: 10px; font-size: 14px; list-style: none; margin-left: -16px; text-transform: capitalize; }
 
-.view-los-hinchas .views-field-field-equipo-favorito { width: 100%; }
+.view.view-los-hinchas.view-id-los_hinchas .views-field-field-equipo-favorito { width: 100%; }
+
+.view.view-los-hinchas.view-id-los_hinchas .field-name-title h2 { font-size: 1.0rem; }
 
 .block-alineaciones-estadio, .block-alineaciones-estadio-angular { background: url("../images/backgrounds/estadio.jpg") center top no-repeat; min-height: 834px; padding-bottom: 20px; }
 
