@@ -2833,6 +2833,8 @@ h2.block-title { font-weight: 500; color: #222; font-size: 1.8rem; border-bottom
 
 .l-content-pre h2.block-title { color: #fff; border-bottom: 0px; text-align: center; }
 
+.hinchas-block .td.views-field.views-field-field-equipo-favorito { width: 268px; }
+
 .bloque-pasos .block-pasos .block-paso .block-paso-numero, .bloque-pasos .block-pasos .block-paso block-paso-text { float: left; }
 
 .bloque-pasos .block-pasos .block-paso .block-paso-numero { width: 20%; font-size: 130px; padding: 0; margin-top: -40px; color: #FFC129; }
