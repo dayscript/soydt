@@ -475,3 +475,19 @@ h2.block-title{
     }
   }
 }
+
+/* Bloque hinchas */
+.view-los-hinchas {
+  .views-table {
+    width: 100%;
+    .views-field-field-equipo-favorito {
+      width: 83%;
+      .field-type-image {
+        float: left;
+      }
+      .field-type-ds {
+        margin-top: -5px;
+      }
+    }
+  }
+}
