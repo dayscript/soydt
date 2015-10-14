@@ -2835,6 +2835,8 @@ h2.block-title { font-weight: 500; color: #222; font-size: 1.8rem; border-bottom
 
 .hinchas-block .td.views-field.views-field-field-equipo-favorito { width: 268px; }
 
+.hinchas-block .td.views-field.views-field-field-equipo-favorito h2 { font-size: 1.0rem; }
+
 .hinchas-block .field-name-field-imagen { padding-right: 10px; }
 
 .bloque-pasos .block-pasos .block-paso .block-paso-numero, .bloque-pasos .block-pasos .block-paso block-paso-text { float: left; }
