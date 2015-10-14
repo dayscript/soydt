@@ -2833,11 +2833,11 @@ h2.block-title { font-weight: 500; color: #222; font-size: 1.8rem; border-bottom
 
 .l-content-pre h2.block-title { color: #fff; border-bottom: 0px; text-align: center; }
 
-.hinchas-block .td.views-field.views-field-field-equipo-favorito, .view-los-hinchas .td.views-field.views-field-field-equipo-favorito { width: 268px; }
+.hinchas-block .td.views-field.views-field-field-equipo-favorito { width: 268px; }
 
-.hinchas-block .field-name-title h2, .view-los-hinchas .field-name-title h2 { font-size: 1.0rem; }
+.hinchas-block .field-name-title h2 { font-size: 1.0rem; }
 
-.hinchas-block .field-name-field-imagen, .view-los-hinchas .field-name-field-imagen { padding-right: 10px; }
+.hinchas-block .field-name-field-imagen { padding-right: 10px; }
 
 .bloque-pasos .block-pasos .block-paso .block-paso-numero, .bloque-pasos .block-pasos .block-paso block-paso-text { float: left; }
 
@@ -3162,6 +3162,8 @@ table { display: block; }
 .view-alineacion-usuario .views-row.views-row-1 .views-field .field-content { color: #E28652; margin-bottom: 10px; font-size: 18px; }
 
 .view-alineacion-usuario .views-row.views-row-1 .views-field .group-middle li { color: #E28652; font-style: italic; margin-bottom: 10px; font-size: 14px; list-style: none; margin-left: -16px; text-transform: capitalize; }
+
+.view-los-hinchas .views-field-field-equipo-favorito { width: 100%; }
 
 .block-alineaciones-estadio, .block-alineaciones-estadio-angular { background: url("../images/backgrounds/estadio.jpg") center top no-repeat; min-height: 834px; padding-bottom: 20px; }
 
