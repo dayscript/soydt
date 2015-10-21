@@ -137,7 +137,7 @@ function depurar_data()
                             }
                         }
                     } else if ( $total + $saldo > 500000000 )
-                    {
+                    {   //Error
                         $us->field_saldo[ 'und' ][ 0 ][ 'value' ] = 500000000 - $total;
                         $data["Usuario " . $us->uid][] = "Saldo+equipo mayor a 500, saldo ajustado";
                         if($process){

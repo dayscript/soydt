@@ -103,6 +103,7 @@ function actualizar_acumulado(){
         foreach ( $alineaciones as $ali )
         {   if(!isset($puntajes[$ali->uid]))$puntajes[$ali->uid]=0;
             $puntajes[$ali->uid] += $ali->field_total['und'][0]['value'];
+            echo $ali->field_total['und'][0]['value']."<br>";
         }
     }
     foreach($puntajes as $uid=>$total){
@@ -115,6 +116,7 @@ function actualizar_acumulado(){
             echo $us->name . " Puntaje ya calculado: " . $total . "<br>";
         }
     }
+
 }
 
 function actualizar_puntajes()
