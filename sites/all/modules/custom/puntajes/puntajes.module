@@ -132,6 +132,11 @@ function actualizar_puntajes()
         exit;
     }
 
+    if(isset($_GET['comparar'])) :
+        comparar_alineaciones();
+        exit;
+    endif;
+
     $puntajes = array();
     if ( isset( $_GET[ 'fecha' ] ) ) $fecha_nid = $_GET[ 'fecha' ];
     else $fecha_nid = 10018;// Fecha 5
@@ -236,4 +241,56 @@ function puntos_jugador_fecha($player,$fecha){
         $puntos = 0;
     }
     return $puntos;
+}
+
+function comparar_alineaciones(){
+    // http://www.soydt.co/premios?fecha=10014&comparar
+    $data[ "fechas" ] = get_fechas();
+    $fecha_comparar = (!isset($_GET['fecha'])) ? 10014 : $_GET['fecha'];
+    foreach ($data[ "fechas" ] as $key => $value) :
+        if( $value->nid == $fecha_comparar ) :
+            $fecha_act = $data[ "fechas" ][$key];
+            $fecha_ant = (isset($data[ "fechas" ][$key - 1])) ? $data[ "fechas" ][$key - 1] : $data[ "fechas" ][$key];
+        endif;
+    endforeach;
+    if ( isset( $_GET[ 'filter1' ] ) ) $filter1 = $_GET[ 'filter1' ];
+    else $filter1 = 0;
+    if ( isset( $_GET[ 'filter2' ] ) ) $filter2 = $_GET[ 'filter2' ];
+    else $filter2 = 1000;
+    $query = new EntityFieldQuery();
+    $result = $query->entityCondition( 'entity_type', 'user' )
+        ->fieldOrderBy('field_total', 'value', 'DESC')
+        ->range(0, 200)
+        ->execute();
+    if ( isset( $result[ 'user' ] ) )
+    {
+        $uids = array_keys( $result[ 'user' ] );
+        foreach ( $uids as $uid ){
+            if($fecha_act->nid != $fecha_ant->nid) :
+                $data[ "alineacion1" ] = get_alineacion( $fecha_act, $data[ "fechas" ], $uid, false );
+                $data[ "alineacion2" ] = get_alineacion( $fecha_ant, $data[ "fechas" ], $uid, false );
+                if(!empty($data[ "alineacion1" ]) and !empty($data[ "alineacion2" ])) :
+                    $players1 = $players2 = array();
+                    foreach($data[ "alineacion1" ] as $key => $val) :
+                        if(strpos($key, "field_jugador") !== false) $players1[$key] = $val['und'][0]['target_id'];
+                    endforeach;
+                    foreach($data[ "alineacion2" ] as $key => $val) :
+                        if(strpos($key, "field_jugador") !== false) $players2[$key] = $val['und'][0]['target_id'];
+                    endforeach;
+                endif;
+                $resultado = array_diff($players1, $players2);
+                $resultado1 = array_diff($players2, $players1);
+                if(!empty($resultado) and count($resultado) > 3) :
+                    $user = user_load($uid);
+                    echo "<p>".$uid . " : " . $user->mail . 
+                         "<br> jugadores1: ( " . implode(" - ", $resultado) . 
+                         " )<br>jugadores2: ( " . implode(" - ", $resultado1) . 
+                         " ) --> El usuario realizo más de 3 cambios con respecto a la fecha anterior.";
+                endif;
+                //echo "<pre>";var_dump($resultado);exit;
+            else :
+                return "Primera fecha: no hay alineaciones para comparar.";
+            endif;
+        }
+    }
 }
