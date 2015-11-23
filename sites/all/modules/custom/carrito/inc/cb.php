@@ -107,7 +107,14 @@ function carrito_add_player($player){
     $fecha = $_SESSION[ 'fecha_activa' ];
     $fechas = get_fechas();
     $alineacion = get_alineacion( $fecha, $fechas );
-    if(!isset($alineacion->field_fichajes['und']))$alineacion->field_fichajes['und'][0]['value'] = 3;
+    if(!isset($alineacion->field_fichajes['und'])){
+        if($fecha->nid == 220970) {
+            $alineacion->field_fichajes['und'][0]['value'] = 300;
+        } else {
+            $alineacion->field_fichajes['und'][0]['value'] = 3;
+        }
+
+    }
     if($fecha->nid > 10018 && $alineacion->field_fichajes['und'][0]['value']==0 ){
         return "LIMITE FICHAJES";
     }
