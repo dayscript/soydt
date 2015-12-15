@@ -107,7 +107,6 @@ function alineaciones_alinear_jugador ($alineacion_nid,$position, $playerid){
     return "OK";
 }
 
-
 /**
  * Detalle de jugador
  */
