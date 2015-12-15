@@ -7,8 +7,6 @@ function alineaciones_jugador_detalle_ajax($page_callback_result) {
     print render($page_callback_result);
 }
 
-
-
 /**
  * @param $page_callback_result
  */

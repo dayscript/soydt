@@ -114,7 +114,7 @@ function get_alineacion( $fecha, $fechas, $uid = 0, $verbose = false )
             }
         }
     }
-    if($fecha->nid == 220970) {
+    if($fecha->nid >= 220970) {
         $node->field_fichajes['und'][0]['value'] = 300;
         $node = node_submit( $node );
         node_save( $node );
