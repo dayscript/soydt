@@ -65,7 +65,7 @@ function get_alineacion( $fecha, $fechas, $uid = 0, $verbose = false )
         $nids = array_keys( $result[ 'node' ] );
         $node = node_load( $nids[ 0 ] );
     } else
-    {
+    {   
         $keys = array_keys( $fechas );
         for ( $i = 0; $i < count( $keys ); $i ++ )
         {
@@ -114,11 +114,11 @@ function get_alineacion( $fecha, $fechas, $uid = 0, $verbose = false )
             }
         }
     }
-    if($fecha->nid >= 220970) {
+    /*if($fecha->nid >= 220970) {
         $node->field_fichajes['und'][0]['value'] = 300;
         $node = node_submit( $node );
         node_save( $node );
-    }
+    }*/
     return $node;
 }
 

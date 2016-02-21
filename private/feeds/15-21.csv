@@ -1,0 +1,37 @@
+title,torneo,fecha,local,local_es,visitante,visitante_es,canal1,canal2
+Copa de Alemania Borussia Mgladbach vs. Werder Bremen,copa_alemania,2015-12-15 18:00,Borussia Mgladbach,borussia_mgladbach,Werder Bremen,werder_bremen,610,1610
+Copa de Alemania Bayer Munich vs. Darmstadt 98,copa_alemania,2015-12-15 19:30,Bayer Munich,bayer_munich,Darmstadt 98,darmstadt_98,610,1610
+Copa de Alemania Augsburg vs. Borussia Dortmund,copa_alemania,2015-12-16 19:30,Augsburg,augsburg,Borussia Dortmund,borussia_dortmund,610,1610
+Premier League Chelsea vs. Sunderland,premier_league,2015-12-19 15:00,Chelsea,chelsea,Sunderland,sunderland,621,1621
+Premier League Everton vs. Leicester City,premier_league,2015-12-19 15:00,Everton,everton,Leicester City,leicester_city,611,1611
+Premier League Stoke City vs. Crystal Palace,premier_league,2015-12-19 15:00,Stoke City,stoke_city,Crystal Palace,crystal_palace,612,1612
+Premier League Manchester United vs. Norwich,premier_league,2015-12-19 15:00,Manchester United,manchester_united,Norwich,norwich,613,1613
+Premier League Southampton vs. Tottenham,premier_league,2015-12-19 15:00,Southampton,southampton,Tottenham,tottenham,614,1614
+Premier League Albion vs. Bournemouth,premier_league,2015-12-19 15:00,Albion,albion,Bournemouth,bournemouth,615,1615
+Premier League Newcastle vs. Aston Villa,premier_league,2015-12-19 17:30,Newcastle,newcastle,Aston Villa,aston_villa,613,1613
+Premier League Watford vs. Liverpool,premier_league,2015-12-20 13:30,Watford,watford,Liverpool,liverpool,613,1613
+Premier League Swansea vs. Westham,premier_league,2015-12-20 16:00,Swansea,swansea,Westham,westham,613,1613
+Premier League Arsenal vs. Manchester City,premier_league,2015-12-21 20:00,Arsenal,arsenal,Manchester City,manchester_city,621,1621
+Liga BBVA Valencia vs. Getafe,liga_bbva,2015-12-19 15:00,Valencia,valencia,Getafe,getafe,610,1610
+Liga BBVA Espanyol vs. Las Palmas,liga_bbva,2015-12-19 17:00,Espanyol,espanyol,Las Palmas,las_palmas,621,1621
+Liga BBVA Betis vs. Sevilla,liga_bbva,2015-12-19 19:30,Betis,betis,Sevilla,sevilla,610,1610
+Liga BBVA La Coruña vs. Eibar,liga_bbva,2015-12-19 21:00,La Coruña,la_coruña,Eibar,eibar,621,1621
+Liga BBVA Real Madrid vs. Rayo Vallecano,liga_bbva,2015-12-20 11:00,Real Madrid,real_madrid,Rayo Vallecano,rayo_vallecano,621,1621
+Liga BBVA Real Sociedad vs. Villareal,liga_bbva,2015-12-20 15:00,Real Sociedad,real_sociedad,Villareal,villareal,610,1610
+Liga BBVA Athletic de Bilbao vs. Levante,liga_bbva,2015-12-20 17:00,Athletic de Bilbao,athletic_de_bilbao,Levante,levante,621,1621
+Liga BBVA Málaga vs. Atlético de Madrid,liga_bbva,2015-12-20 19:30,Málaga,malaga,Atlético de Madrid,atlético_de_madrid,621,1621
+Liga BBVA Granada vs. Celta de Vigo,liga_bbva,2015-12-21 19:30,Granada,granada,Celta de Vigo,celta_de_vigo,610,1610
+Ligue I Francia Ajaccio vs. Olympique de Lyon,francia,2015-12-20 16:00,Ajaccio,ajaccio,Olympique de Lyon,olympique_de_lyon,612,1612
+Ligue I Francia Girondins vs. Olympique de Marsella,francia,2015-12-20 20:00,Girondins,girondins,Olympique de Marsella,olympique_de_marsella,610,1610
+Liga de Portugal Madeira vs. Sporting,portugal,2015-12-20 18:00,Madeira,madeira,Sporting,sporting,621,1621
+Serie A de Italia Carpi vs. Juventus,serie_a,2015-12-20 11:30,Carpi,carpi,Juventus,juventus,608,1608
+Serie A de Italia Roma vs. Genoa,serie_a,2015-12-20 16:00,Roma,roma,Genoa,genoa,608,1608
+Bundesliga Schalke 04 vs. Hoffenheim,bundesliga,2015-12-18 19:30,Schalke 04,schalke_04,Hoffenheim,hoffenheim,608,1608
+Bundesliga Hannover vs. Bayer Munich,bundesliga,2015-12-19 14:30,Hannover,hannover,Bayer Munich,bayer_munich,604,1604
+Bundesliga Koln vs. Borussia Dortmund,bundesliga,2015-12-19 14:30,Koln,koln,Borussia Dortmund,borussia_dortmund,608,1608
+Liga Águila Final Ida Junior vs. Nacional,liga_aguila,2015-12-17 00:00,Junior,junior,Nacional,nacional,633,1633
+Liga Águila Final Vuelta Nacional vs. Junior,liga_aguila,2015-12-20 23:00,Nacional,nacional,Junior,junior,633,1633
+FIFA Mundial de Clubes - Semifinal River Plate vs. Sanfrecce Hiroshima,mundial_de_clubes,2015-12-16 10:00,River Plate,river_plate,Sanfrecce Hiroshima,sanfrecce_hiroshima,604,1604
+FIFA Mundial de Clubes - Semifinal Barcelona vs. Guangzhou Evergrande,mundial_de_clubes,2015-12-17 10:00,Barcelona,barcelona,Guangzhou Evergrande,guangzhou_evergrande,604,1604
+FIFA Mundial de Clubes - 3er puesto Por definirse vs. Por definirse,mundial_de_clubes,2015-12-20 07:00,Por definirse,por_definirse,Por definirse,por_definirse,604,1604
+FIFA Mundial de Clubes - Final Por definirse vs. Por definirse,mundial_de_clubes,2015-12-20 10:00,Por definirse,por_definirse,Por definirse,por_definirse,604,1604

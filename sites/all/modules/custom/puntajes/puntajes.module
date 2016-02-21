@@ -28,6 +28,38 @@ function puntajes_block_info()
     return $blocks;
 }
 
+
+function puntajes_menu()
+{
+    $items['puntos_test'] = array(
+      'page callback' => 'prueba_test_puntos',
+      'access callback' => TRUE
+    );
+    return $items;
+    
+}
+
+function prueba_test_puntos(){
+
+    /*$query = new EntityFieldQuery();
+    $result = $query->entityCondition( 'entity_type', 'user' )
+        ->propertyCondition('uid',1000, '>=')
+        ->propertyCondition('uid',1500, '<=')
+        ->execute();*/
+    dpm(user_load(5000));
+    $query = new EntityFieldQuery();
+    $result = $query->entityCondition( 'entity_type', 'node' )
+        ->entityCondition( 'bundle', 'alineacion' )
+        ->propertyCondition( 'status', 1 )
+        ->propertyCondition('uid',2000, '>=')
+        ->propertyCondition('uid',2500, '<=')
+        ->fieldCondition( 'field_fecha_torneo', 'target_id',254320, '=' )
+        ->execute();
+    dpm($result);
+
+    return 'ok';
+}
+
 /**
  * Implements hook_block_view().
  */
@@ -60,8 +92,8 @@ function repasar_alineaciones(){
     $data[ "fecha" ] = $_SESSION[ "fecha_activa" ];
     $data[ "fechas" ] = get_fechas();
     if ( isset( $_GET[ 'filter1' ] ) ) $filter1 = $_GET[ 'filter1' ];
-    else $filter1 = 1;
-    if ( isset( $_GET[ 'filter2' ] ) ) $filter2 = $_GET[ 'filter2' ];
+    else $filter1 = 0;
+    if ( isset( $_GET[ 'filter2' ] ) ) $filter2 = $_GET[ 'filter2' ]; 
     else $filter2 = 100;
     $query = new EntityFieldQuery();
     $result = $query->entityCondition( 'entity_type', 'user' )
@@ -74,6 +106,7 @@ function repasar_alineaciones(){
         foreach ( $uids as $uid ){
             echo $uid . "<br>";
             $data[ "alineacion" ] = get_alineacion( $data[ "fecha" ], $data[ "fechas" ], $uid, true );
+            //var_dump($data[ "alineacion" ]);
         }
     }
 }
