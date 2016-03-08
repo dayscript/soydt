@@ -298,7 +298,7 @@ function depurar_alineacion( $alineacion_nid, $equipo_nid )
     }
 }
 
-function actualizar_alineaciones( $fecha1=10014, $fecha2 = 10015 )
+function actualizar_alineaciones( $fecha1=286713, $fecha2 = 286714 )
 {
     $query = new EntityFieldQuery();
     $result = $query->entityCondition( 'entity_type', 'node' )

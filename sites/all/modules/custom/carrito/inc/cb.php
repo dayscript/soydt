@@ -108,14 +108,14 @@ function carrito_add_player($player){
     $fechas = get_fechas();
     $alineacion = get_alineacion( $fecha, $fechas );
     if(!isset($alineacion->field_fichajes['und'])){
-        if($fecha->nid >= 220970) {
+        if($fecha->nid >= 286732) {
             $alineacion->field_fichajes['und'][0]['value'] = 300;
         } else {
             $alineacion->field_fichajes['und'][0]['value'] = 3;
         }
 
     }
-    if($fecha->nid > 10018 && $alineacion->field_fichajes['und'][0]['value']==0 ){
+    if($fecha->nid > 286721 && $alineacion->field_fichajes['und'][0]['value']==0 ){
         return "LIMITE FICHAJES";
     }
     if(isset($carrito->field_jugadores['und'])){

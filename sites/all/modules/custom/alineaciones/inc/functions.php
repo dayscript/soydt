@@ -97,7 +97,7 @@ function get_alineacion( $fecha, $fechas, $uid = 0, $verbose = false )
                     unset( $node->path );
 
                     if($_SESSION[ 'fecha_activa' ]->nid == $fecha->nid ){
-                        if($fecha->nid > 10018 && $node->field_fichajes['und'][0]['value'] != 15){
+                        if($fecha->nid > 286721 && $node->field_fichajes['und'][0]['value'] != 15){
                             $node->field_fichajes['und'][0]['value'] = 3;
                         }
                         //else

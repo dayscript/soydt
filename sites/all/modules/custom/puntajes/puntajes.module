@@ -53,7 +53,7 @@ function prueba_test_puntos(){
         ->propertyCondition( 'status', 1 )
         ->propertyCondition('uid',2000, '>=')
         ->propertyCondition('uid',2500, '<=')
-        ->fieldCondition( 'field_fecha_torneo', 'target_id',254320, '=' )
+        ->fieldCondition( 'field_fecha_torneo', 'target_id',286721, '=' )
         ->execute();
     dpm($result);
 
@@ -114,7 +114,7 @@ function repasar_alineaciones(){
 function actualizar_acumulado(){
     // http://www.soydt.co/premios?acumulado&filter1=0&filter2=1000
     $puntajes = array();
-    $fecha_nid = 10016;// Fecha 3 - Primera fecha puntuable para acumulado
+    $fecha_nid = 286721;// Fecha 9 - Primera fecha puntuable para acumulado
     if ( isset( $_GET[ 'filter1' ] ) ) $filter1 = $_GET[ 'filter1' ];
     else $filter1 = 0;
     if ( isset( $_GET[ 'filter2' ] ) ) $filter2 = $_GET[ 'filter2' ];
@@ -172,7 +172,7 @@ function actualizar_puntajes()
 
     $puntajes = array();
     if ( isset( $_GET[ 'fecha' ] ) ) $fecha_nid = $_GET[ 'fecha' ];
-    else $fecha_nid = 10018;// Fecha 5
+    else $fecha_nid = 286721;// Fecha 9
     if ( isset( $_GET[ 'filter1' ] ) ) $filter1 = $_GET[ 'filter1' ];
     else $filter1 = 1;
     if ( isset( $_GET[ 'filter2' ] ) ) $filter2 = $_GET[ 'filter2' ];
@@ -279,7 +279,7 @@ function puntos_jugador_fecha($player,$fecha){
 function comparar_alineaciones(){
     // http://www.soydt.co/premios?fecha=10014&comparar
     $data[ "fechas" ] = get_fechas();
-    $fecha_comparar = (!isset($_GET['fecha'])) ? 10014 : $_GET['fecha'];
+    $fecha_comparar = (!isset($_GET['fecha'])) ? 286721 : $_GET['fecha'];
     foreach ($data[ "fechas" ] as $key => $value) :
         if( $value->nid == $fecha_comparar ) :
             $fecha_act = $data[ "fechas" ][$key];
