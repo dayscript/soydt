@@ -108,16 +108,16 @@ function carrito_add_player($player){
     $fechas = get_fechas();
     $alineacion = get_alineacion( $fecha, $fechas );
     if(!isset($alineacion->field_fichajes['und'])){
-        if($fecha->nid >= 286732) {
+        if($fecha->nid >= 286713) { // Primera fecha con fichajes ilimitados
             $alineacion->field_fichajes['und'][0]['value'] = 300;
         } else {
             $alineacion->field_fichajes['und'][0]['value'] = 3;
         }
 
     }
-    if($fecha->nid > 286721 && $alineacion->field_fichajes['und'][0]['value']==0 ){
-        return "LIMITE FICHAJES";
-    }
+//    if($fecha->nid > 286721 && $alineacion->field_fichajes['und'][0]['value']==0 ){
+//        return "LIMITE FICHAJES";
+//    }
     if(isset($carrito->field_jugadores['und'])){
         foreach($carrito->field_jugadores['und'] as $key=>$jugador){
             if($jugador['target_id'] == $player){
@@ -136,7 +136,7 @@ function carrito_add_player($player){
             $total++;
         }
     }
-    if($total>=15){
+    if($total>=100){ // numero de jugadores de un equipo
         return "LIMITE JUGADORES";
     }
     $node = node_load($player);

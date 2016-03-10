@@ -82,7 +82,7 @@ function get_alineacion( $fecha, $fechas, $uid = 0, $verbose = false )
                     $node->status = 1;
                     $node->promote = 0;
                     $node->comment = 0;
-                    $node->field_fichajes['und'][0]['value'] = 15;
+                    $node->field_fichajes['und'][0]['value'] = 300; // Fichajes iniciales
                     $node->field_fecha_torneo[ 'und' ][ 0 ][ 'target_id' ] = $fecha->nid;
                     $node = node_submit( $node );
                     node_save( $node );
@@ -98,7 +98,7 @@ function get_alineacion( $fecha, $fechas, $uid = 0, $verbose = false )
 
                     if($_SESSION[ 'fecha_activa' ]->nid == $fecha->nid ){
                         if($fecha->nid > 286721 && $node->field_fichajes['und'][0]['value'] != 15){
-                            $node->field_fichajes['und'][0]['value'] = 3;
+                            $node->field_fichajes['und'][0]['value'] = 300; // fichajes limitados
                         }
                         //else
                         //    $node->field_fichajes['und'][0]['value'] = 300;

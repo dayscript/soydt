@@ -44,7 +44,7 @@ function agregar_data(){
             $total++;
         }
     }
-    if($total>=15){
+    if($total>=100){ // limite de jugadores de un equipo
         $data["disabled"] = true;
         $data["subtext"] = "Ha alcanzado el limite de jugadores.";
         return $data;
